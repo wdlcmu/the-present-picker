@@ -120,6 +120,10 @@
     background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
   }
   .why b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold);margin-bottom:2px}
+  .thin-note{
+    border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;
+    background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
+  }
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
   .tag{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
   .card .row2 .ghost{margin:6px 0}
@@ -216,6 +220,7 @@
     <p class="step-tag">Your five picks</p>
     <h2 id="picks-title">Five ideas worth giving</h2>
     <p class="sub" id="picks-sub"></p>
+    <p class="thin-note" id="picks-note" hidden></p>
     <div id="picks"></div>
     <button class="cta" id="btn-list">My list (<span id="list-count-2">0</span>)</button>
     <button class="ghost" id="btn-change">Change answers</button>
@@ -440,6 +445,22 @@ var PickerEngine = {
   }
 };
 
+/* ================= Thin-cell honesty =================
+   A pick "truly fits" when the engine scored it above zero, which is
+   the same thing as carrying a matched tag (an interest hit at +2 or
+   a style hit at +3). When fewer than 5 picks truly fit, say so in
+   plain words instead of letting the close extras pass as matches.
+   Mirrors the MCP tool, which reports its true fit count. This never
+   changes which picks return or their order. */
+function thinNoteText(picks){
+  var fit = 0;
+  for (var i = 0; i < picks.length; i++) if (picks[i].score > 0) fit++;
+  if (fit >= picks.length) return "";
+  if (fit === 0) return "No ideas truly fit your picks. All of them are close extras.";
+  return "Only " + fit + (fit === 1 ? " idea truly fits" : " ideas truly fit") +
+    " your picks. The rest are close extras.";
+}
+
 /* ================= Screen plumbing ================= */
 function show(id){
   var screens = document.querySelectorAll(".screen");
@@ -598,6 +619,9 @@ function renderPicks(){
   $("picks-sub").textContent = labelOf(BUDGETS, quiz.budget) + " \u00b7 " +
     quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ") +
     (quiz.style ? " \u00b7 " + labelOf(STYLES, quiz.style) : "");
+  var noteText = thinNoteText(currentPicks);
+  $("picks-note").textContent = noteText;
+  $("picks-note").hidden = noteText === "";
   var box = $("picks");
   box.innerHTML = "";
   currentPicks.forEach(function(p){

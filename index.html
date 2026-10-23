@@ -533,12 +533,12 @@ function shareText(text, statusEl, okMsg){
 }
 function loopAShareText(who, items){
   var lines = items.map(function(it, idx){ return (idx + 1) + ") " + it.t; });
-  return "Here is what I am getting " + shareOf(who) +
-    " for Christmas so nobody doubles up: " + lines.join(" ") +
+  return "What I am getting " + shareOf(who) +
+    " so nobody doubles up: " + lines.join(" ") +
     " (picked with thepresentpicker.com)";
 }
 function loopBShareText(who, idea){
-  return "Thinking of getting " + shareOf(who) + " this for Christmas: " +
+  return "Thinking of getting " + shareOf(who) + " this: " +
     idea.t + ". " + idea.f + " Thoughts? (from thepresentpicker.com)";
 }
 
@@ -773,7 +773,7 @@ function saveListImage(who, items, statusEl){
 /* ================= AI escape hatch ================= */
 function aiPromptText(){
   var lines = [];
-  lines.push("I need Christmas gift ideas for " + shareOf(quiz.who) + ".");
+  lines.push("I need gift ideas for " + shareOf(quiz.who) + ".");
   lines.push("They are into: " + quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ") + ".");
   var b = labelOf(BUDGETS, quiz.budget);
   if (b.indexOf("100+") >= 0) lines.push("Budget is flexible, $100 or more per gift.");

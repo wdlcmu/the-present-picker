@@ -256,6 +256,15 @@
     </div>
   </section>
 
+  <!-- ============ SCREEN 5: SHARED GIFT (deep link ?gift=<slug>) ============ -->
+  <section class="screen" id="s-gift">
+    <p class="step-tag">A gift idea, shared with you</p>
+    <h2>One idea, up close</h2>
+    <div id="gift-card"></div>
+    <button class="cta" id="btn-gift-quiz">Pick a gift for someone</button>
+    <button class="ghost" id="btn-gift-home">See the home page</button>
+  </section>
+
 </div>
 
 <script>
@@ -279,106 +288,106 @@ var Analytics = {
    r=recipients, u=budget bands, i=interests, s=styles.
    Budgets: u25 | m2550 | m50100 | m100. rank = array order (deterministic tiebreak). */
 var IDEAS = [
-{id:1,t:"Pour-over coffee dripper with paper filters",b:"Slow weekend coffee with no machine on the counter.",f:"For the ritual of a slow morning, not another gadget.",r:["mom","dad","partner","grandparent","friend","other"],u:["u25"],i:["cooking"],s:["practical"]},
-{id:2,t:"Cast iron skillet, 10 inch, pre-seasoned",b:"The pan that outlives every nonstick pan they have owned.",f:"For someone who actually cooks, this gets better every year.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:["cooking"],s:["practical"]},
-{id:3,t:"Small-batch hot sauce trio",b:"Three bottles with the heat levels labeled and tasting notes on the box.",f:"A low-stakes way to discover a new favorite.",r:["mom","dad","partner","friend","other"],u:["u25"],i:["cooking"],s:["fun"]},
-{id:4,t:"Heavy wooden cutting board with juice groove",b:"Big enough for a roast, heavy enough to stay put.",f:"The unglamorous upgrade they will use every single day.",r:["mom","dad","partner","grandparent","other"],u:["m2550"],i:["cooking"],s:["practical"]},
-{id:5,t:"Instant-read digital meat thermometer",b:"Reads in two seconds. No more guessing at the grill.",f:"For the griller who insists they can tell by touch.",r:["dad","partner","grandparent","friend","other"],u:["u25"],i:["cooking","outdoors"],s:["practical","fun"]},
-{id:6,t:"Olive oil and aged balsamic gift set",b:"Two bottles that make weeknight salads feel intentional.",f:"An everyday luxury they would never buy for themselves.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:["cooking"],s:["practical"]},
-{id:7,t:"Handmade ceramic mugs, set of two",b:"Weighty and warm; every cup feels a little slower.",f:"For the tea or coffee drinker with a favorite chair.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:["cooking","cozy"],s:["practical","sentimental"]},
-{id:8,t:"Three-month spice subscription",b:"A new small-batch blend arrives each month with recipe cards.",f:"It keeps giving long after Christmas morning.",r:["mom","dad","partner","friend","other"],u:["m50100"],i:["cooking"],s:["fun"]},
-{id:9,t:"Fresh pasta-making kit",b:"Roller, cutter, drying rack, and flour to start tonight.",f:"A project you can do together, then eat.",r:["mom","dad","partner","friend","other"],u:["m2550"],i:["cooking"],s:["fun","experience"]},
-{id:10,t:"Chef's knife, 8 inch",b:"One sharp, balanced knife that replaces three dull ones.",f:"The single most-used tool in their kitchen.",r:["mom","dad","partner","other"],u:["m50100"],i:["cooking"],s:["practical"]},
-{id:11,t:"Stand mixer",b:"Handles bread dough, batter, and whipped cream without breaking a sweat.",f:"For the baker who has earned the real thing.",r:["mom","partner"],u:["m100"],i:["cooking"],s:["practical"]},
-{id:12,t:"Insulated steel water bottle, 32 oz",b:"Keeps drinks cold for a full day on the trail.",f:"Goes everywhere they go.",r:["mom","dad","partner","friend","kid","other"],u:["m2550"],i:["outdoors","fitness"],s:["practical"]},
-{id:13,t:"Rechargeable headlamp",b:"Bright, light, and no batteries to keep buying.",f:"For early starts and late finishes.",r:["dad","partner","friend","other"],u:["u25"],i:["outdoors"],s:["practical"]},
-{id:14,t:"Packable camp blanket",b:"Warm as a sleeping bag, packs down to the size of a book.",f:"For sidelines, campsites, and stargazing.",r:["mom","dad","partner","grandparent","friend","other"],u:["m50100"],i:["outdoors"],s:["practical"]},
-{id:15,t:"Annual pass to the national parks",b:"A year of trailheads for less than one nice dinner out.",f:"Built for the one always suggesting the next hike.",r:["mom","dad","partner","grandparent","friend","other"],u:["m50100"],i:["outdoors","travel"],s:["experience"]},
-{id:16,t:"Merino wool hiking socks, two pairs",b:"No blisters, no stink, warm even when wet.",f:"The boring gift they will thank you for in February.",r:["dad","partner","grandparent","friend","other"],u:["u25"],i:["outdoors","fitness"],s:["practical"]},
-{id:17,t:"Portable camping hammock",b:"Sets up between two trees in about five minutes.",f:"For the napper disguised as a hiker.",r:["partner","friend","other"],u:["m2550"],i:["outdoors"],s:["fun"]},
-{id:18,t:"Trail first-aid kit",b:"Compact, organized, and hopefully never needed.",f:"Practical care for someone you worry about.",r:["dad","grandparent","other"],u:["u25"],i:["outdoors"],s:["practical"]},
-{id:19,t:"Top-tier insulated cooler",b:"Holds ice for days and survives the truck bed.",f:"For tailgates, campsites, and beach days done right.",r:["dad"],u:["m100"],i:["outdoors"],s:["practical"]},
-{id:20,t:"Braided fast-charging cable set, 3 pack",b:"Long, short, and car length. They stop stealing yours.",f:"Fixes the most-borrowed item in the house.",r:["mom","dad","partner","friend","kid","other"],u:["u25"],i:["tech"],s:["practical"]},
-{id:21,t:"Compact Bluetooth speaker",b:"Room-filling sound from something that fits in a jacket pocket.",f:"For music in the kitchen, the garage, or near the shower.",r:["dad","partner","friend","kid","other"],u:["m2550"],i:["tech","music"],s:["fun"]},
-{id:22,t:"Wireless earbuds",b:"Good sound, a charging case, and no wires to untangle.",f:"For the commuter, the caller, the podcast devotee.",r:["partner","friend","other"],u:["m2550"],i:["tech","music"],s:["practical"]},
-{id:23,t:"Phone stand with charging dock",b:"A home for the phone that is not the couch cushion.",f:"Tidies the nightstand and the desk in one move.",r:["mom","dad","grandparent","other"],u:["u25"],i:["tech"],s:["practical"]},
-{id:24,t:"E-reader",b:"Thousands of books, weeks of battery, readable in sunlight.",f:"For the reader running out of shelf space.",r:["mom","dad","partner","grandparent","friend","other"],u:["m100"],i:["tech","books"],s:["practical"]},
-{id:25,t:"Bluetooth tracker, 4 pack",b:"Finds keys, wallet, and bag from the phone.",f:"For the person always patting their pockets.",r:["dad","grandparent","partner","friend","other"],u:["m50100"],i:["tech"],s:["practical","fun"]},
-{id:26,t:"Beginner camera drone",b:"Flies itself steady and shoots real photos and video.",f:"For the tinkerer who films everything anyway.",r:["partner","friend","other"],u:["m100"],i:["tech","outdoors"],s:["fun"]},
-{id:27,t:"Commuter electric scooter",b:"Folds up, charges overnight, beats traffic for short trips.",f:"For the commuter who hates parking.",r:["partner","friend","other"],u:["m100"],i:["tech","outdoors"],s:["fun","practical"]},
-{id:28,t:"Noise-canceling headphones",b:"Planes, offices, and leaf blowers all fade out.",f:"For focus, travel, and glorious silence.",r:["mom","dad","partner"],u:["m100"],i:["tech","music"],s:["practical"]},
-{id:29,t:"Digital photo frame with wifi",b:"Family can send new photos to it from their phones.",f:"The grandkids update it without a visit.",r:["mom","dad","grandparent"],u:["m100"],i:["tech"],s:["sentimental","practical"]},
-{id:30,t:"The year's most talked-about hardcover novel",b:"The book everyone will be discussing in January.",f:"A shared topic for your next phone call.",r:["mom","dad","partner","grandparent","friend","other"],u:["u25"],i:["books"],s:["sentimental"]},
-{id:31,t:"Clip-on rechargeable book light",b:"Warm light, no batteries, and it does not disturb the other side of the bed.",f:"For the reader who stays up too late.",r:["mom","dad","partner","grandparent","other"],u:["u25"],i:["books"],s:["practical"]},
-{id:32,t:"Reading journal",b:"Track what you read and what you thought, one page per book.",f:"For the reader who recommends books to everyone.",r:["mom","partner","friend","other"],u:["u25"],i:["books"],s:["sentimental"]},
-{id:33,t:"Framed literary art print",b:"A favorite opening line, letterpressed and framed.",f:"Wall-worthy proof you know exactly what they love.",r:["mom","partner","friend","other"],u:["m2550"],i:["books"],s:["sentimental"]},
-{id:34,t:"Resistance band set, 5 levels",b:"A gym in a drawer, from warm-up to serious.",f:"For the person starting, or restarting, at home.",r:["mom","dad","partner","friend","other"],u:["m2550"],i:["fitness"],s:["practical"]},
-{id:35,t:"High-density foam roller",b:"Eighteen inches of post-workout forgiveness.",f:"For the sore-every-Monday athlete.",r:["dad","partner","friend","other"],u:["m2550"],i:["fitness"],s:["practical"]},
-{id:36,t:"Gym duffel with shoe compartment",b:"Swallows shoes, bottle, and towel without smelling like any of them.",f:"Makes the early workout slightly less annoying.",r:["partner","friend","other"],u:["m50100"],i:["fitness","travel"],s:["practical"]},
-{id:37,t:"Weighted jump rope",b:"Ten minutes that humbles every cardio machine.",f:"The smallest serious workout you can own.",r:["dad","partner","friend","other"],u:["u25"],i:["fitness"],s:["practical","fun"]},
-{id:38,t:"Thick non-slip yoga mat",b:"Six millimeters of knee-saving cushion.",f:"For the floor workouts they keep meaning to do.",r:["mom","partner","friend","other"],u:["m2550"],i:["fitness"],s:["practical"]},
-{id:39,t:"Massage ball set",b:"Two balls that find the knot the foam roller misses.",f:"Desk-worker shoulders and runner calves, solved.",r:["mom","dad","partner","friend","other"],u:["u25"],i:["fitness"],s:["practical"]},
-{id:40,t:"Weighted blanket, 15 lb",b:"Deep-pressure calm that genuinely helps people fall asleep.",f:"For the restless sleeper you love.",r:["mom","dad","partner","grandparent","other"],u:["m50100"],i:["cozy"],s:["practical","sentimental"]},
-{id:41,t:"Soy candle trio, seasonal scents",b:"Three small jars that make the house smell like December.",f:"Instant atmosphere with zero effort.",r:["mom","partner","grandparent","friend","other"],u:["u25"],i:["cozy"],s:["sentimental"]},
-{id:42,t:"Chunky knit throw blanket",b:"The couch blanket everyone fights over.",f:"For movie nights and sick days.",r:["mom","dad","partner","grandparent","other"],u:["m50100"],i:["cozy"],s:["sentimental","practical"]},
-{id:43,t:"Memory-foam slippers",b:"Like walking on very supportive clouds.",f:"For cold floors and early mornings.",r:["mom","dad","grandparent","partner","other"],u:["m2550"],i:["cozy"],s:["practical"]},
-{id:44,t:"Essential-oil diffuser",b:"Quiet mist, soft light, and a room that smells like a spa.",f:"A calmer corner of a loud house.",r:["mom","partner","friend","other"],u:["m2550"],i:["cozy"],s:["practical"]},
-{id:45,t:"Linen pillowcase pair",b:"Cooler than cotton and softer with every wash.",f:"The bedroom upgrade they did not know they wanted.",r:["mom","partner","grandparent","other"],u:["m2550"],i:["cozy"],s:["practical"]},
-{id:46,t:"Heated throw blanket",b:"Three heat settings, auto shut-off, absurdly cozy.",f:"Warmth for anyone who is cold from October to April.",r:["mom","grandparent"],u:["m100"],i:["cozy"],s:["practical"]},
-{id:47,t:"Vinyl record of an album they love",b:"The one they keep mentioning, on wax.",f:"For the listener, not the streamer.",r:["dad","partner","friend","other"],u:["m2550"],i:["music"],s:["sentimental"]},
-{id:48,t:"Two concert tickets",b:"A night out with the music turned all the way up.",f:"The gift is the night, not the thing.",r:["partner","friend","other"],u:["m100"],i:["music"],s:["experience"]}
+{id:1,t:"Pour-over coffee dripper with paper filters",b:"Slow weekend coffee with no machine on the counter.",f:"For the ritual of a slow morning, not another gadget.",r:["mom","dad","partner","grandparent","friend","other"],u:["u25"],i:["cooking"],s:["practical"],g:"Look for: a dripper that fits standard filters and drips slow and steady. Avoid: odd sizes that need special filters."},
+{id:2,t:"Cast iron skillet, 10 inch, pre-seasoned",b:"The pan that outlives every nonstick pan they have owned.",f:"For someone who actually cooks, this gets better every year.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:["cooking"],s:["practical"],g:"Look for: 10 inch, pre-seasoned, with pouring spouts and a helper handle. Avoid: thin pans or a flaking coating."},
+{id:3,t:"Small-batch hot sauce trio",b:"Three bottles with the heat levels labeled and tasting notes on the box.",f:"A low-stakes way to discover a new favorite.",r:["mom","dad","partner","friend","other"],u:["u25"],i:["cooking"],s:["fun"],g:"Look for: three heat levels, mild to hot, with real peppers named. Avoid: sets that are all extreme heat."},
+{id:4,t:"Heavy wooden cutting board with juice groove",b:"Big enough for a roast, heavy enough to stay put.",f:"The unglamorous upgrade they will use every single day.",r:["mom","dad","partner","grandparent","other"],u:["m2550"],i:["cooking"],s:["practical"],g:"Look for: thick, heavy wood with a juice groove and feet that grip. Avoid: thin boards that warp or slide."},
+{id:5,t:"Instant-read digital meat thermometer",b:"Reads in two seconds. No more guessing at the grill.",f:"For the griller who insists they can tell by touch.",r:["dad","partner","grandparent","friend","other"],u:["u25"],i:["cooking","outdoors"],s:["practical","fun"],g:"Look for: a read in two to three seconds and a thin folding probe. Avoid: slow dial thermometers."},
+{id:6,t:"Olive oil and aged balsamic gift set",b:"Two bottles that make weeknight salads feel intentional.",f:"An everyday luxury they would never buy for themselves.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:["cooking"],s:["practical"],g:"Look for: a harvest date on the oil and thick, syrupy balsamic. Avoid: flavored oils with no date."},
+{id:7,t:"Handmade ceramic mugs, set of two",b:"Weighty and warm; every cup feels a little slower.",f:"For the tea or coffee drinker with a favorite chair.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:["cooking","cozy"],s:["practical","sentimental"],g:"Look for: stoneware with some weight, 12 ounces or more, dishwasher safe. Avoid: thin mugs that chip at the rim."},
+{id:8,t:"Three-month spice subscription",b:"A new small-batch blend arrives each month with recipe cards.",f:"It keeps giving long after Christmas morning.",r:["mom","dad","partner","friend","other"],u:["m50100"],i:["cooking"],s:["fun"],g:"Look for: small fresh batches, recipe cards, and an easy way to skip a month. Avoid: big tins that go stale."},
+{id:9,t:"Fresh pasta-making kit",b:"Roller, cutter, drying rack, and flour to start tonight.",f:"A project you can do together, then eat.",r:["mom","dad","partner","friend","other"],u:["m2550"],i:["cooking"],s:["fun","experience"],g:"Look for: a sturdy roller with thickness settings, plus a cutter and drying rack. Avoid: rollers that flex."},
+{id:10,t:"Chef's knife, 8 inch",b:"One sharp, balanced knife that replaces three dull ones.",f:"The single most-used tool in their kitchen.",r:["mom","dad","partner","other"],u:["m50100"],i:["cooking"],s:["practical"],g:"Look for: full tang, balanced weight, and a blade that takes a fine edge. Avoid: serrated or coated blades."},
+{id:11,t:"Stand mixer",b:"Handles bread dough, batter, and whipped cream without breaking a sweat.",f:"For the baker who has earned the real thing.",r:["mom","partner"],u:["m100"],i:["cooking"],s:["practical"],g:"Look for: a strong motor and a bowl big enough for two loaves. Avoid: light models that walk across the counter."},
+{id:12,t:"Insulated steel water bottle, 32 oz",b:"Keeps drinks cold for a full day on the trail.",f:"Goes everywhere they go.",r:["mom","dad","partner","friend","kid","other"],u:["m2550"],i:["outdoors","fitness"],s:["practical"],g:"Look for: double-wall steel, a leak-proof cap, and a mouth wide enough for ice. Avoid: single-wall bottles that sweat."},
+{id:13,t:"Rechargeable headlamp",b:"Bright, light, and no batteries to keep buying.",f:"For early starts and late finishes.",r:["dad","partner","friend","other"],u:["u25"],i:["outdoors"],s:["practical"],g:"Look for: USB charging, a tilting head, and a red-light mode. Avoid: dim lamps under 200 lumens."},
+{id:14,t:"Packable camp blanket",b:"Warm as a sleeping bag, packs down to the size of a book.",f:"For sidelines, campsites, and stargazing.",r:["mom","dad","partner","grandparent","friend","other"],u:["m50100"],i:["outdoors"],s:["practical"],g:"Look for: synthetic fill that packs small and a shell that sheds dew. Avoid: bulky cotton throws."},
+{id:15,t:"Annual pass to the national parks",b:"A year of trailheads for less than one nice dinner out.",f:"Built for the one always suggesting the next hike.",r:["mom","dad","partner","grandparent","friend","other"],u:["m50100"],i:["outdoors","travel"],s:["experience"],g:"Look for: a pass good for a full year at the parks they visit. Avoid: single-park passes if they roam."},
+{id:16,t:"Merino wool hiking socks, two pairs",b:"No blisters, no stink, warm even when wet.",f:"The boring gift they will thank you for in February.",r:["dad","partner","grandparent","friend","other"],u:["u25"],i:["outdoors","fitness"],s:["practical"],g:"Look for: at least half merino wool, with cushion in the heel and toe. Avoid: cotton blends that blister."},
+{id:17,t:"Portable camping hammock",b:"Sets up between two trees in about five minutes.",f:"For the napper disguised as a hiker.",r:["partner","friend","other"],u:["m2550"],i:["outdoors"],s:["fun"],g:"Look for: straps included and a weight rating well above theirs. Avoid: hammocks that need a separate rope buy."},
+{id:18,t:"Trail first-aid kit",b:"Compact, organized, and hopefully never needed.",f:"Practical care for someone you worry about.",r:["dad","grandparent","other"],u:["u25"],i:["outdoors"],s:["practical"],g:"Look for: bandages, blister care, tweezers, and tape in a dry case. Avoid: kits padded out with cotton balls."},
+{id:19,t:"Top-tier insulated cooler",b:"Holds ice for days and survives the truck bed.",f:"For tailgates, campsites, and beach days done right.",r:["dad"],u:["m100"],i:["outdoors"],s:["practical"],g:"Look for: thick insulation, a lid that seals tight, and sturdy latches. Avoid: thin walls that sweat and drip."},
+{id:20,t:"Braided fast-charging cable set, 3 pack",b:"Long, short, and car length. They stop stealing yours.",f:"Fixes the most-borrowed item in the house.",r:["mom","dad","partner","friend","kid","other"],u:["u25"],i:["tech"],s:["practical"],g:"Look for: braided nylon, the right tips for their phone, mixed lengths. Avoid: cables that fray at the ends."},
+{id:21,t:"Compact Bluetooth speaker",b:"Room-filling sound from something that fits in a jacket pocket.",f:"For music in the kitchen, the garage, or near the shower.",r:["dad","partner","friend","kid","other"],u:["m2550"],i:["tech","music"],s:["fun"],g:"Look for: ten hours of play, splash resistance, real bass for its size. Avoid: tinny speakers with tiny drivers."},
+{id:22,t:"Wireless earbuds",b:"Good sound, a charging case, and no wires to untangle.",f:"For the commuter, the caller, the podcast devotee.",r:["partner","friend","other"],u:["m2550"],i:["tech","music"],s:["practical"],g:"Look for: a charging case, a few tip sizes, and clear call sound. Avoid: buds with no spare tips."},
+{id:23,t:"Phone stand with charging dock",b:"A home for the phone that is not the couch cushion.",f:"Tidies the nightstand and the desk in one move.",r:["mom","dad","grandparent","other"],u:["u25"],i:["tech"],s:["practical"],g:"Look for: an adjustable angle and a dock that fits their phone case. Avoid: fixed stands that sit bolt upright."},
+{id:24,t:"E-reader",b:"Thousands of books, weeks of battery, readable in sunlight.",f:"For the reader running out of shelf space.",r:["mom","dad","partner","grandparent","friend","other"],u:["m100"],i:["tech","books"],s:["practical"],g:"Look for: a glare-free screen, warm light, and weeks of battery. Avoid: shiny tablet screens sold as readers."},
+{id:25,t:"Bluetooth tracker, 4 pack",b:"Finds keys, wallet, and bag from the phone.",f:"For the person always patting their pockets.",r:["dad","grandparent","partner","friend","other"],u:["m50100"],i:["tech"],s:["practical","fun"],g:"Look for: a loud ring, a replaceable battery, and support for their phone. Avoid: trackers locked to the other phone system."},
+{id:26,t:"Beginner camera drone",b:"Flies itself steady and shoots real photos and video.",f:"For the tinkerer who films everything anyway.",r:["partner","friend","other"],u:["m100"],i:["tech","outdoors"],s:["fun"],g:"Look for: GPS hold, auto return, and spare blades in the box. Avoid: toy drones with no steady hover."},
+{id:27,t:"Commuter electric scooter",b:"Folds up, charges overnight, beats traffic for short trips.",f:"For the commuter who hates parking.",r:["partner","friend","other"],u:["m100"],i:["tech","outdoors"],s:["fun","practical"],g:"Look for: solid tires, a real brake light, and range over 15 miles. Avoid: tiny wheels that hate rough roads."},
+{id:28,t:"Noise-canceling headphones",b:"Planes, offices, and leaf blowers all fade out.",f:"For focus, travel, and glorious silence.",r:["mom","dad","partner"],u:["m100"],i:["tech","music"],s:["practical"],g:"Look for: an over-ear fit, strong noise canceling, and a wired backup. Avoid: heavy sets that clamp too tight."},
+{id:29,t:"Digital photo frame with wifi",b:"Family can send new photos to it from their phones.",f:"The grandkids update it without a visit.",r:["mom","dad","grandparent"],u:["m100"],i:["tech"],s:["sentimental","practical"],g:"Look for: a bright screen and an easy app so family can add photos. Avoid: frames that need a memory card mailed around."},
+{id:30,t:"The year's most talked-about hardcover novel",b:"The book everyone will be discussing in January.",f:"A shared topic for your next phone call.",r:["mom","dad","partner","grandparent","friend","other"],u:["u25"],i:["books"],s:["sentimental"],g:"Look for: the book everyone is talking about this year, in hardcover. Avoid: book two of a series they have not started."},
+{id:31,t:"Clip-on rechargeable book light",b:"Warm light, no batteries, and it does not disturb the other side of the bed.",f:"For the reader who stays up too late.",r:["mom","dad","partner","grandparent","other"],u:["u25"],i:["books"],s:["practical"],g:"Look for: warm light with dim levels, a firm clip, USB charging. Avoid: harsh white light that glares."},
+{id:32,t:"Reading journal",b:"Track what you read and what you thought, one page per book.",f:"For the reader who recommends books to everyone.",r:["mom","partner","friend","other"],u:["u25"],i:["books"],s:["sentimental"],g:"Look for: one page per book, room for notes, and pages that lay flat. Avoid: thin paper and cramped lines."},
+{id:33,t:"Framed literary art print",b:"A favorite opening line, letterpressed and framed.",f:"Wall-worthy proof you know exactly what they love.",r:["mom","partner","friend","other"],u:["m2550"],i:["books"],s:["sentimental"],g:"Look for: a real frame with glass and a clean, sharp print. Avoid: poster paper sold as framed art."},
+{id:34,t:"Resistance band set, 5 levels",b:"A gym in a drawer, from warm-up to serious.",f:"For the person starting, or restarting, at home.",r:["mom","dad","partner","friend","other"],u:["m2550"],i:["fitness"],s:["practical"],g:"Look for: five levels with handles, a door anchor, and a carry bag. Avoid: single bands that snap or roll up."},
+{id:35,t:"High-density foam roller",b:"Eighteen inches of post-workout forgiveness.",f:"For the sore-every-Monday athlete.",r:["dad","partner","friend","other"],u:["m2550"],i:["fitness"],s:["practical"],g:"Look for: firm foam, 18 inches, that holds its shape under weight. Avoid: soft rollers that flatten in a month."},
+{id:36,t:"Gym duffel with shoe compartment",b:"Swallows shoes, bottle, and towel without smelling like any of them.",f:"Makes the early workout slightly less annoying.",r:["partner","friend","other"],u:["m50100"],i:["fitness","travel"],s:["practical"],g:"Look for: a separate vented shoe pocket and a shoulder strap. Avoid: one big pocket where shoes meet clothes."},
+{id:37,t:"Weighted jump rope",b:"Ten minutes that humbles every cardio machine.",f:"The smallest serious workout you can own.",r:["dad","partner","friend","other"],u:["u25"],i:["fitness"],s:["practical","fun"],g:"Look for: adjustable length and handles that spin smooth. Avoid: ropes that kink and tangle."},
+{id:38,t:"Thick non-slip yoga mat",b:"Six millimeters of knee-saving cushion.",f:"For the floor workouts they keep meaning to do.",r:["mom","partner","friend","other"],u:["m2550"],i:["fitness"],s:["practical"],g:"Look for: 6 mm or thicker, grip on both sides, easy to wipe clean. Avoid: thin mats that slide on wood floors."},
+{id:39,t:"Massage ball set",b:"Two balls that find the knot the foam roller misses.",f:"Desk-worker shoulders and runner calves, solved.",r:["mom","dad","partner","friend","other"],u:["u25"],i:["fitness"],s:["practical"],g:"Look for: two balls, one firm and one softer, in a carry pouch. Avoid: hollow balls that crack under weight."},
+{id:40,t:"Weighted blanket, 15 lb",b:"Deep-pressure calm that genuinely helps people fall asleep.",f:"For the restless sleeper you love.",r:["mom","dad","partner","grandparent","other"],u:["m50100"],i:["cozy"],s:["practical","sentimental"],g:"Look for: about a tenth of their body weight, fill spread in small squares. Avoid: blankets where the fill pools in one corner."},
+{id:41,t:"Soy candle trio, seasonal scents",b:"Three small jars that make the house smell like December.",f:"Instant atmosphere with zero effort.",r:["mom","partner","grandparent","friend","other"],u:["u25"],i:["cozy"],s:["sentimental"],g:"Look for: soy wax and cotton wicks, three small jars over one big one. Avoid: heavy scents that fill the whole house."},
+{id:42,t:"Chunky knit throw blanket",b:"The couch blanket everyone fights over.",f:"For movie nights and sick days.",r:["mom","dad","partner","grandparent","other"],u:["m50100"],i:["cozy"],s:["sentimental","practical"],g:"Look for: a tight chunky knit, at least 50 inches wide. Avoid: loose knits that snag and stretch out."},
+{id:43,t:"Memory-foam slippers",b:"Like walking on very supportive clouds.",f:"For cold floors and early mornings.",r:["mom","dad","grandparent","partner","other"],u:["m2550"],i:["cozy"],s:["practical"],g:"Look for: firm foam that keeps its shape and a rubber sole. Avoid: flat slippers with paper-thin soles."},
+{id:44,t:"Essential-oil diffuser",b:"Quiet mist, soft light, and a room that smells like a spa.",f:"A calmer corner of a loud house.",r:["mom","partner","friend","other"],u:["m2550"],i:["cozy"],s:["practical"],g:"Look for: quiet mist and auto shut-off when the water runs out. Avoid: diffusers that need refilling every hour."},
+{id:45,t:"Linen pillowcase pair",b:"Cooler than cotton and softer with every wash.",f:"The bedroom upgrade they did not know they wanted.",r:["mom","partner","grandparent","other"],u:["m2550"],i:["cozy"],s:["practical"],g:"Look for: 100 percent linen, pre-washed soft, with an envelope closure. Avoid: linen blends that feel like cotton."},
+{id:46,t:"Heated throw blanket",b:"Three heat settings, auto shut-off, absurdly cozy.",f:"Warmth for anyone who is cold from October to April.",r:["mom","grandparent"],u:["m100"],i:["cozy"],s:["practical"],g:"Look for: auto shut-off, three heat settings, and machine washable. Avoid: heated throws with no timer."},
+{id:47,t:"Vinyl record of an album they love",b:"The one they keep mentioning, on wax.",f:"For the listener, not the streamer.",r:["dad","partner","friend","other"],u:["m2550"],i:["music"],s:["sentimental"],g:"Look for: an album they already love, new or clean used vinyl. Avoid: scratched records and random compilations."},
+{id:48,t:"Two concert tickets",b:"A night out with the music turned all the way up.",f:"The gift is the night, not the thing.",r:["partner","friend","other"],u:["m100"],i:["music"],s:["experience"],g:"Look for: an artist they love and two seats together on a free night. Avoid: seats stuck behind a pillar."}
 ];
 </script>
 <script>
 "use strict";
 IDEAS.push.apply(IDEAS, [
-{id:49,t:"Harmonica with beginner songbook",b:"Fits in a pocket and learnable in an afternoon.",f:"For the secretly musical.",r:["dad","friend","kid","other"],u:["u25"],i:["music"],s:["fun"]},
-{id:50,t:"Wooden record storage crate",b:"Holds fifty LPs and looks good doing it.",f:"For the collection spilling off the shelf.",r:["dad","partner","friend","other"],u:["m2550"],i:["music"],s:["practical"]},
-{id:51,t:"Cooperative board game",b:"Everyone wins or loses together. No sore losers.",f:"For game night without the arguments.",r:["partner","friend","kid","other"],u:["m2550"],i:["games"],s:["fun"]},
-{id:52,t:"1000-piece art jigsaw puzzle",b:"A famous painting, one satisfying piece at a time.",f:"For slow evenings and the dining table.",r:["mom","dad","grandparent","partner","other"],u:["u25"],i:["games"],s:["fun"]},
-{id:53,t:"Premium playing cards, two decks",b:"Plastic-coated and endlessly riffleable.",f:"Upgrades every card night they host.",r:["dad","grandparent","friend","other"],u:["u25"],i:["games"],s:["fun"]},
-{id:54,t:"Group party game",b:"Loud, fast, and funny with six or more people.",f:"For the host of every gathering.",r:["friend","partner","other"],u:["m2550"],i:["games"],s:["fun"]},
-{id:55,t:"Stainless hand-tool set",b:"Trowel, transplanter, and cultivator that do not bend.",f:"For hands that are happiest in soil.",r:["mom","dad","grandparent","other"],u:["m2550"],i:["gardening"],s:["practical"]},
-{id:56,t:"Heirloom seed collection",b:"Twelve varieties with planting calendars.",f:"Spring, planned in December.",r:["mom","grandparent","other"],u:["u25"],i:["gardening"],s:["sentimental","fun"]},
-{id:57,t:"Self-watering indoor planter",b:"Two weeks of forgiveness for the forgetful waterer.",f:"For the plant lover who travels.",r:["mom","partner","friend","other"],u:["m2550"],i:["gardening"],s:["practical"]},
-{id:58,t:"Leather gloves and kneeling pad",b:"The knees and knuckles will thank you.",f:"Comfort for the serious gardener.",r:["mom","dad","grandparent","other"],u:["m2550"],i:["gardening"],s:["practical"]},
-{id:59,t:"Smart bird feeder with camera",b:"Sends a photo to the phone every time a bird visits.",f:"For the watcher of the backyard.",r:["grandparent"],u:["m50100"],i:["gardening","outdoors","tech"],s:["fun"]},
-{id:60,t:"Binoculars for birding",b:"Bright, light, and easy to focus with gloves on.",f:"For slow mornings with coffee and the field guide.",r:["dad","grandparent"],u:["m100"],i:["outdoors"],s:["practical","fun"]},
-{id:61,t:"Packing cube set, 6 piece",b:"The suitcase finally makes sense.",f:"For the overpacker you love anyway.",r:["mom","partner","friend","other"],u:["m2550"],i:["travel"],s:["practical"]},
-{id:62,t:"Memory-foam travel pillow",b:"Actually supports the neck on red-eyes.",f:"For the long hauls ahead.",r:["mom","dad","partner","friend","other"],u:["m2550"],i:["travel"],s:["practical"]},
-{id:63,t:"Scratch-off world map",b:"Gold foil over everywhere they have been.",f:"For the traveler collecting stories.",r:["partner","friend","other"],u:["m2550"],i:["travel"],s:["sentimental","fun"]},
-{id:64,t:"Universal travel adapter",b:"One plug for 150 countries.",f:"Small, boring, and used constantly.",r:["mom","dad","partner","friend","other"],u:["u25"],i:["travel","tech"],s:["practical"]},
-{id:65,t:"Leather passport holder",b:"Ages well and holds cards plus boarding passes.",f:"For the next big trip.",r:["partner","friend","other"],u:["m2550"],i:["travel"],s:["sentimental"]},
-{id:66,t:"Full-grain leather weekend bag",b:"Fits overhead, lasts decades, looks better every year.",f:"For the traveler who has earned the good bag.",r:["mom","partner"],u:["m100"],i:["travel"],s:["practical"]},
-{id:67,t:"Cooking class for two",b:"Three hours, one cuisine, dinner included.",f:"The rare gift that is also a date.",r:["mom","dad","partner","grandparent","friend","other"],u:["m100"],i:["cooking"],s:["experience"]},
-{id:68,t:"Museum or garden membership",b:"A year of free admission for two.",f:"For the learner who already has everything.",r:["mom","dad","partner","grandparent","friend","other"],u:["m50100"],i:["travel","books"],s:["experience"]},
-{id:69,t:"Two premium seats at a sports game",b:"Close enough to hear the hits.",f:"For the fan who never treats themselves.",r:["dad","partner","friend","other"],u:["m100"],i:[],s:["experience"]},
-{id:70,t:"Movie night for two",b:"Two tickets plus popcorn money.",f:"An evening out, planned for them.",r:["partner","friend","kid","other"],u:["m2550"],i:[],s:["experience","fun"]},
-{id:71,t:"Custom star-map print of a meaningful date",b:"The sky on the night it mattered, printed and framed.",f:"For the milestone you both remember.",r:["mom","dad","partner","grandparent","other"],u:["m2550"],i:[],s:["sentimental"]},
-{id:72,t:"Printed photo book of the year",b:"The phone photos, edited and bound.",f:"The gift that makes Mom cry in a good way.",r:["mom","dad","partner","grandparent","other"],u:["m50100"],i:[],s:["sentimental"]},
-{id:73,t:"Handwritten letter kit",b:"Nice stationery, good pens, and prompts to get started.",f:"For the person who keeps every card.",r:["mom","dad","partner","grandparent","friend","other"],u:["u25"],i:[],s:["sentimental"]},
-{id:74,t:"\"Reasons I love you\" jar",b:"Fifty-two notes, one for each week of the year.",f:"Cheesy in the best possible way.",r:["partner","mom","dad","other"],u:["u25"],i:[],s:["sentimental","fun"]},
-{id:75,t:"Fragrance discovery set",b:"Twelve sample vials from good houses, in a real case.",f:"For finding a signature scent with no risk.",r:["mom","partner"],u:["m100"],i:[],s:["sentimental"]},
-{id:76,t:"Windproof travel umbrella",b:"Survives the gusts that kill cheap umbrellas.",f:"For the commuter.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:[],s:["practical"]},
-{id:77,t:"Wool winter scarf",b:"Warm without the itch.",f:"For the always-cold.",r:["mom","dad","partner","grandparent","other"],u:["m2550"],i:[],s:["practical"]},
-{id:78,t:"Quality multi-tool",b:"Pliers, knife, and screwdrivers in one pocket.",f:"For the fixer.",r:["dad","partner","friend","other"],u:["m2550"],i:["outdoors"],s:["practical"]},
-{id:79,t:"100-piece building block set",b:"Compatible with the big brands. Endless builds.",f:"For the builder.",r:["kid"],u:["m2550"],i:["games"],s:["fun"]},
-{id:80,t:"Art and craft kit",b:"Paints, brushes, canvases, and washable everything.",f:"For the maker.",r:["kid"],u:["u25"],i:["games"],s:["fun"]},
-{id:81,t:"Beginner science experiment kit",b:"Twenty-five safe experiments with real beakers.",f:"For curious kids who ask why about everything.",r:["kid"],u:["m2550"],i:["tech","games"],s:["fun"]},
-{id:82,t:"Three picture books",b:"New favorites, picked for their age.",f:"For the bedtime routine.",r:["kid"],u:["u25"],i:["books"],s:["fun","sentimental"]},
-{id:83,t:"Durable kids' digital camera",b:"Drop-proof, with games built in.",f:"For the kid always grabbing your phone.",r:["kid"],u:["m50100"],i:["tech"],s:["fun"]},
-{id:84,t:"Giant plush toy",b:"Three feet of extremely huggable.",f:"For the professional snuggler.",r:["kid"],u:["m2550"],i:[],s:["fun"]},
-{id:85,t:"Washable marker and coloring book set",b:"Forty markers and two thick coloring books.",f:"For quiet afternoons.",r:["kid"],u:["u25"],i:["games"],s:["fun"]},
-{id:86,t:"Modeling dough 10-pack",b:"Every color, plus cutters and rollers.",f:"For hands that cannot sit still.",r:["kid"],u:["u25"],i:["games"],s:["fun"]},
-{id:87,t:"Balance bike",b:"No pedals, just scooting. They learn balance first.",f:"The fastest path to a two-wheeler.",r:["kid"],u:["m100"],i:["outdoors","fitness"],s:["fun"]},
-{id:88,t:"Beginner kids' telescope",b:"Sees the moon's craters on the first clear night.",f:"For young stargazers.",r:["kid"],u:["m100"],i:["outdoors","tech"],s:["fun","experience"]},
-{id:89,t:"Wooden play kitchen",b:"Sturdy, with clicking knobs and room for pots.",f:"For the kid who \"helps\" with dinner.",r:["kid"],u:["m100"],i:["cooking"],s:["fun"]},
-{id:90,t:"Kids' tablet with parental controls",b:"Locked-down, durable case, educational apps included.",f:"For travel days and quiet mornings.",r:["kid"],u:["m100"],i:["tech"],s:["fun","practical"]},
-{id:91,t:"Family membership to the children's museum",b:"A year of rainy-day plans, all paid up.",f:"For the family that goes everywhere together.",r:["kid"],u:["m100"],i:[],s:["experience"]},
-{id:92,t:"Remote-control stunt car",b:"Flips, spins, and survives crashes.",f:"For the driver in training.",r:["kid"],u:["m50100"],i:["tech"],s:["fun"]},
-{id:93,t:"Kids' microscope",b:"Real magnification with prepared slides to start.",f:"For the kid who examines everything.",r:["kid"],u:["m50100"],i:["tech"],s:["fun"]},
-{id:94,t:"Big creator building set, 500+ pieces",b:"Three builds in one box, compatible with the big brands.",f:"For long rainy afternoons.",r:["kid"],u:["m50100"],i:["games"],s:["fun"]},
-{id:95,t:"Large art easel with supplies",b:"Double-sided board, paper roll, paints, and chalk.",f:"For the artist with big plans.",r:["kid"],u:["m50100"],i:["games"],s:["fun"]}
+{id:49,t:"Harmonica with beginner songbook",b:"Fits in a pocket and learnable in an afternoon.",f:"For the secretly musical.",r:["dad","friend","kid","other"],u:["u25"],i:["music"],s:["fun"],g:"Look for: key of C, ten holes, and a simple songbook. Avoid: toy harmonicas that leak air."},
+{id:50,t:"Wooden record storage crate",b:"Holds fifty LPs and looks good doing it.",f:"For the collection spilling off the shelf.",r:["dad","partner","friend","other"],u:["m2550"],i:["music"],s:["practical"],g:"Look for: solid wood that holds 50 or more records upright. Avoid: narrow crates that bend the sleeves."},
+{id:51,t:"Cooperative board game",b:"Everyone wins or loses together. No sore losers.",f:"For game night without the arguments.",r:["partner","friend","kid","other"],u:["m2550"],i:["games"],s:["fun"],g:"Look for: plays in under an hour with two to five players. Avoid: rules that take a whole night to learn."},
+{id:52,t:"1000-piece art jigsaw puzzle",b:"A famous painting, one satisfying piece at a time.",f:"For slow evenings and the dining table.",r:["mom","dad","grandparent","partner","other"],u:["u25"],i:["games"],s:["fun"],g:"Look for: a rich image with varied colors and sturdy pieces. Avoid: mostly-sky images that stall halfway."},
+{id:53,t:"Premium playing cards, two decks",b:"Plastic-coated and endlessly riffleable.",f:"Upgrades every card night they host.",r:["dad","grandparent","friend","other"],u:["u25"],i:["games"],s:["fun"],g:"Look for: plastic-coated or full plastic decks, poker size. Avoid: paper decks that warp after one night."},
+{id:54,t:"Group party game",b:"Loud, fast, and funny with six or more people.",f:"For the host of every gathering.",r:["friend","partner","other"],u:["m2550"],i:["games"],s:["fun"],g:"Look for: six or more players, rules learned in a minute. Avoid: games that need an app or batteries."},
+{id:55,t:"Stainless hand-tool set",b:"Trowel, transplanter, and cultivator that do not bend.",f:"For hands that are happiest in soil.",r:["mom","dad","grandparent","other"],u:["m2550"],i:["gardening"],s:["practical"],g:"Look for: one-piece stainless heads and handles that will not snap. Avoid: painted tools that bend in hard soil."},
+{id:56,t:"Heirloom seed collection",b:"Twelve varieties with planting calendars.",f:"Spring, planned in December.",r:["mom","grandparent","other"],u:["u25"],i:["gardening"],s:["sentimental","fun"],g:"Look for: kinds that suit their climate, with planting dates on the packet. Avoid: seeds that need a greenhouse."},
+{id:57,t:"Self-watering indoor planter",b:"Two weeks of forgiveness for the forgetful waterer.",f:"For the plant lover who travels.",r:["mom","partner","friend","other"],u:["m2550"],i:["gardening"],s:["practical"],g:"Look for: a water tank that lasts two weeks and a gauge you can read. Avoid: tiny planters that hold a weekend of water."},
+{id:58,t:"Leather gloves and kneeling pad",b:"The knees and knuckles will thank you.",f:"Comfort for the serious gardener.",r:["mom","dad","grandparent","other"],u:["m2550"],i:["gardening"],s:["practical"],g:"Look for: thick leather palms and a dense foam pad. Avoid: thin gloves that thorns poke through."},
+{id:59,t:"Smart bird feeder with camera",b:"Sends a photo to the phone every time a bird visits.",f:"For the watcher of the backyard.",r:["grandparent"],u:["m50100"],i:["gardening","outdoors","tech"],s:["fun"],g:"Look for: clear photos, solar charging, and easy refills. Avoid: flimsy plastic that cracks in winter."},
+{id:60,t:"Binoculars for birding",b:"Bright, light, and easy to focus with gloves on.",f:"For slow mornings with coffee and the field guide.",r:["dad","grandparent"],u:["m100"],i:["outdoors"],s:["practical","fun"],g:"Look for: 8x42, bright and light, with an easy focus wheel. Avoid: tiny pocket binoculars with dim views."},
+{id:61,t:"Packing cube set, 6 piece",b:"The suitcase finally makes sense.",f:"For the overpacker you love anyway.",r:["mom","partner","friend","other"],u:["m2550"],i:["travel"],s:["practical"],g:"Look for: mixed sizes, strong zippers, and mesh tops. Avoid: cubes with zips that split open."},
+{id:62,t:"Memory-foam travel pillow",b:"Actually supports the neck on red-eyes.",f:"For the long hauls ahead.",r:["mom","dad","partner","friend","other"],u:["m2550"],i:["travel"],s:["practical"],g:"Look for: firm foam that holds the neck and a washable cover. Avoid: inflatable pillows that sag by landing."},
+{id:63,t:"Scratch-off world map",b:"Gold foil over everywhere they have been.",f:"For the traveler collecting stories.",r:["partner","friend","other"],u:["m2550"],i:["travel"],s:["sentimental","fun"],g:"Look for: foil that scratches clean and a big, readable map. Avoid: foil that tears when scratched."},
+{id:64,t:"Universal travel adapter",b:"One plug for 150 countries.",f:"Small, boring, and used constantly.",r:["mom","dad","partner","friend","other"],u:["u25"],i:["travel","tech"],s:["practical"],g:"Look for: plugs for the US, Europe, the UK, and Australia, with surge protection. Avoid: adapters with loose, wobbly prongs."},
+{id:65,t:"Leather passport holder",b:"Ages well and holds cards plus boarding passes.",f:"For the next big trip.",r:["partner","friend","other"],u:["m2550"],i:["travel"],s:["sentimental"],g:"Look for: full-grain leather with room for cards and passes. Avoid: stiff holders that crack at the fold."},
+{id:66,t:"Full-grain leather weekend bag",b:"Fits overhead, lasts decades, looks better every year.",f:"For the traveler who has earned the good bag.",r:["mom","partner"],u:["m100"],i:["travel"],s:["practical"],g:"Look for: full-grain leather, metal zippers, and carry-on size. Avoid: split leather that peels."},
+{id:67,t:"Cooking class for two",b:"Three hours, one cuisine, dinner included.",f:"The rare gift that is also a date.",r:["mom","dad","partner","grandparent","friend","other"],u:["m100"],i:["cooking"],s:["experience"],g:"Look for: hands-on cooking, dinner included, and a date they are free. Avoid: classes where you only watch."},
+{id:68,t:"Museum or garden membership",b:"A year of free admission for two.",f:"For the learner who already has everything.",r:["mom","dad","partner","grandparent","friend","other"],u:["m50100"],i:["travel","books"],s:["experience"],g:"Look for: a year for two adults at a place they will visit often. Avoid: places an hour from home."},
+{id:69,t:"Two premium seats at a sports game",b:"Close enough to hear the hits.",f:"For the fan who never treats themselves.",r:["dad","partner","friend","other"],u:["m100"],i:[],s:["experience"],g:"Look for: their team at home, two seats together. Avoid: the last row behind a post."},
+{id:70,t:"Movie night for two",b:"Two tickets plus popcorn money.",f:"An evening out, planned for them.",r:["partner","friend","kid","other"],u:["m2550"],i:[],s:["experience","fun"],g:"Look for: a film they want to see, with popcorn money included. Avoid: opening-night crowds if they hate lines."},
+{id:71,t:"Custom star-map print of a meaningful date",b:"The sky on the night it mattered, printed and framed.",f:"For the milestone you both remember.",r:["mom","dad","partner","grandparent","other"],u:["m2550"],i:[],s:["sentimental"],g:"Look for: the sky from the real date and place, framed. Avoid: stock skies that match no real night."},
+{id:72,t:"Printed photo book of the year",b:"The phone photos, edited and bound.",f:"The gift that makes Mom cry in a good way.",r:["mom","dad","partner","grandparent","other"],u:["m50100"],i:[],s:["sentimental"],g:"Look for: lay-flat pages and your best photos, in order. Avoid: thin pages that curl."},
+{id:73,t:"Handwritten letter kit",b:"Nice stationery, good pens, and prompts to get started.",f:"For the person who keeps every card.",r:["mom","dad","partner","grandparent","friend","other"],u:["u25"],i:[],s:["sentimental"],g:"Look for: thick stationery, smooth pens, and prompt cards. Avoid: thin paper that bleeds ink."},
+{id:74,t:"\"Reasons I love you\" jar",b:"Fifty-two notes, one for each week of the year.",f:"Cheesy in the best possible way.",r:["partner","mom","dad","other"],u:["u25"],i:[],s:["sentimental","fun"],g:"Look for: 52 notes you wrote yourself, one for each week. Avoid: pre-written notes that sound like a stranger."},
+{id:75,t:"Fragrance discovery set",b:"Twelve sample vials from good houses, in a real case.",f:"For finding a signature scent with no risk.",r:["mom","partner"],u:["m100"],i:[],s:["sentimental"],g:"Look for: twelve small vials of real perfumes in a case. Avoid: one big bottle of a scent never tried."},
+{id:76,t:"Windproof travel umbrella",b:"Survives the gusts that kill cheap umbrellas.",f:"For the commuter.",r:["mom","dad","partner","grandparent","friend","other"],u:["m2550"],i:[],s:["practical"],g:"Look for: a vented double canopy and a fiberglass frame. Avoid: single canopies that flip inside out."},
+{id:77,t:"Wool winter scarf",b:"Warm without the itch.",f:"For the always-cold.",r:["mom","dad","partner","grandparent","other"],u:["m2550"],i:[],s:["practical"],g:"Look for: soft merino or lambswool, long enough to wrap twice. Avoid: scratchy acrylic yarn."},
+{id:78,t:"Quality multi-tool",b:"Pliers, knife, and screwdrivers in one pocket.",f:"For the fixer.",r:["dad","partner","friend","other"],u:["m2550"],i:["outdoors"],s:["practical"],g:"Look for: locking blades, pliers that spring open, and a belt case. Avoid: tools with wobbly joints."},
+{id:79,t:"100-piece building block set",b:"Compatible with the big brands. Endless builds.",f:"For the builder.",r:["kid"],u:["m2550"],i:["games"],s:["fun"],g:"Look for: pieces that fit the big brands and click and hold. Avoid: loose bricks that pop apart."},
+{id:80,t:"Art and craft kit",b:"Paints, brushes, canvases, and washable everything.",f:"For the maker.",r:["kid"],u:["u25"],i:["games"],s:["fun"],g:"Look for: washable paints, thick paper, and brushes that rinse clean. Avoid: kits heavy on glitter."},
+{id:81,t:"Beginner science experiment kit",b:"Twenty-five safe experiments with real beakers.",f:"For curious kids who ask why about everything.",r:["kid"],u:["m2550"],i:["tech","games"],s:["fun"],g:"Look for: 20 or more real experiments and safety gear included. Avoid: kits that are all volcano tricks."},
+{id:82,t:"Three picture books",b:"New favorites, picked for their age.",f:"For the bedtime routine.",r:["kid"],u:["u25"],i:["books"],s:["fun","sentimental"],g:"Look for: new favorites for their age, with art worth a second look. Avoid: books they already own."},
+{id:83,t:"Durable kids' digital camera",b:"Drop-proof, with games built in.",f:"For the kid always grabbing your phone.",r:["kid"],u:["m50100"],i:["tech"],s:["fun"],g:"Look for: a drop-proof case and a real shutter button. Avoid: cameras that are really a game console."},
+{id:84,t:"Giant plush toy",b:"Three feet of extremely huggable.",f:"For the professional snuggler.",r:["kid"],u:["m2550"],i:[],s:["fun"],g:"Look for: firm stitching and washable fabric, soft all over. Avoid: plush with parts that can pull loose."},
+{id:85,t:"Washable marker and coloring book set",b:"Forty markers and two thick coloring books.",f:"For quiet afternoons.",r:["kid"],u:["u25"],i:["games"],s:["fun"],g:"Look for: truly washable markers and thick coloring pages. Avoid: markers that stain clothes and hands."},
+{id:86,t:"Modeling dough 10-pack",b:"Every color, plus cutters and rollers.",f:"For hands that cannot sit still.",r:["kid"],u:["u25"],i:["games"],s:["fun"],g:"Look for: soft dough in ten colors, with cutters and rollers. Avoid: dough that dries out in a week."},
+{id:87,t:"Balance bike",b:"No pedals, just scooting. They learn balance first.",f:"The fastest path to a two-wheeler.",r:["kid"],u:["m100"],i:["outdoors","fitness"],s:["fun"],g:"Look for: a light frame, an adjustable seat, and air tires. Avoid: heavy bikes a small kid cannot lift."},
+{id:88,t:"Beginner kids' telescope",b:"Sees the moon's craters on the first clear night.",f:"For young stargazers.",r:["kid"],u:["m100"],i:["outdoors","tech"],s:["fun","experience"],g:"Look for: a steady tripod and a moon filter. Avoid: wobbly scopes with wild zoom claims."},
+{id:89,t:"Wooden play kitchen",b:"Sturdy, with clicking knobs and room for pots.",f:"For the kid who \"helps\" with dinner.",r:["kid"],u:["m100"],i:["cooking"],s:["fun"],g:"Look for: solid wood, clicking knobs, and no sharp edges. Avoid: flimsy plastic that tips over."},
+{id:90,t:"Kids' tablet with parental controls",b:"Locked-down, durable case, educational apps included.",f:"For travel days and quiet mornings.",r:["kid"],u:["m100"],i:["tech"],s:["fun","practical"],g:"Look for: strong parental controls and a thick, tough case. Avoid: tablets with an open app store."},
+{id:91,t:"Family membership to the children's museum",b:"A year of rainy-day plans, all paid up.",f:"For the family that goes everywhere together.",r:["kid"],u:["m100"],i:[],s:["experience"],g:"Look for: a full year for the whole family, close to home. Avoid: places so far away they never go."},
+{id:92,t:"Remote-control stunt car",b:"Flips, spins, and survives crashes.",f:"For the driver in training.",r:["kid"],u:["m50100"],i:["tech"],s:["fun"],g:"Look for: a tough shell and a spare battery in the box. Avoid: cars that break on the first crash."},
+{id:93,t:"Kids' microscope",b:"Real magnification with prepared slides to start.",f:"For the kid who examines everything.",r:["kid"],u:["m50100"],i:["tech"],s:["fun"],g:"Look for: real glass lenses and prepared slides included. Avoid: plastic lenses with blurry views."},
+{id:94,t:"Big creator building set, 500+ pieces",b:"Three builds in one box, compatible with the big brands.",f:"For long rainy afternoons.",r:["kid"],u:["m50100"],i:["games"],s:["fun"],g:"Look for: 500 or more pieces and more than one build. Avoid: sets that only build one thing."},
+{id:95,t:"Large art easel with supplies",b:"Double-sided board, paper roll, paints, and chalk.",f:"For the artist with big plans.",r:["kid"],u:["m50100"],i:["games"],s:["fun"],g:"Look for: two sides, a paper roll, and storage for paints. Avoid: wobbly legs that fold mid-painting."}
 ]);
 </script>
 <script>
@@ -845,6 +854,54 @@ $("btn-ai-prompt").onclick = function(){
 $("btn-ai-copy").onclick = function(){
   copyText($("ai-text").textContent, $("ai-status"), "Copied. Paste it into your AI.");
 };
+/* ================= Deep link: ?gift=<slug> opens that one idea =================
+   The MCP tools link here per idea (e.g. ?gift=cast-iron-skillet-10-inch-
+   pre-seasoned). Slugs mirror the bank build: slugified title, "-2" on a
+   repeat. An unknown slug just leaves the home screen up. */
+function giftSlug(title){
+  return title.toLowerCase().replace(/["'\u2019]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+function ideaBySlug(slug){
+  var counts = {}, found = null;
+  IDEAS.forEach(function(it){
+    var s = giftSlug(it.t);
+    counts[s] = (counts[s] || 0) + 1;
+    var key = counts[s] > 1 ? s + "-" + counts[s] : s;
+    if (key === slug) found = it;
+  });
+  return found;
+}
+function openGiftIdea(it){
+  var card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML =
+    "<h3>" + escapeHTML(it.t) + "</h3>" +
+    "<p>" + escapeHTML(it.b) + "</p>" +
+    '<div class="why"><b>Why this fits</b>' + escapeHTML(it.f) + "</div>" +
+    (it.g ? '<div class="why"><b>Buying notes</b>' + escapeHTML(it.g) + "</div>" : "") +
+    '<div class="tags"><span class="tag">' + escapeHTML(labelOf(BUDGETS, it.u[0])) + "</span></div>";
+  var box = $("gift-card");
+  box.innerHTML = "";
+  box.appendChild(card);
+  show("s-gift");
+  Analytics.track("gift_link_opened", {idea_id: it.id});
+}
+$("btn-gift-quiz").onclick = function(){
+  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  renderQuiz();
+  show("s-quiz");
+  Analytics.track("quiz_started", {});
+};
+$("btn-gift-home").onclick = function(){ show("s-home"); };
+(function(){
+  var slug = null;
+  try { slug = new URLSearchParams(window.location.search).get("gift"); } catch (e) {}
+  if (slug){
+    var it = ideaBySlug(slug);
+    if (it) openGiftIdea(it);
+  }
+})();
+
 var clearArmed = false;
 $("btn-clear").onclick = function(){
   if (!clearArmed){

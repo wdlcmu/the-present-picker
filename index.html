@@ -97,6 +97,8 @@
   .row2{display:flex;gap:10px}
   .row2>*{flex:1}
   .q-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin:22px 0 10px}
+  #q-name{width:100%;box-sizing:border-box;font:inherit;font-size:18px;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px}
+  #q-name:focus{border-color:var(--gold);outline:none}
   .chips{display:flex;flex-wrap:wrap;gap:10px}
   .chip{
     padding:11px 16px;font-size:16px;font-weight:600;color:var(--ink);
@@ -531,20 +533,27 @@ function shareText(text, statusEl, okMsg){
     copyText(text, statusEl, okMsg);
   }
 }
-function loopAShareText(who, items){
+function loopAShareText(who, items, name){
   var lines = items.map(function(it, idx){ return (idx + 1) + ") " + it.t; });
-  return "What I am getting " + shareOf(who) +
+  return "What I am getting " + (name ? name : shareOf(who)) +
     " so nobody doubles up: " + lines.join(" ") +
     ". Make your own list at https://thepresentpicker.com";
 }
-function loopBShareText(who, idea){
-  return "Thinking of getting " + shareOf(who) + " this: " +
+function loopBShareText(who, idea, name){
+  return "Thinking of getting " + (name ? name : shareOf(who)) + " this: " +
     idea.t + ". " + idea.f + " Thoughts? Pick a gift for someone at https://thepresentpicker.com";
 }
 
 /* ================= Quiz ================= */
-var quiz = {step: 0, who: null, interests: [], budget: null, style: null};
+var quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+/* The name lives in this session only. It is never saved or sent anywhere. */
+var sessionName = "";
+var sessionNameWho = null;
+function cleanName(){
+  return (quiz.name || "").trim().slice(0, 40);
+}
 var STEPS = [
+  {key: "name", title: "Who are you buying for?", sub: "A first name is plenty. You can skip this step.", required: false},
   {key: "who", title: "Who is it for?", sub: "Pick one person.", required: true},
   {key: "interests", title: "What are they into?", sub: "Pick at least one. More is fine.", required: true, multi: true},
   {key: "budget", title: "What is the budget?", sub: "This is a hard filter. Picks stay inside it.", required: true},
@@ -566,15 +575,26 @@ function renderQuiz(){
   for (var i = 0; i < STEPS.length; i++) dots += '<span class="dot' + (i <= quiz.step ? " done" : "") + '"></span>';
   $("q-dots").innerHTML = dots;
   var box = $("q-chips");
-  if (st.key === "who") box.innerHTML = chipHTML(RECIPIENTS, quiz.who, false);
+  if (st.key === "name"){
+    box.innerHTML = '<input type="text" id="q-name" maxlength="40" autocomplete="off" placeholder="First name, like Sam" aria-label="Their first name">';
+    var inp = $("q-name");
+    inp.value = quiz.name || "";
+    inp.oninput = function(){
+      quiz.name = inp.value;
+      $("q-next").textContent = inp.value.trim() ? "Continue" : "Skip";
+    };
+  }
+  else if (st.key === "who") box.innerHTML = chipHTML(RECIPIENTS, quiz.who, false);
   else if (st.key === "interests") box.innerHTML = chipHTML(INTERESTS, quiz.interests, true);
   else if (st.key === "budget") box.innerHTML = chipHTML(BUDGETS, quiz.budget, false);
   else box.innerHTML = chipHTML(STYLES, quiz.style, false);
   $("q-hint").textContent = "";
   $("q-back").style.visibility = quiz.step === 0 ? "hidden" : "visible";
-  $("q-next").textContent = quiz.step === STEPS.length - 1
-    ? (quiz.style ? "Get my five picks" : "Skip, get my five picks")
-    : "Continue";
+  $("q-next").textContent = st.key === "name"
+    ? (cleanName() ? "Continue" : "Skip")
+    : (quiz.step === STEPS.length - 1
+      ? (quiz.style ? "Get my five picks" : "Skip, get my five picks")
+      : "Continue");
   var chips = box.querySelectorAll(".chip");
   for (var c = 0; c < chips.length; c++){
     chips[c].onclick = (function(el){
@@ -608,6 +628,8 @@ $("q-next").onclick = function(){
 /* ================= Picks screen ================= */
 var currentPicks = [];
 function finishQuiz(){
+  sessionName = cleanName();
+  sessionNameWho = quiz.who;
   currentPicks = PickerEngine.pick(quiz, 5);
   Analytics.track("search_completed", {recipient: quiz.who, budget: quiz.budget, interest_count: quiz.interests.length});
   renderPicks();
@@ -615,7 +637,7 @@ function finishQuiz(){
 }
 function renderPicks(){
   var whoLabel = labelOf(RECIPIENTS, quiz.who);
-  $("picks-title").textContent = "Five picks for " + whoLabel;
+  $("picks-title").textContent = "Five picks for " + (cleanName() || whoLabel);
   $("picks-sub").textContent = labelOf(BUDGETS, quiz.budget) + " \u00b7 " +
     quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ") +
     (quiz.style ? " \u00b7 " + labelOf(STYLES, quiz.style) : "");
@@ -649,7 +671,7 @@ function renderPicks(){
       Analytics.track("idea_saved", {idea_id: it.id, recipient: quiz.who});
     };
     card.querySelector(".btn-ask").onclick = function(){
-      shareText(loopBShareText(quiz.who, it), status, "Copied. Send it to a friend for a second opinion.");
+      shareText(loopBShareText(quiz.who, it, cleanName()), status, "Copied. Send it to a friend for a second opinion.");
     };
     box.appendChild(card);
   });
@@ -711,7 +733,7 @@ function renderList(){
       })(rms[r]);
     }
     g.querySelector(".btn-share-group").onclick = function(){
-      shareText(loopAShareText(who, items), status, "Copied. Paste it into the family chat.");
+      shareText(loopAShareText(who, items, sessionNameWho === who ? sessionName : ""), status, "Copied. Paste it into the family chat.");
       Analytics.track("list_shared", {item_count: items.length});
     };
     g.querySelector(".btn-img-group").onclick = function(){
@@ -773,7 +795,7 @@ function saveListImage(who, items, statusEl){
 /* ================= AI escape hatch ================= */
 function aiPromptText(){
   var lines = [];
-  lines.push("I need gift ideas for " + shareOf(quiz.who) + ".");
+  lines.push("I need gift ideas for " + ((quiz.name || "").trim().slice(0, 40) || shareOf(quiz.who)) + ".");
   lines.push("They are into: " + quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ") + ".");
   var b = labelOf(BUDGETS, quiz.budget);
   if (b.indexOf("100+") >= 0) lines.push("Budget is flexible, $100 or more per gift.");
@@ -787,7 +809,7 @@ function aiPromptText(){
 
 /* ================= Wiring ================= */
 $("btn-start").onclick = function(){
-  quiz = {step: 0, who: null, interests: [], budget: null, style: null};
+  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
   renderQuiz();
   show("s-quiz");
   Analytics.track("quiz_started", {});
@@ -796,7 +818,7 @@ $("brand-home").onclick = function(e){ e.preventDefault(); show("s-home"); };
 $("top-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-again").onclick = function(){
-  quiz = {step: 0, who: null, interests: [], budget: null, style: null};
+  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
   $("ai-desc").value = "";
   $("ai-out").hidden = true;
   renderQuiz();
@@ -808,7 +830,7 @@ $("btn-change").onclick = function(){
   show("s-quiz");
 };
 $("btn-keep").onclick = function(){
-  quiz = {step: 0, who: null, interests: [], budget: null, style: null};
+  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
   renderQuiz();
   show("s-quiz");
 };

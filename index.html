@@ -535,11 +535,11 @@ function loopAShareText(who, items){
   var lines = items.map(function(it, idx){ return (idx + 1) + ") " + it.t; });
   return "What I am getting " + shareOf(who) +
     " so nobody doubles up: " + lines.join(" ") +
-    " (picked with thepresentpicker.com)";
+    ". Make your own list at https://thepresentpicker.com";
 }
 function loopBShareText(who, idea){
   return "Thinking of getting " + shareOf(who) + " this: " +
-    idea.t + ". " + idea.f + " Thoughts? (from thepresentpicker.com)";
+    idea.t + ". " + idea.f + " Thoughts? Pick a gift for someone at https://thepresentpicker.com";
 }
 
 /* ================= Quiz ================= */

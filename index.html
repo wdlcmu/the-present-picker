@@ -292,6 +292,59 @@ var Analytics = {
 </script>
 <script>
 "use strict";
+/* ================= Fleet analytics — PostHog pilot (2026-10-25) =================
+   The Present Picker joins Pick My Costume's PostHog project (624507) as
+   the pilot second site. Every event carries $host automatically;
+   site_id is registered as the friendly label. Same posture as PMC:
+   autocapture off, session recording off, no identify(), anonymous only.
+   Payloads are counts and enums only — never quiz answers, never gift
+   ideas, never names. The legacy Analytics shim above stays local-only
+   for exactly that reason and is not forwarded. */
+var _fleetQ = [];
+function fleetTrack(name, props){
+  try {
+    if (window.posthog && posthog.capture) posthog.capture(name, props || {});
+    else _fleetQ.push([name, props || {}]);
+  } catch (e) {}
+}
+function fleetSessionMarks(){
+  try {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("via") === "share" && !sessionStorage.getItem("pp_fleet_arr")){
+      sessionStorage.setItem("pp_fleet_arr", "1");
+      fleetTrack("share_arrival", {tool: "gift-picker", via: "share-link"});
+    }
+    if (!sessionStorage.getItem("pp_fleet_ret")){
+      var key = (typeof LIST_KEY !== "undefined") ? LIST_KEY : "pp_list_v1";
+      var raw = null;
+      try { raw = localStorage.getItem(key); } catch (e) {}
+      var arr = raw ? JSON.parse(raw) : null;
+      if (Array.isArray(arr) && arr.length){
+        sessionStorage.setItem("pp_fleet_ret", "1");
+        fleetTrack("return_visit", {tool: "gift-picker"});
+      }
+    }
+  } catch (e) {}
+}
+(function(){
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://us.i.posthog.com/static/array.js";
+  s.onload = function(){
+    try {
+      if (window.posthog && posthog.init){
+        posthog.init("phc_t9dkHXAZR5VEjPFm3K5JDzGKFsNNxKcwSxxcEBEeLbS7", {api_host: "https://us.i.posthog.com", autocapture: false, capture_pageview: true, disable_session_recording: true});
+        posthog.register({site_id: "present-picker", site_name: "The Present Picker"});
+        _fleetQ.splice(0).forEach(function(e){ try { posthog.capture(e[0], e[1]); } catch (x) {} });
+        fleetSessionMarks();
+      }
+    } catch (e) {}
+  };
+  document.head.appendChild(s);
+})();
+</script>
+<script>
+"use strict";
 /* ================= Gift idea bank =================
    Schema: id, t=title, b=blurb, f=why-this-fits,
    r=recipients, u=budget bands, i=interests, s=styles,
@@ -590,8 +643,9 @@ function copyText(text, statusEl, okMsg){
     }
   }
 }
-function shareText(text, statusEl, okMsg){
+function shareText(text, statusEl, okMsg, channel){
   Analytics.track("share_text_copied", {});
+  fleetTrack("share_intent", {tool: "gift-picker", channel: channel || (navigator.share ? "native" : "clipboard")});
   if (navigator.share){
     navigator.share({text: text}).catch(function(){ /* user cancelled */ });
     if (statusEl) statusEl.textContent = "Opening share. Pick where to send it.";
@@ -603,11 +657,11 @@ function loopAShareText(who, items, name){
   var lines = items.map(function(it, idx){ return (idx + 1) + ") " + it.t; });
   return "What I am getting " + (name ? name : shareOf(who)) +
     " so nobody doubles up: " + lines.join(" ") +
-    ". Make your own list at https://thepresentpicker.com";
+    ". Make your own list at https://thepresentpicker.com/?via=share";
 }
 function loopBShareText(who, idea, name){
   return "Thinking of getting " + (name ? name : shareOf(who)) + " this: " +
-    idea.t + ". " + idea.f + " Thoughts? Pick a gift for someone at https://thepresentpicker.com";
+    idea.t + ". " + idea.f + " Thoughts? Pick a gift for someone at https://thepresentpicker.com/?via=share";
 }
 
 /* ================= Quiz ================= */
@@ -741,6 +795,7 @@ function finishQuiz(){
   sessionNameWho = quiz.who;
   currentPicks = PickerEngine.pick(quiz, 5);
   Analytics.track("search_completed", {recipient: quiz.who, budget: quiz.budget, interest_count: quiz.interests.length});
+  fleetTrack("tool_complete", {tool: "gift-picker", results_count: currentPicks.length});
   renderPicks();
   show("s-picks");
 }
@@ -790,6 +845,7 @@ function renderPicks(){
     var status = card.querySelector(".status");
     card.querySelector(".btn-save").onclick = function(){
       toggleSave(it.id, quiz.who);
+      if (isSaved(it.id, quiz.who)) fleetTrack("artifact_created", {tool: "gift-picker", artifact: "saved-pick"});
       this.innerHTML = isSaved(it.id, quiz.who) ? "\u2713 Saved" : "Save";
       Analytics.track("idea_saved", {idea_id: it.id, recipient: quiz.who});
     };
@@ -856,10 +912,11 @@ function renderList(){
       })(rms[r]);
     }
     g.querySelector(".btn-share-group").onclick = function(){
-      shareText(loopAShareText(who, items, sessionNameWho === who ? sessionName : ""), status, "Copied. Paste it into the family chat.");
+      shareText(loopAShareText(who, items, sessionNameWho === who ? sessionName : ""), status, "Copied. Paste it into the family chat.", "group");
       Analytics.track("list_shared", {item_count: items.length});
     };
     g.querySelector(".btn-img-group").onclick = function(){
+      fleetTrack("artifact_created", {tool: "gift-picker", artifact: "group-image"});
       saveListImage(who, items, status);
     };
     box.appendChild(g);
@@ -992,6 +1049,7 @@ $("btn-start").onclick = function(){
   renderQuiz();
   show("s-quiz");
   Analytics.track("quiz_started", {});
+  fleetTrack("tool_start", {tool: "gift-picker", entry: "home"});
 };
 $("brand-home").onclick = function(e){ e.preventDefault(); show("s-home"); };
 $("top-list").onclick = function(){ renderList(); show("s-list"); };
@@ -1002,6 +1060,7 @@ $("btn-again").onclick = function(){
   $("ai-out").hidden = true;
   renderQuiz();
   show("s-quiz");
+  fleetTrack("tool_start", {tool: "gift-picker", entry: "restart"});
 };
 $("btn-change").onclick = function(){
   quiz.step = 0;
@@ -1012,6 +1071,7 @@ $("btn-keep").onclick = function(){
   quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
   renderQuiz();
   show("s-quiz");
+  fleetTrack("tool_start", {tool: "gift-picker", entry: "list"});
 };
 $("btn-ai-prompt").onclick = function(){
   $("ai-text").textContent = aiPromptText();
@@ -1020,6 +1080,7 @@ $("btn-ai-prompt").onclick = function(){
   Analytics.track("ai_prompt_generated", {recipient: quiz.who});
 };
 $("btn-ai-copy").onclick = function(){
+  fleetTrack("artifact_created", {tool: "gift-picker", artifact: "ai-prompt"});
   copyText($("ai-text").textContent, $("ai-status"), "Copied. Paste it into your AI.");
 };
 /* ================= Deep link: ?gift=<slug> opens that one idea =================
@@ -1065,6 +1126,7 @@ function openGiftIdea(it){
      "other", the same neutral bucket the quiz itself uses. */
   card.querySelector(".btn-save").onclick = function(){
     toggleSave(it.id, "other");
+    if (isSaved(it.id, "other")) fleetTrack("artifact_created", {tool: "gift-picker", artifact: "saved-pick"});
     this.innerHTML = isSaved(it.id, "other") ? "\u2713 Saved" : "Save";
     Analytics.track("idea_saved", {idea_id: it.id, recipient: "other", origin: "gift_link"});
   };
@@ -1076,6 +1138,7 @@ $("btn-gift-quiz").onclick = function(){
   renderQuiz();
   show("s-quiz");
   Analytics.track("quiz_started", {});
+  fleetTrack("tool_start", {tool: "gift-picker", entry: "gift-page"});
 };
 $("btn-gift-home").onclick = function(){ show("s-home"); };
 (function(){

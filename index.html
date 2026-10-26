@@ -544,6 +544,7 @@ var RECIPIENTS = [
   {k:"partner", label:"Partner", share:"my partner"},
   {k:"grandparent", label:"Grandparent", share:"my grandparent"},
   {k:"friend", label:"Friend", share:"my friend"},
+  {k:"coworker", label:"Coworker", share:"my coworker"},
   {k:"kid", label:"Kid", share:"my kid"},
   {k:"other", label:"Other", share:"them"}
 ];
@@ -562,8 +563,8 @@ var INTERESTS = [
 ];
 var BUDGETS = [
   {k:"u25", label:"Under $25"},
-  {k:"m2550", label:"$25-$50"},
-  {k:"m50100", label:"$50-$100"},
+  {k:"m2550", label:"$25 to $50"},
+  {k:"m50100", label:"$50 to $100"},
   {k:"m100", label:"$100+"}
 ];
 var STYLES = [
@@ -588,10 +589,14 @@ function $(id){ return document.getElementById(id); }
    interest when one fits the cell. Deterministic: score desc, then array order. */
 var PickerEngine = {
   pick: function(answers, n){
+    /* Oct 25 cold QA, finding F8: a Coworker chip exists so shoppers do
+       not have to guess Friend or Other; it filters exactly as Other,
+       while saves and list groups keep the Coworker label. */
+    var who = answers.who === "coworker" ? "other" : answers.who;
     var scored = [];
     for (var i = 0; i < IDEAS.length; i++){
       var it = IDEAS[i];
-      if (it.r.indexOf(answers.who) < 0) continue;
+      if (it.r.indexOf(who) < 0) continue;
       if (it.u.indexOf(answers.budget) < 0) continue;
       var s = 0, matched = [];
       for (var j = 0; j < it.i.length; j++){
@@ -732,6 +737,11 @@ function loopBShareText(who, idea, name){
 
 /* ================= Quiz ================= */
 var quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+/* Oct 25 cold QA, finding F8: the interests step's "Not sure" chip.
+   True only when the shopper picked it; it satisfies the step with
+   interests = [] (the engine scores those paths on style alone, and
+   the thin-note says plainly that no idea truly fits the picks). */
+var interestNotSure = false;
 /* The name lives in this session only. It is never saved or sent anywhere. */
 var sessionName = "";
 var sessionNameWho = null;
@@ -771,7 +781,9 @@ function renderQuiz(){
     };
   }
   else if (st.key === "who") box.innerHTML = chipHTML(RECIPIENTS, quiz.who, false);
-  else if (st.key === "interests") box.innerHTML = chipHTML(INTERESTS, quiz.interests, true);
+  else if (st.key === "interests") box.innerHTML = chipHTML(INTERESTS, quiz.interests, true) +
+    '<button class="chip" data-k="notsure" aria-pressed="' + interestNotSure + '">' +
+    '<span class="tick">\u2713</span>Not sure</button>';
   else if (st.key === "budget") box.innerHTML = chipHTML(BUDGETS, quiz.budget, false);
   else box.innerHTML = chipHTML(STYLES, quiz.style, false);
   $("q-hint").textContent = "";
@@ -793,9 +805,15 @@ function toggleChip(key, k, multi){
   else if (key === "budget") quiz.budget = (quiz.budget === k) ? null : k;
   else if (key === "style") quiz.style = (quiz.style === k) ? null : k;
   else if (key === "interests"){
-    var ix = quiz.interests.indexOf(k);
-    if (ix >= 0) quiz.interests.splice(ix, 1);
-    else quiz.interests.push(k);
+    if (k === "notsure"){
+      interestNotSure = !interestNotSure;
+      if (interestNotSure) quiz.interests = [];
+    } else {
+      interestNotSure = false;
+      var ix = quiz.interests.indexOf(k);
+      if (ix >= 0) quiz.interests.splice(ix, 1);
+      else quiz.interests.push(k);
+    }
   }
   renderQuiz();
 }
@@ -805,7 +823,7 @@ $("q-back").onclick = function(){
 $("q-next").onclick = function(){
   var st = STEPS[quiz.step];
   if (st.key === "who" && !quiz.who){ $("q-hint").textContent = "Pick a person first."; return; }
-  if (st.key === "interests" && quiz.interests.length === 0){ $("q-hint").textContent = "Pick at least one interest."; return; }
+  if (st.key === "interests" && quiz.interests.length === 0 && !interestNotSure){ $("q-hint").textContent = "Pick at least one interest."; return; }
   if (st.key === "budget" && !quiz.budget){ $("q-hint").textContent = "Pick a budget first."; return; }
   if (quiz.step < STEPS.length - 1){ quiz.step++; renderQuiz(); }
   else { finishQuiz(); }
@@ -868,9 +886,12 @@ function finishQuiz(){
 function renderPicks(){
   var whoLabel = labelOf(RECIPIENTS, quiz.who);
   $("picks-title").textContent = "Five picks for " + (cleanName() || whoLabel);
-  $("picks-sub").textContent = labelOf(BUDGETS, quiz.budget) + " \u00b7 " +
-    quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ") +
-    (quiz.style ? " \u00b7 " + labelOf(STYLES, quiz.style) : "");
+  var subParts = [labelOf(BUDGETS, quiz.budget)];
+  var intLabels = quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ");
+  if (intLabels) subParts.push(intLabels);
+  else if (interestNotSure) subParts.push("Not sure");
+  if (quiz.style) subParts.push(labelOf(STYLES, quiz.style));
+  $("picks-sub").textContent = subParts.join(" \u00b7 ");
   var noteText = thinNoteText(currentPicks);
   $("picks-note").textContent = noteText;
   $("picks-note").hidden = noteText === "";
@@ -1098,7 +1119,7 @@ function saveListImage(who, items, statusEl){
 function aiPromptText(){
   var lines = [];
   lines.push("I need gift ideas for " + ((quiz.name || "").trim().slice(0, 40) || shareOf(quiz.who)) + ".");
-  lines.push("They are into: " + quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ") + ".");
+  lines.push("They are into: " + (quiz.interests.length ? quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ") : "not sure") + ".");
   var b = labelOf(BUDGETS, quiz.budget);
   if (b.indexOf("100+") >= 0) lines.push("Budget is flexible, $100 or more per gift.");
   else lines.push("Budget: " + b + " per gift. Keep each idea within that budget.");
@@ -1112,6 +1133,7 @@ function aiPromptText(){
 /* ================= Wiring ================= */
 $("btn-start").onclick = function(){
   quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  interestNotSure = false;
   renderQuiz();
   show("s-quiz");
   Analytics.track("quiz_started", {});
@@ -1122,6 +1144,7 @@ $("top-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-again").onclick = function(){
   quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  interestNotSure = false;
   $("ai-desc").value = "";
   $("ai-out").hidden = true;
   renderQuiz();
@@ -1135,6 +1158,7 @@ $("btn-change").onclick = function(){
 };
 $("btn-keep").onclick = function(){
   quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  interestNotSure = false;
   renderQuiz();
   show("s-quiz");
   fleetTrack("tool_start", {tool: "gift-picker", entry: "list"});
@@ -1201,6 +1225,7 @@ function openGiftIdea(it){
 }
 $("btn-gift-quiz").onclick = function(){
   quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  interestNotSure = false;
   renderQuiz();
   show("s-quiz");
   Analytics.track("quiz_started", {});

@@ -24,7 +24,7 @@
       "name": "Do you link to stores?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Every idea is described generically, never linked to a shop. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas."
+        "text": "No. Every idea is described generically, never linked to a shop. Search the name anywhere you like to buy it. The site sells nothing. So it has exactly one job: good ideas."
       }
     },
     {
@@ -32,7 +32,7 @@
       "name": "How are the five picks chosen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your budget is a hard filter. Your interests score each idea, and your style gives a boost to matching picks. The order is the same every time for the same answers."
+        "text": "Your budget is a hard filter. Your interests score each idea. Your style boosts matching picks. Same answers, same order, every time."
       }
     },
     {
@@ -82,6 +82,7 @@
   h3{font-size:16px;margin:0 0 6px}
   p{margin:0 0 12px}
   .sub{color:var(--muted);font-size:16px}
+  .countdown{font-size:15px;color:var(--gold);font-weight:600;margin:0 0 6px}
   .fine{color:var(--muted);font-size:13px}
   .cta{
     display:block;width:100%;padding:15px 18px;margin:14px 0;
@@ -137,7 +138,7 @@
     padding:10px 0;border-bottom:1px solid var(--line);font-size:16px;
   }
   .list-item .rm{
-    flex:0 0 auto;width:36px;height:36px;border-radius:50%;
+    flex:0 0 auto;width:44px;height:44px;border-radius:50%;
     border:2px solid var(--line);background:var(--card);font-size:16px;cursor:pointer;color:var(--muted);
   }
   .faq{margin-top:34px}
@@ -149,11 +150,15 @@
   .hatch textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0 12px}
   .hatch pre{white-space:pre-wrap;font:inherit;font-size:14px;line-height:1.5;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px;text-align:left}
   footer{margin-top:44px;padding-top:18px;border-top:2px solid var(--line);color:var(--muted);font-size:14px}
-  footer a{color:var(--gold);font-weight:700}
+  footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-  .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none}
-  .topbar .listlink{font-size:14px;font-weight:700;color:var(--gold);background:none;border:none;cursor:pointer;text-decoration:underline}
+  .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none;display:inline-block;padding:12px 6px;margin:-12px -6px;min-height:44px}
+  .topbar .listlink{font-size:14px;font-weight:700;color:var(--gold);background:none;border:none;cursor:pointer;text-decoration:underline;padding:12px 6px;margin:-12px -6px;min-height:44px}
   .saved-pill{font-size:13px;font-weight:700;color:var(--gold)}
+  .card .photo{
+    display:block;width:calc(100% + 32px);max-width:none;height:210px;object-fit:cover;
+    margin:-16px -16px 14px;border-radius:12px 12px 0 0;background:var(--gold-soft);
+  }
 </style>
 </head>
 <body>
@@ -168,6 +173,7 @@
   <section class="screen on" id="s-home">
     <h1>The Present Picker</h1>
     <p class="sub">Pick the person. Pick what they are into. Get five gift ideas.</p>
+    <p class="countdown" id="countdown" aria-live="polite">Christmas Day is Friday, December 25, 2026.</p>
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="fine">Free forever. No ads. No accounts. No store links. Your list never leaves your phone.</p>
 
@@ -175,11 +181,11 @@
       <h2>How it works</h2>
       <details>
         <summary>Do you link to stores?</summary>
-        <p>No. Every idea is described generically, never linked to a shop. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.</p>
+        <p>No. Every idea is described generically, never linked to a shop. Search the name anywhere you like to buy it. The site sells nothing. So it has exactly one job: good ideas.</p>
       </details>
       <details>
         <summary>How are the five picks chosen?</summary>
-        <p>Your budget is a hard filter. Your interests score each idea, and your style gives a boost to matching picks. The order is the same every time for the same answers.</p>
+        <p>Your budget is a hard filter. Your interests score each idea. Your style boosts matching picks. Same answers, same order, every time.</p>
       </details>
       <details>
         <summary>Do I need an account?</summary>
@@ -196,12 +202,13 @@
     </div>
 
     <footer>
+      <p>Questions or ideas: <a href="mailto:hello@thepresentpicker.com">hello@thepresentpicker.com</a></p>
       Built with Muse.<br>
       Browse by person: <a href="/gifts-for-dad">Gifts for Dad</a> · <a href="/gifts-for-mom">Gifts for Mom</a> · <a href="/gifts-for-partner">Gifts for Your Partner</a> · <a href="/gifts-for-grandparent">Gifts for Grandparents</a> · <a href="/gifts-for-friend">Gifts for Friends</a> · <a href="/gifts-for-kids">Gifts for Kids</a><br>
       Browse by budget: <a href="/gifts-under-25">Gifts Under $25</a> · <a href="/gifts-25-to-50">Gifts $25 to $50</a> · <a href="/gifts-50-to-100">Gifts $50 to $100</a> · <a href="/gifts-over-100">Gifts Over $100</a><br>
       Browse by occasion: <a href="/christmas-gifts">Christmas Gifts</a> · <a href="/birthday-gifts">Birthday Gifts</a>
     <br>
-      More: <a href="/privacy">Privacy</a> &middot; <a href="/mcp">For AI assistants</a>
+      More: <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/mcp">For AI assistants</a>
     </footer>
   </section>
 
@@ -209,7 +216,7 @@
   <section class="screen" id="s-quiz">
     <div class="dots" id="q-dots" aria-hidden="true"></div>
     <p class="step-tag" id="q-step"></p>
-    <h2 id="q-title"></h2>
+    <h2 id="q-title">Who are you buying for?</h2>
     <p class="sub" id="q-sub"></p>
     <div class="chips" id="q-chips"></div>
     <p class="hint" id="q-hint"></p>
@@ -231,7 +238,7 @@
     <button class="ghost" id="btn-again">Start over</button>
     <div class="hatch">
       <h3>Still stuck?</h3>
-      <p class="sub">Describe them in a sentence and we will write a sharp prompt, pre-filled with your answers above. Paste it into your own AI (ChatGPT, Claude, Gemini) for fresh ideas. Nothing leaves your browser until you paste it.</p>
+      <p class="sub">Tell us about them in one sentence. We build a sharp prompt from your answers. Paste it into ChatGPT, Claude, or Gemini for fresh ideas.</p>
       <textarea id="ai-desc" rows="3" placeholder="Example: my dad loves obscure jazz records and builds furniture in his garage"></textarea>
       <button class="cta" id="btn-ai-prompt">Write my AI prompt</button>
       <div id="ai-out" hidden>
@@ -455,8 +462,9 @@ function shareOf(k){
 function $(id){ return document.getElementById(id); }
 
 /* ================= Picker Engine (config-driven, built for reuse) =================
-   Hard filters: recipient + budget. Scoring: +2 per matched interest, +3 for style
-   match. Deterministic: score desc, then array order. */
+   Hard filters: recipient + budget. Scoring: +3 per matched interest, +2 for style
+   match. Interest outweighs style, so the top pick always carries a picked
+   interest when one fits the cell. Deterministic: score desc, then array order. */
 var PickerEngine = {
   pick: function(answers, n){
     var scored = [];
@@ -466,9 +474,9 @@ var PickerEngine = {
       if (it.u.indexOf(answers.budget) < 0) continue;
       var s = 0, matched = [];
       for (var j = 0; j < it.i.length; j++){
-        if (answers.interests.indexOf(it.i[j]) >= 0){ s += 2; matched.push(labelOf(INTERESTS, it.i[j])); }
+        if (answers.interests.indexOf(it.i[j]) >= 0){ s += 3; matched.push(labelOf(INTERESTS, it.i[j])); }
       }
-      if (answers.style && it.s.indexOf(answers.style) >= 0){ s += 3; matched.push(labelOf(STYLES, answers.style)); }
+      if (answers.style && it.s.indexOf(answers.style) >= 0){ s += 2; matched.push(labelOf(STYLES, answers.style)); }
       scored.push({idea: it, score: s, rank: i, matched: matched});
     }
     scored.sort(function(a, b){ return (b.score - a.score) || (a.rank - b.rank); });
@@ -477,15 +485,25 @@ var PickerEngine = {
 };
 
 /* ================= Thin-cell honesty =================
-   A pick "truly fits" when the engine scored it above zero, which is
-   the same thing as carrying a matched tag (an interest hit at +2 or
-   a style hit at +3). When fewer than 5 picks truly fit, say so in
-   plain words instead of letting the close extras pass as matches.
-   Mirrors the MCP tool, which reports its true fit count. This never
-   changes which picks return or their order. */
+   A pick "truly fits" when it carries one of the interests the
+   shopper picked. The engine only puts a label in a pick's matched
+   list for an interest the shopper picked (at +3) or for the picked
+   style (at +2), so counting picks whose matched list holds an
+   interest label counts exactly the interest fits. A style-only
+   match does not count (Oct 24 cold QA, finding F3: the old
+   score-above-zero test stayed silent on 530 of 1,540 paths where
+   fewer than 5 picks carried the picked interest). When fewer than
+   5 picks truly fit, say so in plain words instead of letting the
+   close extras pass as matches. This never changes which picks
+   return or their order. */
 function thinNoteText(picks){
+  var interestLabels = {};
+  for (var k = 0; k < INTERESTS.length; k++) interestLabels[INTERESTS[k].label] = 1;
   var fit = 0;
-  for (var i = 0; i < picks.length; i++) if (picks[i].score > 0) fit++;
+  for (var i = 0; i < picks.length; i++){
+    var m = picks[i].matched || [];
+    for (var j = 0; j < m.length; j++) if (interestLabels[m[j]]){ fit++; break; }
+  }
   if (fit >= picks.length) return "";
   if (fit === 0) return "No ideas truly fit your picks. All of them are close extras.";
   return "Only " + fit + (fit === 1 ? " idea truly fits" : " ideas truly fit") +
@@ -506,7 +524,24 @@ function loadList(){
   try {
     var raw = localStorage.getItem(LIST_KEY);
     var arr = raw ? JSON.parse(raw) : [];
-    return Array.isArray(arr) ? arr : [];
+    if (!Array.isArray(arr)) return [];
+    /* 2026-10-24 (gpt-loop run 634): validate entries, not just the outer
+       array. A stale idea id (bank change), an unknown recipient, a
+       malformed entry, or a duplicate used to survive: the count included
+       it and renderList opened a group for it, then showed zero items.
+       Prune here, where every reader (isSaved, toggleSave, renderList,
+       updateCounts) passes, and write the cleaned list back once, only
+       when something was actually dropped. */
+    var clean = [], seen = {}, dropped = false;
+    arr.forEach(function(e){
+      var ok = !!e && typeof e === "object" && !!ideaById(e.id) &&
+        RECIPIENTS.some(function(r){ return r.k === e.who; });
+      var key = ok ? e.id + "|" + e.who : null;
+      if (ok && !seen[key]){ seen[key] = 1; clean.push({id: e.id, who: e.who}); }
+      else dropped = true;
+    });
+    if (dropped) saveList(clean);
+    return clean;
   } catch (e) { return []; }
 }
 function saveList(arr){
@@ -654,6 +689,49 @@ $("q-next").onclick = function(){
   else { finishQuiz(); }
 };
 
+/* ================= Gift photos (category tiles) =================
+   One photo per gift type, shared by the picks screen and the
+   downloadable list image, so the share artifact and the on-screen
+   result are one design. Mapping: an idea's first interest wins.
+   Ideas with no interest fall back by style (sentimental -> keepsake,
+   experience -> experience), then kid recipients, then practical/fun
+   (everyday), then the neutral wrapped-gift photo, which is also the
+   fallback for any interest with no photo of its own. */
+var GIFT_PHOTOS = {
+  cooking: "img/gift-cooking.jpg", outdoors: "img/gift-outdoors.jpg",
+  tech: "img/gift-tech.jpg", books: "img/gift-books.jpg",
+  fitness: "img/gift-fitness.jpg", cozy: "img/gift-cozy.jpg",
+  music: "img/gift-music.jpg", games: "img/gift-games.jpg",
+  science: "img/gift-science.jpg", gardening: "img/gift-gardening.jpg",
+  travel: "img/gift-travel.jpg", keepsake: "img/gift-keepsake.jpg",
+  experience: "img/gift-experience.jpg", kids: "img/gift-kids.jpg",
+  everyday: "img/gift-everyday.jpg", gift: "img/gift-gift.jpg"
+};
+function photoKeyFor(it){
+  if (it.i && it.i.length && GIFT_PHOTOS[it.i[0]]) return it.i[0];
+  if (it.s && it.s.indexOf("sentimental") >= 0) return "keepsake";
+  if (it.s && it.s.indexOf("experience") >= 0) return "experience";
+  if (it.r && it.r.indexOf("kid") >= 0) return "kids";
+  if (it.s && (it.s.indexOf("practical") >= 0 || it.s.indexOf("fun") >= 0)) return "everyday";
+  return "gift";
+}
+function photoSrcFor(it){ return GIFT_PHOTOS[photoKeyFor(it)]; }
+function loadPhotosFor(items, done){
+  var seen = {}, list = [];
+  items.forEach(function(it){
+    var s = photoSrcFor(it);
+    if (!seen[s]){ seen[s] = 1; list.push(s); }
+  });
+  var out = {}, left = list.length;
+  if (!left){ done(out); return; }
+  list.forEach(function(s){
+    var im = new Image();
+    im.onload = function(){ out[s] = im; left--; if (!left) done(out); };
+    im.onerror = function(){ out[s] = null; left--; if (!left) done(out); };
+    im.src = s;
+  });
+}
+
 /* ================= Picks screen ================= */
 var currentPicks = [];
 function finishQuiz(){
@@ -675,8 +753,17 @@ function renderPicks(){
   $("picks-note").hidden = noteText === "";
   var box = $("picks");
   box.innerHTML = "";
+  /* Oct 24 cold QA, finding F4: photos are per category, so one set
+     can show the same photo twice in a row. Track the sources used
+     in this set; only the first card with a given source renders
+     its photo, and later repeats render with no photo block (the
+     layout the photo error path already falls back to). */
+  var usedPhotos = {};
   currentPicks.forEach(function(p){
     var it = p.idea;
+    var src = photoSrcFor(it);
+    var showPhoto = !usedPhotos[src];
+    usedPhotos[src] = 1;
     var card = document.createElement("div");
     card.className = "card";
     var saved = isSaved(it.id, quiz.who);
@@ -684,15 +771,20 @@ function renderPicks(){
       ? '<div class="tags">' + p.matched.map(function(t){ return '<span class="tag">\u2713 ' + t + "</span>"; }).join("") + "</div>"
       : "";
     card.innerHTML =
+      (showPhoto ? '<img class="photo" src="' + src + '" alt="" loading="lazy">' : "") +
       "<h3>" + escapeHTML(it.t) + "</h3>" +
       "<p>" + escapeHTML(it.b) + "</p>" +
       '<div class="why"><b>Why this fits</b>' + escapeHTML(it.f) + "</div>" +
+      (it.g ? '<div class="why"><b>Buying notes</b>' + escapeHTML(it.g) + "</div>" : "") +
+      (it.h ? '<div class="why"><b>Care and pairing</b>' + escapeHTML(it.h) + "</div>" : "") +
       tags +
       '<p class="status"></p>' +
       '<div class="row2">' +
         '<button class="ghost btn-save">' + (saved ? "\u2713 Saved" : "Save") + "</button>" +
         '<button class="ghost btn-ask">Ask a friend</button>' +
       "</div>";
+    var photo = card.querySelector(".photo");
+    if (photo) photo.onerror = function(){ photo.style.display = "none"; };
     var status = card.querySelector(".status");
     card.querySelector(".btn-save").onclick = function(){
       toggleSave(it.id, quiz.who);
@@ -742,7 +834,7 @@ function renderList(){
     var g = document.createElement("div");
     g.className = "list-group";
     var rows = items.map(function(it){
-      return '<div class="list-item"><span>' + escapeHTML(it.t) + '</span>' +
+      return '<div class="list-item"><span>' + escapeHTML(it.t) + ' <span class="tag">' + escapeHTML(labelOf(BUDGETS, it.u[0])) + '</span></span>' +
         '<button class="rm" data-id="' + it.id + '" aria-label="Remove ' + escapeHTML(it.t) + '">\u00d7</button></div>';
     }).join("");
     g.innerHTML = "<h3>For " + escapeHTML(labelOf(RECIPIENTS, who)) + "</h3>" + rows +
@@ -772,8 +864,39 @@ function renderList(){
   });
 }
 
-/* ---- 1080x1080 share card (canvas, no external assets) ---- */
-function drawListCard(who, items){
+/* ---- 1080x1080 share card: the same photo tiles as the picks screen ---- */
+function roundRectPath(x, px, py, w, h, r){
+  x.beginPath();
+  x.moveTo(px + r, py);
+  x.arcTo(px + w, py, px + w, py + h, r);
+  x.arcTo(px + w, py + h, px, py + h, r);
+  x.arcTo(px, py + h, px, py, r);
+  x.arcTo(px, py, px + w, py, r);
+  x.closePath();
+}
+function drawCover(x, img, px, py, w, h){
+  var scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+  var sw = w / scale, sh = h / scale;
+  var sx = (img.naturalWidth - sw) / 2, sy = (img.naturalHeight - sh) / 2;
+  x.drawImage(img, sx, sy, sw, sh, px, py, w, h);
+}
+function fitLines(x, text, maxWidth, maxLines){
+  var words = String(text).split(/\s+/), lines = [], cur = "";
+  words.forEach(function(wd){
+    var next = cur ? cur + " " + wd : wd;
+    if (x.measureText(next).width <= maxWidth || !cur) cur = next;
+    else { lines.push(cur); cur = wd; }
+  });
+  if (cur) lines.push(cur);
+  if (lines.length > maxLines){
+    lines = lines.slice(0, maxLines);
+    var last = lines[maxLines - 1];
+    while (last.length > 4 && x.measureText(last + "...").width > maxWidth) last = last.slice(0, -1);
+    lines[maxLines - 1] = last.replace(/[\s,;:.]+$/, "") + "...";
+  }
+  return lines;
+}
+function drawListCard(who, items, photos){
   try {
     var c = document.createElement("canvas");
     c.width = 1080; c.height = 1080;
@@ -783,42 +906,67 @@ function drawListCard(who, items){
     x.fillStyle = "#faf6ee"; x.fillRect(0, 0, 1080, 1080);
     x.strokeStyle = "#8f5f06"; x.lineWidth = 10; x.strokeRect(36, 36, 1008, 1008);
     x.textAlign = "center"; x.fillStyle = "#8f5f06";
-    x.font = "700 64px " + FONT;
-    x.fillText("The Present Picker", 540, 150);
-    x.fillStyle = "#2b2419"; x.font = "700 56px " + FONT;
-    x.fillText("Gift list for " + labelOf(RECIPIENTS, who), 540, 235);
-    x.font = "400 44px " + FONT; x.textAlign = "left";
-    var y = 340;
-    var shown = items.slice(0, 7);
+    x.font = "700 58px " + FONT;
+    x.fillText("The Present Picker", 540, 136);
+    x.fillStyle = "#2b2419"; x.font = "700 46px " + FONT;
+    var title = "Gift list for " + labelOf(RECIPIENTS, who);
+    while (x.measureText(title).width > 920 && title.length > 4) title = title.slice(0, -4);
+    x.fillText(title, 540, 202);
+    var shown = items.slice(0, 5);
+    var tileY = 238, tileH = 132, gap = 12;
     shown.forEach(function(it, idx){
-      var line = (idx + 1) + ". " + it.t;
-      while (x.measureText(line).width > 880 && line.length > 4) line = line.slice(0, -4);
-      if (line !== (idx + 1) + ". " + it.t) line += "...";
-      x.fillText(line, 110, y);
-      y += 92;
+      var ty = tileY + idx * (tileH + gap);
+      x.fillStyle = "#fffdf8";
+      roundRectPath(x, 70, ty, 940, tileH, 18); x.fill();
+      x.strokeStyle = "#e2d6bd"; x.lineWidth = 3;
+      roundRectPath(x, 70, ty, 940, tileH, 18); x.stroke();
+      var img = photos ? photos[photoSrcFor(it)] : null;
+      x.save();
+      roundRectPath(x, 86, ty + 14, 170, tileH - 28, 12); x.clip();
+      if (img) drawCover(x, img, 86, ty + 14, 170, tileH - 28);
+      else { x.fillStyle = "#f3e8cf"; x.fillRect(86, ty + 14, 170, tileH - 28); }
+      x.restore();
+      x.textAlign = "left"; x.fillStyle = "#2b2419"; x.font = "700 33px " + FONT;
+      var name = it.t;
+      while (x.measureText(name).width > 700 && name.length > 4) name = name.slice(0, -4);
+      if (name !== it.t) name += "...";
+      x.fillText(name, 282, ty + 50);
+      x.fillStyle = "#6f6350"; x.font = "400 27px " + FONT;
+      var lines = fitLines(x, it.g || it.b || "", 700, 2);
+      lines.forEach(function(ln, li){ x.fillText(ln, 282, ty + 90 + li * 33); });
     });
-    x.textAlign = "center"; x.fillStyle = "#8f5f06"; x.font = "600 40px " + FONT;
-    x.fillText("thepresentpicker.com", 540, 990);
+    x.textAlign = "center"; x.fillStyle = "#8f5f06"; x.font = "600 38px " + FONT;
+    var foot = items.length > 5
+      ? "+ " + (items.length - 5) + " more on the list \u00b7 thepresentpicker.com"
+      : "thepresentpicker.com";
+    x.fillText(foot, 540, 1006);
     return c.toDataURL("image/png");
   } catch (e) { return null; }
 }
 function saveListImage(who, items, statusEl){
-  var url = drawListCard(who, items);
-  if (!url){ statusEl.textContent = "Could not make the image on this browser."; return; }
-  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  if (isIOS){
-    /* iOS ignores the download attribute: open in a tab with honest instructions. */
-    var w = window.open();
-    if (w){ w.document.write('<img src="' + url + '" style="width:100%">'); }
-    statusEl.textContent = "Image opened in a new tab. Touch and hold it, then tap Save to Photos.";
-  } else {
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = "present-picker-list.png";
-    document.body.appendChild(a); a.click();
-    setTimeout(function(){ a.remove(); }, 800);
-    statusEl.textContent = "Image saved. Send it to the family chat.";
-  }
+  statusEl.textContent = "Making your image...";
+  loadPhotosFor(items.slice(0, 5), function(photos){
+    var url = drawListCard(who, items, photos);
+    if (!url){ statusEl.textContent = "Could not make the image on this browser."; return; }
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if (isIOS){
+      /* iOS ignores the download attribute: open in a tab with honest instructions. */
+      var w = window.open();
+      if (w){
+        w.document.write('<img src="' + url + '" style="width:100%">');
+        statusEl.textContent = "Image opened in a new tab. Touch and hold it, then tap Save to Photos.";
+      } else {
+        statusEl.textContent = "Your browser blocked the new tab. Allow pop-ups for this site, then tap Save image again.";
+      }
+    } else {
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "present-picker-list.png";
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){ a.remove(); }, 800);
+      statusEl.textContent = "Image saved. Send it to the family chat.";
+    }
+  });
 }
 
 /* ================= AI escape hatch ================= */
@@ -893,15 +1041,31 @@ function openGiftIdea(it){
   var card = document.createElement("div");
   card.className = "card";
   card.innerHTML =
+    '<img class="photo" src="' + photoSrcFor(it) + '" alt="" loading="lazy">' +
     "<h3>" + escapeHTML(it.t) + "</h3>" +
     "<p>" + escapeHTML(it.b) + "</p>" +
     '<div class="why"><b>Why this fits</b>' + escapeHTML(it.f) + "</div>" +
     (it.g ? '<div class="why"><b>Buying notes</b>' + escapeHTML(it.g) + "</div>" : "") +
     (it.h ? '<div class="why"><b>Care and pairing</b>' + escapeHTML(it.h) + "</div>" : "") +
-    '<div class="tags"><span class="tag">' + escapeHTML(labelOf(BUDGETS, it.u[0])) + "</span></div>";
+    '<div class="tags"><span class="tag">' + escapeHTML(labelOf(BUDGETS, it.u[0])) + "</span></div>" +
+    '<p class="status"></p>' +
+    '<div class="row2">' +
+      '<button class="ghost btn-save">' + (isSaved(it.id, "other") ? "\u2713 Saved" : "Save") + "</button>" +
+    "</div>";
+  var giftPhoto = card.querySelector(".photo");
+  giftPhoto.onerror = function(){ giftPhoto.style.display = "none"; };
   var box = $("gift-card");
   box.innerHTML = "";
   box.appendChild(card);
+  /* 2026-10-24 (gpt-loop run 630): a recipient who was sent one idea had no
+     way to keep it; the results screen has Save, this screen did not. Mirror
+     the results button. No quiz context here, so the save files under
+     "other", the same neutral bucket the quiz itself uses. */
+  card.querySelector(".btn-save").onclick = function(){
+    toggleSave(it.id, "other");
+    this.innerHTML = isSaved(it.id, "other") ? "\u2713 Saved" : "Save";
+    Analytics.track("idea_saved", {idea_id: it.id, recipient: "other", origin: "gift_link"});
+  };
   show("s-gift");
   Analytics.track("gift_link_opened", {idea_id: it.id});
 }
@@ -937,6 +1101,30 @@ $("btn-clear").onclick = function(){
   $("list-status").textContent = "List cleared.";
 };
 updateCounts();
+</script>
+<script>
+(function () {
+  var el = document.getElementById("countdown");
+  if (!el) return;
+  function christmas(year) { return new Date(year, 11, 25); }
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var year = today.getFullYear();
+  var target = christmas(year);
+  var rolled = false;
+  if (today > target) { target = christmas(year + 1); rolled = true; }
+  var days = Math.round((target - today) / 86400000);
+  var dateText = target.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+  var text;
+  if (days === 0) {
+    text = "Christmas is today, " + dateText + ".";
+  } else if (rolled) {
+    text = "Christmas Day has passed. Next Christmas is " + dateText + ", in " + days + " days.";
+  } else {
+    text = days + (days === 1 ? " day" : " days") + " until Christmas, " + dateText + ".";
+  }
+  el.textContent = text;
+})();
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "13c6ffa02e21404481cb39e1c7064870"}'></script>
 </body>

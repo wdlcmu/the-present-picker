@@ -76,6 +76,10 @@
     padding:16px;margin:14px 0;
   }
   .card h3{font-size:18px}
+  .card .photo{
+    display:block;width:calc(100% + 32px);max-width:none;height:210px;object-fit:cover;
+    margin:-16px -16px 14px;border-radius:12px 12px 0 0;background:var(--gold-soft);
+  }
   .why{
     border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;
     background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
@@ -86,7 +90,7 @@
   .faq summary{font-weight:700;cursor:pointer;font-size:16px}
   .faq p{margin:8px 0 2px;color:var(--muted)}
   footer{margin-top:44px;padding-top:18px;border-top:2px solid var(--line);color:var(--muted);font-size:14px}
-  footer a{color:var(--gold);font-weight:700}
+  footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
   .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none}
 </style>
@@ -105,57 +109,77 @@
 
     <h2>Under $25</h2>
     <div class="card">
+      <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Small-batch hot sauce trio</h3>
       <p>Three bottles with the heat levels labeled and tasting notes on the box.</p>
       <div class="why"><b>Why this fits</b>A low-stakes way to discover a new favorite.</div>
+      <div class="why"><b>Buying notes</b>Look for: three heat levels, mild to hot, with real peppers named. Avoid: sets that are all extreme heat.</div>
     </div>
     <div class="card">
+      <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>&quot;Reasons I love you&quot; jar</h3>
       <p>Fifty-two notes, one for each week of the year.</p>
       <div class="why"><b>Why this fits</b>Cheesy in the best possible way.</div>
+      <div class="why"><b>Buying notes</b>Look for: 52 notes you wrote yourself, one for each week. Avoid: pre-written notes that sound like a stranger.</div>
     </div>
     <div class="card">
+      <img class="photo" src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Weighted jump rope</h3>
       <p>Ten minutes that humbles every cardio machine.</p>
       <div class="why"><b>Why this fits</b>The smallest serious workout you can own.</div>
+      <div class="why"><b>Buying notes</b>Look for: adjustable length and handles that spin smooth. Avoid: ropes that kink and tangle.</div>
     </div>
     <h2>$25 to $50</h2>
     <div class="card">
+      <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Portable camping hammock</h3>
       <p>Sets up between two trees in about five minutes.</p>
       <div class="why"><b>Why this fits</b>For the napper disguised as a hiker.</div>
+      <div class="why"><b>Buying notes</b>Look for: straps included and a weight rating well above theirs. Avoid: hammocks that need a separate rope buy.</div>
     </div>
     <div class="card">
+      <img class="photo" src="img/gift-tech.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Wireless earbuds</h3>
       <p>Good sound, a charging case, and no wires to untangle.</p>
       <div class="why"><b>Why this fits</b>For the commuter, the caller, the podcast devotee.</div>
+      <div class="why"><b>Buying notes</b>Look for: a charging case, a few tip sizes, and clear call sound. Avoid: buds with no spare tips.</div>
     </div>
     <div class="card">
+      <img class="photo" src="img/gift-music.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Vinyl record of an album they love</h3>
       <p>The one they keep mentioning, on wax.</p>
       <div class="why"><b>Why this fits</b>For the listener, not the streamer.</div>
+      <div class="why"><b>Buying notes</b>Look for: an album they already love, new or clean used vinyl. Avoid: scratched records and random compilations.</div>
     </div>
     <h2>$50 to $100</h2>
     <div class="card">
+      <img class="photo" src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Gym duffel with shoe compartment</h3>
       <p>Swallows shoes, bottle, and towel without smelling like any of them.</p>
       <div class="why"><b>Why this fits</b>Makes the early workout slightly less annoying.</div>
+      <div class="why"><b>Buying notes</b>Look for: a separate vented shoe pocket and a shoulder strap. Avoid: one big pocket where shoes meet clothes.</div>
     </div>
     <div class="card">
+      <img class="photo" src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Chunky knit throw blanket</h3>
       <p>The couch blanket everyone fights over.</p>
       <div class="why"><b>Why this fits</b>For movie nights and sick days.</div>
+      <div class="why"><b>Buying notes</b>Look for: a tight chunky knit, at least 50 inches wide. Avoid: loose knits that snag and stretch out.</div>
     </div>
     <h2>$100+</h2>
     <div class="card">
+      <img class="photo" src="img/gift-music.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Two concert tickets</h3>
       <p>A night out with the music turned all the way up.</p>
       <div class="why"><b>Why this fits</b>The gift is the night, not the thing.</div>
+      <div class="why"><b>Buying notes</b>Look for: an artist they love and two seats together on a free night. Avoid: seats stuck behind a pillar.</div>
     </div>
     <div class="card">
+      <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Cooking class for two</h3>
       <p>Three hours, one cuisine, dinner included.</p>
       <div class="why"><b>Why this fits</b>The rare gift that is also a date.</div>
+      <div class="why"><b>Buying notes</b>Look for: hands-on cooking, dinner included, and a date they are free. Avoid: classes where you only watch.</div>
     </div>
 
   <a class="cta" href="/">Find their gift</a>
@@ -184,7 +208,7 @@
     Browse by occasion: <a href="/christmas-gifts">Christmas Gifts</a> · <a href="/birthday-gifts">Birthday Gifts</a><br>
     <a href="/">The Present Picker</a>
   <br>
-    More: <a href="/privacy">Privacy</a> &middot; <a href="/mcp">For AI assistants</a>
+    More: <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/mcp">For AI assistants</a>
   </footer>
 </div>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "13c6ffa02e21404481cb39e1c7064870"}'></script>

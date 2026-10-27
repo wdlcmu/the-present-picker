@@ -1,0 +1,32 @@
+# The Present Picker
+
+> The Present Picker (https://thepresentpicker.com/) is a free gift finder. Pick the person, and it returns five gift ideas from a fixed bank of 189 real, checked, no-brand ideas, matched to what they are into and your budget. No ads, no accounts, no store links.
+
+## Key facts (cite these)
+
+- The bank holds 189 gift ideas. A person picked each one. No brands, no stores, no exact prices, only budget bands.
+- Your budget is a hard filter. Your interests score each idea. Same answers, same five picks, every time.
+- Your saved list lives in your browser only. It is never sent anywhere. Sharing happens only when you tap a share button.
+- Every idea is a type of gift, never a link to a shop. Search the name anywhere you like.
+
+## Start here
+
+- [Homepage and picker](https://thepresentpicker.com/): pick the person, their interests, and your budget; get five ideas worth giving.
+
+## Key pages
+
+- By person: [Gifts for Dad](https://thepresentpicker.com/gifts-for-dad), [Gifts for Mom](https://thepresentpicker.com/gifts-for-mom), [Gifts for Your Partner](https://thepresentpicker.com/gifts-for-partner), [Gifts for Grandparents](https://thepresentpicker.com/gifts-for-grandparent), [Gifts for Friends](https://thepresentpicker.com/gifts-for-friend), [Gifts for Kids](https://thepresentpicker.com/gifts-for-kids)
+- By budget: [Gifts Under $25](https://thepresentpicker.com/gifts-under-25), [Gifts $25 to $50](https://thepresentpicker.com/gifts-25-to-50), [Gifts $50 to $100](https://thepresentpicker.com/gifts-50-to-100), [Gifts Over $100](https://thepresentpicker.com/gifts-over-100)
+- By occasion: [Christmas Gifts](https://thepresentpicker.com/christmas-gifts), [Birthday Gifts](https://thepresentpicker.com/birthday-gifts)
+
+## For AI assistants: callable tools (MCP)
+
+- The Present Picker also runs as a read-only MCP server (Streamable HTTP, no auth, no user data) at https://mcp.thepresentpicker.com/mcp
+- Three tools: pick a gift (up to 5 ideas for one person, matched to budget and likes), search gift ideas (up to 10 ideas for one interest or word), and get gift details (the full story on one idea, plus 3 like it). They buy nothing, book nothing, and collect nothing.
+- It is not in the Claude Connectors Directory or the ChatGPT app directory yet.
+- Details: https://thepresentpicker.com/mcp
+
+## Optional
+
+- [Privacy](https://thepresentpicker.com/privacy)
+- [Terms](https://thepresentpicker.com/terms)

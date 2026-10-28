@@ -28,5 +28,6 @@
 
 ## Optional
 
+- [Full page text](https://thepresentpicker.com/llms-full.txt): all 189 gift ideas in the bank, in full, for readers that prefer one file.
 - [Privacy](https://thepresentpicker.com/privacy)
 - [Terms](https://thepresentpicker.com/terms)

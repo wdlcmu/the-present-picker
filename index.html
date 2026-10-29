@@ -899,6 +899,7 @@ function finishQuiz(){
   currentPicks = PickerEngine.pick(quiz, 5);
   Analytics.track("search_completed", {recipient: quiz.who, budget: quiz.budget, interest_count: quiz.interests.length});
   fleetTrack("tool_complete", {tool: "gift-picker", results_count: currentPicks.length});
+  $("ai-desc").value = ""; $("ai-out").hidden = true;
   renderPicks();
   show("s-picks");
 }

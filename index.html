@@ -39,7 +39,7 @@
       "name": "How are the five picks chosen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your budget is a hard filter. Your interests score each idea. Your style boosts matching picks. Same answers, same order, every time."
+        "text": "Your budget is a hard filter. Your interests score each idea. A picked style puts a matching idea first. Same answers, same order, every time."
       }
     },
     {
@@ -208,7 +208,7 @@
       </details>
       <details>
         <summary>How are the five picks chosen?</summary>
-        <p>Your budget is a hard filter. Your interests score each idea. Your style boosts matching picks. Same answers, same order, every time.</p>
+        <p>Your budget is a hard filter. Your interests score each idea. A picked style puts a matching idea first. Same answers, same order, every time.</p>
       </details>
       <details>
         <summary>Do I need an account?</summary>
@@ -633,8 +633,11 @@ function $(id){ return document.getElementById(id); }
 
 /* ================= Picker Engine (config-driven, built for reuse) =================
    Hard filters: recipient + budget. Scoring: +3 per matched interest, +2 for style
-   match. Interest outweighs style, so the top pick always carries a picked
-   interest when one fits the cell. Deterministic: score desc, then array order. */
+   match. A picked style gates the top pick (Oct 29 dogfood fix, Billy's call):
+   the best-scoring idea that carries the picked style leads the list, even when
+   an interest-only match scored higher; among the style fits, the interest
+   score still decides. When no idea in the cell carries the picked style, the
+   scored order stands. Deterministic: score desc, then array order. */
 var PickerEngine = {
   pick: function(answers, n){
     /* Oct 25 cold QA, finding F8: a Coworker chip exists so shoppers do
@@ -654,6 +657,14 @@ var PickerEngine = {
       scored.push({idea: it, score: s, rank: i, matched: matched});
     }
     scored.sort(function(a, b){ return (b.score - a.score) || (a.rank - b.rank); });
+    if (answers.style){
+      for (var k = 0; k < scored.length; k++){
+        if (scored[k].idea.s.indexOf(answers.style) >= 0){
+          if (k > 0){ var lead = scored.splice(k, 1)[0]; scored.unshift(lead); }
+          break;
+        }
+      }
+    }
     return scored.slice(0, n || 5);
   }
 };
@@ -805,7 +816,7 @@ var STEPS = [
   {key: "who", title: "Who is it for?", sub: "Pick one person.", required: true},
   {key: "interests", title: "What are they into?", sub: "Pick at least one. More is fine.", required: true, multi: true},
   {key: "budget", title: "What is the budget?", sub: "This is a hard filter. Picks stay inside it.", required: true},
-  {key: "style", title: "Any style preference?", sub: "Optional. Skip it and you still get five picks.", required: false}
+  {key: "style", title: "Any style preference?", sub: "Optional. Pick one, or skip it and you still get five picks.", required: false}
 ];
 function chipHTML(list, selected, multi){
   return list.map(function(o){

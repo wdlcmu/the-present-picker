@@ -656,7 +656,15 @@ var PickerEngine = {
       if (answers.style && it.s.indexOf(answers.style) >= 0){ s += 2; matched.push(labelOf(STYLES, answers.style)); }
       scored.push({idea: it, score: s, rank: i, matched: matched});
     }
-    scored.sort(function(a, b){ return (b.score - a.score) || (a.rank - b.rank); });
+    /* Oct 29 cold-loop fix: at equal score, a Kid list ranks kid-only
+       ideas ahead of ideas shared with adult recipients, so a generic
+       adult item (a charging-cable set, a water bottle) can never top a
+       kid list on a flat tie. Same rule the MCP engine already runs. */
+    scored.sort(function(a, b){
+      if (b.score !== a.score) return b.score - a.score;
+      if (who === "kid" && a.idea.r.length !== b.idea.r.length) return a.idea.r.length - b.idea.r.length;
+      return a.rank - b.rank;
+    });
     if (answers.style){
       for (var k = 0; k < scored.length; k++){
         if (scored[k].idea.s.indexOf(answers.style) >= 0){

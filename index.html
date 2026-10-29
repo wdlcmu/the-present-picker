@@ -248,7 +248,7 @@
     <div class="hatch">
       <h3>Still stuck?</h3>
       <p class="sub">Tell us about them in one short line. We make words you can paste into your AI.</p>
-      <textarea id="ai-desc" rows="3" placeholder="Example: my dad loves obscure jazz records and builds furniture in his garage"></textarea>
+      <textarea id="ai-desc" rows="3" maxlength="200" placeholder="Example: my dad loves obscure jazz records and builds furniture in his garage"></textarea>
       <button class="cta" id="btn-ai-prompt">Write my AI prompt</button>
       <div id="ai-out" hidden>
         <p class="sub">Copy this into your AI:</p>
@@ -682,7 +682,7 @@ function loadList(){
       var ok = !!e && typeof e === "object" && !!ideaById(e.id) &&
         RECIPIENTS.some(function(r){ return r.k === e.who; });
       var key = ok ? e.id + "|" + e.who : null;
-      if (ok && !seen[key]){ seen[key] = 1; clean.push({id: e.id, who: e.who}); }
+      if (ok && !seen[key]){ seen[key] = 1; clean.push({id: e.id, who: e.who}); if (Object.keys(e).some(function(k){ return k !== "id" && k !== "who"; })) dropped = true; }
       else dropped = true;
     });
     if (dropped) saveList(clean);
@@ -765,7 +765,11 @@ var interestNotSure = false;
 var sessionName = "";
 var sessionNameWho = null;
 function cleanName(){
-  return (quiz.name || "").trim().slice(0, 40);
+  var n = (quiz.name || "").trim().slice(0, 40);
+  /* Drop a trailing lone high surrogate: the 40-unit cut can split an
+     emoji in half, leaving a broken character in the title/share text. */
+  if (n.length && n.charCodeAt(n.length - 1) >= 0xD800 && n.charCodeAt(n.length - 1) <= 0xDBFF) n = n.slice(0, -1);
+  return n;
 }
 var STEPS = [
   {key: "name", title: "Who are you buying for?", sub: "A first name is plenty. You can skip this step.", required: false},
@@ -894,6 +898,7 @@ function loadPhotosFor(items, done){
 /* ================= Picks screen ================= */
 var currentPicks = [];
 function finishQuiz(){
+  if (!Array.isArray(quiz.interests)) quiz.interests = [];
   sessionName = cleanName();
   sessionNameWho = quiz.who;
   currentPicks = PickerEngine.pick(quiz, 5);
@@ -913,6 +918,7 @@ function renderPicks(){
   if (quiz.style) subParts.push(labelOf(STYLES, quiz.style));
   $("picks-sub").textContent = subParts.join(" \u00b7 ");
   var noteText = thinNoteText(currentPicks);
+  if (currentPicks.length === 0) noteText = "No ideas fit those answers. Try a wider budget.";
   $("picks-note").textContent = noteText;
   $("picks-note").hidden = noteText === "";
   var box = $("picks");

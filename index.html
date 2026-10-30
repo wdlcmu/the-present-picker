@@ -954,6 +954,50 @@ var GIFT_PHOTOS = {
   experience: "img/gift-experience.jpg", kids: "img/gift-kids.jpg",
   everyday: "img/gift-everyday.jpg", gift: "img/gift-gift.jpg"
 };
+var IDEA_PHOTOS = {
+  7: "img/gift-cozy.jpg",
+  11: "img/idea-stand-mixer.jpg",
+  23: "img/idea-phone-stand-with-charging-dock.jpg",
+  24: "img/idea-e-reader.jpg",
+  25: "img/idea-bluetooth-tracker-4-pack.jpg",
+  26: "img/idea-beginner-camera-drone.jpg",
+  27: "img/idea-commuter-electric-scooter.jpg",
+  28: "img/gift-music.jpg",
+  29: "img/idea-digital-photo-frame-with-wifi.jpg",
+  49: "img/idea-harmonica-with-beginner-songbook.jpg",
+  59: "img/idea-smart-bird-feeder-with-camera.jpg",
+  69: "img/idea-two-premium-seats-at-a-sports-game.jpg",
+  79: "img/gift-kids.jpg",
+  80: "img/idea-art-and-craft-kit.jpg",
+  83: "img/idea-durable-kids-digital-camera.jpg",
+  85: "img/idea-washable-marker-and-coloring-book-set.jpg",
+  86: "img/idea-modeling-dough-10-pack.jpg",
+  88: "img/gift-science.jpg",
+  89: "img/idea-wooden-play-kitchen.jpg",
+  90: "img/idea-kids-tablet-with-parental-controls.jpg",
+  91: "img/idea-family-membership-to-the-childrens-museum.jpg",
+  92: "img/idea-remote-control-stunt-car.jpg",
+  93: "img/idea-kids-microscope.jpg",
+  94: "img/gift-kids.jpg",
+  95: "img/idea-large-art-easel-with-supplies.jpg",
+  97: "img/idea-junior-baking-set-with-real-tools.jpg",
+  99: "img/idea-wooden-play-food-and-market-stall-set.jpg",
+  103: "img/idea-home-planetarium-projector.jpg",
+  114: "img/idea-big-button-universal-remote.jpg",
+  115: "img/idea-tabletop-radio-with-large-dials.jpg",
+  122: "img/idea-kids-keyboard-with-light-up-keys.jpg",
+  128: "img/idea-compact-under-desk-elliptical-trainer.jpg",
+  134: "img/idea-real-wood-percussion-set-for-kids.jpg",
+  143: "img/gift-tech.jpg",
+  149: "img/idea-smart-plug-pair-with-simple-timers.jpg",
+  153: "img/idea-beginner-ukulele-with-chord-chart.jpg",
+  159: "img/idea-mesh-wifi-booster-for-dead-rooms.jpg",
+  162: "img/idea-beginner-acoustic-guitar-with-lesson-book.jpg",
+  170: "img/idea-smart-indoor-garden-with-grow-lights.jpg",
+  184: "img/idea-pocket-microscope-with-prepared-slide-set.jpg",
+  193: "img/idea-kalimba-thumb-piano-with-song-cards.jpg",
+  200: "img/idea-embroidered-junior-chef-apron-with-their-name.jpg"
+};
 function photoKeyFor(it){
   if (it.i && it.i.length && GIFT_PHOTOS[it.i[0]]) return it.i[0];
   if (it.s && it.s.indexOf("sentimental") >= 0) return "keepsake";
@@ -962,7 +1006,7 @@ function photoKeyFor(it){
   if (it.s && (it.s.indexOf("practical") >= 0 || it.s.indexOf("fun") >= 0)) return "everyday";
   return "gift";
 }
-function photoSrcFor(it){ return GIFT_PHOTOS[photoKeyFor(it)]; }
+function photoSrcFor(it){ if (IDEA_PHOTOS[it.id]) return IDEA_PHOTOS[it.id]; return GIFT_PHOTOS[photoKeyFor(it)]; }
 function loadPhotosFor(items, done){
   var seen = {}, list = [];
   items.forEach(function(it){

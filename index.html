@@ -799,7 +799,7 @@ function loopAShareText(who, items, name){
 }
 function loopBShareText(who, idea, name){
   return "Thinking of getting " + (name ? name : shareOf(who)) + " this: " +
-    idea.t + ". " + idea.f + " Thoughts? Pick a gift for someone at https://thepresentpicker.com/?via=share";
+    idea.t + ". " + idea.f + " Thoughts? Pick a gift for someone at https://thepresentpicker.com/?gift=" + giftSlug(idea.t) + "&via=share";
 }
 
 /* ================= Quiz ================= */

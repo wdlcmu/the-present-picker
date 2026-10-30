@@ -1,6 +1,6 @@
 # The Present Picker: full gift-idea bank
 
-> Complete text of the gift bank behind thepresentpicker.com: 207 gift ideas, each checked by a person.
+> Complete text of the gift bank behind thepresentpicker.com: 212 gift ideas, each checked by a person.
 > No brands, no stores, no exact prices, only budget bands. The picker on the homepage and the
 > Present Picker MCP tools draw on this same bank. Generated 2026-10-27 from the bank source.
 
@@ -1615,3 +1615,46 @@ Why this fits: Flour dusted hands and printed cards keep one joyful evening aliv
 Spec: Look for: small class sizes, dinner included, and printed recipes to take home. Avoid: demo only classes where guests just watch.
 Tip: Book a date near a birthday or anniversary. Pairs with a bottle for the first home remake.
 For: mom, dad, partner, grandparent, friend, other · Budget: Over $100 · Interests: cooking · Style: sentimental, experience
+
+## Gardening
+
+### 208. Rustic terracotta plant pot
+Description: Aged clay with a rough, earthy finish that suits any sill or step.
+Why this fits: For the gardener who loves the pot as much as the plant.
+Spec: Look for: real terracotta with a drainage hole and a saucer that fits. Avoid: plastic pots painted to look like clay.
+Tip: Pairs with one plant she already loves, moved over together. Line the saucer so indoor floors stay dry.
+For: mom, dad, grandparent, friend, other · Budget: $25 to $50 · Interests: gardening · Style: practical
+
+## Books
+
+### 209. Pressed-flower bookmark
+Description: Real flowers sealed flat in a clear, sturdy sleeve.
+Why this fits: A small garden she can keep inside any book.
+Spec: Look for: real pressed flowers, sealed edges, and a tassel that lies flat. Avoid: thick resin blocks that stop a book closing.
+Tip: Pairs with her current read. Slide it into the book at her next chapter before you wrap it.
+For: mom, dad, partner, grandparent, friend, other · Budget: Under $25 · Interests: books · Style: sentimental
+
+### 210. Personalized gardening journal
+Description: Her name on the cover, pages for each bed, bloom, and harvest.
+Why this fits: For the gardener who reads her own garden back each spring.
+Spec: Look for: her name printed on the cover, dated pages, and room for sketches. Avoid: journals with only blank pages and no planting calendar.
+Tip: Pairs with a pencil that lives in the spine loop. Write the first entry yourself: one plant she is proud of.
+For: mom, dad, partner, grandparent, friend, other · Budget: $50 to $100 · Interests: gardening, books · Style: sentimental
+
+## Cooking
+
+### 211. Personalized travel cookbook
+Description: Recipes from the countries you have visited, printed in one book.
+Why this fits: For the cook who seasons by memory of a trip.
+Spec: Look for: one section per country, your photos beside the recipes, and a printed book that lies flat. Avoid: blank journals with no recipes inside.
+Tip: Pairs with one spice from the favorite trip. Cook the first recipe together the week it arrives.
+For: partner, mom, dad, friend, other · Budget: $25 to $50 · Interests: cooking, travel · Style: sentimental
+
+## Sentimental
+
+### 212. Large framed custom star-map print
+Description: The night sky from your date, printed large and ready to hang.
+Why this fits: The night it happened, on the wall where you both see it daily.
+Spec: Look for: the sky from the real date and place, a solid wood frame, and glass that does not glare. Avoid: stock skies that match no real night.
+Tip: Pairs with a card naming the date in your own words. Double-check the date and place before you order the print.
+For: partner, mom, dad, grandparent, other · Budget: $50 to $100 · Interests: (none) · Style: sentimental

@@ -1,6 +1,6 @@
 # The Present Picker: full gift-idea bank
 
-> Complete text of the gift bank behind thepresentpicker.com: 216 gift ideas, each checked by a person.
+> Complete text of the gift bank behind thepresentpicker.com: 225 gift ideas, each checked by a person.
 > No brands, no stores, no exact prices, only budget bands. The picker on the homepage and the
 > Present Picker MCP tools draw on this same bank. Generated 2026-10-27 from the bank source.
 
@@ -1688,3 +1688,68 @@ Why this fits: Mornings begin calmer when waking feels gradual rather than jarri
 Spec: Look for: a light that rises over twenty minutes, a snooze a child can tap, and a battery backup. Avoid: clocks with harsh buzzer-only alarms.
 Tip: Set the first wake time ten minutes early together. Pairs with a short bedtime routine chart on the wall.
 For: kid · Budget: $25 to $50 · Interests: cozy · Style: practical
+
+## Science
+
+### 217. Volcano eruption experiment kit
+Description: A plaster volcano they paint, fill, and make bubble over on the lawn.
+Why this fits: The eruption lasts a minute, yet the retelling lasts all week.
+Spec: Look for: washable eruption powder, a tray that catches the flow, and refills sold loose. Avoid: kits that erupt once and cannot be reused.
+Tip: Run the first eruption outside on paper. A second powder pack keeps the show going next weekend.
+For: kid · Budget: Under $25 · Interests: science · Style: fun
+
+### 218. Magnet science kit with wands and chips
+Description: Two wands, metal chips, and puzzle cards that hide the pull until the guess.
+Why this fits: An invisible force feels like a trick they control with their own hands.
+Spec: Look for: sealed magnets with no loose coating, chips in a case, and challenge cards. Avoid: tiny loose magnets a small child could swallow.
+Tip: Start with the guessing game on the cards. A metal tray keeps every piece in one place.
+For: kid · Budget: Under $25 · Interests: science · Style: fun
+
+### 219. Fizzy chemistry reaction kit
+Description: Color-changing potions, fizzing tablets, and test tubes sized for small hands.
+Why this fits: Every mix surprises them, so the next question arrives on its own.
+Spec: Look for: food-safe powders, real measuring spoons, goggles that fit a child, and a guide that spells out the science. Avoid: kits built around one single trick.
+Tip: Cover the table before the first pour. A spare set of tubes lets a friend join mid-run.
+For: kid · Budget: $25 to $50 · Interests: science · Style: fun
+
+### 220. Snap-together circuit kit for kids
+Description: Blocks that click into working buzzers, lights, and a tiny spinning fan.
+Why this fits: A circuit that lights up feels like proof their hands can build real things.
+Spec: Look for: numbered pieces, a picture guide that builds in steps, and more than twenty projects. Avoid: sets that need soldering or small loose wires.
+Tip: Build the first project beside them, then hand over the guide. Spare batteries in the box save the second build.
+For: kid · Budget: $25 to $50 · Interests: science, tech · Style: fun
+
+### 221. Dinosaur bone dig kit
+Description: A plaster block, digging tools, and bones they free one careful chip at a time.
+Why this fits: Chipping away at the block makes the reveal feel earned, bone by bone.
+Spec: Look for: a block big enough for an hour of work, sturdy tools, and a brush for the last dust. Avoid: soft blocks that crumble in five minutes.
+Tip: Dig outside or over a tray. The finished skeleton pairs with a small label they write themselves.
+For: kid · Budget: $25 to $50 · Interests: science · Style: fun
+
+### 222. Junior chemistry lab set with beakers and balance
+Description: Beakers, a balance scale, and experiment cards that start with kitchen-safe mixes.
+Why this fits: Real tools make a young chemist feel trusted with real work.
+Spec: Look for: shatterproof beakers with clear marks, a balance that tips true, and cards that explain each result. Avoid: sets padded with cardboard props.
+Tip: Set one shelf as the lab corner. A notebook beside it turns each mix into a record.
+For: kid · Budget: $50 to $100 · Interests: science · Style: fun
+
+### 223. Metal detector for kids
+Description: A light wand that beeps over coins and lost keys hiding in the yard.
+Why this fits: Every beep promises treasure, even when the prize turns out to be a bottle cap.
+Spec: Look for: a shaft that shortens for small arms, a weight under two pounds, and a tone that changes with depth. Avoid: adult detectors a child cannot swing for long.
+Tip: Seed the first hunt with a few coins. A pouch for finds and a digging rule for home only keep it fair.
+For: kid · Budget: $50 to $100 · Interests: science, outdoors · Style: fun, experience
+
+### 224. Digital microscope with viewing screen
+Description: A screen shows slides and pond water big, with no squinting into an eyepiece.
+Why this fits: Sharing the view turns one small find into an event for the whole table.
+Spec: Look for: a screen at least four inches wide, prepared slides plus blank ones, and storage for photos. Avoid: toys that magnify without real glass optics.
+Tip: First subject: a drop of pond water or the edge of a leaf. Save the best shot to show grandparents.
+For: kid · Budget: Over $100 · Interests: science · Style: fun
+
+### 225. Model rocket kit with launch pad
+Description: A rocket they build, paint, and launch from an open field on a calm morning.
+Why this fits: Counting down together makes the whole field hold its breath at once.
+Spec: Look for: a starter kit with pad and controller, parachute recovery, and engines sold in small packs. Avoid: kits that need tools beyond glue and paint.
+Tip: An adult runs the launch switch the first time. Bring a second engine; one flight is never enough.
+For: kid · Budget: Over $100 · Interests: science, outdoors · Style: fun, experience

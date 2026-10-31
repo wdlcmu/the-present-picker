@@ -4,22 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Present Picker - Five gift ideas worth giving</title>
-<meta name="description" content="Pick the person. Five picks from 216 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
+<meta name="description" content="Pick the person. Five picks from 225 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎁%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thepresentpicker.com">
 <meta property="og:title" content="The Present Picker - Five gift ideas worth giving">
-<meta property="og:description" content="Pick the person. Five picks from 216 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
+<meta property="og:description" content="Pick the person. Five picks from 225 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
 <meta property="og:image" content="https://thepresentpicker.com/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Pick the person. Five picks from 216 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
+<meta property="og:image:alt" content="Pick the person. Five picks from 225 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
 <meta name="twitter:image" content="https://thepresentpicker.com/og-card.png">
-<meta name="twitter:image:alt" content="Pick the person. Five picks from 216 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
+<meta name="twitter:image:alt" content="Pick the person. Five picks from 225 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Present Picker - Five gift ideas worth giving">
-<meta name="twitter:description" content="Pick the person. Five picks from 216 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
+<meta name="twitter:description" content="Pick the person. Five picks from 225 real, checked, no-brand gift ideas, each matched to what they are into and your budget. Free, no ads, no accounts.">
 <link rel="canonical" href="https://thepresentpicker.com/">
 <script type="application/ld+json">
 {
@@ -71,7 +71,7 @@
       "name": "What we don't do",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We don't sell gifts. No store can pay to place an idea. We don't save your quiz answers. They are never sent anywhere. The Ask page is the one exception. Its words go to a helper program. Nothing typed there is saved. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 216."
+        "text": "We don't sell gifts. No store can pay to place an idea. We don't save your quiz answers. They are never sent anywhere. The Ask page is the one exception. Its words go to a helper program. Nothing typed there is saved. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 225."
       }
     },
     {
@@ -116,6 +116,36 @@
   .proof .why{border-left:none;background:transparent;padding:0;margin:8px 0 0}
   .proof .checker{margin:12px 0 0}
   .proof .card .photo{height:260px}
+  /* 2026-10-31 (living unit): the three proof picks ride ONE horizontal
+     swipe rail in the Pick My Costume hero pattern — photo cards side by
+     side, edge-peek + dots, a gentle staggered entrance and a slow
+     auto-advance that stops the moment a person touches the rail. In
+     PP's register: warm and calm, no Halloween energy. Touch discipline
+     (Oct 13 hero-swipe lesson): the rail declares pan-x pan-y, so a
+     sideways drag scrolls the rail natively and a vertical drag still
+     scrolls the page; the page itself never scrolls sideways. */
+  .proofrail{
+    display:flex;gap:12px;overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;scroll-padding-left:18px;
+    overscroll-behavior-x:contain;touch-action:pan-x pan-y;
+    margin:2px -18px 0;padding:6px 18px 12px;
+    scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;
+  }
+  .proofrail::-webkit-scrollbar{display:none}
+  .proofrail .card{
+    flex:0 0 85%;scroll-snap-align:start;margin:0;touch-action:pan-x pan-y;
+    animation:proofRise .7s ease both;
+  }
+  .proofrail .card:nth-child(2){animation-delay:.12s}
+  .proofrail .card:nth-child(3){animation-delay:.24s}
+  @keyframes proofRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .proofdots{display:flex;gap:7px;justify-content:center;margin:0 0 2px}
+  .proofdots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .3s ease}
+  .proofdots i.on{background:var(--gold)}
+  @media (prefers-reduced-motion: reduce){
+    .proofrail .card{animation:none}
+    .proofdots i{transition:none}
+  }
   .askline a{color:var(--gold);font-weight:700}
   .cta{
     display:block;width:100%;padding:15px 18px;margin:14px 0;
@@ -222,24 +252,27 @@
     <div class="proof" aria-labelledby="proof-title">
       <h2 id="proof-title">Real picks, straight from the bank</h2>
       <p class="fine">Three real top picks. Judge the bank before you start.</p>
-      <div class="card">
-        <img class="photo" src="img/gift-cooking.jpg" alt="Pour-over coffee dripper with paper filters" onerror="this.style.display='none'">
-        <p class="ask">For Mom &middot; Under $25 &middot; loves cooking &middot; practical</p>
-        <h3>Pour-over coffee dripper with paper filters</h3>
-        <p class="why">For the ritual of a slow morning, not another gadget.</p>
+      <div class="proofrail" id="proof-rail" role="group" aria-label="Three real top picks. Swipe sideways to see each one.">
+        <div class="card">
+          <img class="photo" src="img/gift-cooking.jpg" alt="Pour-over coffee dripper with paper filters" onerror="this.style.display='none'">
+          <p class="ask">For Mom &middot; Under $25 &middot; loves cooking &middot; practical</p>
+          <h3>Pour-over coffee dripper with paper filters</h3>
+          <p class="why">For the ritual of a slow morning, not another gadget.</p>
+        </div>
+        <div class="card">
+          <img class="photo" src="img/gift-cozy.jpg" alt="Weighted blanket, 15 lb" onerror="this.style.display='none'">
+          <p class="ask">For a grandparent &middot; $50-$100 &middot; sentimental</p>
+          <h3>Weighted blanket, 15 lb</h3>
+          <p class="why">For the restless sleeper you love.</p>
+        </div>
+        <div class="card">
+          <img class="photo" src="img/gift-travel.jpg" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
+          <p class="ask">For a kid &middot; $25-$50 &middot; practical</p>
+          <h3>Kids' backpack with padded straps and name tag</h3>
+          <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
+        </div>
       </div>
-      <div class="card">
-        <img class="photo" src="img/gift-cozy.jpg" alt="Weighted blanket, 15 lb" loading="lazy" onerror="this.style.display='none'">
-        <p class="ask">For a grandparent &middot; $50-$100 &middot; sentimental</p>
-        <h3>Weighted blanket, 15 lb</h3>
-        <p class="why">For the restless sleeper you love.</p>
-      </div>
-      <div class="card">
-        <img class="photo" src="img/gift-travel.jpg" alt="Kids' backpack with padded straps and name tag" loading="lazy" onerror="this.style.display='none'">
-        <p class="ask">For a kid &middot; $25-$50 &middot; practical</p>
-        <h3>Kids' backpack with padded straps and name tag</h3>
-        <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
-      </div>
+      <div class="proofdots" id="proof-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
       <p class="checker">Checked by hand by Billy, who built this site. No brand names. No store links.</p>
     </div>
 
@@ -256,7 +289,7 @@
         </li>
         <li><b>Start with the person.</b>
           <span>So I built five questions that start with the person, not the store.</span>
-          <span>They ask what they love and what I can spend, then pick from 216 ideas checked by hand.</span>
+          <span>They ask what they love and what I can spend, then pick from 225 ideas checked by hand.</span>
           <span>Each pick says why it fits them.</span>
         </li>
       </ol>
@@ -267,7 +300,7 @@
 
     <div class="faq">
       <h2>How it works</h2>
-      <p class="sub">Five questions. Five gift ideas. All from 216 checked ideas.</p>
+      <p class="sub">Five questions. Five gift ideas. All from 225 checked ideas.</p>
       <ol class="how-steps">
         <li><b>You answer.</b>
           <span>Five quick questions.</span>
@@ -276,7 +309,7 @@
           <span>What you can spend.</span>
         </li>
         <li><b>We search the bank.</b>
-          <span>We check 216 gift ideas.</span>
+          <span>We check 225 gift ideas.</span>
           <span>Your price range is firm.</span>
           <span>No store can pay to rank.</span>
         </li>
@@ -320,7 +353,7 @@
         <p>We don't save your quiz answers. They are never sent anywhere.</p>
         <p>The Ask page is the one exception. Its words go to a helper program. Nothing typed there is saved.</p>
         <p>We don't ask for your email. There is nothing to sign up for.</p>
-        <p>We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 216.</p>
+        <p>We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 225.</p>
       </details>
       <details>
         <summary>Our guarantees</summary>
@@ -704,6 +737,15 @@ IDEAS.push.apply(IDEAS, [
 {id:214,t:"Kids' headphones with a volume limit",b:"Padded cups, a cord that detaches, and sound capped at a safe level.",f:"Long listens stay gentle on young ears in busy rooms.",r:["kid"],u:["u25"],i:["tech"],s:["practical"],g:"Look for: a cap near 85 decibels, cups that fold flat, and a cord that pulls out instead of snapping. Avoid: adult sets with no limit switch.",h:"Test the loudest setting yourself first. Pairs with a small case so they survive the school bag."},
 {id:215,t:"Kids' backpack with padded straps and name tag",b:"Two zip pockets, a chest strap, and room for books, lunch, and one treasure.",f:"Heavy loads ride level instead of dragging at one sore shoulder.",r:["kid"],u:["m2550"],i:["travel", "outdoors", "fitness"],s:["practical"],g:"Look for: straps with real padding, a sternum strap, and zips with big pulls. Avoid: fashion bags with thin string straps.",h:"Set the strap length together on day one. A spare name tag inside the front pocket covers the lost week."},
 {id:216,t:"Kids' alarm clock with a gentle wake light",b:"A soft glow that brightens before the sound, with big buttons kids can reach.",f:"Mornings begin calmer when waking feels gradual rather than jarring.",r:["kid"],u:["m2550"],i:["cozy"],s:["practical"],g:"Look for: a light that rises over twenty minutes, a snooze a child can tap, and a battery backup. Avoid: clocks with harsh buzzer-only alarms.",h:"Set the first wake time ten minutes early together. Pairs with a short bedtime routine chart on the wall."},
+{id:217,t:"Volcano eruption experiment kit",b:"A plaster volcano they paint, fill, and make bubble over on the lawn.",f:"The eruption lasts a minute, yet the retelling lasts all week.",r:["kid"],u:["u25"],i:["science"],s:["fun"],g:"Look for: washable eruption powder, a tray that catches the flow, and refills sold loose. Avoid: kits that erupt once and cannot be reused.",h:"Run the first eruption outside on paper. A second powder pack keeps the show going next weekend."},
+{id:218,t:"Magnet science kit with wands and chips",b:"Two wands, metal chips, and puzzle cards that hide the pull until the guess.",f:"An invisible force feels like a trick they control with their own hands.",r:["kid"],u:["u25"],i:["science"],s:["fun"],g:"Look for: sealed magnets with no loose coating, chips in a case, and challenge cards. Avoid: tiny loose magnets a small child could swallow.",h:"Start with the guessing game on the cards. A metal tray keeps every piece in one place."},
+{id:219,t:"Fizzy chemistry reaction kit",b:"Color-changing potions, fizzing tablets, and test tubes sized for small hands.",f:"Every mix surprises them, so the next question arrives on its own.",r:["kid"],u:["m2550"],i:["science"],s:["fun"],g:"Look for: food-safe powders, real measuring spoons, goggles that fit a child, and a guide that spells out the science. Avoid: kits built around one single trick.",h:"Cover the table before the first pour. A spare set of tubes lets a friend join mid-run."},
+{id:220,t:"Snap-together circuit kit for kids",b:"Blocks that click into working buzzers, lights, and a tiny spinning fan.",f:"A circuit that lights up feels like proof their hands can build real things.",r:["kid"],u:["m2550"],i:["science", "tech"],s:["fun"],g:"Look for: numbered pieces, a picture guide that builds in steps, and more than twenty projects. Avoid: sets that need soldering or small loose wires.",h:"Build the first project beside them, then hand over the guide. Spare batteries in the box save the second build."},
+{id:221,t:"Dinosaur bone dig kit",b:"A plaster block, digging tools, and bones they free one careful chip at a time.",f:"Chipping away at the block makes the reveal feel earned, bone by bone.",r:["kid"],u:["m2550"],i:["science"],s:["fun"],g:"Look for: a block big enough for an hour of work, sturdy tools, and a brush for the last dust. Avoid: soft blocks that crumble in five minutes.",h:"Dig outside or over a tray. The finished skeleton pairs with a small label they write themselves."},
+{id:222,t:"Junior chemistry lab set with beakers and balance",b:"Beakers, a balance scale, and experiment cards that start with kitchen-safe mixes.",f:"Real tools make a young chemist feel trusted with real work.",r:["kid"],u:["m50100"],i:["science"],s:["fun"],g:"Look for: shatterproof beakers with clear marks, a balance that tips true, and cards that explain each result. Avoid: sets padded with cardboard props.",h:"Set one shelf as the lab corner. A notebook beside it turns each mix into a record."},
+{id:223,t:"Metal detector for kids",b:"A light wand that beeps over coins and lost keys hiding in the yard.",f:"Every beep promises treasure, even when the prize turns out to be a bottle cap.",r:["kid"],u:["m50100"],i:["science", "outdoors"],s:["fun", "experience"],g:"Look for: a shaft that shortens for small arms, a weight under two pounds, and a tone that changes with depth. Avoid: adult detectors a child cannot swing for long.",h:"Seed the first hunt with a few coins. A pouch for finds and a digging rule for home only keep it fair."},
+{id:224,t:"Digital microscope with viewing screen",b:"A screen shows slides and pond water big, with no squinting into an eyepiece.",f:"Sharing the view turns one small find into an event for the whole table.",r:["kid"],u:["m100"],i:["science"],s:["fun"],g:"Look for: a screen at least four inches wide, prepared slides plus blank ones, and storage for photos. Avoid: toys that magnify without real glass optics.",h:"First subject: a drop of pond water or the edge of a leaf. Save the best shot to show grandparents."},
+{id:225,t:"Model rocket kit with launch pad",b:"A rocket they build, paint, and launch from an open field on a calm morning.",f:"Counting down together makes the whole field hold its breath at once.",r:["kid"],u:["m100"],i:["science", "outdoors"],s:["fun", "experience"],g:"Look for: a starter kit with pad and controller, parachute recovery, and engines sold in small packs. Avoid: kits that need tools beyond glue and paint.",h:"An adult runs the launch switch the first time. Bring a second engine; one flight is never enough."},
 ]);
 </script>
 <script>
@@ -784,7 +826,7 @@ var PickerEngine = {
     }
     /* Never-empty fallback (Oct 30, 2026): if the person + budget cell
        were ever empty, widen one rung at a time (any budget, then any
-       person) and say so on the results screen. At 216 ideas every real
+       person) and say so on the results screen. At 225 ideas every real
        cell is stocked, so this is a guarantee, not a path users hit. */
     var relaxed = [];
     var scored = scorePool(who, answers.budget);
@@ -1547,6 +1589,42 @@ updateCounts();
     text = days + (days === 1 ? " day" : " days") + " until Christmas, " + dateText + ".";
   }
   el.textContent = text;
+})();
+</script>
+<script>
+/* 2026-10-31 (living unit): dots follow the proof rail, and the rail
+   gently advances on its own until a person touches it — the Pick My
+   Costume hero pattern in a calm register. Never under reduced motion,
+   never while the tab is hidden or the rail is off screen, and it
+   rests at the last card instead of looping. */
+(function(){
+  var rail = document.getElementById("proof-rail");
+  if (!rail) return;
+  var dots = document.querySelectorAll("#proof-dots i");
+  var cards = rail.children;
+  function step(){ return cards.length > 1 ? (cards[1].offsetLeft - cards[0].offsetLeft) : rail.clientWidth; }
+  function idx(){ var s = step(); if (!s) return 0; return Math.max(0, Math.min(cards.length - 1, Math.round(rail.scrollLeft / s))); }
+  function paint(){ var i = idx(); for (var d = 0; d < dots.length; d++) dots[d].className = (d === i) ? "on" : ""; }
+  var ticking = false;
+  rail.addEventListener("scroll", function(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; paint(); });
+  }, {passive:true});
+  paint();
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var touched = false, seen = false;
+  ["pointerdown", "touchstart", "wheel"].forEach(function(ev){
+    rail.addEventListener(ev, function(){ touched = true; }, {passive:true});
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function(en){ seen = en[0].isIntersecting; }, {threshold:0.4}).observe(rail);
+  } else { seen = true; }
+  var timer = setInterval(function(){
+    if (touched || !seen || document.hidden) return;
+    var i = idx();
+    if (i >= cards.length - 1) { clearInterval(timer); return; }
+    rail.scrollTo({left:(i + 1) * step(), behavior:"smooth"});
+  }, 6000);
 })();
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "13c6ffa02e21404481cb39e1c7064870"}'></script>

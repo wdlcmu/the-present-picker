@@ -175,6 +175,10 @@
   .how-steps li::before{content:counter(step);display:inline-block;font-weight:800;color:var(--gold);margin-right:8px}
   .how-steps b{font-size:17px}
   .how-steps span{display:block;margin-top:4px;color:var(--muted)}
+  .core-hook{font-size:17px;font-weight:800;color:var(--gold);margin:0 0 10px}
+  .story{margin:26px 0 4px}
+  .story .how-steps{margin:10px 0 14px}
+  .story-hook{font-size:19px;font-weight:800;color:var(--gold);margin:14px 0 2px}
   .hatch{margin-top:30px;padding-top:22px;border-top:2px solid var(--line)}
   .hatch h3{font-size:19px;margin:0 0 6px}
   .hatch textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0 12px}
@@ -203,10 +207,33 @@
   <section class="screen on" id="s-home">
     <h1>Find a gift that fits the person and your budget.</h1>
     <p class="sub">Five questions. Five gift ideas. All from 216 checked ideas.</p>
+    <p class="core-hook">Picked for them, not the store.</p>
     <p class="countdown" id="countdown" aria-live="polite">Christmas Day is Friday, December 25, 2026.</p>
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="fine">Free. No account. Takes less than a minute. No ads. No store links.</p>
     <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
+
+    <div class="story" aria-labelledby="story-title">
+      <p class="q-label">Why I built this</p>
+      <h2 id="story-title">The December list</h2>
+      <ol class="how-steps">
+        <li><b>The names were easy.</b>
+          <span>Each December, I listed Mom, Dad, my in-laws, and my wife, then sat stuck on what to give them.</span>
+        </li>
+        <li><b>The store did not help.</b>
+          <span>I stared at store pages full of the same candles as last year, then bought a gift card when my ideas ran out.</span>
+          <span>A gift card says: &ldquo;I remembered the day. I just do not know you.&rdquo;</span>
+        </li>
+        <li><b>Start with the person.</b>
+          <span>So I built five questions that start with the person, not the store.</span>
+          <span>They ask what they love and what I can spend, then pick from 216 ideas checked by hand.</span>
+          <span>Each pick says why it fits them.</span>
+        </li>
+      </ol>
+      <p class="story-hook">Picked for them, not the store.</p>
+      <button class="cta" id="btn-start-story">Pick a gift</button>
+      <p class="askline">Or <a href="/ask">ask in your own words</a>.</p>
+    </div>
 
     <div class="faq">
       <h2>How it works</h2>
@@ -1347,6 +1374,7 @@ $("btn-start").onclick = function(){
   Analytics.track("quiz_started", {});
   fleetTrack("tool_start", {tool: "gift-picker", entry: "home"});
 };
+$("btn-start-story").onclick = $("btn-start").onclick;
 $("brand-home").onclick = function(e){ e.preventDefault(); show("s-home"); };
 $("top-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-list").onclick = function(){ renderList(); show("s-list"); };

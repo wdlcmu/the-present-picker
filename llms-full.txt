@@ -1,6 +1,6 @@
 # The Present Picker: full gift-idea bank
 
-> Complete text of the gift bank behind thepresentpicker.com: 212 gift ideas, each checked by a person.
+> Complete text of the gift bank behind thepresentpicker.com: 216 gift ideas, each checked by a person.
 > No brands, no stores, no exact prices, only budget bands. The picker on the homepage and the
 > Present Picker MCP tools draw on this same bank. Generated 2026-10-27 from the bank source.
 
@@ -18,14 +18,14 @@ Description: Slow weekend coffee with no machine on the counter.
 Why this fits: For the ritual of a slow morning, not another gadget.
 Spec: Look for: a dripper that fits standard filters and drips slow and steady. Avoid: odd sizes that need special filters.
 Tip: Pairs with a small gooseneck kettle. Add a starter pack of filters so the first cup needs no shopping trip.
-For: mom, dad, partner, grandparent, friend, other · Budget: Under $25 · Interests: cooking · Style: practical
+For: mom, dad, partner, grandparent, friend, other · Budget: Under $25 · Interests: tech · Style: practical
 
 ### 2. Cast iron skillet, 10 inch, pre-seasoned
 Description: The pan that outlives every nonstick pan they have owned.
 Why this fits: For someone who actually cooks, this gets better every year.
 Spec: Look for: 10 inch, pre-seasoned, with pouring spouts and a helper handle. Avoid: thin pans or a flaking coating.
 Tip: Care: rinse hot, dry on the stove, rub in a drop of oil. Pairs with a chainmail scrubber and a wooden spoon.
-For: mom, dad, partner, grandparent, friend, other · Budget: $25 to $50 · Interests: cooking · Style: practical
+For: mom, dad, partner, grandparent, friend, other · Budget: $25 to $50 · Interests: tech · Style: practical
 
 ### 3. Small-batch hot sauce trio
 Description: Three bottles with the heat levels labeled and tasting notes on the box.
@@ -39,7 +39,7 @@ Description: Big enough for a roast, heavy enough to stay put.
 Why this fits: The unglamorous upgrade they will use every single day.
 Spec: Look for: thick, heavy wood with a juice groove and feet that grip. Avoid: thin boards that warp or slide.
 Tip: Care: hand wash and dry flat; rub in food-safe oil every few months. Pairs with a bench scraper.
-For: mom, dad, partner, grandparent, other · Budget: $25 to $50 · Interests: cooking · Style: practical
+For: mom, dad, partner, grandparent, other · Budget: $25 to $50 · Interests: tech · Style: practical
 
 ### 5. Instant-read digital meat thermometer
 Description: Reads in two seconds. No more guessing at the grill.
@@ -53,7 +53,7 @@ Description: Two bottles that make weeknight salads feel intentional.
 Why this fits: An everyday luxury they would never buy for themselves.
 Spec: Look for: a harvest date on the oil and thick, syrupy balsamic. Avoid: flavored oils with no date.
 Tip: Pairs with a crusty loaf and flaky salt. Store both away from the stove heat so the flavors last.
-For: mom, dad, partner, grandparent, friend, other · Budget: $25 to $50 · Interests: cooking · Style: practical
+For: mom, dad, partner, grandparent, friend, other · Budget: $25 to $50 · Interests: tech · Style: practical
 
 ### 7. Handmade ceramic mugs, set of two
 Description: Weighty and warm; every cup feels a little slower.
@@ -81,14 +81,14 @@ Description: One sharp, balanced knife that replaces three dull ones.
 Why this fits: The single most-used tool in their kitchen.
 Spec: Look for: full tang, balanced weight, and a blade that takes a fine edge. Avoid: serrated or coated blades.
 Tip: Care: hand wash, dry at once, never the dishwasher. Pairs with a honing steel and a magnetic wall strip.
-For: mom, dad, partner, other · Budget: $50 to $100 · Interests: cooking · Style: practical
+For: mom, dad, partner, other · Budget: $50 to $100 · Interests: tech · Style: practical
 
 ### 11. Stand mixer
 Description: Handles bread dough, batter, and whipped cream without breaking a sweat.
 Why this fits: For the baker who has earned the real thing.
 Spec: Look for: a strong motor and a bowl big enough for two loaves. Avoid: light models that walk across the counter.
 Tip: Pairs with a second bowl and a pasta roller add-on later. Check their counter height before you buy.
-For: mom, partner · Budget: Over $100 · Interests: cooking · Style: practical
+For: mom, partner · Budget: Over $100 · Interests: tech · Style: practical
 
 ## Outdoors
 
@@ -456,14 +456,14 @@ Description: The suitcase finally makes sense.
 Why this fits: For the overpacker you love anyway.
 Spec: Look for: mixed sizes, strong zippers, and mesh tops. Avoid: cubes with zips that split open.
 Tip: Pairs with a laundry cube for the trip home. Rolling clothes inside the cubes saves real space.
-For: mom, partner, friend, other · Budget: $25 to $50 · Interests: travel · Style: practical
+For: mom, partner, friend, other · Budget: $25 to $50 · Interests: travel, outdoors, fitness · Style: practical
 
 ### 62. Memory-foam travel pillow
 Description: Actually supports the neck on red-eyes.
 Why this fits: For the long hauls ahead.
 Spec: Look for: firm foam that holds the neck and a washable cover. Avoid: inflatable pillows that sag by landing.
 Tip: Pairs with the window seat. The cover zips off for washing after long trips.
-For: mom, dad, partner, friend, other · Budget: $25 to $50 · Interests: travel · Style: practical
+For: mom, dad, partner, friend, other · Budget: $25 to $50 · Interests: travel, outdoors, fitness · Style: practical
 
 ### 63. Scratch-off world map
 Description: Gold foil over everywhere they have been.
@@ -491,7 +491,7 @@ Description: Fits overhead, lasts decades, looks better every year.
 Why this fits: For the traveler who has earned the good bag.
 Spec: Look for: full-grain leather, metal zippers, and carry-on size. Avoid: split leather that peels.
 Tip: Care: keep it stuffed when stored so it holds its shape. Pairs with packing cubes for tidy trips.
-For: mom, partner · Budget: Over $100 · Interests: travel · Style: practical
+For: mom, partner · Budget: Over $100 · Interests: travel, outdoors, fitness · Style: practical
 
 ## Experience
 
@@ -1116,7 +1116,7 @@ Description: Clear pockets for papers, pills, and cords, all easy to open.
 Why this fits: Gate changes feel calmer when every paper sits in one place.
 Spec: Look for: chunky zipper pulls, clear panels, and a strap for the seat pocket. Avoid: organizers with a dozen tiny slots nobody uses.
 Tip: Load it with copies of the key papers before the trip. Pairs with a pen on a short cord inside.
-For: grandparent · Budget: Under $25 · Interests: travel · Style: practical
+For: grandparent · Budget: Under $25 · Interests: travel, outdoors, fitness · Style: practical
 
 ## Kid
 
@@ -1211,7 +1211,7 @@ Description: Big type recipes on pages that stay open hands free.
 Why this fits: Favorite dishes come back without squinting at faded cards.
 Spec: Look for: large clear type, pages that wipe clean, and a stand with a steady lip. Avoid: glossy pages that glare under kitchen lights.
 Tip: Mark one beloved recipe with a ribbon before you wrap it. Pairs with reading glasses kept on the same shelf.
-For: grandparent · Budget: $50 to $100 · Interests: cooking · Style: practical
+For: grandparent · Budget: $50 to $100 · Interests: tech · Style: practical
 
 ## Tech
 
@@ -1328,7 +1328,7 @@ Description: Hard shell, smooth wheels, and a fold out section for suits.
 Why this fits: Arriving with unwrinkled clothes makes the whole trip start calm.
 Spec: Look for: wheels that roll straight when full, a shell that flexes without cracking, and a garment fold that holds two outfits. Avoid: cases that tip over when packed.
 Tip: Pairs with one trial pack before the trip. Keep the garment section for the outfit worn first.
-For: friend, other · Budget: Over $100 · Interests: travel · Style: practical
+For: friend, other · Budget: Over $100 · Interests: travel, outdoors, fitness · Style: practical
 
 ## Books
 
@@ -1658,3 +1658,33 @@ Why this fits: The night it happened, on the wall where you both see it daily.
 Spec: Look for: the sky from the real date and place, a solid wood frame, and glass that does not glare. Avoid: stock skies that match no real night.
 Tip: Pairs with a card naming the date in your own words. Double-check the date and place before you order the print.
 For: partner, mom, dad, grandparent, other · Budget: $50 to $100 · Interests: (none) · Style: sentimental
+
+## Kid
+
+### 213. Kids' umbrella with easy-grip handle
+Description: A small canopy sized for small hands, in bright colors drivers can spot.
+Why this fits: Rainy walks to school stop feeling like a chore they must endure.
+Spec: Look for: a pinch-safe fold, a loop handle a child can grip, and a canopy near 32 inches. Avoid: adult umbrellas with sharp metal tips.
+Tip: Pairs with a name label on the loop. Practice opening it indoors first so the first storm is not the lesson.
+For: kid · Budget: Under $25 · Interests: outdoors · Style: practical
+
+### 214. Kids' headphones with a volume limit
+Description: Padded cups, a cord that detaches, and sound capped at a safe level.
+Why this fits: Long listens stay gentle on young ears in busy rooms.
+Spec: Look for: a cap near 85 decibels, cups that fold flat, and a cord that pulls out instead of snapping. Avoid: adult sets with no limit switch.
+Tip: Test the loudest setting yourself first. Pairs with a small case so they survive the school bag.
+For: kid · Budget: Under $25 · Interests: tech · Style: practical
+
+### 215. Kids' backpack with padded straps and name tag
+Description: Two zip pockets, a chest strap, and room for books, lunch, and one treasure.
+Why this fits: Heavy loads ride level instead of dragging at one sore shoulder.
+Spec: Look for: straps with real padding, a sternum strap, and zips with big pulls. Avoid: fashion bags with thin string straps.
+Tip: Set the strap length together on day one. A spare name tag inside the front pocket covers the lost week.
+For: kid · Budget: $25 to $50 · Interests: travel, outdoors, fitness · Style: practical
+
+### 216. Kids' alarm clock with a gentle wake light
+Description: A soft glow that brightens before the sound, with big buttons kids can reach.
+Why this fits: Mornings begin calmer when waking feels gradual rather than jarring.
+Spec: Look for: a light that rises over twenty minutes, a snooze a child can tap, and a battery backup. Avoid: clocks with harsh buzzer-only alarms.
+Tip: Set the first wake time ten minutes early together. Pairs with a short bedtime routine chart on the wall.
+For: kid · Budget: $25 to $50 · Interests: cozy · Style: practical

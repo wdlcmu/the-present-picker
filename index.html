@@ -108,6 +108,11 @@
   .countdown{font-size:15px;color:var(--gold);font-weight:600;margin:0 0 6px}
   .fine{color:var(--muted);font-size:13px}
   .askline{font-size:16px;margin:2px 0 10px}
+  .checker{color:var(--muted);font-size:13px;margin:-6px 0 10px}
+  .proof{margin:18px 0 6px;text-align:left}
+  .proof h2{font-size:19px;margin:0 0 4px}
+  .proof .ask{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin:0 0 4px}
+  .proof .card h3{margin:0 0 2px}
   .askline a{color:var(--gold);font-weight:700}
   .cta{
     display:block;width:100%;padding:15px 18px;margin:14px 0;
@@ -207,11 +212,32 @@
   <section class="screen on" id="s-home">
     <h1>Find a gift that fits the person and your budget.</h1>
     <p class="sub">Five questions. Five gift ideas. All from 216 checked ideas.</p>
+    <p class="checker">Checked by hand by Billy, who built this site. His rule: a plain gift type anyone can find. No brand names. No store links.</p>
     <p class="core-hook">Picked for them, not the store.</p>
     <p class="countdown" id="countdown" aria-live="polite">Christmas Day is Friday, December 25, 2026.</p>
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="fine">Free. No account. Takes less than a minute. No ads. No store links.</p>
     <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
+
+    <div class="proof" aria-labelledby="proof-title">
+      <h2 id="proof-title">Real picks, straight from the bank</h2>
+      <p class="fine">Three real top picks. Judge the bank before you start.</p>
+      <div class="card">
+        <p class="ask">For Mom &middot; Under $25 &middot; loves cooking &middot; practical</p>
+        <h3>Pour-over coffee dripper with paper filters</h3>
+        <p class="why"><b>Why this fits</b>For the ritual of a slow morning, not another gadget.</p>
+      </div>
+      <div class="card">
+        <p class="ask">For a grandparent &middot; $50-$100 &middot; sentimental</p>
+        <h3>Weighted blanket, 15 lb</h3>
+        <p class="why"><b>Why this fits</b>For the restless sleeper you love.</p>
+      </div>
+      <div class="card">
+        <p class="ask">For a kid &middot; $25-$50 &middot; practical</p>
+        <h3>Kids' backpack with padded straps and name tag</h3>
+        <p class="why"><b>Why this fits</b>Heavy loads ride level instead of dragging at one sore shoulder.</p>
+      </div>
+    </div>
 
     <div class="story" aria-labelledby="story-title">
       <p class="q-label">Why I built this</p>

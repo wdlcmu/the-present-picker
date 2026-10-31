@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask in your own words - The Present Picker</title>
+<meta name="description" content="Say who the gift is for, what they like, and what you can spend. Five picks from 216 checked gift ideas. Free, no ads, no accounts.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎁%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thepresentpicker.com/ask">
+<meta property="og:title" content="Ask in your own words - The Present Picker">
+<meta property="og:description" content="Say who the gift is for, what they like, and what you can spend. Five picks from 216 checked gift ideas.">
+<meta property="og:image" content="https://thepresentpicker.com/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ask in your own words - The Present Picker">
+<meta name="twitter:description" content="Say who the gift is for, what they like, and what you can spend. Five picks from 216 checked gift ideas.">
+<link rel="canonical" href="https://thepresentpicker.com/ask">
+<style>
+  :root{
+    --paper:#faf6ee; --ink:#2b2419; --muted:#6f6350;
+    --gold:#8f5f06; --gold-soft:#f3e8cf; --line:#e2d6bd;
+    --card:#fffdf8;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.5; -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:20px 18px 64px}
+  h1{font-size:30px;line-height:1.2;margin:18px 0 8px;letter-spacing:-0.01em}
+  h2{font-size:22px;margin:6px 0 10px}
+  h3{font-size:16px;margin:0 0 6px}
+  p{margin:0 0 12px}
+  .sub{color:var(--muted);font-size:16px}
+  .fine{color:var(--muted);font-size:13px}
+  .cta{
+    display:block;width:100%;padding:15px 18px;margin:14px 0;
+    font-size:18px;font-weight:700;color:#fff;background:var(--gold);
+    border:2px solid var(--gold);border-radius:12px;cursor:pointer;text-align:center;
+    text-decoration:none;
+  }
+  .cta:active{transform:translateY(1px)}
+  .ghost{
+    display:block;width:100%;padding:13px 18px;margin:10px 0;
+    font-size:16px;font-weight:600;color:var(--ink);background:var(--card);
+    border:2px solid var(--line);border-radius:12px;cursor:pointer;text-align:center;
+    text-decoration:none;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 4px}
+  .chip{
+    padding:11px 16px;font-size:16px;font-weight:600;color:var(--ink);
+    background:var(--card);border:2px solid var(--line);border-radius:999px;cursor:pointer;
+    text-align:left;
+  }
+  .card{
+    background:var(--card);border:2px solid var(--line);border-radius:14px;
+    padding:16px;margin:14px 0;
+  }
+  .card h3{font-size:18px}
+  .why{
+    border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;
+    background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
+  }
+  .why b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold);margin-bottom:2px}
+  .thin-note{
+    border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;
+    background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .tag{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+  .status{min-height:20px;font-size:14px;font-weight:600;color:var(--gold);margin:6px 0}
+  #ask-text{width:100%;box-sizing:border-box;font:inherit;font-size:18px;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 14px}
+  #ask-text:focus{border-color:var(--gold);outline:none}
+  .heard{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  footer{margin-top:44px;padding-top:18px;border-top:2px solid var(--line);color:var(--muted);font-size:14px}
+  footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none;display:inline-block;padding:12px 6px;margin:-12px -6px;min-height:44px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="/">The Present Picker</a>
+  </div>
+
+  <h1>Ask in your own words.</h1>
+  <p class="sub">Say who it is for. Say what they like. Say what you can spend.</p>
+  <p class="fine">What you type goes to a helper program to be read. Nothing is saved. No name is asked.</p>
+
+  <div class="chips" id="examples">
+    <button class="chip" type="button">For my grandma, who loves gardening, under $50</button>
+    <button class="chip" type="button">Something fun for my 6-year-old, under $25</button>
+    <button class="chip" type="button">My coworker is into cooking. $50 to $100.</button>
+  </div>
+
+  <textarea id="ask-text" rows="3" maxlength="300" placeholder="A gift for my dad. He likes the outdoors. I can spend $25 to $50."></textarea>
+  <button class="cta" id="btn-ask" type="button">Ask</button>
+  <p class="status" id="ask-status" aria-live="polite"></p>
+
+  <div id="answer" hidden>
+    <div id="notes"></div>
+    <h2>What I heard</h2>
+    <div class="heard" id="heard"></div>
+    <div id="picks"></div>
+    <p class="thin-note" id="thin" hidden></p>
+    <a class="cta" href="/" id="btn-quiz">Open the quiz</a>
+    <button class="ghost" id="btn-again" type="button">Ask again</button>
+    <p class="fine">Every pick comes from the same bank of 216 checked ideas the quiz uses. No store can pay to rank. No brands, no store links.</p>
+  </div>
+
+  <footer>
+    <p>Questions or ideas: <a href="mailto:hello@thepresentpicker.com">hello@thepresentpicker.com</a></p>
+    Built with Muse.<br>
+    More: <a href="/">Home</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/mcp">For AI assistants</a>
+  </footer>
+</div>
+
+<script>
+"use strict";
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+$("examples").addEventListener("click", function(e){
+  var b = e.target.closest("button.chip");
+  if (!b) return;
+  $("ask-text").value = b.textContent.trim();
+  $("ask-text").focus();
+});
+
+$("btn-again").addEventListener("click", function(){
+  $("answer").hidden = true;
+  $("ask-text").value = "";
+  $("ask-text").focus();
+  window.scrollTo(0, 0);
+});
+
+$("btn-quiz").addEventListener("click", function(){
+  try {
+    var body = JSON.stringify({event: "quiz_start"});
+    if (navigator.sendBeacon) navigator.sendBeacon("/api/track", new Blob([body], {type: "application/json"}));
+    else fetch("/api/track", {method: "POST", body: body, headers: {"Content-Type": "application/json"}, keepalive: true});
+  } catch (e) {}
+});
+
+$("btn-ask").addEventListener("click", function(){
+  var text = $("ask-text").value.trim();
+  var status = $("ask-status");
+  if (!text) { status.textContent = "Say a few words about the person first."; return; }
+  status.textContent = "Reading your words...";
+  $("btn-ask").disabled = true;
+  fetch("/api/ask", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({text: text})})
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      $("btn-ask").disabled = false;
+      status.textContent = "";
+      render(d);
+    })
+    .catch(function(){
+      $("btn-ask").disabled = false;
+      status.textContent = "That did not go through. The quiz still works: it asks the same things, one tap at a time.";
+    });
+});
+
+function render(d){
+  var notes = $("notes");
+  notes.innerHTML = "";
+  (d.notes || []).forEach(function(n){
+    var p = document.createElement("p");
+    p.className = "thin-note";
+    p.textContent = n;
+    notes.appendChild(p);
+  });
+  var heard = [];
+  if (d.heard && d.heard.whoLabel) heard.push("For: " + d.heard.whoLabel);
+  if (d.heard && d.heard.interests && d.heard.interests.length) heard.push("Into: " + d.heard.interests.join(", "));
+  if (d.heard && d.heard.budget) heard.push("Budget: " + d.heard.budget);
+  if (d.heard && d.heard.style) heard.push("Style: " + d.heard.style);
+  $("heard").innerHTML = heard.length
+    ? heard.map(function(h){ return '<span class="tag">' + esc(h) + "</span>"; }).join("")
+    : '<span class="tag">I need a little more. Who is it for? What do they like? What can you spend?</span>';
+  var picks = $("picks");
+  picks.innerHTML = (d.picks || []).map(function(p){
+    var tags = '<span class="tag">' + esc(p.budget) + "</span>" +
+      (p.matched || []).map(function(m){ return '<span class="tag">' + esc(m) + "</span>"; }).join("");
+    return '<div class="card"><h3>' + esc(p.title) + "</h3><p>" + esc(p.blurb) + "</p>" +
+      '<div class="why"><b>Why it fits</b>' + esc(p.why) + '</div><div class="tags">' + tags + "</div></div>";
+  }).join("");
+  var thin = $("thin");
+  if (d.thin) { thin.textContent = d.thin; thin.hidden = false; } else { thin.hidden = true; }
+  $("answer").hidden = false;
+  $("answer").scrollIntoView({block: "start"});
+}
+</script>
+<script>
+"use strict";
+/* Fleet analytics — PostHog pilot, same posture as the home page:
+   anonymous pageviews only, no identify, no session recording. */
+(function(){
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://us.i.posthog.com/static/array.js";
+  s.onload = function(){
+    try {
+      if (window.posthog && posthog.init){
+        posthog.init("phc_t9dkHXAZR5VEjPFm3K5JDzGKFsNNxKcwSxxcEBEeLbS7", {api_host: "https://us.i.posthog.com", autocapture: false, capture_pageview: true, disable_session_recording: true});
+        posthog.register({site_id: "present-picker", site_name: "The Present Picker"});
+      }
+    } catch (e) {}
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>

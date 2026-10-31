@@ -71,7 +71,7 @@
       "name": "What we don't do",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We don't sell gifts, and no store can pay to place an idea here. We don't save your quiz answers. They are never sent anywhere. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 216."
+        "text": "We don't sell gifts. No store can pay to place an idea. We don't save your quiz answers. They are never sent anywhere. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 216."
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Our guarantees",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We never see your answers. The picking runs in your browser, and your saved list never reaches us. No account and no email needed. You get the full result. No ads and no paid placement."
+        "text": "We never see your answers. The picking runs in your browser. Your saved list never reaches us. No account and no email needed. You get the full result. No ads and no paid placement."
       }
     }
   ]
@@ -168,6 +168,11 @@
   .faq details{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
   .faq summary{font-weight:700;cursor:pointer;font-size:16px}
   .faq p{margin:8px 0 2px;color:var(--muted)}
+  .how-steps{list-style:none;counter-reset:step;margin:14px 0 22px;padding:0}
+  .how-steps li{counter-increment:step;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:17px;line-height:1.45}
+  .how-steps li::before{content:counter(step);display:inline-block;font-weight:800;color:var(--gold);margin-right:8px}
+  .how-steps b{font-size:17px}
+  .how-steps span{display:block;margin-top:4px;color:var(--muted)}
   .hatch{margin-top:30px;padding-top:22px;border-top:2px solid var(--line)}
   .hatch h3{font-size:19px;margin:0 0 6px}
   .hatch textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 12px;margin:8px 0 12px}
@@ -202,6 +207,25 @@
 
     <div class="faq">
       <h2>How it works</h2>
+      <ol class="how-steps">
+        <li><b>You answer.</b>
+          <span>Five quick questions.</span>
+          <span>Who it is for.</span>
+          <span>What they are into.</span>
+          <span>What you can spend.</span>
+        </li>
+        <li><b>We search the bank.</b>
+          <span>We check 216 gift ideas.</span>
+          <span>Your price range is firm.</span>
+          <span>No store can pay to rank.</span>
+        </li>
+        <li><b>You get five picks.</b>
+          <span>Best match comes first.</span>
+          <span>Each pick says why it fits.</span>
+          <span>Save picks to your list.</span>
+          <span>Your list stays in your browser.</span>
+        </li>
+      </ol>
       <details>
         <summary>Do you link to stores?</summary>
         <p>No. Every idea is a type, never linked to a shop. Search the name anywhere you like. The site sells nothing.</p>
@@ -224,14 +248,17 @@
       </details>
       <details>
         <summary>What we don't do</summary>
-        <p>We don't sell gifts, and no store can pay to place an idea here.</p>
+        <p>We don't sell gifts.</p>
+        <p>No store can pay to place an idea.</p>
         <p>We don't save your quiz answers. They are never sent anywhere.</p>
         <p>We don't ask for your email. There is nothing to sign up for.</p>
         <p>We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 216.</p>
       </details>
       <details>
         <summary>Our guarantees</summary>
-        <p>We never see your answers. The picking runs in your browser, and your saved list never reaches us.</p>
+        <p>We never see your answers.</p>
+        <p>The picking runs in your browser.</p>
+        <p>Your saved list never reaches us.</p>
         <p>No account and no email needed. You get the full result.</p>
         <p>No ads and no paid placement.</p>
       </details>

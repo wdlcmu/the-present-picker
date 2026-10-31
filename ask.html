@@ -58,6 +58,10 @@
     padding:16px;margin:14px 0;
   }
   .card h3{font-size:18px}
+  .card .photo{
+    display:block;width:calc(100% + 32px);max-width:none;height:210px;object-fit:cover;
+    margin:-16px -16px 14px;border-radius:12px 12px 0 0;background:var(--gold-soft);
+  }
   .why{
     border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;
     background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
@@ -184,7 +188,10 @@ function render(d){
   picks.innerHTML = (d.picks || []).map(function(p){
     var tags = '<span class="tag">' + esc(p.budget) + "</span>" +
       (p.matched || []).map(function(m){ return '<span class="tag">' + esc(m) + "</span>"; }).join("");
-    return '<div class="card"><h3>' + esc(p.title) + "</h3><p>" + esc(p.blurb) + "</p>" +
+    var photo = p.photo
+      ? '<img class="photo" src="' + esc(p.photo) + '" alt="' + esc(p.title) + '" loading="lazy" onerror="this.style.display=\'none\'">'
+      : "";
+    return '<div class="card">' + photo + "<h3>" + esc(p.title) + "</h3><p>" + esc(p.blurb) + "</p>" +
       '<div class="why"><b>Why it fits</b>' + esc(p.why) + '</div><div class="tags">' + tags + "</div></div>";
   }).join("");
   var thin = $("thin");

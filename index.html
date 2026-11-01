@@ -1032,7 +1032,7 @@ function cleanName(){
 var STEPS = [
   {key: "name", title: "Who are you buying for?", sub: "A first name is plenty. You can skip this step.", required: false},
   {key: "who", title: "Who is it for?", sub: "Pick one person.", required: true},
-  {key: "interests", title: "What are they into?", sub: "Pick at least one. More is fine.", required: true, multi: true},
+  {key: "interests", title: "What are they into?", sub: "Pick at least one. Not sure? Tap Not sure.", required: true, multi: true},
   {key: "budget", title: "What is the budget?", sub: "This is a hard filter. Picks stay inside it.", required: true},
   {key: "style", title: "Any style preference?", sub: "Optional. Pick one, or skip it and you still get five picks.", required: false}
 ];
@@ -1104,7 +1104,7 @@ $("q-back").onclick = function(){
 $("q-next").onclick = function(){
   var st = STEPS[quiz.step];
   if (st.key === "who" && !quiz.who){ $("q-hint").textContent = "Pick a person first."; return; }
-  if (st.key === "interests" && quiz.interests.length === 0 && !interestNotSure){ $("q-hint").textContent = "Pick at least one interest."; return; }
+  if (st.key === "interests" && quiz.interests.length === 0 && !interestNotSure){ $("q-hint").textContent = "Pick at least one interest, or tap Not sure."; return; }
   if (st.key === "budget" && !quiz.budget){ $("q-hint").textContent = "Pick a budget first."; return; }
   if (quiz.step < STEPS.length - 1){ quiz.step++; renderQuiz(); }
   else { finishQuiz(); }

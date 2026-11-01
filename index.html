@@ -106,6 +106,25 @@
   p{margin:0 0 12px}
   .sub{color:var(--muted);font-size:16px}
   .countdown{font-size:15px;color:var(--gold);font-weight:600;margin:0 0 6px;font-variant-numeric:tabular-nums}
+  /* 2026-11-01 interactive countdown unit: digits, one tap target, What's-next panel */
+  .cdx{margin:0 0 6px}
+  .cdx [hidden]{display:none!important}
+  button.cdx-main{display:block;width:100%;background:none;border:0;font:inherit;color:inherit;text-align:left;padding:.8rem .9rem;border-radius:14px;cursor:pointer}
+  button.cdx-main:hover{background:var(--gold-soft)}
+  .cdx-main:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .cdx-digits{display:flex;gap:.9rem;justify-content:flex-start;align-items:flex-start;margin-bottom:.35rem}
+  .cdx-cell{display:flex;flex-direction:column;align-items:center;min-width:2.7ch}
+  .cdx-cell.cd-d{min-width:3.7ch}
+  .cdx-cell b{font-size:clamp(1.85rem,8.5vw,2.5rem);line-height:1;font-weight:800;font-variant-numeric:tabular-nums;color:var(--gold)}
+  .cdx-cell i{font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.32rem}
+  .cdx .countdown{display:block;margin:0}
+  .cdx-cta{display:block;margin-top:.5rem;font-weight:700;color:var(--gold)}
+  .cdx-more{background:none;border:0;font:inherit;font-size:.92rem;font-weight:600;color:var(--muted);cursor:pointer;padding:.55rem .8rem;min-height:44px;margin-left:-.8rem}
+  .cdx-more:hover{color:var(--gold)}
+  .cdx-more:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8px}
+  .cdx-panel{border:1px solid var(--line);border-radius:12px;padding:.75rem .95rem;margin-top:.4rem;background:var(--card);text-align:left}
+  .cdx-break{font-weight:700;margin:0}
+  .cdx-break:empty{display:none}
   .fine{color:var(--muted);font-size:13px}
   .askline{font-size:16px;margin:2px 0 10px}
   .checker{color:var(--muted);font-size:13px;margin:-6px 0 10px}
@@ -247,7 +266,17 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
   <section class="screen on" id="s-home">
     <h1>Find a gift that fits the person and your budget.</h1>
     <p class="core-hook">Picked for them, not the store.</p>
-    <p class="countdown" id="countdown" aria-live="polite">54 days until Christmas, Friday, December 25, 2026.</p>
+    <div class="cdx">
+      <button type="button" class="cdx-main" id="cdx-main" aria-label="54 days until Christmas, Friday, December 25, 2026.">
+        <span class="cdx-digits" id="cdx-digits" aria-hidden="true" hidden><span class="cdx-cell cd-d"><b id="cdx-d">54</b><i id="cdx-dl">days</i></span><span class="cdx-cell"><b id="cdx-h">00</b><i>hrs</i></span><span class="cdx-cell"><b id="cdx-m">00</b><i>min</i></span><span class="cdx-cell"><b id="cdx-s">00</b><i>sec</i></span></span>
+        <span class="countdown" id="countdown">54 days until Christmas, Friday, December 25, 2026.</span>
+        <span class="cdx-cta">Pick a gift &rarr;</span>
+      </button>
+      <button class="cdx-more" id="cdx-more" type="button" aria-expanded="false" aria-controls="cdx-panel" hidden>What&rsquo;s next? <span aria-hidden="true">&#9662;</span></button>
+      <div class="cdx-panel" id="cdx-panel" hidden>
+        <p class="cdx-break" id="cdx-break"></p>
+      </div>
+    </div>
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
 
@@ -1640,28 +1669,86 @@ updateCounts();
     return days + (days === 1 ? " day" : " days") + " until Christmas, " + fmt(target) + ".";
   }
   var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (RM) { el.textContent = dayText(new Date()); return; }
-  el.removeAttribute("aria-live");
-  var lastLabel = "";
+  /* 2026-11-01 interactive upgrade: the clock is the hero unit now.
+     Digit blocks (days/hrs/min/sec, tabular numerals), the whole unit is
+     one tap target to the site's core action, and a "What's next?" toggle
+     opens a panel with the time left broken down plus the next do-by
+     milestone from this site's own pages. Reduced motion: the same
+     render once a minute instead of every second. The rollover math
+     above is unchanged from this morning's ship. */
+  var main = document.getElementById("cdx-main");
+  var digitsEl = document.getElementById("cdx-digits");
+  var dEl = document.getElementById("cdx-d"), hEl = document.getElementById("cdx-h"),
+      mEl = document.getElementById("cdx-m"), sEl = document.getElementById("cdx-s");
+  var dLab = document.getElementById("cdx-dl");
+  var moreBtn = document.getElementById("cdx-more");
+  var panel = document.getElementById("cdx-panel");
+  var breakEl = document.getElementById("cdx-break");
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function cdParts(ms) {
+    var s = Math.max(0, Math.floor(ms / 1000));
+    var d = Math.floor(s / 86400); s -= d * 86400;
+    var h = Math.floor(s / 3600); s -= h * 3600;
+    var m = Math.floor(s / 60);
+    return { d: d, h: h, m: m, s: s - m * 60 };
+  }
+  var lastMs = null, panelOpen = false, lastBreakMin = -1, lastAriaMin = -1;
+  function updateBreak(now) {
+    if (!breakEl) return;
+    var min = Math.floor(now.getTime() / 60000);
+    if (min === lastBreakMin) return;
+    lastBreakMin = min;
+    if (lastMs === null) { breakEl.textContent = ""; return; }
+    var p = cdParts(lastMs), w = Math.floor(p.d / 7), rd = p.d - w * 7, seg = [];
+    if (w > 0) seg.push(cdUnit(w, "week"));
+    if (rd > 0) seg.push(cdUnit(rd, "day"));
+    seg.push(cdUnit(p.h, "hour"));
+    breakEl.textContent = "Time left: " + seg.join(", ") + ".";
+  }
+  if (moreBtn && panel) {
+    moreBtn.hidden = false;
+    moreBtn.addEventListener("click", function () {
+      panelOpen = !panelOpen;
+      panel.hidden = !panelOpen;
+      moreBtn.setAttribute("aria-expanded", panelOpen ? "true" : "false");
+      if (panelOpen) { lastBreakMin = -1; updateBreak(new Date()); }
+    });
+  }
+  if (main) main.addEventListener("click", function () { var b = document.getElementById("btn-start"); if (b) b.click(); });
+
+  function setAria(text, now) {
+    var min = Math.floor(now.getTime() / 60000);
+    if (min !== lastAriaMin) { lastAriaMin = min; if (main) main.setAttribute("aria-label", text); }
+  }
+  function showDigits(ms, tail) {
+    var p = cdParts(ms);
+    dEl.textContent = p.d; hEl.textContent = pad(p.h); mEl.textContent = pad(p.m); sEl.textContent = pad(p.s);
+    if (dLab) dLab.textContent = p.d === 1 ? "day" : "days";
+    digitsEl.hidden = false;
+    el.textContent = "until " + tail;
+  }
+  function showSentence(t) { digitsEl.hidden = true; el.textContent = t; }
+  if (el.getAttribute("aria-live")) el.removeAttribute("aria-live");
   function render() {
     var now = new Date();
-    var label = dayText(now);
-    if (label !== lastLabel) { lastLabel = label; el.setAttribute("aria-label", label); }
+    var tickMs = null, tail = "", sentence = "";
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     var target = christmas(today.getFullYear());
-    var text;
     if (today.getTime() === target.getTime()) {
-      text = "Christmas is today, " + fmt(target) + ".";
+      sentence = "Christmas is today, " + fmt(target) + ".";
     } else if (today > target) {
-      text = label;
+      sentence = dayText(now);
     } else {
       var end = new Date(target.getFullYear(), 11, 26);
-      text = cdTick(end - now, "Christmas, " + fmt(target) + ".");
+      tickMs = end - now; tail = "Christmas, " + fmt(target) + ".";
     }
-    el.textContent = text;
+    if (tickMs !== null) { lastMs = tickMs; showDigits(tickMs, tail); setAria(cdTick(tickMs, tail), now); }
+    else { lastMs = null; showSentence(sentence); setAria(sentence, now); }
+    if (panelOpen) updateBreak(now);
   }
   render();
-  setInterval(render, 1000);
+  setInterval(render, RM ? 60000 : 1000);
 })();
 </script>
 <script>

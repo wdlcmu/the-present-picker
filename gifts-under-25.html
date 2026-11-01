@@ -700,5 +700,177 @@
   </footer>
 </div>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "13c6ffa02e21404481cb39e1c7064870"}'></script>
+<!-- ASK PANEL START -->
+<style>
+.askp-btn{position:fixed;right:16px;bottom:16px;z-index:9990;min-height:48px;padding:13px 20px;font:inherit;font-size:16px;font-weight:700;color:#fff;background:var(--gold,#8f5f06);border:2px solid var(--gold,#8f5f06);border-radius:999px;cursor:pointer;box-shadow:0 4px 16px rgba(43,36,25,.28)}
+.askp-btn:active{transform:translateY(1px)}
+.askp-panel{position:fixed;right:16px;bottom:76px;z-index:9991;width:min(380px,calc(100vw - 32px));max-height:min(75vh,640px);display:flex;flex-direction:column;background:var(--card,#fffdf8);color:var(--ink,#2b2419);border:2px solid var(--line,#e2d6bd);border-radius:16px;box-shadow:0 12px 40px rgba(43,36,25,.30);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.5;transition:opacity .18s ease,transform .18s ease}
+.askp-panel[hidden]{display:none}
+.askp-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:2px solid var(--line,#e2d6bd)}
+.askp-head b{font-size:17px}
+.askp-close{min-width:44px;min-height:44px;font:inherit;font-size:20px;line-height:1;color:var(--ink,#2b2419);background:transparent;border:2px solid var(--line,#e2d6bd);border-radius:10px;cursor:pointer}
+.askp-body{overflow-y:auto;padding:12px 16px}
+.askp-fine{color:var(--muted,#6f6350);font-size:13px;margin:0 0 10px}
+.askp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.askp-chip{padding:10px 14px;font:inherit;font-size:14px;font-weight:600;color:var(--ink,#2b2419);background:var(--card,#fffdf8);border:2px solid var(--line,#e2d6bd);border-radius:999px;cursor:pointer;text-align:left}
+.askp-msgs{display:flex;flex-direction:column;gap:10px}
+.askp-user{align-self:flex-end;max-width:88%;background:var(--gold-soft,#f3e8cf);border-radius:14px 14px 4px 14px;padding:9px 12px;font-size:15px}
+.askp-note{border-left:4px solid var(--gold,#8f5f06);padding:8px 12px;background:var(--gold-soft,#f3e8cf);border-radius:0 8px 8px 0;font-size:15px;margin:0}
+.askp-heardlabel{font-size:15px;font-weight:700;margin:2px 0 0}
+.askp-tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.askp-tag{font-size:12px;font-weight:600;color:var(--muted,#6f6350);border:1px solid var(--line,#e2d6bd);border-radius:999px;padding:3px 10px}
+.askp-card{background:var(--card,#fffdf8);border:2px solid var(--line,#e2d6bd);border-radius:14px;padding:14px}
+.askp-card h3{font-size:17px;margin:0 0 6px}
+.askp-card p{margin:0 0 6px;font-size:15px}
+.askp-photo{display:block;width:calc(100% + 28px);max-width:none;height:160px;object-fit:cover;margin:-14px -14px 12px;border-radius:12px 12px 0 0;background:var(--gold-soft,#f3e8cf)}
+.askp-why{border-left:4px solid var(--gold,#8f5f06);padding:8px 12px;margin:10px 0;background:var(--gold-soft,#f3e8cf);border-radius:0 8px 8px 0;font-size:15px}
+.askp-why b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold,#8f5f06);margin-bottom:2px}
+.askp-status{min-height:20px;font-size:14px;font-weight:600;color:var(--gold,#8f5f06);margin:6px 0}
+.askp-foot{padding:10px 16px 14px;border-top:2px solid var(--line,#e2d6bd)}
+.askp-text{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink,#2b2419);background:var(--card,#fffdf8);border:2px solid var(--line,#e2d6bd);border-radius:12px;padding:11px 13px}
+.askp-text:focus{border-color:var(--gold,#8f5f06);outline:none}
+.askp-ask{display:block;width:100%;padding:13px 18px;margin-top:10px;font:inherit;font-size:17px;font-weight:700;color:#fff;background:var(--gold,#8f5f06);border:2px solid var(--gold,#8f5f06);border-radius:12px;cursor:pointer;text-align:center}
+.askp-ask:disabled{opacity:.6}
+.askp-full{display:inline-block;padding:10px 4px 2px;font-size:14px;font-weight:600;color:var(--gold,#8f5f06)}
+@media (max-width:640px){
+  .askp-panel{left:0;right:0;bottom:0;width:auto;max-height:86vh;border-radius:16px 16px 0 0;border-left:none;border-right:none;border-bottom:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .askp-panel{transition:none}
+  .askp-btn:active{transform:none}
+}
+</style>
+<button class="askp-btn" id="askp-open" type="button" aria-haspopup="dialog" aria-expanded="false">Ask in your own words</button>
+<div class="askp-panel" id="askp-panel" role="dialog" aria-label="Ask in your own words" hidden>
+  <div class="askp-head"><b>Ask in your own words</b><button class="askp-close" id="askp-close" type="button" aria-label="Close">&times;</button></div>
+  <div class="askp-body">
+    <p class="askp-fine">What you type goes to a helper program to be read. Nothing is saved. No name is asked.</p>
+    <div class="askp-chips" id="askp-examples">
+      <button class="askp-chip" type="button">For my grandma, who loves gardening, under $50</button>
+      <button class="askp-chip" type="button">Something fun for my 6-year-old, under $25</button>
+      <button class="askp-chip" type="button">My coworker is into cooking. $50 to $100.</button>
+    </div>
+    <div class="askp-msgs" id="askp-msgs" aria-live="polite"></div>
+    <p class="askp-status" id="askp-status" aria-live="polite"></p>
+  </div>
+  <div class="askp-foot">
+    <textarea class="askp-text" id="askp-text" rows="3" maxlength="300" placeholder="A gift for my dad. He likes the outdoors. I can spend $25 to $50." aria-label="Say who the gift is for, what they like, and what you can spend"></textarea>
+    <button class="askp-ask" id="askp-ask" type="button">Ask</button>
+    <a class="askp-full" href="/ask">Open the full ask page</a>
+  </div>
+</div>
+<script>
+"use strict";
+(function(){
+  var btn=document.getElementById("askp-open"), panel=document.getElementById("askp-panel");
+  if(!btn||!panel) return;
+  var inited=false, lastOverflow="";
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function open(){
+    init();
+    panel.hidden=false;
+    btn.setAttribute("aria-expanded","true");
+    lastOverflow=document.body.style.overflow;
+    document.body.style.overflow="hidden";
+    var t=document.getElementById("askp-text");
+    if(t) t.focus();
+  }
+  function close(){
+    panel.hidden=true;
+    btn.setAttribute("aria-expanded","false");
+    document.body.style.overflow=lastOverflow;
+    btn.focus();
+  }
+  function init(){
+    if(inited) return; inited=true;
+    document.getElementById("askp-close").addEventListener("click", close);
+    document.addEventListener("keydown", function(e){
+      if(e.key==="Escape" && !panel.hidden) close();
+    });
+    document.getElementById("askp-examples").addEventListener("click", function(e){
+      var b=e.target.closest("button.askp-chip");
+      if(!b) return;
+      var t=document.getElementById("askp-text");
+      t.value=b.textContent.trim();
+      t.focus();
+    });
+    document.getElementById("askp-ask").addEventListener("click", submit);
+  }
+  function submit(){
+    var ta=document.getElementById("askp-text"), status=document.getElementById("askp-status"), askBtn=document.getElementById("askp-ask");
+    var text=ta.value.trim();
+    if(!text){ status.textContent="Say a few words about the person first."; return; }
+    status.textContent="Reading your words...";
+    askBtn.disabled=true;
+    fetch("/api/ask", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({text:text})})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        askBtn.disabled=false;
+        status.textContent="";
+        render(text, d);
+      })
+      .catch(function(){
+        askBtn.disabled=false;
+        status.textContent="That did not go through. The quiz still works: it asks the same things, one tap at a time.";
+      });
+  }
+  function render(text, d){
+    var msgs=document.getElementById("askp-msgs");
+    var user=document.createElement("div");
+    user.className="askp-user";
+    user.textContent=text;
+    msgs.appendChild(user);
+    (d.notes||[]).forEach(function(n){
+      var p=document.createElement("p");
+      p.className="askp-note";
+      p.textContent=n;
+      msgs.appendChild(p);
+    });
+    var heard=[];
+    if(d.heard && d.heard.whoLabel) heard.push("For: "+d.heard.whoLabel);
+    if(d.heard && d.heard.interests && d.heard.interests.length) heard.push("Into: "+d.heard.interests.join(", "));
+    if(d.heard && d.heard.budget) heard.push("Budget: "+d.heard.budget);
+    if(d.heard && d.heard.style) heard.push("Style: "+d.heard.style);
+    var hl=document.createElement("p");
+    hl.className="askp-heardlabel";
+    hl.textContent="What I heard";
+    msgs.appendChild(hl);
+    var tags=document.createElement("div");
+    tags.className="askp-tags";
+    tags.innerHTML=heard.length
+      ? heard.map(function(h){ return '<span class="askp-tag">'+esc(h)+"</span>"; }).join("")
+      : '<span class="askp-tag">I need a little more. Who is it for? What do they like? What can you spend?</span>';
+    msgs.appendChild(tags);
+    (d.picks||[]).forEach(function(p){
+      var card=document.createElement("div");
+      card.className="askp-card";
+      var pTags='<span class="askp-tag">'+esc(p.budget)+"</span>"+
+        (p.matched||[]).map(function(m){ return '<span class="askp-tag">'+esc(m)+"</span>"; }).join("");
+      var photo=p.photo
+        ? '<img class="askp-photo" src="'+esc(p.photo)+'" alt="'+esc(p.title)+'" loading="lazy" onerror="this.style.display=\'none\'">'
+        : "";
+      card.innerHTML=photo+"<h3>"+esc(p.title)+"</h3><p>"+esc(p.blurb)+"</p>"+
+        '<div class="askp-why"><b>Why it fits</b>'+esc(p.why)+'</div><div class="askp-tags">'+pTags+"</div>";
+      msgs.appendChild(card);
+    });
+    if(d.thin){
+      var thin=document.createElement("p");
+      thin.className="askp-note";
+      thin.textContent=d.thin;
+      msgs.appendChild(thin);
+    }
+    var fine=document.createElement("p");
+    fine.className="askp-fine";
+    fine.textContent="Every pick comes from the bank of 233 checked ideas. The quiz uses the same bank. No store can pay to rank. No brands. No store links.";
+    msgs.appendChild(fine);
+    var body=panel.querySelector(".askp-body");
+    if(body) body.scrollTop=body.scrollHeight;
+  }
+  btn.addEventListener("click", function(){
+    if(panel.hidden) open(); else close();
+  });
+})();
+</script>
+<!-- ASK PANEL END -->
 </body>
 </html>

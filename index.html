@@ -105,7 +105,7 @@
   h3{font-size:16px;margin:0 0 6px}
   p{margin:0 0 12px}
   .sub{color:var(--muted);font-size:16px}
-  .countdown{font-size:15px;color:var(--gold);font-weight:600;margin:0 0 6px}
+  .countdown{font-size:15px;color:var(--gold);font-weight:600;margin:0 0 6px;font-variant-numeric:tabular-nums}
   .fine{color:var(--muted);font-size:13px}
   .askline{font-size:16px;margin:2px 0 10px}
   .checker{color:var(--muted);font-size:13px;margin:-6px 0 10px}
@@ -1608,24 +1608,60 @@ updateCounts();
 (function () {
   var el = document.getElementById("countdown");
   if (!el) return;
+  /* 2026-11-01 countdown fleet pass: live clock to Christmas. Ticks every
+     second (days, hours, minutes, seconds) to the end of Christmas Day;
+     the day itself says so, and Dec 26-31 point at next Christmas before
+     the count resumes. Static hero text is the day count, so the number
+     shows with no JS. Reduced motion: one static day count, no ticking. */
   function christmas(year) { return new Date(year, 11, 25); }
-  var now = new Date();
-  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  var year = today.getFullYear();
-  var target = christmas(year);
-  var rolled = false;
-  if (today > target) { target = christmas(year + 1); rolled = true; }
-  var days = Math.round((target - today) / 86400000);
-  var dateText = target.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
-  var text;
-  if (days === 0) {
-    text = "Christmas is today, " + dateText + ".";
-  } else if (rolled) {
-    text = "Christmas Day has passed. Next Christmas is " + dateText + ", in " + days + " days.";
-  } else {
-    text = days + (days === 1 ? " day" : " days") + " until Christmas, " + dateText + ".";
+  function fmt(d) { return d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }); }
+
+  function cdUnit(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
+  function cdTick(ms, tail) {
+    var s = Math.floor(ms / 1000);
+    var d = Math.floor(s / 86400); s -= d * 86400;
+    var h = Math.floor(s / 3600); s -= h * 3600;
+    var m = Math.floor(s / 60); var sec = s - m * 60;
+    var seg = [];
+    if (d > 0) seg.push(cdUnit(d, "day"));
+    if (d > 0 || h > 0) seg.push(cdUnit(h, "hour"));
+    seg.push(cdUnit(m, "minute"));
+    seg.push(cdUnit(sec, "second"));
+    return seg.join(", ") + " until " + tail;
   }
-  el.textContent = text;
+  function dayText(now) {
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var target = christmas(today.getFullYear());
+    var rolled = false;
+    if (today > target) { target = christmas(today.getFullYear() + 1); rolled = true; }
+    var days = Math.round((target - today) / 86400000);
+    if (days === 0) return "Christmas is today, " + fmt(target) + ".";
+    if (rolled) return "Christmas Day has passed. Next Christmas is " + fmt(target) + ", in " + days + " days.";
+    return days + (days === 1 ? " day" : " days") + " until Christmas, " + fmt(target) + ".";
+  }
+  var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (RM) { el.textContent = dayText(new Date()); return; }
+  el.removeAttribute("aria-live");
+  var lastLabel = "";
+  function render() {
+    var now = new Date();
+    var label = dayText(now);
+    if (label !== lastLabel) { lastLabel = label; el.setAttribute("aria-label", label); }
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var target = christmas(today.getFullYear());
+    var text;
+    if (today.getTime() === target.getTime()) {
+      text = "Christmas is today, " + fmt(target) + ".";
+    } else if (today > target) {
+      text = label;
+    } else {
+      var end = new Date(target.getFullYear(), 11, 26);
+      text = cdTick(end - now, "Christmas, " + fmt(target) + ".");
+    }
+    el.textContent = text;
+  }
+  render();
+  setInterval(render, 1000);
 })();
 </script>
 <script>

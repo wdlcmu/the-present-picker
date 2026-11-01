@@ -47,7 +47,7 @@
       "name": "Do you link to stores or sell these gifts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas."
+        "text": "No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas."
       }
     }
   ]
@@ -100,6 +100,13 @@
   footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
   .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none;display:inline-block;padding:12px 6px;margin:-12px -6px;min-height:44px}
+
+.rail{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 16px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.rail-item{flex:0 0 126px;scroll-snap-align:start;text-decoration:none;color:var(--ink)}
+.rail-item img{display:block;width:126px;height:94px;object-fit:cover;border-radius:10px;background:var(--gold-soft);border:1px solid var(--line)}
+.rail-name{display:block;font-size:13px;font-weight:600;line-height:1.25;margin-top:6px}
+.rail-band{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.card{scroll-margin-top:12px}
 </style>
 </head>
 <body>
@@ -110,12 +117,63 @@
 
   <h1>Gifts $50 to $100</h1>
   <p class="sub">For a bigger budget when you want one good thing. Every idea here sits in the $50 to $100 band.</p>
-  <p>These ideas come from the same bank as the picker. Each one is plain and useful, with no store links and no brand names. Stores set real prices, so check the tag when you buy.</p>
+  <p class="fine">Stores set real prices, so check the tag when you buy.</p>
   <a class="cta" href="/">Find their gift</a>
   <p class="fine">Free forever. No ads. No accounts.</p>
 
-    <h2>Cooking</h2>
-    <div class="card">
+    <div class="rail" aria-label="The picks on this page">
+  <a class="rail-item" href="#pick-three-month-spice-subscription"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Three-month spice subscription</span><span class="rail-band">Cooking</span></a>
+  <a class="rail-item" href="#pick-chef-s-knife-8-inch"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Chef's knife, 8 inch</span><span class="rail-band">Cooking</span></a>
+  <a class="rail-item" href="#pick-large-print-classic-cookbook-with-stand"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Large print classic cookbook with stand</span><span class="rail-band">Cooking</span></a>
+  <a class="rail-item" href="#pick-hand-thrown-stoneware-serving-bowl-large"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Hand-thrown stoneware serving bowl, large</span><span class="rail-band">Cooking</span></a>
+  <a class="rail-item" href="#pick-packable-camp-blanket"><img src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Packable camp blanket</span><span class="rail-band">Outdoors</span></a>
+  <a class="rail-item" href="#pick-annual-pass-to-the-national-parks"><img src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Annual pass to the national parks</span><span class="rail-band">Outdoors</span></a>
+  <a class="rail-item" href="#pick-engraved-brass-compass-with-a-short-line-inside-the-lid"><img src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Engraved brass compass with a short line inside the lid</span><span class="rail-band">Outdoors</span></a>
+  <a class="rail-item" href="#pick-bluetooth-tracker-4-pack"><img src="img/idea-bluetooth-tracker-4-pack.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Bluetooth tracker, 4 pack</span><span class="rail-band">Tech</span></a>
+  <a class="rail-item" href="#pick-mesh-wifi-booster-for-dead-rooms"><img src="img/idea-mesh-wifi-booster-for-dead-rooms.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Mesh wifi booster for dead rooms</span><span class="rail-band">Tech</span></a>
+  <a class="rail-item" href="#pick-gym-duffel-with-shoe-compartment"><img src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Gym duffel with shoe compartment</span><span class="rail-band">Fitness</span></a>
+  <a class="rail-item" href="#pick-balance-and-mobility-kit-with-bands"><img src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Balance and mobility kit with bands</span><span class="rail-band">Fitness</span></a>
+  <a class="rail-item" href="#pick-weighted-blanket-15-lb"><img src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Weighted blanket, 15 lb</span><span class="rail-band">Cozy home</span></a>
+  <a class="rail-item" href="#pick-chunky-knit-throw-blanket"><img src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Chunky knit throw blanket</span><span class="rail-band">Cozy home</span></a>
+  <a class="rail-item" href="#pick-heated-foot-warmer-with-auto-shutoff"><img src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Heated foot warmer with auto shutoff</span><span class="rail-band">Cozy home</span></a>
+  <a class="rail-item" href="#pick-beginner-acoustic-guitar-with-lesson-book"><img src="img/idea-beginner-acoustic-guitar-with-lesson-book.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Beginner acoustic guitar with lesson book</span><span class="rail-band">Music</span></a>
+  <a class="rail-item" href="#pick-deluxe-game-night-case-with-dominoes-and-cards"><img src="img/gift-games.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Deluxe game night case with dominoes and cards</span><span class="rail-band">Games</span></a>
+  <a class="rail-item" href="#pick-smart-bird-feeder-with-camera"><img src="img/idea-smart-bird-feeder-with-camera.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Smart bird feeder with camera</span><span class="rail-band">Gardening</span></a>
+  <a class="rail-item" href="#pick-self-watering-raised-herb-garden"><img src="img/gift-gardening.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Self watering raised herb garden</span><span class="rail-band">Gardening</span></a>
+  <a class="rail-item" href="#pick-museum-or-garden-membership"><img src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Museum or garden membership</span><span class="rail-band">Experience</span></a>
+  <a class="rail-item" href="#pick-jazz-brunch-for-two-with-a-live-set"><img src="img/gift-music.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Jazz brunch for two with a live set</span><span class="rail-band">Experience</span></a>
+  <a class="rail-item" href="#pick-guided-paddleboard-lesson-for-two"><img src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Guided paddleboard lesson for two</span><span class="rail-band">Experience</span></a>
+  <a class="rail-item" href="#pick-printed-photo-book-of-the-year"><img src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Printed photo book of the year</span><span class="rail-band">Sentimental</span></a>
+  <a class="rail-item" href="#pick-custom-portrait-painted-from-a-family-photo"><img src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Custom portrait painted from a family photo</span><span class="rail-band">Sentimental</span></a>
+  <a class="rail-item" href="#pick-large-framed-custom-star-map-print"><img src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Large framed custom star-map print</span><span class="rail-band">Sentimental</span></a>
+  <a class="rail-item" href="#pick-monogrammed-leather-travel-wallet"><img src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Monogrammed leather travel wallet</span><span class="rail-band">Sentimental</span></a>
+  <a class="rail-item" href="#pick-durable-kids-digital-camera"><img src="img/idea-durable-kids-digital-camera.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Durable kids' digital camera</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-remote-control-stunt-car"><img src="img/idea-remote-control-stunt-car.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Remote-control stunt car</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-kids-microscope"><img src="img/idea-kids-microscope.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids' microscope</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-big-creator-building-set-500-pieces"><img src="img/gift-kids.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Big creator building set, 500+ pieces</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-large-art-easel-with-supplies"><img src="img/idea-large-art-easel-with-supplies.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Large art easel with supplies</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-kids-cooking-class-parent-and-child"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids' cooking class, parent and child</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-rocks-and-minerals-collection-kit"><img src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Rocks and minerals collection kit</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-kids-camping-adventure-kit"><img src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids camping adventure kit</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-illustrated-chapter-book-box-set"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Illustrated chapter book box set</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-height-adjustable-hoop-and-ball-set"><img src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Height-adjustable hoop and ball set</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-plush-reading-pillow-with-side-pockets"><img src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Plush reading pillow with side pockets</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-kids-keyboard-with-light-up-keys"><img src="img/idea-kids-keyboard-with-light-up-keys.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids keyboard with light-up keys</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-kids-garden-grow-station"><img src="img/gift-gardening.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids garden grow station</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-kids-ride-on-carry-on-suitcase"><img src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids ride-on carry-on suitcase</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-kids-pizza-making-workshop-parent-and-child"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids pizza making workshop, parent and child</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-waterproof-rain-set-for-kids-boots-and-umbrella"><img src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Waterproof rain set for kids, boots and umbrella</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-wooden-growth-chart-with-a-handprint-kit"><img src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Wooden growth chart with a handprint kit</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-recordable-storybook-a-grandparent-can-read-aloud"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Recordable storybook a grandparent can read aloud</span><span class="rail-band">For kids</span></a>
+  <a class="rail-item" href="#pick-facsimile-first-edition-of-a-classic-novel"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Facsimile first edition of a classic novel</span><span class="rail-band">Books</span></a>
+  <a class="rail-item" href="#pick-guided-bookshop-crawl-and-reading-night-for-two"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Guided bookshop crawl and reading night for two</span><span class="rail-band">Books</span></a>
+  <a class="rail-item" href="#pick-personalized-gardening-journal"><img src="img/gift-gardening.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Personalized gardening journal</span><span class="rail-band">Books</span></a>
+  <a class="rail-item" href="#pick-planetarium-star-party-night-for-two"><img src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Planetarium star party night for two</span><span class="rail-band">Science</span></a>
+  <a class="rail-item" href="#pick-junior-chemistry-lab-set-with-beakers-and-balance"><img src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Junior chemistry lab set with beakers and balance</span><span class="rail-band">Science</span></a>
+  <a class="rail-item" href="#pick-metal-detector-for-kids"><img src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Metal detector for kids</span><span class="rail-band">Science</span></a>
+</div>
+  <h2>Cooking</h2>
+    <div class="card" id="pick-three-month-spice-subscription">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Three-month spice subscription</h3>
       <p>A new small-batch blend arrives each month with recipe cards.</p>
@@ -123,7 +181,7 @@
       <div class="why"><b>Buying notes</b>Look for: small fresh batches, recipe cards, and an easy way to skip a month. Avoid: big tins that go stale.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small set of empty jars and labels, so each blend has a home when it lands.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-chef-s-knife-8-inch">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Chef&#x27;s knife, 8 inch</h3>
       <p>One sharp, balanced knife that replaces three dull ones.</p>
@@ -131,7 +189,7 @@
       <div class="why"><b>Buying notes</b>Look for: full tang, balanced weight, and a blade that takes a fine edge. Avoid: serrated or coated blades.</div>
       <div class="why"><b>Care and pairing</b>Care: hand wash, dry at once, never the dishwasher. Pairs with a honing steel and a magnetic wall strip.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-large-print-classic-cookbook-with-stand">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Large print classic cookbook with stand</h3>
       <p>Big type recipes on pages that stay open hands free.</p>
@@ -139,7 +197,7 @@
       <div class="why"><b>Buying notes</b>Look for: large clear type, pages that wipe clean, and a stand with a steady lip. Avoid: glossy pages that glare under kitchen lights.</div>
       <div class="why"><b>Care and pairing</b>Mark one beloved recipe with a ribbon before you wrap it. Pairs with reading glasses kept on the same shelf.</div>
     </div>
-        <div class="card">
+        <div class="card" id="pick-hand-thrown-stoneware-serving-bowl-large">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Hand-thrown stoneware serving bowl, large</h3>
       <p>A large hand made serving bowl with a warm speckled glaze.</p>
@@ -148,7 +206,7 @@
       <div class="why"><b>Care and pairing</b>Serve its first meal at a family dinner. Pairs with a linen cloth under it.</div>
     </div>
 <h2>Outdoors</h2>
-    <div class="card">
+    <div class="card" id="pick-packable-camp-blanket">
       <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Packable camp blanket</h3>
       <p>Warm as a sleeping bag, packs down to the size of a book.</p>
@@ -156,7 +214,7 @@
       <div class="why"><b>Buying notes</b>Look for: synthetic fill that packs small and a shell that sheds dew. Avoid: bulky cotton throws.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a stuff sack for the car trunk. Shake it out and air it after muddy trips.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-annual-pass-to-the-national-parks">
       <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Annual pass to the national parks</h3>
       <p>A year of trailheads for less than one nice dinner out.</p>
@@ -164,7 +222,7 @@
       <div class="why"><b>Buying notes</b>Look for: a pass good for a full year at the parks they visit. Avoid: single-park passes if they roam.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a paper road atlas of the parks. The pass covers the car, so every trip seats the whole crew.</div>
     </div>
-        <div class="card">
+        <div class="card" id="pick-engraved-brass-compass-with-a-short-line-inside-the-lid">
       <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Engraved brass compass with a short line inside the lid</h3>
       <p>A solid brass compass that opens to a short engraved line chosen by the giver.</p>
@@ -173,7 +231,7 @@
       <div class="why"><b>Care and pairing</b>Keep the inside line under eight words. Pairs with a hand drawn map of a walk you take together.</div>
     </div>
 <h2>Tech</h2>
-    <div class="card">
+    <div class="card" id="pick-bluetooth-tracker-4-pack">
       <img class="photo" src="img/idea-bluetooth-tracker-4-pack.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Bluetooth tracker, 4 pack</h3>
       <p>Finds keys, wallet, and bag from the phone.</p>
@@ -181,7 +239,7 @@
       <div class="why"><b>Buying notes</b>Look for: a loud ring, a replaceable battery, and support for their phone. Avoid: trackers locked to the other phone system.</div>
       <div class="why"><b>Care and pairing</b>Pairs with key rings for two of them. Set one up on their keys before you wrap the rest.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-mesh-wifi-booster-for-dead-rooms">
       <img class="photo" src="img/idea-mesh-wifi-booster-for-dead-rooms.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Mesh wifi booster for dead rooms</h3>
       <p>One small unit that carries signal into the far bedroom.</p>
@@ -190,7 +248,7 @@
       <div class="why"><b>Care and pairing</b>Place it halfway to the weak room, not inside it. Pairs with a note of the network name in big letters.</div>
     </div>
     <h2>Fitness</h2>
-    <div class="card">
+    <div class="card" id="pick-gym-duffel-with-shoe-compartment">
       <img class="photo" src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Gym duffel with shoe compartment</h3>
       <p>Swallows shoes, bottle, and towel without smelling like any of them.</p>
@@ -198,7 +256,7 @@
       <div class="why"><b>Buying notes</b>Look for: a separate vented shoe pocket and a shoulder strap. Avoid: one big pocket where shoes meet clothes.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small laundry pouch for worn clothes. Air it out open after gym days.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-balance-and-mobility-kit-with-bands">
       <img class="photo" src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Balance and mobility kit with bands</h3>
       <p>A wobble board, gentle bands, and a large print routine card.</p>
@@ -207,7 +265,7 @@
       <div class="why"><b>Care and pairing</b>Start beside a counter for balance support. Pairs with the morning news as the daily session timer.</div>
     </div>
     <h2>Cozy home</h2>
-    <div class="card">
+    <div class="card" id="pick-weighted-blanket-15-lb">
       <img class="photo" src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Weighted blanket, 15 lb</h3>
       <p>Deep-pressure calm that genuinely helps people fall asleep.</p>
@@ -215,7 +273,7 @@
       <div class="why"><b>Buying notes</b>Look for: about a tenth of their body weight, fill spread in small squares. Avoid: blankets where the fill pools in one corner.</div>
       <div class="why"><b>Care and pairing</b>Care: use a washable cover so the blanket itself rarely needs washing. Pairs with light cotton sheets.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-chunky-knit-throw-blanket">
       <img class="photo" src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Chunky knit throw blanket</h3>
       <p>The couch blanket everyone fights over.</p>
@@ -223,7 +281,7 @@
       <div class="why"><b>Buying notes</b>Look for: a tight chunky knit, at least 50 inches wide. Avoid: loose knits that snag and stretch out.</div>
       <div class="why"><b>Care and pairing</b>Care: wash gentle and dry flat so the knit keeps its shape. Pairs with the couch and a long film.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-heated-foot-warmer-with-auto-shutoff">
       <img class="photo" src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Heated foot warmer with auto shutoff</h3>
       <p>A plush pocket of warmth for desks, couches, and cold floors.</p>
@@ -232,7 +290,7 @@
       <div class="why"><b>Care and pairing</b>Care: unplug it before the cover goes in the wash. Pairs with the desk chair where they sit longest.</div>
     </div>
     <h2>Music</h2>
-    <div class="card">
+    <div class="card" id="pick-beginner-acoustic-guitar-with-lesson-book">
       <img class="photo" src="img/idea-beginner-acoustic-guitar-with-lesson-book.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Beginner acoustic guitar with lesson book</h3>
       <p>A full size starter guitar, tuner, strap, and chord book.</p>
@@ -241,7 +299,7 @@
       <div class="why"><b>Care and pairing</b>Tune it and learn one chord yourself first. Pairs with a pick tucked under the strings as a starter.</div>
     </div>
     <h2>Games</h2>
-    <div class="card">
+    <div class="card" id="pick-deluxe-game-night-case-with-dominoes-and-cards">
       <img class="photo" src="img/gift-games.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Deluxe game night case with dominoes and cards</h3>
       <p>Dominoes, dice, and two card decks in one latching case.</p>
@@ -250,7 +308,7 @@
       <div class="why"><b>Care and pairing</b>Pairs with a score pad stored inside the lid. The quickest game gets taught first, every time.</div>
     </div>
     <h2>Gardening</h2>
-    <div class="card">
+    <div class="card" id="pick-smart-bird-feeder-with-camera">
       <img class="photo" src="img/idea-smart-bird-feeder-with-camera.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Smart bird feeder with camera</h3>
       <p>Sends a photo to the phone every time a bird visits.</p>
@@ -258,7 +316,7 @@
       <div class="why"><b>Buying notes</b>Look for: clear photos, solar charging, and easy refills. Avoid: flimsy plastic that cracks in winter.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a first bag of seed. Mount it where the wifi is strong and squirrels are not.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-self-watering-raised-herb-garden">
       <img class="photo" src="img/gift-gardening.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Self watering raised herb garden</h3>
       <p>A waist high planter with a tank that waters for a week.</p>
@@ -267,7 +325,7 @@
       <div class="why"><b>Care and pairing</b>Fill the tank together at planting and mark the level. Pairs with basil and parsley started the same day.</div>
     </div>
     <h2>Experience</h2>
-    <div class="card">
+    <div class="card" id="pick-museum-or-garden-membership">
       <img class="photo" src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Museum or garden membership</h3>
       <p>A year of free admission for two.</p>
@@ -275,7 +333,7 @@
       <div class="why"><b>Buying notes</b>Look for: a year for two adults at a place they will visit often. Avoid: places an hour from home.</div>
       <div class="why"><b>Care and pairing</b>Pairs with one visit planned in the first month, or the card sleeps in a drawer. Guest passes make it social.</div>
     </div>
-        <div class="card">
+        <div class="card" id="pick-jazz-brunch-for-two-with-a-live-set">
       <img class="photo" src="img/gift-music.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Jazz brunch for two with a live set</h3>
       <p>A table near the band, a slow meal, and music between courses.</p>
@@ -283,7 +341,7 @@
       <div class="why"><b>Buying notes</b>Look for: a reserved table, the band playing the full seating, and a menu beyond eggs. Avoid: venues where the music is just a speaker.</div>
       <div class="why"><b>Care and pairing</b>Book the earlier seating for the best light and seats. Pairs with a walk afterward, no rush home.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-guided-paddleboard-lesson-for-two">
       <img class="photo" src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Guided paddleboard lesson for two</h3>
       <p>A calm water lesson with boards, paddles, and an instructor alongside.</p>
@@ -292,7 +350,7 @@
       <div class="why"><b>Care and pairing</b>Pick a still morning before wind picks up. Pairs with dry clothes waiting in the car.</div>
     </div>
 <h2>Sentimental</h2>
-    <div class="card">
+    <div class="card" id="pick-printed-photo-book-of-the-year">
       <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Printed photo book of the year</h3>
       <p>The phone photos, edited and bound.</p>
@@ -300,7 +358,7 @@
       <div class="why"><b>Buying notes</b>Look for: lay-flat pages and your best photos, in order. Avoid: thin pages that curl.</div>
       <div class="why"><b>Care and pairing</b>Pairs with captions written by hand after it arrives. Leave the last page blank for next year.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-custom-portrait-painted-from-a-family-photo">
       <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Custom portrait painted from a family photo</h3>
       <p>An artist paints one favorite family photo by hand.</p>
@@ -308,7 +366,7 @@
       <div class="why"><b>Buying notes</b>Look for: a hand-painted canvas from your photo, with a proof first. Avoid: printed posters sold as paintings.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a frame and a wall hook rated for it. Pick a photo where everyone is mid-laugh.</div>
     </div>
-        <div class="card">
+        <div class="card" id="pick-large-framed-custom-star-map-print">
       <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Large framed custom star-map print</h3>
       <p>The night sky from your date, printed large and ready to hang.</p>
@@ -316,7 +374,7 @@
       <div class="why"><b>Buying notes</b>Look for: the sky from the real date and place, a solid wood frame, and glass that does not glare. Avoid: stock skies that match no real night.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a card naming the date in your own words. Double-check the date and place before you order the print.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-monogrammed-leather-travel-wallet">
       <img class="photo" src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Monogrammed leather travel wallet</h3>
       <p>A leather travel wallet with their initials pressed into the front, holding passport and cards.</p>
@@ -325,7 +383,7 @@
       <div class="why"><b>Care and pairing</b>Check the initials order twice at checkout. Slip a boarding pass sized note inside before wrapping.</div>
     </div>
 <h2>For kids</h2>
-    <div class="card">
+    <div class="card" id="pick-durable-kids-digital-camera">
       <img class="photo" src="img/idea-durable-kids-digital-camera.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Durable kids&#x27; digital camera</h3>
       <p>Drop-proof, with games built in.</p>
@@ -333,7 +391,7 @@
       <div class="why"><b>Buying notes</b>Look for: a drop-proof case and a real shutter button. Avoid: cameras that are really a game console.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a memory card and a wrist strap. Print two of their photos and frame them fast.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-remote-control-stunt-car">
       <img class="photo" src="img/idea-remote-control-stunt-car.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Remote-control stunt car</h3>
       <p>Flips, spins, and survives crashes.</p>
@@ -341,7 +399,7 @@
       <div class="why"><b>Buying notes</b>Look for: a tough shell and a spare battery in the box. Avoid: cars that break on the first crash.</div>
       <div class="why"><b>Care and pairing</b>Pairs with rechargeable batteries and a charger, so the fun never waits on a store run.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-kids-microscope">
       <img class="photo" src="img/idea-kids-microscope.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids&#x27; microscope</h3>
       <p>Real magnification with prepared slides to start.</p>
@@ -349,7 +407,7 @@
       <div class="why"><b>Buying notes</b>Look for: real glass lenses and prepared slides included. Avoid: plastic lenses with blurry views.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a set of blank slides and one leaf from the yard. Keep a list of finds in a notebook.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-big-creator-building-set-500-pieces">
       <img class="photo" src="img/gift-kids.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Big creator building set, 500+ pieces</h3>
       <p>Three builds in one box, compatible with the big brands.</p>
@@ -357,7 +415,7 @@
       <div class="why"><b>Buying notes</b>Look for: 500 or more pieces and more than one build. Avoid: sets that only build one thing.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a sorting tray and one baseplate. Fits the bricks they already have.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-large-art-easel-with-supplies">
       <img class="photo" src="img/idea-large-art-easel-with-supplies.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Large art easel with supplies</h3>
       <p>Double-sided board, paper roll, paints, and chalk.</p>
@@ -365,7 +423,7 @@
       <div class="why"><b>Buying notes</b>Look for: two sides, a paper roll, and storage for paints. Avoid: wobbly legs that fold mid-painting.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a drop cloth under it. Refill paper rolls are the birthday gift that always lands.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-kids-cooking-class-parent-and-child">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids&#x27; cooking class, parent and child</h3>
       <p>One session where kids cook a full meal with a chef.</p>
@@ -373,7 +431,7 @@
       <div class="why"><b>Buying notes</b>Look for: a hands-on class for kids with a grown-up, meal included. Avoid: classes where kids only watch.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small apron in their size. Book a dish they already love to eat.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-rocks-and-minerals-collection-kit">
       <img class="photo" src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Rocks and minerals collection kit</h3>
       <p>Real specimens with a guide that names each stone.</p>
@@ -381,7 +439,7 @@
       <div class="why"><b>Buying notes</b>Look for: named real stones, a sturdy box, and a guide with photos. Avoid: dyed gravel sold as gems.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small shelf box with dividers, so the collection looks like a museum from day one.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-kids-camping-adventure-kit">
       <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids camping adventure kit</h3>
       <p>A pop-up tent light, compass, and explorer tools in one pack.</p>
@@ -389,7 +447,7 @@
       <div class="why"><b>Buying notes</b>Look for: a pack that fits a child, tools with smooth edges, and a light with a timer. Avoid: kits built around fragile plastic toys.</div>
       <div class="why"><b>Care and pairing</b>Hide a small note in the pack for the first camp night. Practice the compass in the yard first.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-illustrated-chapter-book-box-set">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Illustrated chapter book box set</h3>
       <p>Five short novels with pictures on almost every spread.</p>
@@ -397,7 +455,7 @@
       <div class="why"><b>Buying notes</b>Look for: short chapters, art on most pages, and books that stand alone. Avoid: book four of a series sold as a starter.</div>
       <div class="why"><b>Care and pairing</b>Read chapter one aloud together, then let them race you to the end of book one.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-height-adjustable-hoop-and-ball-set">
       <img class="photo" src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Height-adjustable hoop and ball set</h3>
       <p>A sturdy hoop that grows taller as their shot gets stronger.</p>
@@ -405,7 +463,7 @@
       <div class="why"><b>Buying notes</b>Look for: a weighted base, a rim that flexes, and height marks that lock. Avoid: hoops that tip in light wind.</div>
       <div class="why"><b>Care and pairing</b>Set it low for the first week so early wins come fast. Pairs with a second ball for games with friends.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-plush-reading-pillow-with-side-pockets">
       <img class="photo" src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Plush reading pillow with side pockets</h3>
       <p>A soft backrest pillow with pockets for a book and a snack.</p>
@@ -413,7 +471,7 @@
       <div class="why"><b>Buying notes</b>Look for: firm fill that holds its shape, a washable cover, and a carry handle. Avoid: pillows that go flat in a month.</div>
       <div class="why"><b>Care and pairing</b>Put it in their favorite reading spot before the big reveal. Pairs with a small reading light.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-kids-keyboard-with-light-up-keys">
       <img class="photo" src="img/idea-kids-keyboard-with-light-up-keys.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids keyboard with light-up keys</h3>
       <p>Thirty-seven keys, guided songs, and a headphone jack for quiet practice.</p>
@@ -421,7 +479,7 @@
       <div class="why"><b>Buying notes</b>Look for: keys sized for small hands, volume limits, and a stand for sheet music. Avoid: keyboards with only toy sound effects.</div>
       <div class="why"><b>Care and pairing</b>Learn one short song yourself first so you can teach the opening notes.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-kids-garden-grow-station">
       <img class="photo" src="img/gift-gardening.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids garden grow station</h3>
       <p>A small raised planter, child tools, and fast seeds to start.</p>
@@ -429,7 +487,7 @@
       <div class="why"><b>Buying notes</b>Look for: tools sized for kids, seeds that sprout in two weeks, and a planter with drainage. Avoid: kits with only one slow crop.</div>
       <div class="why"><b>Care and pairing</b>Plant the fastest seeds on day one so green shows before interest fades.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-kids-ride-on-carry-on-suitcase">
       <img class="photo" src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids ride-on carry-on suitcase</h3>
       <p>A hard case kids can ride through the airport, with room for trip gear.</p>
@@ -442,7 +500,7 @@
   <p class="fine">Tell the picker who they are and what they are into. Get five picks that fit your budget.</p>
 
   <div class="faq">
-            <div class="card">
+            <div class="card" id="pick-kids-pizza-making-workshop-parent-and-child">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids pizza making workshop, parent and child</h3>
       <p>One session stretching dough, choosing toppings, and baking their own pie.</p>
@@ -450,7 +508,7 @@
       <div class="why"><b>Buying notes</b>Look for: a real oven with close supervision, aprons in kid sizes, and a pie to take home. Avoid: classes where kids only watch a demo.</div>
       <div class="why"><b>Care and pairing</b>Book a hungry time slot, not right after lunch. Photograph the menu card they design for their pie.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-waterproof-rain-set-for-kids-boots-and-umbrella">
       <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Waterproof rain set for kids, boots and umbrella</h3>
       <p>Rubber boots and a dome umbrella sized for school age children.</p>
@@ -458,7 +516,7 @@
       <div class="why"><b>Buying notes</b>Look for: deep tread, pull on handles, and an umbrella that opens with one button. Avoid: smooth soles that slip on wet leaves.</div>
       <div class="why"><b>Care and pairing</b>Check shoe size the week you buy. Pairs with thick socks for cold rain.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-wooden-growth-chart-with-a-handprint-kit">
       <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Wooden growth chart with a handprint kit</h3>
       <p>A tall wooden ruler for the wall, with paint for handprints each year.</p>
@@ -466,7 +524,7 @@
       <div class="why"><b>Buying notes</b>Look for: clear marks up to six feet and washable handprint paint. Avoid: charts that must hang at one exact height to read true.</div>
       <div class="why"><b>Care and pairing</b>Add the first mark on a birthday, not a random day. Pairs with a fine marker that will not fade.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-recordable-storybook-a-grandparent-can-read-aloud">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Recordable storybook a grandparent can read aloud</h3>
       <p>A sturdy book that records a loved one reading each page aloud.</p>
@@ -475,7 +533,7 @@
       <div class="why"><b>Care and pairing</b>Have the reader sign the last page in pen. Pairs with a bedtime phone call on the first night.</div>
     </div>
 <h2>Books</h2>
-    <div class="card">
+    <div class="card" id="pick-facsimile-first-edition-of-a-classic-novel">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Facsimile first edition of a classic novel</h3>
       <p>A faithful reprint of the original printing, typos and all.</p>
@@ -483,7 +541,7 @@
       <div class="why"><b>Buying notes</b>Look for: a sturdy binding, the original cover art, and a note on the source edition. Avoid: cheap scans with blurry pages.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a bookmark tucked at chapter one. Write the gift date inside the back cover.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-guided-bookshop-crawl-and-reading-night-for-two">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Guided bookshop crawl and reading night for two</h3>
       <p>A host leads two readers through hidden shelves, then a quiet reading hour.</p>
@@ -491,7 +549,7 @@
       <div class="why"><b>Buying notes</b>Look for: a small group, stops at three or more shops, and credit toward one book each. Avoid: tours that rush every stop.</div>
       <div class="why"><b>Care and pairing</b>Book a weekend slot and keep the evening free after. Pairs with a tote for whatever they haul home.</div>
     </div>
-        <div class="card">
+        <div class="card" id="pick-personalized-gardening-journal">
       <img class="photo" src="img/gift-gardening.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Personalized gardening journal</h3>
       <p>Her name on the cover, pages for each bed, bloom, and harvest.</p>
@@ -500,7 +558,7 @@
       <div class="why"><b>Care and pairing</b>Pairs with a pencil that lives in the spine loop. Write the first entry yourself: one plant she is proud of.</div>
     </div>
 <h2>Science</h2>
-    <div class="card">
+    <div class="card" id="pick-planetarium-star-party-night-for-two">
       <img class="photo" src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Planetarium star party night for two</h3>
       <p>An evening show under the dome, then telescopes on the lawn.</p>
@@ -508,7 +566,7 @@
       <div class="why"><b>Buying notes</b>Look for: a live presenter, telescope time included, and a rain plan with a new date. Avoid: recorded shows with no outdoor session.</div>
       <div class="why"><b>Care and pairing</b>Check the moon phase and pick a dark week. Pairs with hot drinks in a flask for the lawn part.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-junior-chemistry-lab-set-with-beakers-and-balance">
       <img class="photo" src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Junior chemistry lab set with beakers and balance</h3>
       <p>Beakers, a balance scale, and experiment cards that start with kitchen-safe mixes.</p>
@@ -516,7 +574,7 @@
       <div class="why"><b>Buying notes</b>Look for: shatterproof beakers with clear marks, a balance that tips true, and cards that explain each result. Avoid: sets padded with cardboard props.</div>
       <div class="why"><b>Care and pairing</b>Set one shelf as the lab corner. A notebook beside it turns each mix into a record.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-metal-detector-for-kids">
       <img class="photo" src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Metal detector for kids</h3>
       <p>A light wand that beeps over coins and lost keys hiding in the yard.</p>
@@ -535,7 +593,7 @@
       </details>
       <details>
         <summary>Do you link to stores or sell these gifts?</summary>
-        <p>No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.</p>
+        <p>No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas.</p>
       </details>
   </div>
 

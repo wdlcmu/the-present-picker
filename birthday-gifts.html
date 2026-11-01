@@ -31,7 +31,7 @@
       "name": "What are good birthday gifts for someone who has everything?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Give them a night or a moment, not more stuff. Concert tickets, a cooking class, or a movie night for two all make a memory. A star map print marks the date itself."
+        "text": "A night or a moment, not more stuff. Concert tickets, a cooking class, or a movie night for two make a memory; a star map print marks the date itself."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "How much should I spend on a birthday gift?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Any amount on this page can work. Under $25 covers small, fun picks. From $25 to $50 covers most shared gifts and games. Spend more only on a big night out or a gift that marks a big year."
+        "text": "Any amount here can work. Under $25 covers small, fun picks; $25 to $50 covers most shared gifts and games. Spend more only on a big night out or a gift that marks a big year."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "Do you link to stores or sell these gifts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas."
+        "text": "No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas."
       }
     }
   ]
@@ -100,6 +100,13 @@
   footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
   .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none;display:inline-block;padding:12px 6px;margin:-12px -6px;min-height:44px}
+
+.rail{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 16px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.rail-item{flex:0 0 126px;scroll-snap-align:start;text-decoration:none;color:var(--ink)}
+.rail-item img{display:block;width:126px;height:94px;object-fit:cover;border-radius:10px;background:var(--gold-soft);border:1px solid var(--line)}
+.rail-name{display:block;font-size:13px;font-weight:600;line-height:1.25;margin-top:6px}
+.rail-band{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.card{scroll-margin-top:12px}
 </style>
 </head>
 <body>
@@ -110,12 +117,24 @@
 
   <h1>Birthday Gifts</h1>
   <p class="sub">For the person whose day it is. Fun picks, shared nights out, and one or two that mark the year.</p>
-  <p>These ideas come from the same bank as the picker. They are grouped by budget, so you can start where you are. Each one is plain and useful, with no store links and no brand names.</p>
+  
   <a class="cta" href="/">Find their gift</a>
   <p class="fine">Free forever. No ads. No accounts.</p>
 
-    <h2>Under $25</h2>
-    <div class="card">
+    <div class="rail" aria-label="The picks on this page">
+  <a class="rail-item" href="#pick-small-batch-hot-sauce-trio"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Small-batch hot sauce trio</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-harmonica-with-beginner-songbook"><img src="img/idea-harmonica-with-beginner-songbook.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Harmonica with beginner songbook</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-reasons-i-love-you-jar"><img src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">"Reasons I love you" jar</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-custom-star-map-print-of-a-meaningful-date"><img src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Custom star-map print of a meaningful date</span><span class="rail-band">$25 to $50</span></a>
+  <a class="rail-item" href="#pick-movie-night-for-two"><img src="img/gift-experience.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Movie night for two</span><span class="rail-band">$25 to $50</span></a>
+  <a class="rail-item" href="#pick-group-party-game"><img src="img/gift-games.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Group party game</span><span class="rail-band">$25 to $50</span></a>
+  <a class="rail-item" href="#pick-printed-photo-book-of-the-year"><img src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Printed photo book of the year</span><span class="rail-band">$50 to $100</span></a>
+  <a class="rail-item" href="#pick-museum-or-garden-membership"><img src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Museum or garden membership</span><span class="rail-band">$50 to $100</span></a>
+  <a class="rail-item" href="#pick-two-concert-tickets"><img src="img/gift-music.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Two concert tickets</span><span class="rail-band">$100+</span></a>
+  <a class="rail-item" href="#pick-cooking-class-for-two"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Cooking class for two</span><span class="rail-band">$100+</span></a>
+</div>
+  <h2>Under $25</h2>
+    <div class="card" id="pick-small-batch-hot-sauce-trio">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Small-batch hot sauce trio</h3>
       <p>Three bottles with the heat levels labeled and tasting notes on the box.</p>
@@ -123,7 +142,7 @@
       <div class="why"><b>Buying notes</b>Look for: three heat levels, mild to hot, with real peppers named. Avoid: sets that are all extreme heat.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a taco night or a grilled cheese bar. Keep the hottest bottle for the brave.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-harmonica-with-beginner-songbook">
       <img class="photo" src="img/idea-harmonica-with-beginner-songbook.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Harmonica with beginner songbook</h3>
       <p>Fits in a pocket and learnable in an afternoon.</p>
@@ -131,7 +150,7 @@
       <div class="why"><b>Buying notes</b>Look for: key of C, ten holes, and a simple songbook. Avoid: toy harmonicas that leak air.</div>
       <div class="why"><b>Care and pairing</b>Pairs with ten minutes of practice after dinner. A small pouch keeps it in a pocket, where it gets played.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-reasons-i-love-you-jar">
       <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>&quot;Reasons I love you&quot; jar</h3>
       <p>Fifty-two notes, one for each week of the year.</p>
@@ -140,7 +159,7 @@
       <div class="why"><b>Care and pairing</b>Pairs with ten extra blank slips tucked in the lid, so they can write back.</div>
     </div>
     <h2>$25 to $50</h2>
-    <div class="card">
+    <div class="card" id="pick-custom-star-map-print-of-a-meaningful-date">
       <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Custom star-map print of a meaningful date</h3>
       <p>The sky on the night it mattered, printed and framed.</p>
@@ -148,7 +167,7 @@
       <div class="why"><b>Buying notes</b>Look for: the sky from the real date and place, framed. Avoid: stock skies that match no real night.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a simple frame in the right size. Double-check the date and place before you order the print.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-movie-night-for-two">
       <img class="photo" src="img/gift-experience.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Movie night for two</h3>
       <p>Two tickets plus popcorn money.</p>
@@ -156,7 +175,7 @@
       <div class="why"><b>Buying notes</b>Look for: a film they want to see, with popcorn money included. Avoid: opening-night crowds if they hate lines.</div>
       <div class="why"><b>Care and pairing</b>Pairs with popcorn at home after, and phones off for the whole film. Pick the film together the day before.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-group-party-game">
       <img class="photo" src="img/gift-games.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Group party game</h3>
       <p>Loud, fast, and funny with six or more people.</p>
@@ -165,7 +184,7 @@
       <div class="why"><b>Care and pairing</b>Pairs with a head count before you buy; some shine with six or more. Keep the rules card on top.</div>
     </div>
     <h2>$50 to $100</h2>
-    <div class="card">
+    <div class="card" id="pick-printed-photo-book-of-the-year">
       <img class="photo" src="img/gift-keepsake.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Printed photo book of the year</h3>
       <p>The phone photos, edited and bound.</p>
@@ -173,7 +192,7 @@
       <div class="why"><b>Buying notes</b>Look for: lay-flat pages and your best photos, in order. Avoid: thin pages that curl.</div>
       <div class="why"><b>Care and pairing</b>Pairs with captions written by hand after it arrives. Leave the last page blank for next year.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-museum-or-garden-membership">
       <img class="photo" src="img/gift-travel.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Museum or garden membership</h3>
       <p>A year of free admission for two.</p>
@@ -182,7 +201,7 @@
       <div class="why"><b>Care and pairing</b>Pairs with one visit planned in the first month, or the card sleeps in a drawer. Guest passes make it social.</div>
     </div>
     <h2>$100+</h2>
-    <div class="card">
+    <div class="card" id="pick-two-concert-tickets">
       <img class="photo" src="img/gift-music.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Two concert tickets</h3>
       <p>A night out with the music turned all the way up.</p>
@@ -190,7 +209,7 @@
       <div class="why"><b>Buying notes</b>Look for: an artist they love and two seats together on a free night. Avoid: seats stuck behind a pillar.</div>
       <div class="why"><b>Care and pairing</b>Pairs with dinner near the hall and a parked plan for the car. Put the date on the fridge the same day.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-cooking-class-for-two">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Cooking class for two</h3>
       <p>Three hours, one cuisine, dinner included.</p>
@@ -206,15 +225,15 @@
     <h2>Common questions</h2>
       <details>
         <summary>What are good birthday gifts for someone who has everything?</summary>
-        <p>Give them a night or a moment, not more stuff. Concert tickets, a cooking class, or a movie night for two all make a memory. A star map print marks the date itself.</p>
+        <p>A night or a moment, not more stuff. Concert tickets, a cooking class, or a movie night for two make a memory; a star map print marks the date itself.</p>
       </details>
       <details>
         <summary>How much should I spend on a birthday gift?</summary>
-        <p>Any amount on this page can work. Under $25 covers small, fun picks. From $25 to $50 covers most shared gifts and games. Spend more only on a big night out or a gift that marks a big year.</p>
+        <p>Any amount here can work. Under $25 covers small, fun picks; $25 to $50 covers most shared gifts and games. Spend more only on a big night out or a gift that marks a big year.</p>
       </details>
       <details>
         <summary>Do you link to stores or sell these gifts?</summary>
-        <p>No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.</p>
+        <p>No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas.</p>
       </details>
   </div>
 

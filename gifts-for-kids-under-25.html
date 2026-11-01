@@ -31,7 +31,7 @@
       "name": "What is a good gift for a kid under $25?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Something they can start the same day: an art kit, a set of picture books, a science kit with pieces to hold. Every pick on this page can be opened and used at once, with no extra parts and no shopping trip first."
+        "text": "Something they can start the same day: an art kit, picture books, a science kit with pieces to hold. Every pick here opens and works at once, with no extra parts and no shopping trip first."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "Are gifts under $25 good enough for Christmas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For a kid, yes. What lands is the doing, not the price: dough to squish, a hunt to run, a kit to open. A small gift that fits what they love beats a big gift that misses it."
+        "text": "For a kid, yes. What lands is the doing, not the price: dough to squish, a hunt to run, a kit to open. A small gift that fits beats a big gift that misses."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "What if I do not know what the kid is into?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start with the art kit or the picture books. Both fit almost every kid. Or take the five question quiz on the home page: tell it what they are into, and it narrows the same bank to five picks for them."
+        "text": "Start with the art kit or the picture books; both fit almost every kid. Or take the five-question quiz on the home page and narrow the same bank to five picks for them."
       }
     },
     {
@@ -55,7 +55,7 @@
       "name": "Do you link to stores or sell these gifts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas."
+        "text": "No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas."
       }
     }
   ]
@@ -108,6 +108,13 @@
   footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
   .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none;display:inline-block;padding:12px 6px;margin:-12px -6px;min-height:44px}
+
+.rail{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 16px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.rail-item{flex:0 0 126px;scroll-snap-align:start;text-decoration:none;color:var(--ink)}
+.rail-item img{display:block;width:126px;height:94px;object-fit:cover;border-radius:10px;background:var(--gold-soft);border:1px solid var(--line)}
+.rail-name{display:block;font-size:13px;font-weight:600;line-height:1.25;margin-top:6px}
+.rail-band{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.card{scroll-margin-top:12px}
 </style>
 </head>
 <body>
@@ -123,8 +130,18 @@
   <a class="cta" href="/">Find their gift</a>
   <p class="fine">Free forever. No ads. No accounts. Or <a href="/ask">ask in your own words</a> and get picks from the same bank.</p>
 
-    <h2>Under $25</h2>
-    <div class="card">
+    <div class="rail" aria-label="The picks on this page">
+  <a class="rail-item" href="#pick-art-and-craft-kit"><img src="img/idea-art-and-craft-kit.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Art and craft kit</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-three-picture-books"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Three picture books</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-washable-marker-and-coloring-book-set"><img src="img/idea-washable-marker-and-coloring-book-set.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Washable marker and coloring book set</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-modeling-dough-10-pack"><img src="img/idea-modeling-dough-10-pack.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Modeling dough 10-pack</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-no-cook-snack-making-kit-for-kids"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">No-cook snack making kit for kids</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-pocket-science-kit-with-magnifier-and-bug-viewer"><img src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Pocket science kit with magnifier and bug viewer</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-nature-scavenger-hunt-kit-for-kids"><img src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Nature scavenger hunt kit for kids</span><span class="rail-band">Under $25</span></a>
+  <a class="rail-item" href="#pick-animal-movement-card-deck-for-kids"><img src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Animal movement card deck for kids</span><span class="rail-band">Under $25</span></a>
+</div>
+  <h2>Under $25</h2>
+    <div class="card" id="pick-art-and-craft-kit">
       <img class="photo" src="img/idea-art-and-craft-kit.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Art and craft kit</h3>
       <p>Paints, brushes, canvases, and washable everything.</p>
@@ -132,7 +149,7 @@
       <div class="why"><b>Buying notes</b>Look for: washable paints, thick paper, and brushes that rinse clean. Avoid: kits heavy on glitter.</div>
       <div class="why"><b>Care and pairing</b>Pairs with an apron and a cheap table cover, so the mess never stops the project.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-three-picture-books">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Three picture books</h3>
       <p>New favorites, picked for their age.</p>
@@ -140,7 +157,7 @@
       <div class="why"><b>Buying notes</b>Look for: new favorites for their age, with art worth a second look. Avoid: books they already own.</div>
       <div class="why"><b>Care and pairing</b>Pairs with reading one together the same night. A note inside the cover makes it a keeper.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-washable-marker-and-coloring-book-set">
       <img class="photo" src="img/idea-washable-marker-and-coloring-book-set.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Washable marker and coloring book set</h3>
       <p>Forty markers and two thick coloring books.</p>
@@ -148,7 +165,7 @@
       <div class="why"><b>Buying notes</b>Look for: truly washable markers and thick coloring pages. Avoid: markers that stain clothes and hands.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a lap desk for car rides. The washable part saves clothes, couches, and car seats.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-modeling-dough-10-pack">
       <img class="photo" src="img/idea-modeling-dough-10-pack.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Modeling dough 10-pack</h3>
       <p>Every color, plus cutters and rollers.</p>
@@ -156,7 +173,7 @@
       <div class="why"><b>Buying notes</b>Look for: soft dough in ten colors, with cutters and rollers. Avoid: dough that dries out in a week.</div>
       <div class="why"><b>Care and pairing</b>Care: seal each tub tight or the dough dries in a week. Pairs with cookie cutters from the kitchen.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-no-cook-snack-making-kit-for-kids">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>No-cook snack making kit for kids</h3>
       <p>Safe tools, picture recipes, and snacks they plate themselves.</p>
@@ -164,7 +181,7 @@
       <div class="why"><b>Buying notes</b>Look for: picture recipes, safe tools, and pieces that wash easy. Avoid: kits that need a hot stove.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a kid-safe knife for soft fruit. Best on a slow weekend morning with music on.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-pocket-science-kit-with-magnifier-and-bug-viewer">
       <img class="photo" src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Pocket science kit with magnifier and bug viewer</h3>
       <p>Magnifier, bug viewer, and field cards for backyard finds.</p>
@@ -172,7 +189,7 @@
       <div class="why"><b>Buying notes</b>Look for: a real glass magnifier and a viewer with air holes. Avoid: flimsy plastic lenses that scratch.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small notebook for field notes. Bugs get released the same day, every time.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-nature-scavenger-hunt-kit-for-kids">
       <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Nature scavenger hunt kit for kids</h3>
       <p>Picture cards, a magnifier, and a pouch for found treasures.</p>
@@ -180,7 +197,7 @@
       <div class="why"><b>Buying notes</b>Look for: cards with pictures, not just words, and a pouch that belts on. Avoid: kits that need an app to play.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a pencil for checking off finds. The last card is always a snack spot back home.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-animal-movement-card-deck-for-kids">
       <img class="photo" src="img/gift-fitness.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Animal movement card deck for kids</h3>
       <p>Fifty cards that turn wiggles into bear crawls and frog jumps.</p>
@@ -201,19 +218,19 @@
     <h2>Common questions</h2>
       <details>
         <summary>What is a good gift for a kid under $25?</summary>
-        <p>Something they can start the same day: an art kit, a set of picture books, a science kit with pieces to hold. Every pick on this page can be opened and used at once, with no extra parts and no shopping trip first.</p>
+        <p>Something they can start the same day: an art kit, picture books, a science kit with pieces to hold. Every pick here opens and works at once, with no extra parts and no shopping trip first.</p>
       </details>
       <details>
         <summary>Are gifts under $25 good enough for Christmas?</summary>
-        <p>For a kid, yes. What lands is the doing, not the price: dough to squish, a hunt to run, a kit to open. A small gift that fits what they love beats a big gift that misses it.</p>
+        <p>For a kid, yes. What lands is the doing, not the price: dough to squish, a hunt to run, a kit to open. A small gift that fits beats a big gift that misses.</p>
       </details>
       <details>
         <summary>What if I do not know what the kid is into?</summary>
-        <p>Start with the art kit or the picture books. Both fit almost every kid. Or take the five question quiz on the home page: tell it what they are into, and it narrows the same bank to five picks for them.</p>
+        <p>Start with the art kit or the picture books; both fit almost every kid. Or take the five-question quiz on the home page and narrow the same bank to five picks for them.</p>
       </details>
       <details>
         <summary>Do you link to stores or sell these gifts?</summary>
-        <p>No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.</p>
+        <p>No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas.</p>
       </details>
   </div>
 

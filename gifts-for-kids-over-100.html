@@ -31,7 +31,7 @@
       "name": "What is a good gift for a kid over $100?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A big gift that fits the stage they are in right now: a balance bike for the kid learning to ride, a telescope for the kid who looks up, a play kitchen for the kid who helps with dinner. At this price, the match matters more than the size."
+        "text": "One that fits the stage they are in: a balance bike for the new rider, a telescope for the kid who looks up, a play kitchen for the dinner helper. At this price the match matters more than the size."
       }
     },
     {
@@ -39,7 +39,7 @@
       "name": "Is it worth spending over $100 on a kid gift?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only when the gift will be used for months or years, not days. Every pick on this page is built to last past the holiday: solid wood, sturdy frames, and sets that grow with the kid. If the use would be short, the $50 to $100 page, linked above, is the safer spend."
+        "text": "Only if it gets used for months or years, not days. Every pick here is built to last: solid wood, sturdy frames, sets that grow with the kid. For a shorter use, the $50 to $100 page, linked above, is the safer spend."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "How do I know they will not outgrow it fast?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Look for the grow-with-them signs in the buying notes on each card: an adjustable seat, room to add pieces, a set that starts simple and gets harder. Those are the gifts that stay in use longest."
+        "text": "Look for grow-with-them signs in the buying notes: an adjustable seat, room to add pieces, a set that starts simple and gets harder. Those stay in use longest."
       }
     },
     {
@@ -55,7 +55,7 @@
       "name": "Do you link to stores or sell these gifts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas."
+        "text": "No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas."
       }
     }
   ]
@@ -108,6 +108,13 @@
   footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
   .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none;display:inline-block;padding:12px 6px;margin:-12px -6px;min-height:44px}
+
+.rail{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 16px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.rail-item{flex:0 0 126px;scroll-snap-align:start;text-decoration:none;color:var(--ink)}
+.rail-item img{display:block;width:126px;height:94px;object-fit:cover;border-radius:10px;background:var(--gold-soft);border:1px solid var(--line)}
+.rail-name{display:block;font-size:13px;font-weight:600;line-height:1.25;margin-top:6px}
+.rail-band{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.card{scroll-margin-top:12px}
 </style>
 </head>
 <body>
@@ -123,8 +130,18 @@
   <a class="cta" href="/">Find their gift</a>
   <p class="fine">Free forever. No ads. No accounts. Or <a href="/ask">ask in your own words</a> and get picks from the same bank.</p>
 
-    <h2>Over $100</h2>
-    <div class="card">
+    <div class="rail" aria-label="The picks on this page">
+  <a class="rail-item" href="#pick-balance-bike"><img src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Balance bike</span><span class="rail-band">Over $100</span></a>
+  <a class="rail-item" href="#pick-beginner-kids-telescope"><img src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Beginner kids' telescope</span><span class="rail-band">Over $100</span></a>
+  <a class="rail-item" href="#pick-wooden-play-kitchen"><img src="img/idea-wooden-play-kitchen.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Wooden play kitchen</span><span class="rail-band">Over $100</span></a>
+  <a class="rail-item" href="#pick-kids-tablet-with-parental-controls"><img src="img/idea-kids-tablet-with-parental-controls.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Kids' tablet with parental controls</span><span class="rail-band">Over $100</span></a>
+  <a class="rail-item" href="#pick-wooden-play-food-and-market-stall-set"><img src="img/idea-wooden-play-food-and-market-stall-set.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Wooden play food and market stall set</span><span class="rail-band">Over $100</span></a>
+  <a class="rail-item" href="#pick-boxed-illustrated-encyclopedia-set-for-kids"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Boxed illustrated encyclopedia set for kids</span><span class="rail-band">Over $100</span></a>
+  <a class="rail-item" href="#pick-reading-nook-tent-with-cushion-set"><img src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Reading nook tent with cushion set</span><span class="rail-band">Over $100</span></a>
+  <a class="rail-item" href="#pick-real-wood-percussion-set-for-kids"><img src="img/idea-real-wood-percussion-set-for-kids.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Real wood percussion set for kids</span><span class="rail-band">Over $100</span></a>
+</div>
+  <h2>Over $100</h2>
+    <div class="card" id="pick-balance-bike">
       <img class="photo" src="img/gift-outdoors.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Balance bike</h3>
       <p>No pedals, just scooting. They learn balance first.</p>
@@ -132,7 +149,7 @@
       <div class="why"><b>Buying notes</b>Look for: a light frame, an adjustable seat, and air tires. Avoid: heavy bikes a small kid cannot lift.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a fitted helmet from day one. Set the seat so feet rest flat on the ground.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-beginner-kids-telescope">
       <img class="photo" src="img/gift-science.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Beginner kids' telescope</h3>
       <p>Sees the moon's craters on the first clear night.</p>
@@ -140,7 +157,7 @@
       <div class="why"><b>Buying notes</b>Look for: a steady tripod and a moon filter. Avoid: wobbly scopes with wild zoom claims.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a moon calendar on the fridge. Start with the moon; planets come later.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-wooden-play-kitchen">
       <img class="photo" src="img/idea-wooden-play-kitchen.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Wooden play kitchen</h3>
       <p>Sturdy, with clicking knobs and room for pots.</p>
@@ -148,7 +165,7 @@
       <div class="why"><b>Buying notes</b>Look for: solid wood, clicking knobs, and no sharp edges. Avoid: flimsy plastic that tips over.</div>
       <div class="why"><b>Care and pairing</b>Pairs with the wooden play food set on this list. Anchor tall pieces to the wall for safety.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-kids-tablet-with-parental-controls">
       <img class="photo" src="img/idea-kids-tablet-with-parental-controls.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Kids' tablet with parental controls</h3>
       <p>Locked-down, durable case, educational apps included.</p>
@@ -156,7 +173,7 @@
       <div class="why"><b>Buying notes</b>Look for: strong parental controls and a thick, tough case. Avoid: tablets with an open app store.</div>
       <div class="why"><b>Care and pairing</b>Pairs with the limits set up before the first handover. A rugged case is not optional.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-wooden-play-food-and-market-stall-set">
       <img class="photo" src="img/idea-wooden-play-food-and-market-stall-set.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Wooden play food and market stall set</h3>
       <p>Wooden crates, play produce, and a stall to sell from.</p>
@@ -164,7 +181,7 @@
       <div class="why"><b>Buying notes</b>Look for: solid wood pieces with smooth edges and crates that stack. Avoid: thin plastic food that cracks.</div>
       <div class="why"><b>Care and pairing</b>Pairs with the wooden play kitchen on this list and a pretend shopping list pad.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-boxed-illustrated-encyclopedia-set-for-kids">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Boxed illustrated encyclopedia set for kids</h3>
       <p>Three heavy volumes with maps, photos, and short entries kids browse alone.</p>
@@ -172,7 +189,7 @@
       <div class="why"><b>Buying notes</b>Look for: short entries, strong binding, and an index kids can use. Avoid: tiny text made for adults.</div>
       <div class="why"><b>Care and pairing</b>Put a sticky note on the page about their current obsession before you wrap it.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-reading-nook-tent-with-cushion-set">
       <img class="photo" src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Reading nook tent with cushion set</h3>
       <p>A pop-up tent, floor cushion, and clip light for a private corner.</p>
@@ -180,7 +197,7 @@
       <div class="why"><b>Buying notes</b>Look for: a tent that folds flat, a cushion that washes, and a light that clips firm. Avoid: poles that snap together with force.</div>
       <div class="why"><b>Care and pairing</b>Set it up together and stock it with two books and one plush friend on day one.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-real-wood-percussion-set-for-kids">
       <img class="photo" src="img/idea-real-wood-percussion-set-for-kids.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Real wood percussion set for kids</h3>
       <p>A hand drum, shakers, and rhythm sticks sized for small hands.</p>
@@ -201,19 +218,19 @@
     <h2>Common questions</h2>
       <details>
         <summary>What is a good gift for a kid over $100?</summary>
-        <p>A big gift that fits the stage they are in right now: a balance bike for the kid learning to ride, a telescope for the kid who looks up, a play kitchen for the kid who helps with dinner. At this price, the match matters more than the size.</p>
+        <p>One that fits the stage they are in: a balance bike for the new rider, a telescope for the kid who looks up, a play kitchen for the dinner helper. At this price the match matters more than the size.</p>
       </details>
       <details>
         <summary>Is it worth spending over $100 on a kid gift?</summary>
-        <p>Only when the gift will be used for months or years, not days. Every pick on this page is built to last past the holiday: solid wood, sturdy frames, and sets that grow with the kid. If the use would be short, the $50 to $100 page, linked above, is the safer spend.</p>
+        <p>Only if it gets used for months or years, not days. Every pick here is built to last: solid wood, sturdy frames, sets that grow with the kid. For a shorter use, the $50 to $100 page, linked above, is the safer spend.</p>
       </details>
       <details>
         <summary>How do I know they will not outgrow it fast?</summary>
-        <p>Look for the grow-with-them signs in the buying notes on each card: an adjustable seat, room to add pieces, a set that starts simple and gets harder. Those are the gifts that stay in use longest.</p>
+        <p>Look for grow-with-them signs in the buying notes: an adjustable seat, room to add pieces, a set that starts simple and gets harder. Those stay in use longest.</p>
       </details>
       <details>
         <summary>Do you link to stores or sell these gifts?</summary>
-        <p>No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.</p>
+        <p>No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas.</p>
       </details>
   </div>
 

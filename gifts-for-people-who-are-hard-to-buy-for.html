@@ -31,7 +31,7 @@
       "name": "What do you buy someone who is hard to buy for?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "First name the kind of hard. Far away calls for light and personal. Just moved calls for useful. Wants nothing calls for a better version of a daily tool. Has everything calls for used up, used daily, or full of family. Each set on this page answers one kind."
+        "text": "First name the kind of hard. Far away: light and personal. Just moved: useful. Wants nothing: a better version of a daily tool. Has everything: used up, used daily, or full of family. Each set here answers one kind."
       }
     },
     {
@@ -47,7 +47,7 @@
       "name": "Do you link to stores or sell these gifts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas."
+        "text": "No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas."
       }
     }
   ]
@@ -100,6 +100,13 @@
   footer a{color:var(--gold);font-weight:700;display:inline-block;padding:12px 6px;min-height:44px}
   .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
   .topbar .brand{font-weight:800;font-size:15px;color:var(--gold);text-decoration:none;display:inline-block;padding:12px 6px;margin:-12px -6px;min-height:44px}
+
+.rail{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 16px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.rail-item{flex:0 0 126px;scroll-snap-align:start;text-decoration:none;color:var(--ink)}
+.rail-item img{display:block;width:126px;height:94px;object-fit:cover;border-radius:10px;background:var(--gold-soft);border:1px solid var(--line)}
+.rail-name{display:block;font-size:13px;font-weight:600;line-height:1.25;margin-top:6px}
+.rail-band{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.card{scroll-margin-top:12px}
 </style>
 </head>
 <body>
@@ -115,9 +122,27 @@
   <a class="cta" href="/">Find their gift</a>
   <p class="fine">Free forever. No ads. No accounts. Or <a href="/ask">ask in your own words</a> and get picks from the same bank.</p>
 
-    <h2>A grandma who lives far away</h2>
+    <div class="rail" aria-label="The picks on this page">
+  <a class="rail-item" href="#pick-handmade-ceramic-mugs-set-of-two"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Handmade ceramic mugs, set of two</span><span class="rail-band">A grandma who lives far away</span></a>
+  <a class="rail-item" href="#pick-digital-photo-frame-with-wifi"><img src="img/idea-digital-photo-frame-with-wifi.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Digital photo frame with wifi</span><span class="rail-band">A grandma who lives far away</span></a>
+  <a class="rail-item" href="#pick-the-year-s-most-talked-about-hardcover-novel"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">The year's most talked-about hardcover novel</span><span class="rail-band">A grandma who lives far away</span></a>
+  <a class="rail-item" href="#pick-weighted-blanket-15-lb"><img src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Weighted blanket, 15 lb</span><span class="rail-band">A grandma who lives far away</span></a>
+  <a class="rail-item" href="#pick-pour-over-coffee-dripper-with-paper-filters"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Pour-over coffee dripper with paper filters</span><span class="rail-band">Someone who just moved</span></a>
+  <a class="rail-item" href="#pick-cast-iron-skillet-10-inch-pre-seasoned"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Cast iron skillet, 10 inch, pre-seasoned</span><span class="rail-band">Someone who just moved</span></a>
+  <a class="rail-item" href="#pick-instant-read-digital-meat-thermometer"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Instant-read digital meat thermometer</span><span class="rail-band">Someone who just moved</span></a>
+  <a class="rail-item" href="#pick-olive-oil-and-aged-balsamic-gift-set"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Olive oil and aged balsamic gift set</span><span class="rail-band">Someone who just moved</span></a>
+  <a class="rail-item" href="#pick-pour-over-coffee-dripper-with-paper-filters-2"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Pour-over coffee dripper with paper filters</span><span class="rail-band">A dad who says he wants nothing</span></a>
+  <a class="rail-item" href="#pick-cast-iron-skillet-10-inch-pre-seasoned-2"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Cast iron skillet, 10 inch, pre-seasoned</span><span class="rail-band">A dad who says he wants nothing</span></a>
+  <a class="rail-item" href="#pick-heavy-wooden-cutting-board-with-juice-groove"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Heavy wooden cutting board with juice groove</span><span class="rail-band">A dad who says he wants nothing</span></a>
+  <a class="rail-item" href="#pick-instant-read-digital-meat-thermometer-2"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Instant-read digital meat thermometer</span><span class="rail-band">A dad who says he wants nothing</span></a>
+  <a class="rail-item" href="#pick-handmade-ceramic-mugs-set-of-two-2"><img src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Handmade ceramic mugs, set of two</span><span class="rail-band">A mom who has everything</span></a>
+  <a class="rail-item" href="#pick-digital-photo-frame-with-wifi-2"><img src="img/idea-digital-photo-frame-with-wifi.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Digital photo frame with wifi</span><span class="rail-band">A mom who has everything</span></a>
+  <a class="rail-item" href="#pick-the-year-s-most-talked-about-hardcover-novel-2"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">The year's most talked-about hardcover novel</span><span class="rail-band">A mom who has everything</span></a>
+  <a class="rail-item" href="#pick-reading-journal"><img src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="rail-name">Reading journal</span><span class="rail-band">A mom who has everything</span></a>
+</div>
+  <h2>A grandma who lives far away</h2>
   <p>Distance rules out heavy, fragile, and someday. Send the family instead. The photo frame in this set fills up with new pictures from everyone she loves, all year, from wherever they live.</p>
-  <p class="fine">The ask: a grandparent, sentimental, any budget.</p>    <div class="card">
+  <p class="fine">The ask: a grandparent, sentimental, any budget.</p>    <div class="card" id="pick-handmade-ceramic-mugs-set-of-two">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Handmade ceramic mugs, set of two</h3>
       <p>Weighty and warm; every cup feels a little slower.</p>
@@ -125,7 +150,7 @@
       <div class="why"><b>Buying notes</b>Look for: stoneware with some weight, 12 ounces or more, dishwasher safe. Avoid: thin mugs that chip at the rim.</div>
       <div class="why"><b>Care and pairing</b>Pairs with their favorite loose tea or coffee beans. Hand washing keeps the glaze bright for years.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-digital-photo-frame-with-wifi">
       <img class="photo" src="img/idea-digital-photo-frame-with-wifi.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Digital photo frame with wifi</h3>
       <p>Family can send new photos to it from their phones.</p>
@@ -133,7 +158,7 @@
       <div class="why"><b>Buying notes</b>Look for: a bright screen and an easy app so family can add photos. Avoid: frames that need a memory card mailed around.</div>
       <div class="why"><b>Care and pairing</b>Pairs with twenty family photos loaded before you wrap it, so it starts with faces they love.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-the-year-s-most-talked-about-hardcover-novel">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>The year's most talked-about hardcover novel</h3>
       <p>The book everyone will be discussing in January.</p>
@@ -141,7 +166,7 @@
       <div class="why"><b>Buying notes</b>Look for: the book everyone is talking about this year, in hardcover. Avoid: book two of a series they have not started.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a simple bookmark and a note on why this one. Keep the receipt in case they own it.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-weighted-blanket-15-lb">
       <img class="photo" src="img/gift-cozy.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Weighted blanket, 15 lb</h3>
       <p>Deep-pressure calm that genuinely helps people fall asleep.</p>
@@ -152,7 +177,7 @@
 
     <h2>Someone who just moved</h2>
   <p>A new kitchen starts empty. The first good tools in it get used daily and stay yours in their memory. Skip decor for now: you have not seen the place yet.</p>
-  <p class="fine">The ask: a friend, practical, any budget.</p>    <div class="card">
+  <p class="fine">The ask: a friend, practical, any budget.</p>    <div class="card" id="pick-pour-over-coffee-dripper-with-paper-filters">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Pour-over coffee dripper with paper filters</h3>
       <p>Slow weekend coffee with no machine on the counter.</p>
@@ -160,7 +185,7 @@
       <div class="why"><b>Buying notes</b>Look for: a dripper that fits standard filters and drips slow and steady. Avoid: odd sizes that need special filters.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small gooseneck kettle. Add a starter pack of filters so the first cup needs no shopping trip.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-cast-iron-skillet-10-inch-pre-seasoned">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Cast iron skillet, 10 inch, pre-seasoned</h3>
       <p>The pan that outlives every nonstick pan they have owned.</p>
@@ -168,7 +193,7 @@
       <div class="why"><b>Buying notes</b>Look for: 10 inch, pre-seasoned, with pouring spouts and a helper handle. Avoid: thin pans or a flaking coating.</div>
       <div class="why"><b>Care and pairing</b>Care: rinse hot, dry on the stove, rub in a drop of oil. Pairs with a chainmail scrubber and a wooden spoon.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-instant-read-digital-meat-thermometer">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Instant-read digital meat thermometer</h3>
       <p>Reads in two seconds. No more guessing at the grill.</p>
@@ -176,7 +201,7 @@
       <div class="why"><b>Buying notes</b>Look for: a read in two to three seconds and a thin folding probe. Avoid: slow dial thermometers.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a grill tool set. Keep a spare battery in the drawer so it never dies mid-cook.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-olive-oil-and-aged-balsamic-gift-set">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Olive oil and aged balsamic gift set</h3>
       <p>Two bottles that make weeknight salads feel intentional.</p>
@@ -187,7 +212,7 @@
 
     <h2>A dad who says he wants nothing</h2>
   <p>He means nothing useless. The answer is a better version of something he already uses every day. His full page: <a href="/gifts-for-dad-who-wants-nothing">Gifts for Dad Who Wants Nothing</a>.</p>
-  <p class="fine">The ask: a dad, practical, any budget.</p>    <div class="card">
+  <p class="fine">The ask: a dad, practical, any budget.</p>    <div class="card" id="pick-pour-over-coffee-dripper-with-paper-filters-2">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Pour-over coffee dripper with paper filters</h3>
       <p>Slow weekend coffee with no machine on the counter.</p>
@@ -195,7 +220,7 @@
       <div class="why"><b>Buying notes</b>Look for: a dripper that fits standard filters and drips slow and steady. Avoid: odd sizes that need special filters.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small gooseneck kettle. Add a starter pack of filters so the first cup needs no shopping trip.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-cast-iron-skillet-10-inch-pre-seasoned-2">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Cast iron skillet, 10 inch, pre-seasoned</h3>
       <p>The pan that outlives every nonstick pan they have owned.</p>
@@ -203,7 +228,7 @@
       <div class="why"><b>Buying notes</b>Look for: 10 inch, pre-seasoned, with pouring spouts and a helper handle. Avoid: thin pans or a flaking coating.</div>
       <div class="why"><b>Care and pairing</b>Care: rinse hot, dry on the stove, rub in a drop of oil. Pairs with a chainmail scrubber and a wooden spoon.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-heavy-wooden-cutting-board-with-juice-groove">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Heavy wooden cutting board with juice groove</h3>
       <p>Big enough for a roast, heavy enough to stay put.</p>
@@ -211,7 +236,7 @@
       <div class="why"><b>Buying notes</b>Look for: thick, heavy wood with a juice groove and feet that grip. Avoid: thin boards that warp or slide.</div>
       <div class="why"><b>Care and pairing</b>Care: hand wash and dry flat; rub in food-safe oil every few months. Pairs with a bench scraper.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-instant-read-digital-meat-thermometer-2">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Instant-read digital meat thermometer</h3>
       <p>Reads in two seconds. No more guessing at the grill.</p>
@@ -222,7 +247,7 @@
 
     <h2>A mom who has everything</h2>
   <p>More stuff is the one gift she does not need. These get used up, get used daily, or carry the family in them. Her full page: <a href="/gifts-for-mom-who-has-everything">Gifts for Mom Who Has Everything</a>.</p>
-  <p class="fine">The ask: a mom, sentimental, any budget.</p>    <div class="card">
+  <p class="fine">The ask: a mom, sentimental, any budget.</p>    <div class="card" id="pick-handmade-ceramic-mugs-set-of-two-2">
       <img class="photo" src="img/gift-cooking.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Handmade ceramic mugs, set of two</h3>
       <p>Weighty and warm; every cup feels a little slower.</p>
@@ -230,7 +255,7 @@
       <div class="why"><b>Buying notes</b>Look for: stoneware with some weight, 12 ounces or more, dishwasher safe. Avoid: thin mugs that chip at the rim.</div>
       <div class="why"><b>Care and pairing</b>Pairs with their favorite loose tea or coffee beans. Hand washing keeps the glaze bright for years.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-digital-photo-frame-with-wifi-2">
       <img class="photo" src="img/idea-digital-photo-frame-with-wifi.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Digital photo frame with wifi</h3>
       <p>Family can send new photos to it from their phones.</p>
@@ -238,7 +263,7 @@
       <div class="why"><b>Buying notes</b>Look for: a bright screen and an easy app so family can add photos. Avoid: frames that need a memory card mailed around.</div>
       <div class="why"><b>Care and pairing</b>Pairs with twenty family photos loaded before you wrap it, so it starts with faces they love.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-the-year-s-most-talked-about-hardcover-novel-2">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>The year's most talked-about hardcover novel</h3>
       <p>The book everyone will be discussing in January.</p>
@@ -246,7 +271,7 @@
       <div class="why"><b>Buying notes</b>Look for: the book everyone is talking about this year, in hardcover. Avoid: book two of a series they have not started.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a simple bookmark and a note on why this one. Keep the receipt in case they own it.</div>
     </div>
-    <div class="card">
+    <div class="card" id="pick-reading-journal">
       <img class="photo" src="img/gift-books.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
       <h3>Reading journal</h3>
       <p>Track what you read and what you thought, one page per book.</p>
@@ -267,7 +292,7 @@
     <h2>Common questions</h2>
       <details>
         <summary>What do you buy someone who is hard to buy for?</summary>
-        <p>First name the kind of hard. Far away calls for light and personal. Just moved calls for useful. Wants nothing calls for a better version of a daily tool. Has everything calls for used up, used daily, or full of family. Each set on this page answers one kind.</p>
+        <p>First name the kind of hard. Far away: light and personal. Just moved: useful. Wants nothing: a better version of a daily tool. Has everything: used up, used daily, or full of family. Each set here answers one kind.</p>
       </details>
       <details>
         <summary>Are gift cards okay for someone hard to buy for?</summary>
@@ -275,7 +300,7 @@
       </details>
       <details>
         <summary>Do you link to stores or sell these gifts?</summary>
-        <p>No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.</p>
+        <p>No. The site sells nothing and links to no stores. Search any idea's name anywhere you like to buy it. This site's one job is good ideas.</p>
       </details>
   </div>
 

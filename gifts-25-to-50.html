@@ -902,7 +902,7 @@
       if(!b) return;
       var t=document.getElementById("askp-text");
       t.value=b.textContent.trim();
-      t.focus();
+      submit();
     });
     document.getElementById("askp-ask").addEventListener("click", submit);
   }

@@ -1,6 +1,6 @@
 # The Present Picker: full gift-idea bank
 
-> Complete text of the gift bank behind thepresentpicker.com: 225 gift ideas, each checked by a person.
+> Complete text of the gift bank behind thepresentpicker.com: 233 gift ideas, each checked by a person.
 > No brands, no stores, no exact prices, only budget bands. The picker on the homepage and the
 > Present Picker MCP tools draw on this same bank. Generated 2026-10-27 from the bank source.
 
@@ -1753,3 +1753,73 @@ Why this fits: Counting down together makes the whole field hold its breath at o
 Spec: Look for: a starter kit with pad and controller, parachute recovery, and engines sold in small packs. Avoid: kits that need tools beyond glue and paint.
 Tip: An adult runs the launch switch the first time. Bring a second engine; one flight is never enough.
 For: kid · Budget: Over $100 · Interests: science, outdoors · Style: fun, experience
+
+## Science
+
+### 226. Telescope with an engraved name plate
+Description: A beginner scope on a steady tripod, with a brass plate engraved with their name.
+Why this fits: Seeing his own name on the instrument turns looking up into a habit he keeps.
+Spec: Look for: a plate fixed to the tube, letters cut deep enough to read by touch, and a moon filter in the box. Avoid: sticker nameplates that peel in damp air.
+Tip: Spell the name out loud once before you order. First target: the moon on the first clear night, plate side up for the photo.
+For: kid · Budget: Over $100 · Interests: science · Style: sentimental, fun
+
+### 227. Framed star map of the night they were born
+Description: The constellations over their birthplace on their birth night, printed and framed.
+Why this fits: A sky that happened once, on the night they arrived, now hangs where bedtime ends.
+Spec: Look for: the chart drawn from the real date, place, and hour, on thick matte paper. Avoid: pretty star fields that match no real night.
+Tip: Check the birth date and town twice before ordering. Hang it where the story gets told at bedtime.
+For: kid · Budget: $25 to $50 · Interests: science · Style: sentimental
+
+## Games
+
+### 228. Wooden name puzzle with chunky letters
+Description: Chunky wooden letters that spell their name, each one lifting out by its knob.
+Why this fits: Spelling yourself is the first word a small child ever wants to read.
+Spec: Look for: letters too big to swallow, smooth edges, and paint that survives chewing. Avoid: small pegs that snap off in small hands.
+Tip: Say each letter as it lifts out. A shallow tray keeps the set together between rounds.
+For: kid · Budget: Under $25 · Interests: games · Style: sentimental, fun
+
+## Music
+
+### 229. Harmonica engraved with their name
+Description: A pocket harmonica with their name etched along the polished cover.
+Why this fits: Music he carries in a coat pocket, marked as his from the first note.
+Spec: Look for: clean etched letters, a case that snaps shut, and reeds tuned before shipping. Avoid: painted names that rub off on lips.
+Tip: Add one song sheet he already hums. The case keeps pocket lint off the reeds.
+For: dad, partner, grandparent, friend, other · Budget: Under $25 · Interests: music · Style: sentimental
+
+## Gardening
+
+### 230. Carved wooden garden sign with the family name
+Description: A cedar sign with the family name cut deep, made for the gate or the best bed.
+Why this fits: Naming the garden out loud makes every visitor read whose hands keep it.
+Spec: Look for: rot resistant wood, letters cut deep, and an oil finish you can renew yearly. Avoid: burned in names that fade after one wet season.
+Tip: Oil it once before it goes out. Two screws through the posts keep it level for years.
+For: mom, dad, grandparent, other · Budget: $25 to $50 · Interests: gardening · Style: sentimental
+
+## Outdoors
+
+### 231. Engraved brass compass with a short line inside the lid
+Description: A solid brass compass that opens to a short engraved line chosen by the giver.
+Why this fits: Directions matter less than the sentence he finds every time the lid lifts.
+Spec: Look for: a needle that settles fast, a lid that hinges smooth, and lettering cut, not printed. Avoid: feather light compasses that feel like toys.
+Tip: Keep the inside line under eight words. Pairs with a hand drawn map of a walk you take together.
+For: dad, grandparent, partner, other · Budget: $50 to $100 · Interests: outdoors · Style: sentimental
+
+## Sentimental
+
+### 232. Monogrammed leather travel wallet
+Description: A leather travel wallet with their initials pressed into the front, holding passport and cards.
+Why this fits: Initials pressed in leather greet every border crossing with a small claim of home.
+Spec: Look for: full grain leather, initials stamped deep, and room for a passport plus four cards. Avoid: bonded leather that peels at the corners.
+Tip: Check the initials order twice at checkout. Slip a boarding pass sized note inside before wrapping.
+For: dad, partner, grandparent, other · Budget: $50 to $100 · Interests: travel · Style: sentimental
+
+## Cozy home
+
+### 233. Monogrammed wool throw blanket
+Description: A heavy wool throw with their initials stitched into one corner.
+Why this fits: Initials in the corner turn the couch blanket into the one nobody lends out.
+Spec: Look for: real wool with a tight weave, stitched letters, and a fringe that is knotted, not glued. Avoid: thin throws that pill after one wash.
+Tip: Pick thread one shade darker than the wool for a quiet mark. Fold it initials out on their chair.
+For: mom, grandparent, partner, other · Budget: Over $100 · Interests: cozy · Style: sentimental

@@ -234,7 +234,7 @@
 .qdoor{margin:26px 0 4px}
 a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;text-decoration:none}
   .faq details{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
-  .faq summary{font-weight:700;cursor:pointer;font-size:16px}
+  .faq summary{font-weight:700;cursor:pointer;font-size:16px;min-height:44px;display:flex;align-items:center;box-sizing:border-box}
   .faq p{margin:8px 0 2px;color:var(--muted)}
   .how-steps{list-style:none;counter-reset:step;margin:14px 0 22px;padding:0}
   .how-steps li{counter-increment:step;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:17px;line-height:1.45}
@@ -440,7 +440,7 @@ window.FLEET_CFG = {
           <h3>Pour-over coffee dripper with paper filters</h3>
           <p class="proof-price">Under $25</p>
           <p class="why">For the ritual of a slow morning, not another gadget.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our price range for this pick: Under $25. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-cozy.webp" alt="Weighted blanket, 15 lb" onerror="this.style.display='none'">
@@ -448,7 +448,7 @@ window.FLEET_CFG = {
           <h3>Weighted blanket, 15 lb</h3>
           <p class="proof-price">$50 to $100</p>
           <p class="why">For the restless sleeper you love.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our price range for this pick: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-travel.webp" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
@@ -456,7 +456,7 @@ window.FLEET_CFG = {
           <h3>Kids' backpack with padded straps and name tag</h3>
           <p class="proof-price">$25 to $50</p>
           <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $25 to $50. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our price range for this pick: $25 to $50. Store prices vary. We earn nothing from the link.</span></p>
         </div>
       </div>
       <div class="proofdots" id="proof-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
@@ -562,21 +562,11 @@ window.FLEET_CFG = {
       </details>
       <details>
         <summary>What we don't do</summary>
-        <p>We don't sell gifts.</p>
-        <p>No store can pay to place an idea.</p>
-        <p>We don't save your quiz answers. They are never sent anywhere.</p>
-        <p>The Ask page is the one exception. Its words are read by an AI helper. Nothing typed there is saved.</p>
-        <p>We don't ask for your email. There is nothing to sign up for.</p>
-        <p>We don't hand you a store's bestseller list. Every idea comes from our own checked list of 233.</p>
+        <p>We don't sell gifts, and no store can pay to place an idea. Your quiz answers stay in your browser and stay private. The one exception: words on the Ask page are read by an AI helper, then discarded. There is nothing to sign up for, and we ask for no email. Every idea comes from our own hand-checked list of 233, ranked for the person.</p>
       </details>
       <details>
         <summary>Our guarantees</summary>
-        <p>We never see your quiz answers.</p>
-        <p>The quiz picking runs in your browser.</p>
-        <p>Ask page words are read by an AI helper. It reads them and picks from the same 233 ideas.</p>
-        <p>Your saved list never reaches us.</p>
-        <p>No account and no email needed. You get the full result.</p>
-        <p>No ads and no paid placement.</p>
+        <p>The picking runs in your browser, so your answers and your saved list stay on your device. You get the full result with no account or email. No ads and no paid placement.</p>
       </details>
     </div>
 
@@ -672,20 +662,15 @@ var Analytics = {
 </script>
 <script>
 "use strict";
-/* ================= Fleet analytics — PostHog pilot (2026-10-25) =================
-   The Present Picker joins Pick My Costume's PostHog project (624507) as
-   the pilot second site. Every event carries $host automatically;
-   site_id is registered as the friendly label. Same posture as PMC:
-   autocapture off, session recording off, no identify(), anonymous only.
-   Payloads are counts and enums only — never quiz answers, never gift
-   ideas, never names. The legacy Analytics shim above stays local-only
-   for exactly that reason and is not forwarded. */
-var _fleetQ = [];
+/* ================= Fleet analytics — unified on the shared FA loader =================
+   Phase B (Nov 1, 2026, Dim 10 double-loader fix): the Oct 25 pilot
+   block that used to sit here injected a SECOND PostHog loader and
+   called posthog.init again on this page. It is removed. FA (the head
+   block, project 624507) is the page's one loader, and fleetTrack is
+   now a thin delegate to FA.track so every existing call site keeps
+   firing on the single loader. */
 function fleetTrack(name, props){
-  try {
-    if (window.posthog && posthog.capture) posthog.capture(name, props || {});
-    else _fleetQ.push([name, props || {}]);
-  } catch (e) {}
+  try { if (window.FA && FA.track) FA.track(name, props || {}); } catch (e) {}
 }
 function fleetSessionMarks(){
   try {
@@ -706,22 +691,7 @@ function fleetSessionMarks(){
     }
   } catch (e) {}
 }
-(function(){
-  var s = document.createElement("script");
-  s.async = true;
-  s.src = "https://us.i.posthog.com/static/array.js";
-  s.onload = function(){
-    try {
-      if (window.posthog && posthog.init){
-        posthog.init("phc_t9dkHXAZR5VEjPFm3K5JDzGKFsNNxKcwSxxcEBEeLbS7", {api_host: "https://us.i.posthog.com", autocapture: false, capture_pageview: true, disable_session_recording: true});
-        posthog.register({site_id: "present-picker", site_name: "The Present Picker"});
-        _fleetQ.splice(0).forEach(function(e){ try { posthog.capture(e[0], e[1]); } catch (x) {} });
-        fleetSessionMarks();
-      }
-    } catch (e) {}
-  };
-  document.head.appendChild(s);
-})();
+try { fleetSessionMarks(); } catch (e) {}
 </script>
 <script>
 "use strict";
@@ -1302,7 +1272,7 @@ $("q-next").onclick = function(){
   if (st.key === "who" && !quiz.who){ $("q-hint").textContent = "Pick a person first."; return; }
   if (st.key === "interests" && quiz.interests.length === 0 && !interestNotSure){ $("q-hint").textContent = "Pick at least one interest, or tap Not sure."; return; }
   if (st.key === "budget" && !quiz.budget){ $("q-hint").textContent = "Pick a budget first."; return; }
-  if (quiz.step < STEPS.length - 1){ quiz.step++; renderQuiz(); }
+  if (quiz.step < STEPS.length - 1){ quiz.step++; renderQuiz(); try { if (window.FA) FA.track("tool_step", {tool: "gift-picker", surface: "quiz", step: quiz.step}); } catch (e) {} }
   else { finishQuiz(); }
 };
 
@@ -1416,7 +1386,7 @@ function buyPathHTML(it){
   if ((it.s || []).indexOf("experience") >= 0) return "";
   var band = labelOf(BUDGETS, it.u[0]);
   return '<p class="buypath"><a href="https://www.bing.com/shop?q=' + encodeURIComponent(it.t) + '" target="_blank" rel="noopener">See store prices for this pick</a>' +
-    '<span class="buy-band">Shopping search for the pick\u2019s name. Our guide band: ' + escapeHTML(band) + '. Store prices vary. We earn nothing from the link.</span></p>';
+    '<span class="buy-band">Shopping search for the pick\u2019s name. Our price range for this pick: ' + escapeHTML(band) + '. Store prices vary. We earn nothing from the link.</span></p>';
 }
 function buyMiniHTML(it){
   if (!BUY_OK[it.id]) return "";
@@ -1994,6 +1964,10 @@ updateCounts();
 .askp-card{background:var(--card,#fffdf8);border:2px solid var(--line,#e2d6bd);border-radius:14px;padding:14px}
 .askp-card h3{font-size:17px;margin:0 0 6px}
 .askp-card p{margin:0 0 6px;font-size:15px}
+.askp-buy{display:inline-flex;align-items:center;min-height:48px;padding:10px 18px;border:2px solid var(--gold,#8f5f06);border-radius:999px;text-decoration:none;font-size:15px;font-weight:700;color:var(--gold,#8f5f06)}
+.fyg-pill{transition:transform .25s ease}
+.fyg-pill.fyg-yield{transform:translateY(calc(100% + var(--fyg-gap,20px)))}
+@media (prefers-reduced-motion:reduce){.fyg-pill{transition:none}}
 .askp-photo{display:block;width:calc(100% + 28px);max-width:none;height:160px;object-fit:cover;margin:-14px -14px 12px;border-radius:12px 12px 0 0;background:var(--gold-soft,#f3e8cf)}
 .askp-why{border-left:4px solid var(--gold,#8f5f06);padding:8px 12px;margin:10px 0;background:var(--gold-soft,#f3e8cf);border-radius:0 8px 8px 0;font-size:15px}
 .askp-why b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold,#8f5f06);margin-bottom:2px}
@@ -2042,6 +2016,34 @@ updateCounts();
   if(!btn||!panel) return;
   var inited=false, lastOverflow="";
   function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  /* Phase B (Nov 1, 2026): the buy path for ask/chat cards, mirroring
+     the quiz rule exactly — a pick earns a price link only when its
+     shopping search was live-verified at build time (BUY_OK) and it
+     is not an experience. Lookup is by title in the page bank. */
+  function buyLinkFor(title){
+    try {
+      var ideas=window.IDEAS||[], ok=window.BUY_OK||{};
+      for (var i=0;i<ideas.length;i++){
+        if (ideas[i].t===title){
+          var it=ideas[i];
+          if (!ok[it.id]) return "";
+          if ((it.s||[]).indexOf("experience")>=0) return "";
+          return "https://www.bing.com/shop?q="+encodeURIComponent(it.t);
+        }
+      }
+    } catch(e){}
+    return "";
+  }
+  function bandText(b){ return String(b||"").replace(/(\$\d+(?:\.\d+)?)-(\$\d+(?:\.\d+)?)/, "$1 to $2"); }
+  function pickCardHTML(p, photoUrl){
+    var tags='<span class="askp-tag">'+esc(bandText(p.budget))+"</span>"+
+      (p.matched||[]).map(function(m){ return '<span class="askp-tag">'+esc(m)+"</span>"; }).join("");
+    var buy=buyLinkFor(p.title);
+    var buyHTML=buy ? '<p class="buypath"><a class="askp-buy" href="'+buy+'" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick\u2019s name. Our price range for this pick: '+esc(bandText(p.budget))+'. Store prices vary. We earn nothing from the link.</span></p>' : "";
+    var photo=photoUrl ? '<img class="askp-photo" src="'+esc(photoUrl)+'" alt="'+esc(p.title)+'" loading="lazy" onerror="this.style.display=\'none\'">' : "";
+    return photo+"<h3>"+esc(p.title)+"</h3><p>"+esc(p.blurb)+"</p>"+
+      '<div class="askp-why"><b>Why it fits</b>'+esc(p.why)+'</div><div class="askp-tags">'+tags+"</div>"+buyHTML;
+  }
   function open(){
     init();
     panel.hidden=false;
@@ -2098,12 +2100,32 @@ updateCounts();
   }
   function render(text, d){
     if (typeof d.reply === "string") {
-      try { if (window.FA) { FA.track("ask_answered", {surface: "chat", outcome: (d.picks && d.picks.length) ? "pick" : "ask"}); if ((d.picks||[]).length && !window.__faAskDone) { window.__faAskDone = 1; FA.track("tool_complete", {surface: "chat"}); } } } catch (e) {}
+      /* Phase B (Nov 1, 2026, Dim 10): ask_answered fires exactly once
+         per answered chat — the __faFired mark on this response object
+         makes re-rendering the same answer a no-op, and the event now
+         rides the page's single FA loader (double-loader removed). */
+      try { if (window.FA && !d.__faFired) { d.__faFired = 1; FA.track("ask_answered", {surface: "chat", outcome: (d.picks && d.picks.length) ? "pick" : "ask"}); if ((d.picks||[]).length && !window.__faAskDone) { window.__faAskDone = 1; FA.track("tool_complete", {surface: "chat"}); } } } catch (e) {}
       window.__askpFacts = d.facts || window.__askpFacts || null;
       var msgs0=document.getElementById("askp-msgs");
       var u0=document.createElement("div"); u0.className="askp-user"; u0.textContent=text; msgs0.appendChild(u0);
       var a0=document.createElement("div"); a0.className="askp-ai"; a0.textContent=d.reply; msgs0.appendChild(a0);
-      msgs0.scrollTop = msgs0.scrollHeight;
+      /* Phase B (PLUS P1 / Dim 9): the chat's structured picks render
+         as tappable cards with the quiz's buy path — before this, the
+         chat drew only the reply text and its picks had no tap. */
+      var anyBuy=false;
+      (d.picks||[]).forEach(function(p){
+        var card=document.createElement("div"); card.className="askp-card";
+        card.innerHTML=pickCardHTML(p, null);
+        if (buyLinkFor(p.title)) anyBuy=true;
+        msgs0.appendChild(card);
+      });
+      if ((d.picks||[]).length && anyBuy){
+        var fine0=document.createElement("p"); fine0.className="askp-fine";
+        fine0.textContent="Price links open a shopping search. We earn nothing from them.";
+        msgs0.appendChild(fine0);
+      }
+      var body0=panel.querySelector(".askp-body");
+      if(body0) body0.scrollTop=body0.scrollHeight;
       return;
     }
 
@@ -2156,11 +2178,7 @@ updateCounts();
       card.className="askp-card";
       var pTags='<span class="askp-tag">'+esc(p.budget)+"</span>"+
         (p.matched||[]).map(function(m){ return '<span class="askp-tag">'+esc(m)+"</span>"; }).join("");
-      var photo=p.photo
-        ? '<img class="askp-photo" src="'+esc(p.photo)+'" alt="'+esc(p.title)+'" loading="lazy" onerror="this.style.display=\'none\'">'
-        : "";
-      card.innerHTML=photo+"<h3>"+esc(p.title)+"</h3><p>"+esc(p.blurb)+"</p>"+
-        '<div class="askp-why"><b>Why it fits</b>'+esc(p.why)+'</div><div class="askp-tags">'+pTags+"</div>";
+      card.innerHTML=pickCardHTML(p, p.photo || null);
       msgs.appendChild(card);
     });
     if(d.thin){
@@ -2180,6 +2198,245 @@ updateCounts();
     if(panel.hidden) open(); else close();
   });
 })();
+</script>
+<script>
+/* Fleet Yield Guard v1.0 — adopted Phase B (Nov 1, 2026) per fleet-yield-guard ADOPTION-SPEC PP section.
+   Reference implementation inlined below (only its header comment’s example tags were
+   stripped — they would end this script block early in HTML; all code is verbatim). */
+/* Fleet Yield Guard — reference implementation v1.0 (2026-11-01)
+ *
+ * SPEC + STAGING ONLY. Not deployed to any live site by this package.
+ * Adoption ships per-site through the keeper after review — see ../ADOPTION-SPEC.md
+ *
+ * Problem it solves (D7 fleet finding, Nov 1 2026):
+ *   A fixed Ask/Chat pill sits on top of real controls. Each site's home-grown
+ *   guard watched only SOME elements (text nodes on PMC, one card on Secret
+ *   Santa, the hero <h1> on Dadiosity, nothing on ThawDay's calculator), so
+ *   at some scroll stop the pill always ate someone's tap.
+ *
+ * This guard watches ANY visible interactive element and yields the pill
+ * (slides it off the fold) whenever one would intersect the pill's RESTING box.
+ *
+ * Anti-oscillation — the whole point, learned from PMC Addendum 985:
+ *   The PMC guard read the pill's live getBoundingClientRect(). Mid-transition
+ *   that rect INCLUDES the yield transform, so the guard measured itself,
+ *   decided it was clear, un-yielded back onto the control, and oscillated.
+ *   This guard NEVER measures the pill's rendered rect after init. It computes
+ *   the resting box ONCE per layout (resize / orientation / pill size change)
+ *   from the pill's untransformed CSS position (computed bottom/right/left/top
+ *   + offsetWidth/offsetHeight, both transform-free) and caches it. Target
+ *   rects are compared against that cached box, so the pill's own transform
+ *   can never feed back into the decision. A 6px hysteresis band on the
+ *   clear-check makes the state sticky at boundary scroll positions.
+ *
+ * Proven mechanics kept from tonight's ships:
+ *   - SS Add.987: resting box from CSS constants (innerHeight - offset - size);
+ *     a focused pill never yields; an open panel never yields.
+ *   - PMC Add.985: band from untransformed position; watch interactive
+ *     elements, not text.
+ *   - Fleet: transform yield (translateY calc(100% + gap)), .25s ease,
+ *     transition:none under prefers-reduced-motion.
+ *   - Companion (page-side, in the adoption spec, not this file):
+ *     html{scroll-padding-bottom} + footer padding so anchor landings and
+ *     max-scroll targets can also clear by scrolling (ThawDay Add.979 pattern).
+ *
+ * Usage (drop-in, no dependencies, ES5-safe like the fleet's inline scripts):
+ *     FleetYieldGuard.init({
+ *       pill: '#askp-open',              // selector or element (required)
+ *       panel: '#askpWrap',              // optional: open panel element/selector;
+ *                                        //   pill never yields while it is open/visible
+ *       panelOpen: function(){...},     // optional alternative to `panel`
+ *       targets: null,                   // optional extra selector; default is
+ *                                        //   ANY interactive element (see SELECTOR)
+ *       exclude: '.site-header, .site-nav', // optional: never watch these
+ *       gap: 20,                         // px past the fold when yielded
+ *       className: 'fyg-yield'           // yield class (CSS ships the transform)
+ *     });
+ * Multiple pills on one page (Secret Santa has two): call init() once per pill.
+ * Each call returns a handle { refresh, destroy, isYielded }.
+ */
+(function (global) {
+  'use strict';
+
+  var SELECTOR = [
+    'a[href]', 'button', 'input', 'select', 'textarea', 'summary',
+    '[role="button"]', '[role="link"]', '[role="tab"]', '[role="menuitem"]',
+    '[tabindex]:not([tabindex="-1"])', '[data-fyg-watch]'
+  ].join(',');
+
+  var HYSTERESIS = 6; /* px: once yielded, the hit test uses the resting box
+                         EXPANDED by this much, so a target must clear the
+                         box by >6px before the pill returns */
+
+  function toEl(x) {
+    if (!x) return null;
+    if (typeof x === 'string') return document.querySelector(x);
+    return x;
+  }
+  function toList(sel, root) {
+    if (!sel) return [];
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  }
+  function parsePx(v) { var n = parseFloat(v); return isNaN(n) ? null : n; }
+
+  function init(opts) {
+    opts = opts || {};
+    var pill = toEl(opts.pill);
+    if (!pill) return null;
+    var panel = toEl(opts.panel);
+    var className = opts.className || 'fyg-yield';
+    var gap = (typeof opts.gap === 'number') ? opts.gap : 20;
+    var extraTargets = opts.targets || null;
+    var excludeSel = opts.exclude || null;
+
+    pill.classList.add('fyg-pill');
+    pill.style.setProperty('--fyg-gap', gap + 'px');
+
+    var resting = null;   /* cached untransformed box {top,bottom,left,right} */
+    var yielded = false;
+    var ticking = false;
+    var destroyed = false;
+    var targets = [];
+
+    /* --- resting box: computed from CSS position + offset size ONLY.
+           offsetWidth/offsetHeight and computed bottom/right/left/top are
+           all unaffected by transforms. Never call pill.getBoundingClientRect()
+           here — that is the PMC oscillation bug. --- */
+    function computeResting() {
+      var cs = window.getComputedStyle(pill);
+      var w = pill.offsetWidth, h = pill.offsetHeight;
+      if (!w || !h) { resting = null; return; }
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var left = parsePx(cs.left), right = parsePx(cs.right);
+      var top = parsePx(cs.top), bottom = parsePx(cs.bottom);
+      var box = {};
+      if (left !== null && cs.left !== 'auto') box.left = left;
+      else if (right !== null && cs.right !== 'auto') box.left = vw - right - w;
+      else box.left = vw - w; /* fallback: assume right-anchored */
+      if (top !== null && cs.top !== 'auto') box.top = top;
+      else if (bottom !== null && cs.bottom !== 'auto') box.top = vh - bottom - h;
+      else box.top = vh - h;
+      box.right = box.left + w;
+      box.bottom = box.top + h;
+      resting = box;
+    }
+
+    function collectTargets() {
+      var list = toList(SELECTOR);
+      if (extraTargets) list = list.concat(toList(extraTargets));
+      var excludes = excludeSel ? toList(excludeSel) : [];
+      targets = list.filter(function (el) {
+        if (el === pill) return false;
+        if (pill.contains(el)) return false;
+        if (panel && (el === panel || panel.contains(el))) return false;
+        for (var i = 0; i < excludes.length; i++) {
+          if (el === excludes[i] || excludes[i].contains(el)) return false;
+        }
+        return true;
+      });
+    }
+
+    function panelIsOpen() {
+      if (typeof opts.panelOpen === 'function') return !!opts.panelOpen();
+      if (!panel) return false;
+      if (panel.hidden) return false;
+      var cs = window.getComputedStyle(panel);
+      return cs.display !== 'none' && cs.visibility !== 'hidden';
+    }
+
+    function update() {
+      ticking = false;
+      if (destroyed) return;
+      /* A focused pill, or an open panel, never yields (SS 987 rule). */
+      if (panelIsOpen() || document.activeElement === pill || pill.contains(document.activeElement)) {
+        setYield(false);
+        return;
+      }
+      if (!resting) computeResting();
+      if (!resting) return;
+      var box = resting;
+      /* Hysteresis: yield on ANY overlap with the resting box; once yielded,
+         a target must clear the box EXPANDED by HYSTERESIS px before the
+         pill returns. (An early draft shrank the box for the return check instead —
+         the harness's boundary fixture caught the limit cycle that creates
+         for shallow overlaps: yield -> not-hit -> un-yield -> hit. See
+         REPORT.md, harness bug log #2.) */
+      var ex = yielded ? HYSTERESIS : 0;
+      var hit = false;
+      for (var i = 0; i < targets.length; i++) {
+        var el = targets[i];
+        /* Skip non-rendered targets cheaply before paying for a rect. */
+        if (el.offsetParent === null && window.getComputedStyle(el).position !== 'fixed' && window.getComputedStyle(el).position !== 'sticky') {
+          /* offsetParent is null for display:none and for fixed elements;
+             fixed/sticky fall through to the rect check below. */
+          if (window.getComputedStyle(el).display === 'none') continue;
+        }
+        var b = el.getBoundingClientRect();
+        if (!b.width || !b.height) continue;
+        if (b.bottom > box.top - ex && b.top < box.bottom + ex &&
+            b.right > box.left - ex && b.left < box.right + ex) { hit = true; break; }
+      }
+      setYield(hit);
+    }
+
+    function setYield(on) {
+      if (on === yielded) return;
+      yielded = on;
+      pill.classList.toggle(className, on);
+    }
+
+    function schedule() {
+      if (ticking || destroyed) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+    function scheduleRelayout() {
+      /* Layout may have changed: recompute the resting box and the target
+         list, then re-evaluate. This is the ONLY place resting is dropped. */
+      resting = null;
+      collectTargets();
+      schedule();
+    }
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', scheduleRelayout);
+    window.addEventListener('orientationchange', scheduleRelayout);
+    pill.addEventListener('focus', function () { setYield(false); }, true);
+    pill.addEventListener('blur', schedule, true);
+
+    var mo = null;
+    if (window.MutationObserver) {
+      /* Results, sealed links, tallies and cards appear dynamically
+         (Secret Santa payoff screen, FMB tally, PP results). Watch for
+         added/removed nodes and attribute changes that show/hide them. */
+      mo = new MutationObserver(function () { collectTargets(); schedule(); });
+      mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden', 'style', 'class'] });
+    }
+
+    collectTargets();
+    computeResting();
+    update();
+
+    return {
+      refresh: scheduleRelayout,
+      isYielded: function () { return yielded; },
+      destroy: function () {
+        destroyed = true;
+        window.removeEventListener('scroll', schedule);
+        window.removeEventListener('resize', scheduleRelayout);
+        window.removeEventListener('orientationchange', scheduleRelayout);
+        if (mo) mo.disconnect();
+        setYield(false);
+      }
+    };
+  }
+
+  global.FleetYieldGuard = { init: init, version: '1.0.0' };
+})(typeof window !== 'undefined' ? window : this);
+
+</script>
+<script>
+try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel" }); } catch (e) {}
 </script>
 <!-- ASK PANEL END -->
 </body>

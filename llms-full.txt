@@ -13,7 +13,7 @@
 
 ## Question pages
 
-Pages that each answer one gift question in full, on the page, with the picker's real top picks for that ask. Same bank, same rules: budget is a hard filter, no brands, no store links.
+Pages that each answer one gift question in full, on the page, with the picker's real top picks for that ask. Same bank, same rules: budget is a hard filter, no brands. Most picks carry a plain price-check link to a shopping search; the site earns nothing from it.
 
 ### Gifts for Grandma Who Has Everything (https://thepresentpicker.com/gift-for-grandma-who-has-everything)
 
@@ -29,7 +29,7 @@ A: Give her something that does not add clutter: a gift that gets used up, an up
 Q: What if my grandma says she wants nothing?
 A: Believe the feeling, not the words. She means no clutter and no fuss. A small, warm gift still lands: the candle trio, a good novel, or seeds for spring all say you thought of her without filling a shelf.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for Dad Who Wants Nothing (https://thepresentpicker.com/gifts-for-dad-who-wants-nothing)
 
@@ -45,7 +45,7 @@ A: A better version of something he already uses every day. He will not ask for 
 Q: How much should I spend on a dad who wants nothing?
 A: Less than you think. Most of these picks sit between $25 and $50. With this dad, quality beats size: one tool he will use for years beats a big box he has to store.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for Mom Who Has Everything (https://thepresentpicker.com/gifts-for-mom-who-has-everything)
 
@@ -61,7 +61,7 @@ A: The same rule as grandma: used up, used daily, or full of family. An experien
 Q: Are experience gifts better for someone who has everything?
 A: Often, yes. A shared plan gives her a date to look forward to, not a thing to store. If you pick an experience from this page, put the date on the calendar before you wrap the card.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### White Elephant Gifts That Are Actually Good (https://thepresentpicker.com/white-elephant-gifts)
 
@@ -77,7 +77,7 @@ A: Two things: it makes the room laugh, and the winner is glad to keep it. Aim f
 Q: How much do people spend on white elephant gifts?
 A: Most parties set the limit at $20 or $25. Some go to $50 for a big-splash round. Every pick on this page sits inside one of those two bands.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for a Coworker You Barely Know (https://thepresentpicker.com/gifts-for-a-coworker-you-barely-know)
 
@@ -95,7 +95,7 @@ A: Anything romantic, scented, sized, or jokey about them. Skip gifts that comme
 Q: How much should you spend on a coworker gift?
 A: Under $25 is the safe office band. It reads as generous without asking anyone to match you back. All eight picks on this page sit inside it.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Stocking Stuffers Under $25 (https://thepresentpicker.com/stocking-stuffers-under-25)
 
@@ -111,7 +111,7 @@ A: Small, a little surprising, and still useful after the morning ends. The harm
 Q: How much should a stocking stuffer cost?
 A: Under $25 covers nearly every good one, and most picks here sit well under it. A stocking is five or six small joys, not one big gift cut down to size.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for People Who Are Hard to Buy For (https://thepresentpicker.com/gifts-for-people-who-are-hard-to-buy-for)
 
@@ -127,7 +127,7 @@ A: First name the kind of hard. Far away calls for light and personal. Just move
 Q: Are gift cards okay for someone hard to buy for?
 A: As a last resort, yes, but a card says you gave up. One specific idea from their set above, even a small one, lands warmer. If you do give a card, pair it with one small real thing.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for Grandma Under $25 (https://thepresentpicker.com/gifts-for-grandma-under-25)
 
@@ -145,7 +145,7 @@ A: Yes. At this budget, thought does the work that money does not. A pressed-flo
 Q: What if my grandma says she does not want anything?
 A: Believe the spirit, not the letter. She means no clutter. Pick something that gets used up, like the candle trio or the seed collection, or something that holds the family, like the memory jar. Her has-everything page, linked above, goes deeper on this.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for Kids Under $25 (https://thepresentpicker.com/gifts-for-kids-under-25)
 
@@ -163,7 +163,7 @@ A: For a kid, yes. What lands is the doing, not the price: dough to squish, a hu
 Q: What if I do not know what the kid is into?
 A: Start with the art kit or the picture books. Both fit almost every kid. Or take the five question quiz on the home page: tell it what they are into, and it narrows the same 255 ideas to five picks for them.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for Kids $50 to $100 (https://thepresentpicker.com/gifts-for-kids-50-to-100)
 
@@ -181,7 +181,7 @@ A: It depends on the kid. A kid with a strong hobby uses one right tool all year
 Q: How do I know it will not sit in a closet?
 A: Match the habit, not the holiday. Every pick on this page says who it fits in its notes. Read the why line on each card: if it sounds like your kid, it will get used.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Tech Gifts for Mom (https://thepresentpicker.com/tech-gifts-for-mom)
 
@@ -199,7 +199,7 @@ A: The fast charging cable set, the phone stand with a charging dock, or the tra
 Q: Will she need help setting it up?
 A: Most picks here work out of the box. The wifi booster and the smart plugs may want ten minutes of setup. Offer that ten minutes with the gift, and it reads as care, not homework.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ### Gifts for Kids Over $100 (https://thepresentpicker.com/gifts-for-kids-over-100)
 
@@ -217,7 +217,7 @@ A: Only when the gift will be used for months or years, not days. Every pick on 
 Q: How do I know they will not outgrow it fast?
 A: Look for the grow-with-them signs in the buying notes on each card: an adjustable seat, room to add pieces, a set that starts simple and gets harder. Those are the gifts that stay in use longest.
 Q: Do you link to stores or sell these gifts?
-A: No. Every idea is described in plain words, with no store links. Search the name anywhere you like to buy it. The site sells nothing, so it has exactly one job: good ideas.
+A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
 
 ## Cooking
 

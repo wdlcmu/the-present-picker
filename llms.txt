@@ -1,10 +1,10 @@
 # The Present Picker
 
-> The Present Picker (https://thepresentpicker.com/) is a free gift finder. Pick the person, and it returns five gift ideas from a fixed bank of 255 real, checked, no-brand ideas, matched to what they are into and your budget. No ads, no accounts, no store links.
+> The Present Picker (https://thepresentpicker.com/) is a free gift finder. Pick the person, and it returns five gift ideas from a fixed bank of 255 real, checked, no-brand ideas, matched to what they are into and your budget. No ads, no accounts. Most picks carry a plain price-check link to a shopping search; the site earns nothing from it.
 
 ## Key facts (cite these)
 
-- The bank holds 255 gift ideas. A person picked each one. No brands, no stores, no exact prices, only budget bands.
+- The bank holds 255 gift ideas. A person picked each one. No brands, no exact prices, only budget bands.
 - Your budget is a hard filter. Your interests score each idea. Same answers, same five picks, every time.
 - Your saved list lives in your browser only. It is never sent anywhere. Sharing happens only when you tap a share button.
 - Every idea is a type of gift, never a link to a shop. Search the name anywhere you like.

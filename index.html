@@ -73,14 +73,6 @@
         "@type": "Answer",
         "text": "We don't sell gifts. No store can pay to place an idea. We don't save your quiz answers. They are never sent anywhere. The Ask page is the one exception. Its words are read by an AI helper. Nothing typed there is saved. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked list of 233."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Our guarantees",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We never see your quiz answers. The quiz picking runs in your browser. Ask page words are read by an AI helper. It reads them and picks from the same 233 ideas. Your saved list never reaches us. No account and no email needed. You get the full result. No ads and no paid placement."
-      }
     }
   ]
 }
@@ -265,7 +257,6 @@ window.FLEET_CFG = {
   site: "presentpicker",
   starts: [
     {sel: "#btn-start", surface: "quiz"},
-    {sel: "#btn-start-story", surface: "quiz"},
     {sel: "#askp-open", surface: "ask"}
   ],
   completes: [
@@ -429,7 +420,6 @@ window.FLEET_CFG = {
   <!-- ============ SCREEN 1: HOME ============ -->
   <section class="screen on" id="s-home">
     <h1>Find a gift that fits the person and your budget.</h1>
-    <p class="core-hook">Picked for them, not the store.</p>
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
 
@@ -443,7 +433,7 @@ window.FLEET_CFG = {
           <h3>Pour-over coffee dripper with paper filters</h3>
           <p class="proof-price">Under $25</p>
           <p class="why">For the ritual of a slow morning, not another gadget.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our price range for this pick: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-cozy.webp" alt="Weighted blanket, 15 lb" onerror="this.style.display='none'">
@@ -451,7 +441,7 @@ window.FLEET_CFG = {
           <h3>Weighted blanket, 15 lb</h3>
           <p class="proof-price">$50 to $100</p>
           <p class="why">For the restless sleeper you love.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our price range for this pick: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-travel.webp" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
@@ -459,11 +449,11 @@ window.FLEET_CFG = {
           <h3>Kids' backpack with padded straps and name tag</h3>
           <p class="proof-price">$25 to $50</p>
           <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our price range for this pick: $25 to $50. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
         </div>
       </div>
       <div class="proofdots" id="proof-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-      <p class="checker">Checked by hand by Billy, who built this site. No brand names. Price links are plain searches, with no affiliate codes.</p>
+      <p class="checker">Checked by hand by Billy, who built this site. Price links are plain searches, with no affiliate codes.</p>
     </div>
 
     <div class="cdx">
@@ -491,9 +481,6 @@ window.FLEET_CFG = {
           <span>Five questions ask what they love and what I can spend, then pick from 233 ideas checked by hand. Each pick says why it fits them.</span>
         </li>
       </ol>
-      <p class="story-hook">Picked for them, not the store.</p>
-      <button class="cta" id="btn-start-story">Pick a gift</button>
-      <p class="askline">Or <a href="/ask">ask in your own words</a>.</p>
     </div>
 
     <div class="story maker" aria-labelledby="maker-title">
@@ -524,7 +511,7 @@ window.FLEET_CFG = {
 
     <div class="faq">
       <h2>How it works</h2>
-      <p class="sub">Five questions. Five gift ideas. All from 233 checked ideas.</p>
+      <p class="sub">Five questions. Five gift ideas.</p>
       <ol class="how-steps">
         <li><b>You answer.</b>
           <span>Five quick questions: who it is for, what they are into, what you can spend.</span>
@@ -566,10 +553,6 @@ window.FLEET_CFG = {
       <details>
         <summary>What we don't do</summary>
         <p>We don't sell gifts, and no store can pay to place an idea. Your quiz answers stay in your browser and stay private. The one exception: words on the Ask page are read by an AI helper, then discarded. There is nothing to sign up for, and we ask for no email. Every idea comes from our own hand-checked list of 233, ranked for the person.</p>
-      </details>
-      <details>
-        <summary>Our guarantees</summary>
-        <p>The picking runs in your browser, so your answers and your saved list stay on your device. You get the full result with no account or email. No ads and no paid placement.</p>
       </details>
     </div>
 
@@ -1389,7 +1372,7 @@ function buyPathHTML(it){
   if ((it.s || []).indexOf("experience") >= 0) return "";
   var band = labelOf(BUDGETS, it.u[0]);
   return '<p class="buypath"><a href="https://www.bing.com/shop?q=' + encodeURIComponent(it.t) + '" target="_blank" rel="noopener">See store prices for this pick</a>' +
-    '<span class="buy-band">Shopping search for the pick\u2019s name. Our price range for this pick: ' + escapeHTML(band) + '. Store prices vary. We earn nothing from the link.</span></p>';
+    '<span class="buy-band">Shopping search for the pick\u2019s name. Store prices vary. We earn nothing from the link.</span></p>';
 }
 function buyMiniHTML(it){
   if (!BUY_OK[it.id]) return "";
@@ -1661,7 +1644,6 @@ $("btn-start").onclick = function(){
   Analytics.track("quiz_started", {});
   fleetTrack("tool_start", {tool: "gift-picker", entry: "home"});
 };
-$("btn-start-story").onclick = $("btn-start").onclick;
 $("brand-home").onclick = function(e){ e.preventDefault(); show("s-home"); };
 $("top-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-list").onclick = function(){ renderList(); show("s-list"); };
@@ -2042,7 +2024,7 @@ updateCounts();
     var tags='<span class="askp-tag">'+esc(bandText(p.budget))+"</span>"+
       (p.matched||[]).map(function(m){ return '<span class="askp-tag">'+esc(m)+"</span>"; }).join("");
     var buy=buyLinkFor(p.title);
-    var buyHTML=buy ? '<p class="buypath"><a class="askp-buy" href="'+buy+'" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick\u2019s name. Our price range for this pick: '+esc(bandText(p.budget))+'. Store prices vary. We earn nothing from the link.</span></p>' : "";
+    var buyHTML=buy ? '<p class="buypath"><a class="askp-buy" href="'+buy+'" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick\u2019s name. Store prices vary. We earn nothing from the link.</span></p>' : "";
     var photo=photoUrl ? '<img class="askp-photo" src="'+esc(photoUrl)+'" alt="'+esc(p.title)+'" loading="lazy" onerror="this.style.display=\'none\'">' : "";
     return photo+"<h3>"+esc(p.title)+"</h3><p>"+esc(p.blurb)+"</p>"+
       '<div class="askp-why"><b>Why it fits</b>'+esc(p.why)+'</div><div class="askp-tags">'+tags+"</div>"+buyHTML;

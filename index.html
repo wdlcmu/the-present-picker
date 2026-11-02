@@ -31,7 +31,7 @@
       "name": "Do you link to stores?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Every idea is a type, never linked to a shop. Search the name anywhere you like. The site sells nothing."
+        "text": "Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link."
       }
     },
     {
@@ -130,6 +130,10 @@
   .fine{color:var(--muted);font-size:13px}
   .askline{font-size:16px;margin:2px 0 10px}
   .checker{color:var(--muted);font-size:13px;margin:-6px 0 10px}
+  .buypath{margin:10px 0 2px;font-size:14px}
+  .buypath a{font-weight:700}
+  .buy-band{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.45}
+  .buy-mini{font-weight:700;font-size:13px;margin-left:8px;white-space:nowrap}
   .proof{margin:18px 0 6px;text-align:left}
   .proof h2{font-size:19px;margin:0 0 4px}
   .proof .ask{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin:0 0 4px}
@@ -446,22 +450,25 @@ window.FLEET_CFG = {
           <p class="ask">For Mom &middot; Under $25 &middot; loves cooking &middot; practical</p>
           <h3>Pour-over coffee dripper with paper filters</h3>
           <p class="why">For the ritual of a slow morning, not another gadget.</p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-cozy.webp" alt="Weighted blanket, 15 lb" onerror="this.style.display='none'">
           <p class="ask">For a grandparent &middot; $50-$100 &middot; sentimental</p>
           <h3>Weighted blanket, 15 lb</h3>
           <p class="why">For the restless sleeper you love.</p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-travel.webp" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
           <p class="ask">For a kid &middot; $25-$50 &middot; practical</p>
           <h3>Kids' backpack with padded straps and name tag</h3>
           <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $25 to $50. Store prices vary. We earn nothing from the link.</span></p>
         </div>
       </div>
       <div class="proofdots" id="proof-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-      <p class="checker">Checked by hand by Billy, who built this site. No brand names. No store links.</p>
+      <p class="checker">Checked by hand by Billy, who built this site. No brand names. Price links are plain searches, with no affiliate codes.</p>
     </div>
 
     <div class="story" aria-labelledby="story-title">
@@ -536,10 +543,11 @@ window.FLEET_CFG = {
       </ol>
       <details>
         <summary>Do you link to stores?</summary>
-        <p>No.</p>
-        <p>Every idea is a type, never linked to a shop.</p>
-        <p>Search the name anywhere you like.</p>
-        <p>The site sells nothing.</p>
+        <p>Yes, one plain link.</p>
+        <p>Every idea is a type, not a brand.</p>
+        <p>Most picks carry a price-check link.</p>
+        <p>It opens a shopping search for the pick's name.</p>
+        <p>The site sells nothing and earns nothing from the link.</p>
       </details>
       <details>
         <summary>How are the five picks chosen?</summary>
@@ -1406,6 +1414,23 @@ function finishQuiz(){
   renderPicks();
   show("s-picks");
 }
+var BUY_OK = {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,10:1,11:1,12:1,13:1,14:1,16:1,17:1,18:1,19:1,20:1,21:1,22:1,23:1,24:1,25:1,26:1,27:1,28:1,29:1,30:1,31:1,32:1,33:1,34:1,35:1,36:1,37:1,38:1,39:1,40:1,41:1,42:1,43:1,44:1,45:1,46:1,47:1,49:1,50:1,51:1,52:1,53:1,54:1,55:1,56:1,57:1,58:1,59:1,60:1,61:1,62:1,63:1,64:1,65:1,66:1,71:1,72:1,73:1,74:1,75:1,76:1,77:1,78:1,79:1,80:1,81:1,82:1,83:1,84:1,85:1,86:1,87:1,89:1,90:1,92:1,93:1,94:1,95:1,96:1,97:1,99:1,100:1,101:1,102:1,103:1,104:1,105:1,106:1,108:1,109:1,110:1,111:1,112:1,113:1,114:1,115:1,116:1,117:1,118:1,119:1,120:1,121:1,122:1,123:1,124:1,125:1,126:1,127:1,128:1,130:1,131:1,132:1,133:1,134:1,135:1,136:1,138:1,139:1,140:1,141:1,142:1,143:1,144:1,145:1,146:1,147:1,148:1,149:1,150:1,151:1,152:1,153:1,154:1,155:1,156:1,157:1,158:1,159:1,160:1,161:1,162:1,163:1,164:1,165:1,166:1,167:1,168:1,170:1,171:1,172:1,173:1,174:1,175:1,182:1,184:1,193:1,196:1,197:1,198:1,199:1,200:1,201:1,202:1,203:1,204:1,205:1,206:1,208:1,209:1,210:1,211:1,212:1,213:1,214:1,215:1,216:1,217:1,218:1,219:1,220:1,221:1,222:1,224:1,226:1,227:1,228:1,229:1,230:1,231:1,232:1,233:1};
+/* Buy path v1 (Nov 1, 2026): a pick earns a price-check link only when
+   its shopping-search URL was live-verified at build time (real results
+   with real prices for that pick's name) and the pick is not an
+   experience. Plain search link: no affiliate code, we earn nothing. */
+function buyPathHTML(it){
+  if (!BUY_OK[it.id]) return "";
+  if ((it.s || []).indexOf("experience") >= 0) return "";
+  var band = labelOf(BUDGETS, it.u[0]);
+  return '<p class="buypath"><a href="https://www.bing.com/shop?q=' + encodeURIComponent(it.t) + '" target="_blank" rel="noopener">See store prices for this pick</a>' +
+    '<span class="buy-band">Shopping search for the pick\u2019s name. Our guide band: ' + escapeHTML(band) + '. Store prices vary. We earn nothing from the link.</span></p>';
+}
+function buyMiniHTML(it){
+  if (!BUY_OK[it.id]) return "";
+  if ((it.s || []).indexOf("experience") >= 0) return "";
+  return ' <a class="buy-mini" href="https://www.bing.com/shop?q=' + encodeURIComponent(it.t) + '" target="_blank" rel="noopener">See prices</a>';
+}
 function renderPicks(){
   var whoLabel = labelOf(RECIPIENTS, quiz.who);
   $("picks-title").textContent = "Five picks for " + (cleanName() || whoLabel);
@@ -1453,6 +1478,7 @@ function renderPicks(){
       (it.g ? '<div class="why"><b>Buying notes</b>' + escapeHTML(it.g) + "</div>" : "") +
       (it.h ? '<div class="why"><b>Care and pairing</b>' + escapeHTML(it.h) + "</div>" : "") +
       tags +
+      buyPathHTML(it) +
       '<p class="status"></p>' +
       '<div class="row2">' +
         '<button class="ghost btn-save">' + (saved ? "\u2713 Saved" : "Save") + "</button>" +
@@ -1510,7 +1536,7 @@ function renderList(){
     var g = document.createElement("div");
     g.className = "list-group";
     var rows = items.map(function(it){
-      return '<div class="list-item"><span>' + escapeHTML(it.t) + ' <span class="tag">' + escapeHTML(labelOf(BUDGETS, it.u[0])) + '</span></span>' +
+      return '<div class="list-item"><span>' + escapeHTML(it.t) + ' <span class="tag">' + escapeHTML(labelOf(BUDGETS, it.u[0])) + '</span>' + buyMiniHTML(it) + '</span>' +
         '<button class="rm" data-id="' + it.id + '" aria-label="Remove ' + escapeHTML(it.t) + '">\u00d7</button></div>';
     }).join("");
     g.innerHTML = "<h3>For " + escapeHTML(labelOf(RECIPIENTS, who)) + "</h3>" + rows +
@@ -2134,7 +2160,7 @@ updateCounts();
     }
     var fine=document.createElement("p");
     fine.className="askp-fine";
-    fine.textContent="Every pick comes from the 233 ideas we checked by hand. The quiz uses the same 233 ideas. No store can pay to rank. No brands. No store links.";
+    fine.textContent="Every pick comes from the 233 ideas we checked by hand. The quiz uses the same 233 ideas. No store can pay to rank. No brands in the picks. Price links open a shopping search. We earn nothing from them.";
     msgs.appendChild(fine);
     var body=panel.querySelector(".askp-body");
     if(body) body.scrollTop=body.scrollHeight;

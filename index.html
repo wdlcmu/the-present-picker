@@ -71,7 +71,7 @@
       "name": "What we don't do",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We don't sell gifts. No store can pay to place an idea. We don't save your quiz answers. They are never sent anywhere. The Ask page is the one exception. Its words go to a helper program. Nothing typed there is saved. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 233."
+        "text": "We don't sell gifts. No store can pay to place an idea. We don't save your quiz answers. They are never sent anywhere. The Ask page is the one exception. Its words are read by an AI helper. Nothing typed there is saved. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked list of 233."
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Our guarantees",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We never see your quiz answers. The quiz picking runs in your browser. Ask page words go to a helper program. It reads them and picks from the same bank. Your saved list never reaches us. No account and no email needed. You get the full result. No ads and no paid placement."
+        "text": "We never see your quiz answers. The quiz picking runs in your browser. Ask page words are read by an AI helper. It reads them and picks from the same 233 ideas. Your saved list never reaches us. No account and no email needed. You get the full result. No ads and no paid placement."
       }
     }
   ]
@@ -125,6 +125,8 @@
   .cdx-panel{border:1px solid var(--line);border-radius:12px;padding:.75rem .95rem;margin-top:.4rem;background:var(--card);text-align:left}
   .cdx-break{font-weight:700;margin:0}
   .cdx-break:empty{display:none}
+  .cdx-next{margin:.35rem 0 0}
+  .cdx-next:empty{display:none}
   .fine{color:var(--muted);font-size:13px}
   .askline{font-size:16px;margin:2px 0 10px}
   .checker{color:var(--muted);font-size:13px;margin:-6px 0 10px}
@@ -275,14 +277,15 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
       <button class="cdx-more" id="cdx-more" type="button" aria-expanded="false" aria-controls="cdx-panel" hidden>What&rsquo;s next? <span aria-hidden="true">&#9662;</span></button>
       <div class="cdx-panel" id="cdx-panel" hidden>
         <p class="cdx-break" id="cdx-break"></p>
+        <p class="cdx-next" id="cdx-next"></p>
       </div>
     </div>
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
 
     <div class="proof" aria-labelledby="proof-title">
-      <h2 id="proof-title">Real picks, straight from the bank</h2>
-      <p class="fine">Three real top picks. Judge the bank before you start.</p>
+      <h2 id="proof-title">Real picks from the 233 ideas we checked by hand</h2>
+      <p class="fine">Three real top picks. Judge three real picks before you start.</p>
       <div class="proofrail" id="proof-rail" role="group" aria-label="Three real top picks. Swipe sideways to see each one.">
         <div class="card">
           <img class="photo" src="img/gift-cooking.webp" alt="Pour-over coffee dripper with paper filters" onerror="this.style.display='none'">
@@ -365,7 +368,7 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
           <span>What they are into.</span>
           <span>What you can spend.</span>
         </li>
-        <li><b>We search the bank.</b>
+        <li><b>We search the 233 checked ideas.</b>
           <span>We check 233 gift ideas.</span>
           <span>Your price range is firm.</span>
           <span>No store can pay to rank.</span>
@@ -408,15 +411,15 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
         <p>We don't sell gifts.</p>
         <p>No store can pay to place an idea.</p>
         <p>We don't save your quiz answers. They are never sent anywhere.</p>
-        <p>The Ask page is the one exception. Its words go to a helper program. Nothing typed there is saved.</p>
+        <p>The Ask page is the one exception. Its words are read by an AI helper. Nothing typed there is saved.</p>
         <p>We don't ask for your email. There is nothing to sign up for.</p>
-        <p>We don't hand you a store's bestseller list. Every idea comes from our own checked bank of 233.</p>
+        <p>We don't hand you a store's bestseller list. Every idea comes from our own checked list of 233.</p>
       </details>
       <details>
         <summary>Our guarantees</summary>
         <p>We never see your quiz answers.</p>
         <p>The quiz picking runs in your browser.</p>
-        <p>Ask page words go to a helper program. It reads them and picks from the same bank.</p>
+        <p>Ask page words are read by an AI helper. It reads them and picks from the same 233 ideas.</p>
         <p>Your saved list never reaches us.</p>
         <p>No account and no email needed. You get the full result.</p>
         <p>No ads and no paid placement.</p>
@@ -463,11 +466,11 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
     <button class="ghost" id="btn-again">Start over</button>
     <div class="hatch">
       <h3>Still stuck?</h3>
-      <p class="sub">Tell us about them in one short line. We make words you can paste into your AI.</p>
+      <p class="sub">Tell us about them in one short line. We write a prompt you can paste into ChatGPT or Claude.</p>
       <textarea id="ai-desc" rows="3" maxlength="200" placeholder="Example: my dad loves obscure jazz records and builds furniture in his garage"></textarea>
-      <button class="cta" id="btn-ai-prompt">Write my AI prompt</button>
+      <button class="cta" id="btn-ai-prompt">Write a prompt for ChatGPT or Claude</button>
       <div id="ai-out" hidden>
-        <p class="sub">Copy this into your AI:</p>
+        <p class="sub">Copy this into ChatGPT or Claude:</p>
         <pre id="ai-text"></pre>
         <button class="ghost" id="btn-ai-copy">Copy prompt</button>
         <p class="status" id="ai-status"></p>
@@ -1546,7 +1549,7 @@ $("btn-ai-prompt").onclick = function(){
 };
 $("btn-ai-copy").onclick = function(){
   fleetTrack("artifact_created", {tool: "gift-picker", artifact: "ai-prompt"});
-  copyText($("ai-text").textContent, $("ai-status"), "Copied. Paste it into your AI.");
+  copyText($("ai-text").textContent, $("ai-status"), "Copied. Paste it into ChatGPT or Claude.");
 };
 /* ================= Deep link: ?gift=<slug> opens that one idea =================
    The MCP tools link here per idea (e.g. ?gift=cast-iron-skillet-10-inch-
@@ -1684,6 +1687,7 @@ updateCounts();
   var moreBtn = document.getElementById("cdx-more");
   var panel = document.getElementById("cdx-panel");
   var breakEl = document.getElementById("cdx-break");
+  var nextEl = document.getElementById("cdx-next");
 
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function cdParts(ms) {
@@ -1699,12 +1703,20 @@ updateCounts();
     var min = Math.floor(now.getTime() / 60000);
     if (min === lastBreakMin) return;
     lastBreakMin = min;
-    if (lastMs === null) { breakEl.textContent = ""; return; }
+    if (lastMs === null) { breakEl.textContent = ""; if (nextEl) nextEl.textContent = ""; return; }
     var p = cdParts(lastMs), w = Math.floor(p.d / 7), rd = p.d - w * 7, seg = [];
     if (w > 0) seg.push(cdUnit(w, "week"));
     if (rd > 0) seg.push(cdUnit(rd, "day"));
     seg.push(cdUnit(p.h, "hour"));
     breakEl.textContent = "Time left: " + seg.join(", ") + ".";
+    /* 2026-11-01 clarity fix (audit #9): the panel also names the next
+       do-by — one week before the Christmas this clock counts to (the
+       count ends Dec 26, so the do-by is that end minus 8 days),
+       computed from the same target, never a hardcoded date. */
+    if (nextEl) {
+      var doby = new Date(now.getTime() + lastMs - 8 * 86400000);
+      nextEl.textContent = "Next do-by: pick your gifts by " + fmt(doby) + " — a week before Christmas — so there's time to buy.";
+    }
   }
   if (moreBtn && panel) {
     moreBtn.hidden = false;
@@ -1832,7 +1844,7 @@ updateCounts();
 <div class="askp-panel" id="askp-panel" role="dialog" aria-label="Ask in your own words" hidden>
   <div class="askp-head"><b>Ask in your own words</b><button class="askp-close" id="askp-close" type="button" aria-label="Close">&times;</button></div>
   <div class="askp-body">
-    <p class="askp-fine">What you type goes to a helper program to be read. Nothing is saved. No name is asked.</p>
+    <p class="askp-fine">What you type is read by an AI helper, which picks from the same 233 ideas. Nothing is saved. No name is asked.</p>
     <div class="askp-chips" id="askp-examples">
       <button class="askp-chip" type="button">For my grandma, who loves gardening, under $50</button>
       <button class="askp-chip" type="button">Something fun for my 6-year-old, under $25</button>
@@ -1949,7 +1961,7 @@ updateCounts();
     }
     var fine=document.createElement("p");
     fine.className="askp-fine";
-    fine.textContent="Every pick comes from the bank of 233 checked ideas. The quiz uses the same bank. No store can pay to rank. No brands. No store links.";
+    fine.textContent="Every pick comes from the 233 ideas we checked by hand. The quiz uses the same 233 ideas. No store can pay to rank. No brands. No store links.";
     msgs.appendChild(fine);
     var body=panel.querySelector(".askp-body");
     if(body) body.scrollTop=body.scrollHeight;

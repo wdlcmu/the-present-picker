@@ -137,10 +137,11 @@
   .proof{margin:18px 0 6px;text-align:left}
   .proof h2{font-size:19px;margin:0 0 4px}
   .proof .ask{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.05em;margin:0 0 4px}
-  .proof .card h3{margin:0 0 2px}
+  .proof .card h3{margin:0 0 2px;font-size:23px;line-height:1.25}
+  .proof-price{font-size:20px;font-weight:800;color:var(--gold);margin:2px 0 0}
   .proof .why{border-left:none;background:transparent;padding:0;margin:8px 0 0}
   .proof .checker{margin:12px 0 0}
-  .proof .card .photo{height:260px}
+  .proof .card .photo{height:200px}
   /* 2026-10-31 (living unit): the three proof picks ride ONE horizontal
      swipe rail in the Pick My Costume hero pattern — photo cards side by
      side, edge-peek + dots, a gentle staggered entrance and a slow
@@ -426,43 +427,34 @@ window.FLEET_CFG = {
   <section class="screen on" id="s-home">
     <h1>Find a gift that fits the person and your budget.</h1>
     <p class="core-hook">Picked for them, not the store.</p>
-    <div class="cdx">
-      <button type="button" class="cdx-main" id="cdx-main" aria-label="54 days until Christmas, Friday, December 25, 2026.">
-        <span class="cdx-digits" id="cdx-digits" aria-hidden="true" hidden><span class="cdx-cell cd-d"><b id="cdx-d">54</b><i id="cdx-dl">days</i></span><span class="cdx-cell"><b id="cdx-h">00</b><i>hrs</i></span><span class="cdx-cell"><b id="cdx-m">00</b><i>min</i></span><span class="cdx-cell"><b id="cdx-s">00</b><i>sec</i></span></span>
-        <span class="countdown" id="countdown">54 days until Christmas, Friday, December 25, 2026.</span>
-        <span class="cdx-cta">Pick a gift &rarr;</span>
-      </button>
-      <button class="cdx-more" id="cdx-more" type="button" aria-expanded="false" aria-controls="cdx-panel" hidden>What&rsquo;s next? <span aria-hidden="true">&#9662;</span></button>
-      <div class="cdx-panel" id="cdx-panel" hidden>
-        <p class="cdx-break" id="cdx-break"></p>
-        <p class="cdx-next" id="cdx-next"></p>
-      </div>
-    </div>
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
 
     <div class="proof" aria-labelledby="proof-title">
-      <h2 id="proof-title">Real picks from the 233 ideas we checked by hand</h2>
-      <p class="fine">Three real top picks. Judge three real picks before you start.</p>
-      <div class="proofrail" id="proof-rail" role="group" aria-label="Three real top picks. Swipe sideways to see each one.">
+      <h2 id="proof-title">Real picks from the quiz</h2>
+      <p class="fine">Three real #1 picks, from the 233 ideas we checked by hand.</p>
+      <div class="proofrail" id="proof-rail" role="group" aria-label="Three real first picks. Swipe sideways to see each one.">
         <div class="card">
           <img class="photo" src="img/gift-cooking.webp" alt="Pour-over coffee dripper with paper filters" onerror="this.style.display='none'">
-          <p class="ask">For Mom &middot; Under $25 &middot; loves cooking &middot; practical</p>
+          <p class="ask">For Mom &middot; loves cooking &middot; practical</p>
           <h3>Pour-over coffee dripper with paper filters</h3>
+          <p class="proof-price">Under $25</p>
           <p class="why">For the ritual of a slow morning, not another gadget.</p>
           <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-cozy.webp" alt="Weighted blanket, 15 lb" onerror="this.style.display='none'">
-          <p class="ask">For a grandparent &middot; $50-$100 &middot; sentimental</p>
+          <p class="ask">For a grandparent &middot; sentimental</p>
           <h3>Weighted blanket, 15 lb</h3>
+          <p class="proof-price">$50 to $100</p>
           <p class="why">For the restless sleeper you love.</p>
           <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
         </div>
         <div class="card">
           <img class="photo" src="img/gift-travel.webp" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
-          <p class="ask">For a kid &middot; $25-$50 &middot; practical</p>
+          <p class="ask">For a kid &middot; practical</p>
           <h3>Kids' backpack with padded straps and name tag</h3>
+          <p class="proof-price">$25 to $50</p>
           <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
           <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $25 to $50. Store prices vary. We earn nothing from the link.</span></p>
         </div>
@@ -471,6 +463,17 @@ window.FLEET_CFG = {
       <p class="checker">Checked by hand by Billy, who built this site. No brand names. Price links are plain searches, with no affiliate codes.</p>
     </div>
 
+    <div class="cdx">
+      <button type="button" class="cdx-main" id="cdx-main" aria-label="54 days until Christmas, Friday, December 25, 2026.">
+        <span class="cdx-digits" id="cdx-digits" aria-hidden="true" hidden><span class="cdx-cell cd-d"><b id="cdx-d">54</b><i id="cdx-dl">days</i></span><span class="cdx-cell"><b id="cdx-h">00</b><i>hrs</i></span><span class="cdx-cell"><b id="cdx-m">00</b><i>min</i></span><span class="cdx-cell"><b id="cdx-s">00</b><i>sec</i></span></span>
+        <span class="countdown" id="countdown">54 days until Christmas, Friday, December 25, 2026.</span>
+      </button>
+      <button class="cdx-more" id="cdx-more" type="button" aria-expanded="false" aria-controls="cdx-panel" hidden>What&rsquo;s next? <span aria-hidden="true">&#9662;</span></button>
+      <div class="cdx-panel" id="cdx-panel" hidden>
+        <p class="cdx-break" id="cdx-break"></p>
+        <p class="cdx-next" id="cdx-next"></p>
+      </div>
+    </div>
     <div class="story" aria-labelledby="story-title">
       <p class="q-label">Why I built this</p>
       <h2 id="story-title">The December list</h2>
@@ -479,13 +482,10 @@ window.FLEET_CFG = {
           <span>Each December, I listed Mom, Dad, my in-laws, and my wife, then sat stuck on what to give them.</span>
         </li>
         <li><b>The store did not help.</b>
-          <span>I stared at store pages full of the same candles as last year, then bought a gift card when my ideas ran out.</span>
-          <span>A gift card says: &ldquo;I remembered the day. I just do not know you.&rdquo;</span>
+          <span>Store pages showed the same candles as last year, so I bought a gift card &mdash; the gift that says: &ldquo;I remembered the day. I just do not know you.&rdquo;</span>
         </li>
         <li><b>Start with the person.</b>
-          <span>So I built five questions that start with the person, not the store.</span>
-          <span>They ask what they love and what I can spend, then pick from 233 ideas checked by hand.</span>
-          <span>Each pick says why it fits them.</span>
+          <span>Five questions ask what they love and what I can spend, then pick from 233 ideas checked by hand. Each pick says why it fits them.</span>
         </li>
       </ol>
       <p class="story-hook">Picked for them, not the store.</p>
@@ -524,21 +524,13 @@ window.FLEET_CFG = {
       <p class="sub">Five questions. Five gift ideas. All from 233 checked ideas.</p>
       <ol class="how-steps">
         <li><b>You answer.</b>
-          <span>Five quick questions.</span>
-          <span>Who it is for.</span>
-          <span>What they are into.</span>
-          <span>What you can spend.</span>
+          <span>Five quick questions: who it is for, what they are into, what you can spend.</span>
         </li>
         <li><b>We search the 233 checked ideas.</b>
-          <span>We check 233 gift ideas.</span>
-          <span>Your price range is firm.</span>
-          <span>No store can pay to rank.</span>
+          <span>Your price range is firm, and no store can pay to rank.</span>
         </li>
         <li><b>You get five picks.</b>
-          <span>Best match comes first.</span>
-          <span>Each pick says why it fits.</span>
-          <span>Save picks to your list.</span>
-          <span>Your list stays in your browser.</span>
+          <span>Best match first. Each pick says why it fits, and your list stays in your browser.</span>
         </li>
       </ol>
       <details>

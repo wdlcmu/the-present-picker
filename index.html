@@ -1997,6 +1997,8 @@ updateCounts();
 .askp-photo{display:block;width:calc(100% + 28px);max-width:none;height:160px;object-fit:cover;margin:-14px -14px 12px;border-radius:12px 12px 0 0;background:var(--gold-soft,#f3e8cf)}
 .askp-why{border-left:4px solid var(--gold,#8f5f06);padding:8px 12px;margin:10px 0;background:var(--gold-soft,#f3e8cf);border-radius:0 8px 8px 0;font-size:15px}
 .askp-why b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold,#8f5f06);margin-bottom:2px}
+.askp-photo{display:block;width:calc(100% + 32px);max-width:none;height:110px;object-fit:cover;margin:-12px -16px 10px;border-radius:14px 14px 0 0;background:var(--gold-soft,#f3e8cf)}
+.askp-ai{align-self:flex-start;max-width:92%;background:var(--card,#fffdf8);border:2px solid var(--line,#e2d6bd);border-radius:14px 14px 14px 4px;padding:9px 12px;font-size:15px;white-space:pre-wrap}
 .askp-status{min-height:20px;font-size:14px;font-weight:600;color:var(--gold,#8f5f06);margin:6px 0}
 .askp-foot{padding:10px 16px 14px;border-top:2px solid var(--line,#e2d6bd)}
 .askp-text{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink,#2b2419);background:var(--card,#fffdf8);border:2px solid var(--line,#e2d6bd);border-radius:12px;padding:11px 13px}
@@ -2016,18 +2018,20 @@ updateCounts();
 <div class="askp-panel" id="askp-panel" role="dialog" aria-label="Ask in your own words" hidden>
   <div class="askp-head"><b>Ask in your own words</b><button class="askp-close" id="askp-close" type="button" aria-label="Close">&times;</button></div>
   <div class="askp-body">
-    <p class="askp-fine">What you type is read by an AI helper, which picks from the same 233 ideas. Nothing is saved. No name is asked.</p>
+    <p class="askp-fine">This is an AI helper. It picks only from the same 233 ideas, checked by hand. Nothing you type is saved.</p>
+    <img class="askp-photo" src="img/gift-gardening.jpg" alt="Hands gardening, the kind of gift this page finds" width="800" height="800" loading="lazy">
+    <div class="askp-msgs" id="askp-greeting"><div class="askp-ai">Hi. Tell me who the gift is for, what they like, and what you can spend. I will pick from the 233 ideas.</div></div>
+    <p class="askp-heardlabel" style="font-size:15px;font-weight:700;margin:2px 0 6px">Or tap an example:</p>
     <div class="askp-chips" id="askp-examples">
       <button class="askp-chip" type="button">For my grandma, who loves gardening, under $50</button>
-      <button class="askp-chip" type="button">Something fun for my 6-year-old, under $25</button>
-      <button class="askp-chip" type="button">My coworker is into cooking. $50 to $100.</button>
+      <button class="askp-chip" type="button">I need a gift for my grandma.</button>
     </div>
     <div class="askp-msgs" id="askp-msgs" aria-live="polite"></div>
     <p class="askp-status" id="askp-status" aria-live="polite"></p>
   </div>
   <div class="askp-foot">
-    <textarea class="askp-text" id="askp-text" rows="3" maxlength="300" placeholder="A gift for my dad. He likes the outdoors. I can spend $25 to $50." aria-label="Say who the gift is for, what they like, and what you can spend"></textarea>
-    <button class="askp-ask" id="askp-ask" type="button">Ask</button>
+    <textarea class="askp-text" id="askp-text" rows="3" maxlength="500" placeholder="A gift for my dad. He likes the outdoors. I can spend $25 to $50." aria-label="Say who the gift is for, what they like, and what you can spend"></textarea>
+    <button class="askp-ask" id="askp-ask" type="button">Send</button>
     <a class="askp-full" href="/ask">Open the full ask page</a>
   </div>
 </div>
@@ -2075,7 +2079,7 @@ updateCounts();
     if(window.FA) FA.track("ask_asked", {surface: "ask"});
     status.textContent="Reading your words...";
     askBtn.disabled=true;
-    fetch("/api/ask", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({text:text})})
+    fetch("/api/chat", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({message:text, facts:window.__askpFacts||undefined})})
       .then(function(r){ return r.json(); })
       .then(function(d){
         askBtn.disabled=false;
@@ -2083,11 +2087,26 @@ updateCounts();
         render(text, d);
       })
       .catch(function(){
-        askBtn.disabled=false;
-        status.textContent="That did not go through. The quiz still works: it asks the same things, one tap at a time.";
+        fetch("/api/ask", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({text:text})})
+          .then(function(r){ return r.json(); })
+          .then(function(d){ askBtn.disabled=false; status.textContent=""; render(text, d); })
+          .catch(function(){
+            askBtn.disabled=false;
+            status.textContent="That did not go through. The quiz still works: it asks the same things, one tap at a time.";
+          });
       });
   }
   function render(text, d){
+    if (typeof d.reply === "string") {
+      try { if (window.FA) { FA.track("ask_answered", {surface: "chat", outcome: (d.picks && d.picks.length) ? "pick" : "ask"}); if ((d.picks||[]).length && !window.__faAskDone) { window.__faAskDone = 1; FA.track("tool_complete", {surface: "chat"}); } } } catch (e) {}
+      window.__askpFacts = d.facts || window.__askpFacts || null;
+      var msgs0=document.getElementById("askp-msgs");
+      var u0=document.createElement("div"); u0.className="askp-user"; u0.textContent=text; msgs0.appendChild(u0);
+      var a0=document.createElement("div"); a0.className="askp-ai"; a0.textContent=d.reply; msgs0.appendChild(a0);
+      msgs0.scrollTop = msgs0.scrollHeight;
+      return;
+    }
+
     /* Fleet instrumentation (Nov 1, 2026): classify the API reply's own
        heard/picks fields into enums only. The reply text and the visitor's
        words are never sent. */

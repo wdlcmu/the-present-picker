@@ -467,6 +467,7 @@ window.FLEET_CFG = {
           <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
         </div>
         <div class="card">
+          <img class="photo" src="img/idea-kids-backpack-with-padded-straps-and-name-tag.jpg" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
           <p class="ask">For a kid &middot; practical</p>
           <h3>Kids' backpack with padded straps and name tag</h3>
           <p class="proof-price">$25 to $50</p>
@@ -2344,6 +2345,21 @@ updateCounts();
     return "";
   }
   function bandText(b){ return String(b||"").replace(/(\$\d+(?:\.\d+)?)-(\$\d+(?:\.\d+)?)/, "$1 to $2"); }
+  /* SPEC-COLDQA-PP-01 (Nov 3, 2026): panel cards carry each pick's own
+     dedicated photo, like the quiz cards do. The chat endpoint now
+     returns p.photo per pick; if a pick ever arrives without one, fall
+     back to the page's own photo map (title -> IDEA_PHOTOS via
+     photoSrcFor, the same resolver the quiz uses). */
+  function photoForPick(p){
+    if (p && p.photo) return p.photo;
+    try {
+      var ideas=window.IDEAS||[];
+      for (var i=0;i<ideas.length;i++){
+        if (ideas[i].t===p.title && typeof photoSrcFor==="function") return photoSrcFor(ideas[i]);
+      }
+    } catch(e){}
+    return null;
+  }
   function pickCardHTML(p, photoUrl){
     var tags='<span class="askp-tag">'+esc(bandText(p.budget))+"</span>"+
       (p.matched||[]).map(function(m){ return '<span class="askp-tag">'+esc(m)+"</span>"; }).join("");
@@ -2424,7 +2440,7 @@ updateCounts();
       var anyBuy=false;
       (d.picks||[]).forEach(function(p){
         var card=document.createElement("div"); card.className="askp-card";
-        card.innerHTML=pickCardHTML(p, null);
+        card.innerHTML=pickCardHTML(p, photoForPick(p));
         if (buyLinkFor(p.title)) anyBuy=true;
         msgs0.appendChild(card);
       });
@@ -2487,7 +2503,7 @@ updateCounts();
       card.className="askp-card";
       var pTags='<span class="askp-tag">'+esc(p.budget)+"</span>"+
         (p.matched||[]).map(function(m){ return '<span class="askp-tag">'+esc(m)+"</span>"; }).join("");
-      card.innerHTML=pickCardHTML(p, p.photo || null);
+      card.innerHTML=pickCardHTML(p, photoForPick(p));
       msgs.appendChild(card);
     });
     if(d.thin){

@@ -467,7 +467,6 @@ window.FLEET_CFG = {
           <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
         </div>
         <div class="card">
-          <img class="photo" src="img/gift-travel.webp" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
           <p class="ask">For a kid &middot; practical</p>
           <h3>Kids' backpack with padded straps and name tag</h3>
           <p class="proof-price">$25 to $50</p>
@@ -597,7 +596,7 @@ window.FLEET_CFG = {
   <section class="screen" id="s-quiz">
     <div class="dots" id="q-dots" aria-hidden="true"></div>
     <p class="step-tag" id="q-step"></p>
-    <h2 id="q-title">Who are you buying for?</h2>
+    <h2 id="q-title">What's their first name?</h2>
     <p class="sub" id="q-sub"></p>
     <div class="chips" id="q-chips"></div>
     <p class="hint" id="q-hint"></p>
@@ -1278,7 +1277,7 @@ function cleanName(){
   return n;
 }
 var STEPS = [
-  {key: "name", title: "Who are you buying for?", sub: "A first name is plenty. You can skip this step.", required: false},
+  {key: "name", title: "What's their first name?", sub: "A first name is plenty. You can skip this step.", required: false},
   {key: "who", title: "Who is it for?", sub: "Pick one person.", required: true},
   {key: "interests", title: "What are they into?", sub: "Pick at least one. Not sure? Tap Not sure.", required: true, multi: true},
   {key: "budget", title: "What is the budget?", sub: "This is a hard filter. Picks stay inside it.", required: true},
@@ -1956,7 +1955,7 @@ updateCounts();
   var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   /* 2026-11-01 interactive upgrade: the clock is the hero unit now.
      Digit blocks (days/hrs/min/sec, tabular numerals), the whole unit is
-     one tap target to the site's core action, and a "What's next?" toggle
+     one tap target that opens the "What's next?" panel, and a "What's next?" toggle
      opens a panel with the time left broken down plus the next do-by
      milestone from this site's own pages. Reduced motion: the same
      render once a minute instead of every second. The rollover math
@@ -2009,7 +2008,7 @@ updateCounts();
       if (panelOpen) { lastBreakMin = -1; updateBreak(new Date()); }
     });
   }
-  if (main) main.addEventListener("click", function () { var b = document.getElementById("btn-start"); if (b) b.click(); });
+  if (main) main.addEventListener("click", function () { if (moreBtn) moreBtn.click(); });
 
   function setAria(text, now) {
     var min = Math.floor(now.getTime() / 60000);

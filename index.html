@@ -269,6 +269,14 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
     display:block;width:calc(100% + 32px);max-width:none;height:210px;object-fit:cover;
     margin:-16px -16px 14px;border-radius:12px 12px 0 0;background:var(--gold-soft);
   }
+  /* SPEC-COLDQA-PP-06 (Nov 3, 2026): progressive per-photo reveal. A pick
+     photo starts transparent over the same fixed 210px beige box and fades
+     in the moment ITS OWN load finishes (ph-loaded), so a slow photo never
+     holds the others back and the box never changes size (no layout shift).
+     Reduced motion: no fade, the photo simply appears when loaded. */
+  .card .photo.progressive{opacity:0;transition:opacity .35s ease}
+  .card .photo.progressive.ph-loaded{opacity:1}
+  @media (prefers-reduced-motion:reduce){.card .photo.progressive{transition:none}}
 </style>
 <script>
 window.FLEET_CFG = {
@@ -1655,6 +1663,15 @@ function loadPhotosFor(items, done){
     im.src = s;
   });
 }
+/* SPEC-COLDQA-PP-06: wire ONE photo's own reveal. Called per rendered photo;
+   each photo fades in when its own load event fires (or immediately if the
+   browser already has it complete), independent of every other photo. On
+   error the existing handlers hide the img, as before. */
+function revealOnLoad(img){
+  if (!img) return;
+  if (img.complete && img.naturalWidth > 0){ img.classList.add("ph-loaded"); return; }
+  img.addEventListener("load", function(){ img.classList.add("ph-loaded"); });
+}
 
 /* ================= Picks screen ================= */
 var currentPicks = [];
@@ -1723,16 +1740,16 @@ function renderPicks(){
     var skipCard = document.createElement("div");
     skipCard.className = "card skipcard";
     skipCard.innerHTML =
-      '<img class="photo" src="' + skSrc + '" alt="" loading="lazy">' +
+      '<img class="photo progressive" src="' + skSrc + '" alt="' + escapeHTML(sk.idea.t) + '" loading="eager" decoding="async">' +
       '<p class="skip-kicker">\u2715 Left out on purpose</p>' +
       "<h3>The gift not to buy for " + escapeHTML(cleanName() || whoLabel) + ": " + escapeHTML(sk.idea.t) + "</h3>" +
       "<p>" + escapeHTML(sk.reason) + "</p>" +
       '<p class="skip-close">A great pan. Just a heavy gift. The five picks below are the ones left standing.</p>';
     var skPhoto = skipCard.querySelector(".photo");
-    if (skPhoto) skPhoto.onerror = function(){ skPhoto.style.display = "none"; };
+    if (skPhoto){ skPhoto.onerror = function(){ skPhoto.style.display = "none"; }; revealOnLoad(skPhoto); }
     box.appendChild(skipCard);
   }
-  currentPicks.forEach(function(p){
+  currentPicks.forEach(function(p, pickIdx){
     var it = p.idea;
     var src = photoSrcFor(it);
     var showPhoto = !usedPhotos[src];
@@ -1744,7 +1761,7 @@ function renderPicks(){
       ? '<div class="tags">' + p.matched.map(function(t){ return '<span class="tag">\u2713 ' + t + "</span>"; }).join("") + "</div>"
       : "";
     card.innerHTML =
-      (showPhoto ? '<img class="photo" src="' + src + '" alt="" loading="lazy">' : "") +
+      (showPhoto ? '<img class="photo progressive" src="' + src + '" alt="' + escapeHTML(it.t) + '" loading="eager" decoding="async"' + (pickIdx === 0 ? ' fetchpriority="high"' : "") + '>' : "") +
       "<h3>" + escapeHTML(it.t) + "</h3>" +
       "<p>" + escapeHTML(it.b) + "</p>" +
       '<div class="why"><b>Why this fits</b>' + escapeHTML(it.f) + "</div>" +
@@ -1758,7 +1775,7 @@ function renderPicks(){
         '<button class="ghost btn-ask">Ask a friend</button>' +
       "</div>";
     var photo = card.querySelector(".photo");
-    if (photo) photo.onerror = function(){ photo.style.display = "none"; };
+    if (photo){ photo.onerror = function(){ photo.style.display = "none"; }; revealOnLoad(photo); }
     var status = card.querySelector(".status");
     card.querySelector(".btn-save").onclick = function(){
       toggleSave(it.id, quiz.who);
@@ -2024,7 +2041,7 @@ function openGiftIdea(it){
   var card = document.createElement("div");
   card.className = "card";
   card.innerHTML =
-    '<img class="photo" src="' + photoSrcFor(it) + '" alt="" loading="lazy">' +
+    '<img class="photo progressive" src="' + photoSrcFor(it) + '" alt="' + escapeHTML(it.t) + '" loading="eager" decoding="async">' +
     "<h3>" + escapeHTML(it.t) + "</h3>" +
     "<p>" + escapeHTML(it.b) + "</p>" +
     '<div class="why"><b>Why this fits</b>' + escapeHTML(it.f) + "</div>" +
@@ -2037,6 +2054,7 @@ function openGiftIdea(it){
     "</div>";
   var giftPhoto = card.querySelector(".photo");
   giftPhoto.onerror = function(){ giftPhoto.style.display = "none"; };
+  revealOnLoad(giftPhoto);
   var box = $("gift-card");
   box.innerHTML = "";
   box.appendChild(card);
@@ -2761,7 +2779,12 @@ updateCounts();
 
 </script>
 <script>
-try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel" }); } catch (e) {}
+/* SPEC-COLDQA-PP-05 (Nov 3, 2026): the guard's default hit test only watches
+   interactive elements, so the pill sat over static card text (proof titles,
+   pick-card Care-and-pairing lines). Pass the static text blocks as extra
+   targets: the pill now yields for readable text exactly as it already did
+   for controls, using the guard's own resting-box + hysteresis mechanics. */
+try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel", targets: ".card h3, .card p, .card .why, .proof h2, h1, .identity, .askline, .skipnote p, .story h2, .story p, .story li, .qdoor h2, .qdoor p, .faq h2, .faq p, .faq details, .hatch h2, .hatch p, .hatch pre, #picks-title, #picks-sub, #picks-note, .list-group h3, .list-item span, footer p" }); } catch (e) {}
 </script>
 <!-- ASK PANEL END -->
 </body>

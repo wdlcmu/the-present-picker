@@ -209,6 +209,22 @@
     border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;
     background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
   }
+  /* Honest no (Nov 2, 2026): the ruled-out gift, on the homepage as an
+     example strip and on the results screen as the lead card. Rust
+     accent so the eye reads it as a warning, not a sixth pick. */
+  .skipnote{
+    border-left:4px solid #b3543f;padding:10px 14px;margin:14px 0 4px;
+    background:#faf0ec;border-radius:0 8px 8px 0;font-size:16px;
+    line-height:1.5;text-align:left;
+  }
+  .skipnote p{margin:0}
+  .skipcard{border-color:#b3543f;background:#faf5f2}
+  .skip-kicker{
+    font-size:13px;font-weight:800;text-transform:uppercase;
+    letter-spacing:0.06em;color:#b3543f;margin:0 0 4px;
+  }
+  .skipcard p{font-size:16px;line-height:1.5}
+  .skip-close{color:var(--muted)}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
   .tag{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
   .card .row2 .ghost{margin:6px 0}
@@ -424,6 +440,10 @@ window.FLEET_CFG = {
     <button class="cta" id="btn-start">Pick a gift</button>
     <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
 
+    <div class="skipnote">
+      <p><b>We tell you what not to buy, too.</b> The cast iron skillet is the classic gift for someone who cooks. It weighs about 5 lb, so for a grandparent, every lift out of the oven is a two-hand job. Our quiz leaves it out for grandparents and picks lighter. First we rule out the wrong one. Then we pick from what is left.</p>
+    </div>
+
     <div class="proof" aria-labelledby="proof-title">
       <h2 id="proof-title">Real picks from the quiz</h2>
       <p class="fine">Three real #1 picks, from the 255 ideas we checked by hand.</p>
@@ -521,7 +541,7 @@ window.FLEET_CFG = {
           <span>Your price range is firm, and no store can pay to rank.</span>
         </li>
         <li><b>You get five picks.</b>
-          <span>Best match first. Each pick says why it fits, and your list stays in your browser.</span>
+          <span>Best match first. Each pick says why it fits, and your list stays in your browser. When a popular gift is wrong for them, we name it, say why, and leave it out.</span>
         </li>
       </ol>
       <details>
@@ -998,6 +1018,22 @@ function shareOf(k){
 }
 function $(id){ return document.getElementById(id); }
 
+/* ================= The honest no (Nov 2, 2026) =================
+   A short, hand-checked list of popular gifts that are wrong for one
+   kind of recipient, each with the one-line reason we leave it out.
+   A rule fires only when the idea would have made this shopper's
+   picks (it passed the recipient and budget hard filters, ranked into
+   the five, and matches an interest the shopper picked, or they picked
+   none): the gift has to be one this shopper was about to be shown.
+   Every reason states a fact the
+   bank itself documents. Skillet: the bank's own handling fact, the
+   same one the MCP serves as good_to_know ("It weighs about 5 lb").
+   Add a rule only when a fact that solid exists for the pairing. */
+var SKIP_RULES = [
+  { id: 2, who: ["grandparent"],
+    reason: "It weighs about 5 lb, so every lift out of the oven is a two-hand job." }
+];
+
 /* ================= Picker Engine (config-driven, built for reuse) =================
    Hard filters: recipient + budget. Scoring: +3 per matched interest, +2 for style
    match. A picked style gates the top pick (Oct 29 dogfood fix, Billy's call):
@@ -1034,30 +1070,65 @@ var PickerEngine = {
     var scored = scorePool(who, answers.budget);
     if (!scored.length && answers.budget){ relaxed.push("budget"); scored = scorePool(who, null); }
     if (!scored.length){ relaxed.push("recipient"); scored = scorePool(null, null); }
-    /* Oct 29 cold-loop fix: at equal score, a Kid list ranks kid-only
-       ideas ahead of ideas shared with adult recipients, so a generic
-       adult item (a charging-cable set, a water bottle) can never top a
-       kid list on a flat tie. Same rule the MCP engine already runs. */
-    scored.sort(function(a, b){
-      if (b.score !== a.score) return b.score - a.score;
-      if (who === "kid" && a.idea.r.length !== b.idea.r.length) return a.idea.r.length - b.idea.r.length;
-      return a.rank - b.rank;
-    });
-    if (answers.style){
-      var gateAt = -1;
-      for (var k = 0; k < scored.length; k++){
-        if (scored[k].idea.s.indexOf(answers.style) < 0) continue;
-        if (gateAt < 0) gateAt = k;
-        /* SPEC-PP-DIM9-KIDPRACTICAL-1 (Oct 31, 2026): on a Kid list, a
-           kid-only style fit leads ahead of a shared one, so a generic
-           adult item can never top a kid list through the gate either. */
-        if (who === "kid" && scored[k].idea.r.length === 1){ gateAt = k; break; }
-        if (who !== "kid") break;
+    /* Ranking: score order, then the style gate. A named function so
+       the honest-no check below can rank, inspect the would-be picks,
+       and rank again with a ruled-out gift removed. The comparator and
+       the gate are the existing code, moved, not changed. */
+    function rankList(list){
+      /* Oct 29 cold-loop fix: at equal score, a Kid list ranks kid-only
+         ideas ahead of ideas shared with adult recipients, so a generic
+         adult item (a charging-cable set, a water bottle) can never top
+         a kid list on a flat tie. Same rule the MCP engine already runs. */
+      list.sort(function(a, b){
+        if (b.score !== a.score) return b.score - a.score;
+        if (who === "kid" && a.idea.r.length !== b.idea.r.length) return a.idea.r.length - b.idea.r.length;
+        return a.rank - b.rank;
+      });
+      if (answers.style){
+        var gateAt = -1;
+        for (var k = 0; k < list.length; k++){
+          if (list[k].idea.s.indexOf(answers.style) < 0) continue;
+          if (gateAt < 0) gateAt = k;
+          /* SPEC-PP-DIM9-KIDPRACTICAL-1 (Oct 31, 2026): on a Kid list, a
+             kid-only style fit leads ahead of a shared one, so a generic
+             adult item can never top a kid list through the gate either. */
+          if (who === "kid" && list[k].idea.r.length === 1){ gateAt = k; break; }
+          if (who !== "kid") break;
+        }
+        if (gateAt > 0){ var lead = list.splice(gateAt, 1)[0]; list.unshift(lead); }
       }
-      if (gateAt > 0){ var lead = scored.splice(gateAt, 1)[0]; scored.unshift(lead); }
+      return list;
+    }
+    rankList(scored);
+    /* The honest no (Nov 2, 2026): on an unwidened search, if a
+       ruled-out gift made the would-be picks and this shopper plausibly
+       wanted its kind (they picked its interest, or picked none), pull
+       it out and rank again, so the five picks are what is left after
+       the no. The guard keeps at least one pick: the never-empty
+       guarantee outranks the no. */
+    var skipped = null;
+    if (!relaxed.length){
+      var leadSet = scored.slice(0, n || 5);
+      for (var si = 0; si < SKIP_RULES.length && !skipped; si++){
+        var rule = SKIP_RULES[si];
+        if (rule.who.indexOf(who) < 0) continue;
+        for (var sj = 0; sj < leadSet.length; sj++){
+          if (leadSet[sj].idea.id !== rule.id) continue;
+          var cand = leadSet[sj].idea;
+          var plausible = !answers.interests.length ||
+            cand.i.some(function(k){ return answers.interests.indexOf(k) >= 0; });
+          if (plausible && scored.length > 1){
+            scored = scored.filter(function(p){ return p.idea.id !== rule.id; });
+            rankList(scored);
+            skipped = {idea: cand, reason: rule.reason};
+          }
+          break;
+        }
+      }
     }
     var out = scored.slice(0, n || 5);
     out.relaxed = relaxed;
+    out.skipped = skipped;
     return out;
   }
 };
@@ -1471,6 +1542,24 @@ function renderPicks(){
      its photo, and later repeats render with no photo block (the
      layout the photo error path already falls back to). */
   var usedPhotos = {};
+  /* The honest no leads the results when a rule fired: the ruled-out
+     gift, its photo, and the one-line reason, before the five picks. */
+  if (currentPicks.skipped){
+    var sk = currentPicks.skipped;
+    var skSrc = photoSrcFor(sk.idea);
+    usedPhotos[skSrc] = 1;
+    var skipCard = document.createElement("div");
+    skipCard.className = "card skipcard";
+    skipCard.innerHTML =
+      '<img class="photo" src="' + skSrc + '" alt="" loading="lazy">' +
+      '<p class="skip-kicker">\u2715 Left out on purpose</p>' +
+      "<h3>The gift not to buy for " + escapeHTML(cleanName() || whoLabel) + ": " + escapeHTML(sk.idea.t) + "</h3>" +
+      "<p>" + escapeHTML(sk.reason) + "</p>" +
+      '<p class="skip-close">A great pan. Just a heavy gift. The five picks below are the ones left standing.</p>';
+    var skPhoto = skipCard.querySelector(".photo");
+    if (skPhoto) skPhoto.onerror = function(){ skPhoto.style.display = "none"; };
+    box.appendChild(skipCard);
+  }
   currentPicks.forEach(function(p){
     var it = p.idea;
     var src = photoSrcFor(it);

@@ -2781,10 +2781,16 @@ updateCounts();
 <script>
 /* SPEC-COLDQA-PP-05 (Nov 3, 2026): the guard's default hit test only watches
    interactive elements, so the pill sat over static card text (proof titles,
-   pick-card Care-and-pairing lines). Pass the static text blocks as extra
-   targets: the pill now yields for readable text exactly as it already did
-   for controls, using the guard's own resting-box + hysteresis mechanics. */
-try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel", targets: "h1, h2, h3, h4, p, li, .why, .tag, .list-item, .hatch pre, footer" }); } catch (e) {}
+   pick-card Care-and-pairing lines). Pass the static text blocks the QA
+   flagged — card text on the proof rail and pick/gift cards, card-styled
+   blocks (how-steps items, FAQ details), and screen/section titles — as
+   extra targets: the pill now yields for that readable text exactly as it
+   already did for controls, using the guard's own resting-box + hysteresis
+   mechanics. Scope note: watching EVERY text block was tested and rejected
+   — at 390px the homepage is near-continuous text, so the pill then never
+   settles visible in 103 sampled positions and the Ask door effectively
+   disappears; the flagged card/title text is the defect that was filed. */
+try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel", targets: "h1, h2, .card h3, .card p, .card .why, .proof p, .how-steps li, .faq details, .skipnote p, .identity, .askline, #picks-title, #picks-sub, #picks-note, .list-group h3, .list-item, .hatch pre, footer p" }); } catch (e) {}
 </script>
 <!-- ASK PANEL END -->
 </body>

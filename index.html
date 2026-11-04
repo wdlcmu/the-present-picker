@@ -620,6 +620,7 @@ window.FLEET_CFG = {
     <h2 id="picks-title">Your five gift ideas</h2>
     <p class="sub" id="picks-sub"></p>
     <p class="thin-note" id="picks-note" hidden></p>
+    <p class="fine" id="picks-disclaimer" hidden>Shopping search for the pick&rsquo;s name. Store prices vary. We earn nothing from the link.</p>
     <div id="picks"></div>
     <button class="cta" id="btn-list">My list (<span id="list-count-2">0</span>)</button>
     <button class="ghost" id="btn-change">Change answers</button>
@@ -1694,8 +1695,7 @@ function buyPathHTML(it){
   if (!BUY_OK[it.id]) return "";
   if ((it.s || []).indexOf("experience") >= 0) return "";
   var band = labelOf(BUDGETS, it.u[0]);
-  return '<p class="buypath"><a href="https://www.bing.com/shop?q=' + encodeURIComponent(it.t) + '" target="_blank" rel="noopener">See store prices for this pick</a>' +
-    '<span class="buy-band">Shopping search for the pick\u2019s name. Store prices vary. We earn nothing from the link.</span></p>';
+  return '<p class="buypath"><a href="https://www.bing.com/shop?q=' + encodeURIComponent(it.t) + '" target="_blank" rel="noopener">See store prices for this pick</a></p>';
 }
 function buyMiniHTML(it){
   if (!BUY_OK[it.id]) return "";
@@ -1722,6 +1722,13 @@ function renderPicks(){
   if (currentPicks.length === 0) noteText = "No ideas fit those answers. Try a wider budget.";
   $("picks-note").textContent = noteText;
   $("picks-note").hidden = noteText === "";
+  /* Readability fix pass (Nov 3, 2026): the store-prices disclaimer is
+     stated once, under this header, instead of under every pick. It
+     shows only when at least one pick carries a price-check link. */
+  var anyBuy = currentPicks.some(function(p){
+    return BUY_OK[p.idea.id] && (p.idea.s || []).indexOf("experience") < 0;
+  });
+  $("picks-disclaimer").hidden = !anyBuy;
   var box = $("picks");
   box.innerHTML = "";
   /* Oct 24 cold QA, finding F4: photos are per category, so one set
@@ -1762,6 +1769,7 @@ function renderPicks(){
     card.innerHTML =
       (showPhoto ? '<img class="photo progressive" src="' + src + '" alt="' + escapeHTML(it.t) + '" loading="eager" decoding="async"' + (pickIdx === 0 ? ' fetchpriority="high"' : "") + '>' : "") +
       "<h3>" + escapeHTML(it.t) + "</h3>" +
+      '<p class="proof-price">' + escapeHTML(labelOf(BUDGETS, it.u[0])) + "</p>" +
       "<p>" + escapeHTML(it.b) + "</p>" +
       '<div class="why"><b>Why this fits</b>' + escapeHTML(it.f) + "</div>" +
       (it.g ? '<div class="why"><b>Buying notes</b>' + escapeHTML(it.g) + "</div>" : "") +

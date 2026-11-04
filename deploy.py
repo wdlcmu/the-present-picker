@@ -23,6 +23,7 @@ FILES = ["index.html", "gifts-for-dad.html", "gifts-for-mom.html", "gifts-for-pa
          "christmas-gifts-for-teens.html", "gifts-for-neighbors.html", "gifts-for-teachers.html",
          "christmas-gifts-for-dad.html", "christmas-gifts-under-25.html",
          "christmas-gifts-for-mom.html", "christmas-gifts-under-50.html",
+         "christmas-gifts-for-kids.html", "christmas-gifts-under-100.html",
          "llms.txt", "llms-full.txt", "og-card.png", "sitemap.xml",
          "privacy.html", "terms.html", "mcp.html", "404.html", "ask.html",
          "img/gift-cooking.jpg", "img/gift-outdoors.jpg", "img/gift-tech.jpg",

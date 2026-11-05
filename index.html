@@ -277,6 +277,50 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
   .card .photo.progressive{opacity:0;transition:opacity .35s ease}
   .card .photo.progressive.ph-loaded{opacity:1}
   @media (prefers-reduced-motion:reduce){.card .photo.progressive{transition:none}}
+  /* 2026-11-05 (PMC template port): the hero rebuilt on the Pick My
+     Costume homepage template — headline, sub, ONE CTA, the real-picks
+     unit in motion, proof line, the live countdown, all inside the
+     hero; the worked example (the honest-no) in a card directly under
+     it. PP's register (paper/gold) and its 620px column stay; the hero
+     alone breaks out to a two-column grid on wide screens, PMC-style. */
+  .hero{text-align:center}
+  .hero h1{font-size:36px;line-height:1.12;margin:14px 0 0}
+  .hero-sub{color:var(--muted);font-size:17px;margin:8px 0 0}
+  .hero .cta{display:block;width:100%;max-width:360px;min-height:56px;margin:14px auto 0;padding:14px 28px}
+  .hero-proof{color:var(--muted);font-size:13px;margin:10px 0 0}
+  .hero .askline{margin:10px 0 0}
+  .hero .cdx{margin:14px 0 0}
+  .hero .cdx-main{text-align:center}
+  .hero .cdx-digits{justify-content:center}
+  .hero .cdx-panel{text-align:left}
+  .herounit{margin:16px 0 0;text-align:left}
+  .herounit .card .photo{height:200px}
+  .herounit .checker{margin:10px 0 0}
+  .examplebox{margin:18px 0 6px;padding:14px 16px;background:var(--card);border:2px solid var(--line);border-radius:14px;text-align:left}
+  .examplebox p{margin:0 0 6px;font-size:16px;line-height:1.45}
+  .examplebox p:last-child{margin-bottom:0}
+  .ex-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#b3543f;margin:0 0 8px}
+  @media (max-width:1023px){
+    .hero{display:flex;flex-direction:column}
+    .hero .herotext{display:contents}
+    .hero h1{order:1}
+    .hero .hero-sub{order:2}
+    .hero .cta{order:3}
+    .hero .herounit{order:4}
+    .hero .hero-proof{order:5}
+    .hero .cdx{order:6}
+    .hero .askline{order:7}
+  }
+  @media (min-width:1024px){
+    .hero{position:relative;left:50%;transform:translateX(-50%);width:min(1120px,calc(100vw - 64px));display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:48px;align-items:center;text-align:left;padding:10px 0 6px}
+    .hero h1{font-size:44px}
+    .hero .cta{margin-left:0}
+    .hero .cdx-main{text-align:left}
+    .hero .cdx-digits{justify-content:flex-start}
+    .herounit{margin-top:0}
+    .herounit .proofrail{margin-left:0;margin-right:0;padding-left:2px;padding-right:2px}
+    .herounit .proofrail .card{flex-basis:88%}
+  }
 </style>
 <script>
 window.FLEET_CFG = {
@@ -445,59 +489,65 @@ window.FLEET_CFG = {
 
   <!-- ============ SCREEN 1: HOME ============ -->
   <section class="screen on" id="s-home">
-    <h1>Find a gift that fits them.</h1>
-    <p class="identity">Five questions. Five gift ideas, picked from 255 checked by hand.</p>
-    <button class="cta" id="btn-start">Pick a gift</button>
-    <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
-
-    <div class="skipnote">
-      <p><b>We tell you what not to buy, too.</b> The cast iron skillet is the classic gift for someone who cooks. It weighs about 5 lb, so for a grandparent, every lift out of the oven is a two-hand job. Our quiz leaves it out for a grandparent who cooks, and picks lighter. First we rule out the wrong one. Then we pick from what is left.</p>
-    </div>
-
-    <div class="proof" aria-labelledby="proof-title">
-      <h2 id="proof-title">Real picks from the quiz</h2>
-      <p class="fine">Three real #1 picks, from the 255 ideas we checked by hand.</p>
-      <div class="proofrail" id="proof-rail" role="group" aria-label="Three real first picks. Swipe sideways to see each one.">
-        <div class="card">
-          <img class="photo" src="img/idea-japanese-mandoline-slicer-with-a-safety-guard.jpg" alt="Japanese mandoline slicer with a safety guard" onerror="this.style.display='none'">
-          <p class="ask">For Mom &middot; loves cooking &middot; practical</p>
-          <h3>Japanese mandoline slicer with a safety guard</h3>
-          <p class="proof-price">Under $25</p>
-          <p class="why">It removes the one slow step that makes weeknight cooking feel long.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Japanese+mandoline+slicer+with+a+safety+guard" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
+    <div class="hero">
+      <div class="herotext">
+        <h1>Find a gift that fits them.</h1>
+        <p class="hero-sub">Tell us who it is for. We pick five gifts that fit.</p>
+        <button class="cta" id="btn-start">Pick a gift</button>
+        <p class="hero-proof">5 questions &middot; about 2 minutes &middot; free &middot; no signup</p>
+        <div class="cdx">
+          <button type="button" class="cdx-main" id="cdx-main" aria-label="Counting down to Christmas, Friday, December 25, 2026.">
+            <span class="cdx-digits" id="cdx-digits" aria-hidden="true" hidden><span class="cdx-cell cd-d"><b id="cdx-d"></b><i id="cdx-dl">days</i></span><span class="cdx-cell"><b id="cdx-h">00</b><i>hrs</i></span><span class="cdx-cell"><b id="cdx-m">00</b><i>min</i></span><span class="cdx-cell"><b id="cdx-s">00</b><i>sec</i></span></span>
+            <span class="countdown" id="countdown">Counting down to Christmas, Friday, December 25, 2026.</span>
+          </button>
+          <button class="cdx-more" id="cdx-more" type="button" aria-expanded="false" aria-controls="cdx-panel" hidden>What&rsquo;s next? <span aria-hidden="true">&#9662;</span></button>
+          <div class="cdx-panel" id="cdx-panel" hidden>
+            <p class="cdx-break" id="cdx-break"></p>
+            <p class="cdx-next" id="cdx-next"></p>
+          </div>
         </div>
-        <div class="card">
-          <img class="photo" src="img/idea-weighted-blanket-15-lb.jpg" alt="Weighted blanket, 15 lb" onerror="this.style.display='none'">
-          <p class="ask">For a grandparent &middot; sentimental</p>
-          <h3>Weighted blanket, 15 lb</h3>
-          <p class="proof-price">$50 to $100</p>
-          <p class="why">For the restless sleeper you love.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
-        </div>
-        <div class="card">
-          <img class="photo" src="img/idea-kids-backpack-with-padded-straps-and-name-tag.jpg" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
-          <p class="ask">For a kid &middot; practical</p>
-          <h3>Kids' backpack with padded straps and name tag</h3>
-          <p class="proof-price">$25 to $50</p>
-          <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
-        </div>
+        <p class="askline">Rather say it in your own words? <a href="/ask">Ask here</a>.</p>
       </div>
-      <div class="proofdots" id="proof-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-      <p class="checker">Checked by hand by Billy, who built this site. Price links are plain searches. We earn nothing from them.</p>
-    </div>
-
-    <div class="cdx">
-      <button type="button" class="cdx-main" id="cdx-main" aria-label="Counting down to Christmas, Friday, December 25, 2026.">
-        <span class="cdx-digits" id="cdx-digits" aria-hidden="true" hidden><span class="cdx-cell cd-d"><b id="cdx-d"></b><i id="cdx-dl">days</i></span><span class="cdx-cell"><b id="cdx-h">00</b><i>hrs</i></span><span class="cdx-cell"><b id="cdx-m">00</b><i>min</i></span><span class="cdx-cell"><b id="cdx-s">00</b><i>sec</i></span></span>
-        <span class="countdown" id="countdown">Counting down to Christmas, Friday, December 25, 2026.</span>
-      </button>
-      <button class="cdx-more" id="cdx-more" type="button" aria-expanded="false" aria-controls="cdx-panel" hidden>What&rsquo;s next? <span aria-hidden="true">&#9662;</span></button>
-      <div class="cdx-panel" id="cdx-panel" hidden>
-        <p class="cdx-break" id="cdx-break"></p>
-        <p class="cdx-next" id="cdx-next"></p>
+      <div class="herounit" aria-label="Real first picks from the quiz">
+        <div class="proofrail" id="proof-rail" role="group" aria-label="Three real first picks. Swipe sideways to see each one.">
+          <div class="card">
+            <img class="photo" src="img/idea-japanese-mandoline-slicer-with-a-safety-guard.jpg" alt="Japanese mandoline slicer with a safety guard" onerror="this.style.display='none'">
+            <p class="ask">For Mom &middot; loves cooking &middot; practical</p>
+            <h3>Japanese mandoline slicer with a safety guard</h3>
+            <p class="proof-price">Under $25</p>
+            <p class="why">It removes the one slow step that makes weeknight cooking feel long.</p>
+            <p class="buypath"><a href="https://www.bing.com/shop?q=Japanese+mandoline+slicer+with+a+safety+guard" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
+          </div>
+          <div class="card">
+            <img class="photo" src="img/idea-weighted-blanket-15-lb.jpg" alt="Weighted blanket, 15 lb" onerror="this.style.display='none'">
+            <p class="ask">For a grandparent &middot; sentimental</p>
+            <h3>Weighted blanket, 15 lb</h3>
+            <p class="proof-price">$50 to $100</p>
+            <p class="why">For the restless sleeper you love.</p>
+            <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
+          </div>
+          <div class="card">
+            <img class="photo" src="img/idea-kids-backpack-with-padded-straps-and-name-tag.jpg" alt="Kids' backpack with padded straps and name tag" onerror="this.style.display='none'">
+            <p class="ask">For a kid &middot; practical</p>
+            <h3>Kids' backpack with padded straps and name tag</h3>
+            <p class="proof-price">$25 to $50</p>
+            <p class="why">Heavy loads ride level instead of dragging at one sore shoulder.</p>
+            <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+backpack+with+padded+straps+and+name+tag" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary.</span></p>
+          </div>
+        </div>
+        <div class="proofdots" id="proof-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+        <p class="checker">Real #1 picks from the quiz, from 255 ideas checked by hand by Billy, who built this site. Price links are plain searches. We earn nothing from them.</p>
       </div>
     </div>
+
+    <div class="examplebox">
+      <p class="ex-label">Example</p>
+      <p>You answer: <b>a grandparent who cooks</b>.</p>
+      <p>You do not get: <b>the cast iron skillet</b>.</p>
+      <p>It weighs about 5 lb. Every lift out of the oven is a two-hand job.</p>
+      <p>First we rule out the wrong one. Then we pick from what is left.</p>
+    </div>
+
     <div class="story" aria-labelledby="story-title">
       <p class="q-label">Why I built this</p>
       <h2 id="story-title">The December list</h2>

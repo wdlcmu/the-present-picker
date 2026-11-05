@@ -2150,10 +2150,14 @@ updateCounts();
   var el = document.getElementById("countdown");
   if (!el) return;
   /* 2026-11-01 countdown fleet pass: live clock to Christmas. Ticks every
-     second (days, hours, minutes, seconds) to the end of Christmas Day;
-     the day itself says so, and Dec 26-31 point at next Christmas before
-     the count resumes. Static hero text is the day count, so the number
-     shows with no JS. Reduced motion: one static day count, no ticking. */
+     second (days, hours, minutes, seconds) to Christmas (Dec 25 00:00
+     local); the day itself says so, and Dec 26-31 point at next
+     Christmas before the count resumes. Static hero text is the day
+     count, so the number shows with no JS. Reduced motion: one static
+     day count, no ticking. 2026-11-05 countdown sweep fix: the tick
+     previously ran to Dec 26 00:00 (the end of Christmas Day),
+     overstating the time until Christmas by 24 hours; it now ticks to
+     Dec 25 00:00 local, one true duration. */
   function christmas(year) { return new Date(year, 11, 25); }
   function fmt(d) { return d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }); }
 
@@ -2220,10 +2224,11 @@ updateCounts();
     breakEl.textContent = "Time left: " + seg.join(", ") + ".";
     /* 2026-11-01 clarity fix (audit #9): the panel also names the next
        do-by — one week before the Christmas this clock counts to (the
-       count ends Dec 26, so the do-by is that end minus 8 days),
-       computed from the same target, never a hardcoded date. */
+       count ends Dec 25 since the 2026-11-05 countdown sweep fix, so
+       the do-by is that end minus 7 days), computed from the same
+       target, never a hardcoded date. */
     if (nextEl) {
-      var doby = new Date(now.getTime() + lastMs - 8 * 86400000);
+      var doby = new Date(now.getTime() + lastMs - 7 * 86400000);
       nextEl.textContent = "Next do-by: pick your gifts by " + fmt(doby) + " — a week before Christmas — so there's time to buy.";
     }
   }
@@ -2261,7 +2266,7 @@ updateCounts();
     } else if (today > target) {
       sentence = dayText(now);
     } else {
-      var end = new Date(target.getFullYear(), 11, 26);
+      var end = target;
       tickMs = end - now; tail = "Christmas, " + fmt(target) + ".";
     }
     if (tickMs !== null) { lastMs = tickMs; showDigits(tickMs, tail); setAria(cdTick(tickMs, tail), now); }

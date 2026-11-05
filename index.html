@@ -2333,7 +2333,7 @@ updateCounts();
 .askp-card p{margin:0 0 6px;font-size:15px}
 .askp-buy{display:inline-flex;align-items:center;min-height:48px;padding:10px 18px;border:2px solid var(--gold,#8f5f06);border-radius:999px;text-decoration:none;font-size:15px;font-weight:700;color:var(--gold,#8f5f06)}
 .fyg-pill{transition:transform .25s ease}
-.fyg-pill.fyg-yield{transform:translateY(calc(100% + var(--fyg-gap,20px)))}
+.fyg-pill.fyg-yield{transform:translateY(calc(100% + var(--fyg-gap,20px)))}.fyg-pill.fyg-hidden{display:none}
 @media (prefers-reduced-motion:reduce){.fyg-pill{transition:none}}
 .askp-photo{display:block;width:calc(100% + 28px);max-width:none;height:160px;object-fit:cover;margin:-14px -14px 12px;border-radius:12px 12px 0 0;background:var(--gold-soft,#f3e8cf)}
 .askp-why{border-left:4px solid var(--gold,#8f5f06);padding:8px 12px;margin:10px 0;background:var(--gold-soft,#f3e8cf);border-radius:0 8px 8px 0;font-size:15px}
@@ -2687,7 +2687,7 @@ updateCounts();
     function computeResting() {
       var cs = window.getComputedStyle(pill);
       var w = pill.offsetWidth, h = pill.offsetHeight;
-      if (!w || !h) { resting = null; return; }
+      if (!w || !h) { return; } /* SPEC-05: pill may be display:none while yielded; keep the last known box */
       var vw = window.innerWidth, vh = window.innerHeight;
       var left = parsePx(cs.left), right = parsePx(cs.right);
       var top = parsePx(cs.top), bottom = parsePx(cs.bottom);
@@ -2761,10 +2761,28 @@ updateCounts();
       setYield(hit);
     }
 
+    var hideTimer = null;
     function setYield(on) {
       if (on === yielded) return;
       yielded = on;
-      pill.classList.toggle(className, on);
+      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+      if (on) {
+        pill.classList.add(className);
+        /* SPEC-05 (Nov 4, 2026): after the slide-out finishes, remove the
+           pill from layout. Parked below the fold it still had a rect that
+           overlapped tap targets scrolling near the bottom edge (the
+           cold-QA settled sweep caught chips and footer links under that
+           parked rect). With display:none the rect is zero and the settled
+           pill can cover nothing, at any scroll depth. */
+        hideTimer = setTimeout(function () {
+          hideTimer = null;
+          if (yielded) pill.classList.add('fyg-hidden');
+        }, 300);
+      } else {
+        pill.classList.remove('fyg-hidden');
+        void pill.offsetWidth; /* reflow so the slide back in still animates */
+        pill.classList.remove(className);
+      }
     }
 
     function schedule() {
@@ -2774,8 +2792,10 @@ updateCounts();
     }
     function scheduleRelayout() {
       /* Layout may have changed: recompute the resting box and the target
-         list, then re-evaluate. This is the ONLY place resting is dropped. */
-      resting = null;
+         list, then re-evaluate. This is the ONLY place resting is dropped.
+         SPEC-05: while the pill is display:none (yielded) it has no size;
+         keep the last known box rather than dropping it. */
+      if (pill.offsetWidth) resting = null;
       collectTargets();
       schedule();
     }

@@ -326,12 +326,17 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
 window.FLEET_CFG = {
   site: "presentpicker",
   starts: [
-    {sel: "#btn-start", surface: "quiz"},
     {sel: "#askp-open", surface: "ask"}
   ],
-  completes: [
-    {sel: "#s-picks", surface: "quiz", minText: 20}
-  ],
+  /* SPEC-FUNNEL-MEASURE-1 (Nov 5, 2026): the generic quiz start/complete
+     hooks are REMOVED here on purpose. They used per-page-load guards and
+     surface-only props while the quiz code fired its own unguarded
+     tool/tool-entry events, so one finish could count 2 completes
+     against 1 start (gift-link entry) and a Change-answers re-finish
+     counted a complete with no new start. The quiz funnel is now owned
+     by ONE run gate in the site code (ppToolStart / ppToolComplete
+     below): one start per run, one complete per started run, unified
+     props {tool, surface: "quiz", entry}. */
   specials: [
     {sel: "#s-picks", on: "appear", name: "pick_shown", props: {surface: "quiz"}}
   ]
@@ -770,6 +775,29 @@ var Analytics = {
    firing on the single loader. */
 function fleetTrack(name, props){
   try { if (window.FA && FA.track) FA.track(name, props || {}); } catch (e) {}
+}
+/* SPEC-FUNNEL-MEASURE-1 (Nov 5, 2026): the quiz funnel run gate — the
+   ONLY place quiz tool_start / tool_complete fire on this page.
+   A run starts at an explicit quiz entry (home / restart / list /
+   gift-page). tool_start fires once per run; tool_complete fires at
+   most once per run and only if that run started, so complete can
+   never exceed start in any cohort (totals, per surface, per person).
+   "Change answers" is the same run refining its picks, not a new run:
+   it fires neither event, and its re-finish cannot re-count a
+   complete. A new entry after a completed run starts a new run. */
+var ppRun = {started: false, completed: false};
+function ppToolStart(entry){
+  if (ppRun.started && !ppRun.completed) return;
+  ppRun.started = true;
+  ppRun.completed = false;
+  fleetTrack("tool_start", {tool: "gift-picker", surface: "quiz", entry: entry});
+}
+function ppToolComplete(props){
+  if (!ppRun.started || ppRun.completed) return;
+  ppRun.completed = true;
+  var p = {tool: "gift-picker", surface: "quiz"};
+  if (props) for (var k in props) p[k] = props[k];
+  fleetTrack("tool_complete", p);
 }
 function fleetSessionMarks(){
   try {
@@ -1763,7 +1791,7 @@ function finishQuiz(){
   sessionNameWho = quiz.who;
   currentPicks = PickerEngine.pick(quiz, 5);
   Analytics.track("search_completed", {recipient: quiz.who, budget: quiz.budget, interest_count: quiz.interests.length});
-  fleetTrack("tool_complete", {tool: "gift-picker", results_count: currentPicks.length});
+  ppToolComplete({results_count: currentPicks.length});
   $("ai-desc").value = ""; $("ai-out").hidden = true;
   renderPicks();
   show("s-picks");
@@ -2073,7 +2101,7 @@ $("btn-start").onclick = function(){
   renderQuiz();
   show("s-quiz");
   Analytics.track("quiz_started", {});
-  fleetTrack("tool_start", {tool: "gift-picker", entry: "home"});
+  ppToolStart("home");
 };
 $("brand-home").onclick = function(e){ e.preventDefault(); show("s-home"); };
 $("top-list").onclick = function(){ renderList(); show("s-list"); };
@@ -2085,7 +2113,7 @@ $("btn-again").onclick = function(){
   $("ai-out").hidden = true;
   renderQuiz();
   show("s-quiz");
-  fleetTrack("tool_start", {tool: "gift-picker", entry: "restart"});
+  ppToolStart("restart");
 };
 $("btn-change").onclick = function(){
   quiz.step = 0;
@@ -2097,7 +2125,7 @@ $("btn-keep").onclick = function(){
   interestNotSure = false;
   renderQuiz();
   show("s-quiz");
-  fleetTrack("tool_start", {tool: "gift-picker", entry: "list"});
+  ppToolStart("list");
 };
 $("btn-ai-prompt").onclick = function(){
   $("ai-text").textContent = aiPromptText();
@@ -2166,7 +2194,7 @@ $("btn-gift-quiz").onclick = function(){
   renderQuiz();
   show("s-quiz");
   Analytics.track("quiz_started", {});
-  fleetTrack("tool_start", {tool: "gift-picker", entry: "gift-page"});
+  ppToolStart("gift-page");
 };
 $("btn-gift-home").onclick = function(){ show("s-home"); };
 (function(){
@@ -2481,8 +2509,21 @@ updateCounts();
     return photo+"<h3>"+esc(p.title)+"</h3><p>"+esc(p.blurb)+"</p>"+
       '<div class="askp-why"><b>Why it fits</b>'+esc(p.why)+'</div><div class="askp-tags">'+tags+"</div>"+buyHTML;
   }
+  /* SPEC-FUNNEL-MEASURE-1 (Nov 5, 2026): the ask funnel's complete is
+     owned here. It fires at most once per page load, only after the
+     panel was opened (the open click is what fires the matching
+     tool_start, surface "ask", in the fleet block), and it carries
+     surface "ask" — the SAME surface as its start. Before this fix the
+     chat door's complete carried surface "chat", a cohort with
+     completes and zero starts. */
+  function ppAskComplete(){
+    if (window.__faAskDone || !window.__faAskStarted) return;
+    window.__faAskDone = 1;
+    try { if (window.FA) FA.track("tool_complete", {surface: "ask"}); } catch (e) {}
+  }
   function open(){
     init();
+    window.__faAskStarted = 1;
     panel.hidden=false;
     btn.setAttribute("aria-expanded","true");
     lastOverflow=document.body.style.overflow;
@@ -2541,7 +2582,7 @@ updateCounts();
          per answered chat — the __faFired mark on this response object
          makes re-rendering the same answer a no-op, and the event now
          rides the page's single FA loader (double-loader removed). */
-      try { if (window.FA && !d.__faFired) { d.__faFired = 1; FA.track("ask_answered", {surface: "chat", outcome: (d.picks && d.picks.length) ? "pick" : "ask"}); if ((d.picks||[]).length && !window.__faAskDone) { window.__faAskDone = 1; FA.track("tool_complete", {surface: "chat"}); } } } catch (e) {}
+      try { if (window.FA && !d.__faFired) { d.__faFired = 1; FA.track("ask_answered", {surface: "chat", outcome: (d.picks && d.picks.length) ? "pick" : "ask"}); if ((d.picks||[]).length) ppAskComplete(); } } catch (e) {}
       window.__askpFacts = d.facts || window.__askpFacts || null;
       var msgs0=document.getElementById("askp-msgs");
       var u0=document.createElement("div"); u0.className="askp-user"; u0.textContent=text; msgs0.appendChild(u0);
@@ -2576,7 +2617,7 @@ updateCounts();
         if (d.picks && d.picks.length) {
           FA.track("ask_answered", {surface: "ask", outcome: "pick"});
           FA.track("pick_shown", {surface: "ask"});
-          if (!window.__faAskDone) { window.__faAskDone = 1; FA.track("tool_complete", {surface: "ask"}); }
+          ppAskComplete();
         } else if (!hasHeard || d.empty) {
           FA.track("ask_fallback", {surface: "ask", missing: !hd.whoLabel ? "person" : (!(hd.interests && hd.interests.length) ? "interest" : (!hd.budget ? "budget" : "other"))});
         } else {

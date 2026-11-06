@@ -30,6 +30,6 @@
 
 ## Optional
 
-- [Full page text](https://thepresentpicker.com/llms-full.txt): all 255 gift ideas in the bank, in full, plus a section for every one of the sixty-one pages on the site, for readers that prefer one file.
+- [Full page text](https://thepresentpicker.com/llms-full.txt): all 255 gift ideas in the bank, in full, plus a section for every one of the sixty-seven pages on the site, for readers that prefer one file.
 - [Privacy](https://thepresentpicker.com/privacy)
 - [Terms](https://thepresentpicker.com/terms)

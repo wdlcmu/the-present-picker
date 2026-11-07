@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Built with Muse//Fleet Calendar Feeds//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:The Present Picker — Christmas 2026
+REFRESH-INTERVAL;VALUE=DURATION:PT24H
+X-PUBLISHED-TTL:PT24H
+BEGIN:VEVENT
+UID:pp-christmas-2026@thepresentpicker.com
+DTSTAMP:20261107T195033Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Christmas Day — gifts land today
+DESCRIPTION:Christmas Day\, Friday\, December 25\, 2026 — the day The Pre
+ sent Picker counts down to all season. Still shopping? The last-minute lis
+ t: https://thepresentpicker.com/last-minute-christmas-gifts
+URL:https://thepresentpicker.com/
+STATUS:CONFIRMED
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P7D
+DESCRIPTION:One week to Christmas — last comfortable window to buy. The P
+ resent Picker: https://thepresentpicker.com/christmas-gifts
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-P1D
+DESCRIPTION:Christmas is tomorrow. Last-minute gifts that still land: https
+ ://thepresentpicker.com/last-minute-christmas-gifts
+END:VALARM
+END:VEVENT
+END:VCALENDAR

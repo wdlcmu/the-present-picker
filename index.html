@@ -55,7 +55,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       "name": "Do you link to stores?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link."
+        "text": "Yes, one plain link. Every idea is a type, not a brand. Most picks carry a price-check link. It opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link."
       }
     },
     {
@@ -84,18 +84,10 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
     },
     {
       "@type": "Question",
-      "name": "Who made this?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Billy, a dad in Redmond, Washington, built this on the side, with AI. Built with Muse."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "What we don't do",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We don't sell gifts. No store can pay to place an idea. We don't save your quiz answers. They are never sent anywhere. The Ask page (where you describe them in your own words) is the one exception. Its words are read by an AI helper. Nothing typed there is saved. We don't ask for your email. There is nothing to sign up for. We don't hand you a store's bestseller list. Every idea comes from our own checked list of 255."
+        "text": "We don't sell gifts, and no store can pay to place an idea. Your quiz answers stay in your browser and stay private. The one exception: words on the Ask page (where you describe them in your own words) are read by an AI helper, then discarded. There is nothing to sign up for, and we ask for no email. Every idea comes from our own hand-checked list of 255, ranked for the person."
       }
     }
   ]
@@ -260,6 +252,12 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
   .skipcard p{font-size:16px;line-height:1.5}
   .skip-close{color:var(--muted)}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .closematch{display:inline-block;font-size:13px;font-weight:700;color:var(--gold);background:var(--gold-soft);border:1px dashed var(--gold);border-radius:999px;padding:4px 10px;margin:2px 0 8px}
+  /* SPEC-PP-SIM1108-03: one primary on the result; the rest live behind
+     a single More ways door. */
+  details.moreways{margin-top:6px}
+  details.moreways>summary{min-height:44px;display:flex;align-items:center;font-weight:700;font-size:16px;cursor:pointer;padding:6px 2px}
+  details.moreways .hatch{margin-top:8px;padding-top:10px;border-top:none}
   .tag{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
   .card .row2 .ghost{margin:6px 0}
   .status{min-height:20px;font-size:14px;font-weight:600;color:var(--gold);margin:6px 0}
@@ -761,10 +759,6 @@ window.FLEET_CFG = {
         <p>Yes. It is stored on your device and never sent anywhere. Sharing only happens when you tap a share button.</p>
       </details>
       <details>
-        <summary>Who made this?</summary>
-        <p>Billy, a dad in Redmond, Washington, built this on the side, with AI. Free, no ads, no accounts. Built with Muse.</p>
-      </details>
-      <details>
         <summary>What we don't do</summary>
         <p>We don't sell gifts, and no store can pay to place an idea. Your quiz answers stay in your browser and stay private. The one exception: words on the Ask page (where you describe them in your own words) are read by an AI helper, then discarded. There is nothing to sign up for, and we ask for no email. Every idea comes from our own hand-checked list of 255, ranked for the person.</p>
       </details>
@@ -837,7 +831,9 @@ window.FLEET_CFG = {
     <p class="thin-note" id="picks-note" hidden></p>
     <p class="fine" id="picks-disclaimer" hidden>Shopping search for the pick&rsquo;s name. Store prices vary. We earn nothing from the link.</p>
     <div id="picks"></div>
-    <button class="cta" id="btn-list">My list (<span id="list-count-2">0</span>)</button>
+    <button class="cta" id="btn-list">Save to my list (<span id="list-count-2">0</span>)</button>
+    <details class="moreways" id="more-ways">
+      <summary>More ways</summary>
     <button class="ghost" id="btn-change">Change answers</button>
     <button class="ghost" id="btn-again">Start over</button>
     <div class="hatch">
@@ -852,6 +848,7 @@ window.FLEET_CFG = {
         <p class="status" id="ai-status"></p>
       </div>
     </div>
+    </details>
   </section>
 
   <!-- ============ SCREEN 4: MY LIST ============ -->
@@ -1306,7 +1303,18 @@ var PickerEngine = {
           if (answers.interests.indexOf(it.i[j]) >= 0){ s += 3; matched.push(labelOf(INTERESTS, it.i[j])); }
         }
         if (answers.style && it.s.indexOf(answers.style) >= 0){ s += 2; matched.push(labelOf(STYLES, answers.style)); }
-        scored.push({idea: it, score: s, rank: i, matched: matched});
+        /* SPEC-PP-SIM1108-01 (Nov 8, 2026): the inverse of matched — every
+           stated answer this idea does NOT carry, by label, so the result
+           card can name it as a close match instead of silently dropping
+           the answer. Budget and recipient are hard filters above and
+           never appear here; they can only lapse through the announced
+           relaxed widening, never silently. */
+        var missed = [];
+        for (var mi = 0; mi < answers.interests.length; mi++){
+          if (it.i.indexOf(answers.interests[mi]) < 0) missed.push(labelOf(INTERESTS, answers.interests[mi]));
+        }
+        if (answers.style && it.s.indexOf(answers.style) < 0) missed.push(labelOf(STYLES, answers.style));
+        scored.push({idea: it, score: s, rank: i, matched: matched, missed: missed});
       }
       return scored;
     }
@@ -2010,6 +2018,12 @@ function renderPicks(){
     var tags = p.matched.length
       ? '<div class="tags">' + p.matched.map(function(t){ return '<span class="tag">\u2713 ' + t + "</span>"; }).join("") + "</div>"
       : "";
+    /* SPEC-PP-SIM1108-01: a pick that misses a stated answer says so on
+       its own card, naming the missed answer(s). Full matches carry no
+       label — their check tags already say everything fit. */
+    var closeTag = (p.missed && p.missed.length)
+      ? '<p class="closematch">Close match \u2014 misses: ' + p.missed.map(function(m){ return escapeHTML(m); }).join(", ") + "</p>"
+      : "";
     card.innerHTML =
       (showPhoto ? '<img class="photo progressive" src="' + src + '" alt="' + escapeHTML(it.t) + '" loading="eager" decoding="async"' + (pickIdx === 0 ? ' fetchpriority="high"' : "") + '>' : "") +
       "<h3>" + escapeHTML(it.t) + "</h3>" +
@@ -2019,6 +2033,7 @@ function renderPicks(){
       (it.g ? '<div class="why"><b>Buying notes</b>' + escapeHTML(it.g) + "</div>" : "") +
       (it.h ? '<div class="why"><b>Care and pairing</b>' + escapeHTML(it.h) + "</div>" : "") +
       tags +
+      closeTag +
       buyPathHTML(it) +
       '<p class="status"></p>' +
       '<div class="row2">' +

@@ -287,6 +287,10 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
   .hero h1{font-size:36px;line-height:1.12;margin:14px 0 0}
   .hero-sub{color:var(--muted);font-size:17px;margin:8px 0 0}
   .hero .cta{display:block;width:100%;max-width:360px;min-height:56px;margin:14px auto 0;padding:14px 28px}
+  /* SPEC-PP-QFIRST-01: question-first hero — the who chips are the start */
+  .hero-start{display:block;width:100%;max-width:420px;margin:14px auto 0}
+  .hero-q{font-size:20px;font-weight:800;margin:0 0 10px}
+  .hero-chips{justify-content:center}
   .hero-proof{color:var(--muted);font-size:13px;margin:10px 0 0}
   .hero .askline{margin:10px 0 0}
   .hero .cdx{margin:14px 0 0}
@@ -305,7 +309,7 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
     .hero .herotext{display:contents}
     .hero h1{order:1}
     .hero .hero-sub{order:2}
-    .hero .cta{order:3}
+    .hero .hero-start{order:3}
     .hero .herounit{order:4}
     .hero .hero-proof{order:5}
     .hero .cdx{order:6}
@@ -315,6 +319,8 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
     .hero{position:relative;left:50%;transform:translateX(-50%);width:min(1120px,calc(100vw - 64px));display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:48px;align-items:center;text-align:left;padding:10px 0 6px}
     .hero h1{font-size:44px}
     .hero .cta{margin-left:0}
+    .hero .hero-start{margin-left:0}
+    .hero-chips{justify-content:flex-start}
     .hero .cdx-main{text-align:left}
     .hero .cdx-digits{justify-content:flex-start}
     .herounit{margin-top:0}
@@ -531,7 +537,19 @@ window.FLEET_CFG = {
       <div class="herotext">
         <h1>Find a gift that fits them.</h1>
         <p class="hero-sub">Tell us who it is for. We pick five gifts that fit.</p>
-        <button class="cta" id="btn-start">Pick a gift</button>
+        <div class="hero-start" id="hero-start">
+          <p class="hero-q" id="hero-q">Who is it for?</p>
+          <div class="chips hero-chips" id="hero-who" role="group" aria-label="Who is it for? Tap one to start.">
+            <button class="chip" data-k="mom" aria-pressed="false">Mom</button>
+            <button class="chip" data-k="dad" aria-pressed="false">Dad</button>
+            <button class="chip" data-k="partner" aria-pressed="false">Partner</button>
+            <button class="chip" data-k="grandparent" aria-pressed="false">Grandparent</button>
+            <button class="chip" data-k="friend" aria-pressed="false">Friend</button>
+            <button class="chip" data-k="coworker" aria-pressed="false">Coworker</button>
+            <button class="chip" data-k="kid" aria-pressed="false">Kid</button>
+            <button class="chip" data-k="other" aria-pressed="false">Other</button>
+          </div>
+        </div>
         <p class="hero-proof">3 answers needed &middot; 2 more only if you want &middot; free &middot; no signup</p>
         <div class="cdx">
           <button type="button" class="cdx-main" id="cdx-main" aria-label="Counting down to Christmas, Friday, December 25, 2026.">
@@ -738,7 +756,7 @@ window.FLEET_CFG = {
   <section class="screen" id="s-quiz">
     <div class="dots" id="q-dots" aria-hidden="true"></div>
     <p class="step-tag" id="q-step"></p>
-    <h2 id="q-title">What's their first name?</h2>
+    <h2 id="q-title">Who is it for?</h2>
     <p class="sub" id="q-sub"></p>
     <div class="chips" id="q-chips"></div>
     <p class="hint" id="q-hint"></p>
@@ -1441,11 +1459,17 @@ function cleanName(){
   if (n.length && n.charCodeAt(n.length - 1) >= 0xD800 && n.charCodeAt(n.length - 1) <= 0xDBFF) n = n.slice(0, -1);
   return n;
 }
+/* SPEC-PP-QFIRST-01 (2026-11-08): question-first order. The hero renders
+   the who chips as the start, so "who" is step 1 and a hero tap lands on
+   interests (step 2). The optional name step sits after the three required
+   answers, just before the optional style step — required stays 3
+   (who, interests, budget), optional stays 2 (name, style), so the hero
+   line "3 answers needed · 2 more only if you want" stays true. */
 var STEPS = [
-  {key: "name", title: "What's their first name?", sub: "A first name is plenty. You can skip this step.", required: false},
   {key: "who", title: "Who is it for?", sub: "Pick one person.", required: true},
   {key: "interests", title: "What are they into?", sub: "Pick at least one. Not sure? Tap Not sure.", required: true, multi: true},
   {key: "budget", title: "What is the budget?", sub: "This is a hard filter. Picks stay inside it.", required: true},
+  {key: "name", title: "What's their first name?", sub: "A first name is plenty. You can skip this step.", required: false},
   {key: "style", title: "Any style preference?", sub: "Optional. Pick one, or skip it and you still get five picks.", required: false}
 ];
 function chipHTML(list, selected, multi){
@@ -2141,14 +2165,18 @@ function aiPromptText(){
 }
 
 /* ================= Wiring ================= */
-$("btn-start").onclick = function(){
-  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
-  interestNotSure = false;
-  renderQuiz();
-  show("s-quiz");
-  Analytics.track("quiz_started", {});
-  ppToolStart("home");
-};
+/* SPEC-PP-QFIRST-01: the hero IS the start. Tapping a who chip starts the
+   quiz with who pre-answered and lands on interests (STEPS index 1). */
+Array.prototype.forEach.call(document.querySelectorAll("#hero-who .chip"), function(el){
+  el.onclick = function(){
+    quiz = {step: 1, name: "", who: el.getAttribute("data-k"), interests: [], budget: null, style: null};
+    interestNotSure = false;
+    renderQuiz();
+    show("s-quiz");
+    Analytics.track("quiz_started", {entry: "hero-who"});
+    ppToolStart("home");
+  };
+});
 $("brand-home").onclick = function(e){ e.preventDefault(); show("s-home"); };
 $("top-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-list").onclick = function(){ renderList(); show("s-list"); };

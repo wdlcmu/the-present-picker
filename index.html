@@ -210,6 +210,16 @@
     border-left:4px solid var(--gold);padding:8px 12px;margin:10px 0;
     background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:15px;
   }
+  /* SPEC-PP-GIFTLINK-SILENT-03 (Nov 8, 2026): a shared-gift link that does
+     not match a pick says so on the home screen instead of failing
+     silently. Hidden unless the boot code finds a present-but-unmatched
+     ?gift= param; never carries the link or slug as text. */
+  .giftmiss{
+    border-left:4px solid var(--gold);padding:10px 14px;margin:10px 0 2px;
+    background:var(--gold-soft);border-radius:0 8px 8px 0;font-size:16px;
+    line-height:1.5;text-align:left;
+  }
+  .giftmiss[hidden]{display:none}
   /* Honest no (Nov 2, 2026): the ruled-out gift, on the homepage as an
      example strip and on the results screen as the lead card. Rust
      accent so the eye reads it as a warning, not a sixth pick. */
@@ -533,6 +543,7 @@ window.FLEET_CFG = {
 
   <!-- ============ SCREEN 1: HOME ============ -->
   <section class="screen on" id="s-home">
+    <p class="giftmiss" id="gift-miss-note" role="status" hidden>That gift link didn&rsquo;t match a pick. No problem &mdash; here&rsquo;s the picker. Tell us who it&rsquo;s for below and you&rsquo;ll get five ideas.</p>
     <div class="hero">
       <div class="herotext">
         <h1>Find a gift that fits them.</h1>
@@ -2273,11 +2284,24 @@ $("btn-gift-quiz").onclick = function(){
 };
 $("btn-gift-home").onclick = function(){ show("s-home"); };
 (function(){
-  var slug = null;
-  try { slug = new URLSearchParams(window.location.search).get("gift"); } catch (e) {}
-  if (slug){
-    var it = ideaBySlug(slug);
+  var slug = null, hasGift = false;
+  try {
+    slug = new URLSearchParams(window.location.search).get("gift");
+    hasGift = new URLSearchParams(window.location.search).has("gift");
+  } catch (e) {}
+  if (hasGift){
+    var it = slug ? ideaBySlug(slug) : null;
     if (it) openGiftIdea(it);
+    else {
+      /* SPEC-PP-GIFTLINK-SILENT-03 (Nov 8, 2026): the link was present but
+         matched no pick (truncated, mistyped, or empty). Say so on the
+         home screen — the picker is right there, no dead end — and never
+         print the link or the slug as text. A plain visit (no ?gift=)
+         never reaches this branch and shows no notice. */
+      var note = document.getElementById("gift-miss-note");
+      if (note) note.hidden = false;
+      Analytics.track("gift_link_unmatched", {});
+    }
   }
 })();
 

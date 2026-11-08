@@ -261,6 +261,11 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
   .tag{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
   .card .row2 .ghost{margin:6px 0}
   .status{min-height:20px;font-size:14px;font-weight:600;color:var(--gold);margin:6px 0}
+  /* SPEC-PP-SHARE1108-01: one share action per list group. The list image
+     rides inside that share where the platform takes files; below it sits
+     only a quiet download link, never a competing sibling button. */
+  .list-group .btn-share-group{margin:10px 0 2px}
+  .quiet-dl{display:block;margin:2px auto 6px;padding:10px 14px;min-height:44px;background:none;border:none;font:inherit;font-size:14px;font-weight:600;color:var(--muted);text-decoration:underline;cursor:pointer}
   .list-group{margin:18px 0}
   .list-group h3{font-size:18px;border-bottom:2px solid var(--line);padding-bottom:6px}
   .list-item{
@@ -2097,10 +2102,8 @@ function renderList(){
     }).join("");
     g.innerHTML = "<h3>For " + escapeHTML(labelOf(RECIPIENTS, who)) + "</h3>" + rows +
       '<p class="status"></p>' +
-      '<div class="row2">' +
-        '<button class="ghost btn-share-group">Share this list</button>' +
-        '<button class="ghost btn-img-group">Save image</button>' +
-      "</div>";
+      '<button class="cta btn-share-group">Share this list</button>' +
+      '<button class="quiet-dl btn-img-group">Save list image</button>';
     var status = g.querySelector(".status");
     var rms = g.querySelectorAll(".rm");
     for (var r = 0; r < rms.length; r++){
@@ -2112,8 +2115,7 @@ function renderList(){
       })(rms[r]);
     }
     g.querySelector(".btn-share-group").onclick = function(){
-      shareText(loopAShareText(who, items, sessionNameWho === who ? sessionName : ""), status, "Copied. Paste it into the family chat.", "group");
-      Analytics.track("list_shared", {item_count: items.length});
+      shareListGroup(who, items, status);
     };
     g.querySelector(".btn-img-group").onclick = function(){
       fleetTrack("artifact_created", {tool: "gift-picker", artifact: "group-image"});
@@ -2202,6 +2204,60 @@ function drawListCard(who, items, photos){
     return c.toDataURL("image/png");
   } catch (e) { return null; }
 }
+/* SPEC-PP-SHARE1108-01: the ONE share action for a list group. It carries
+   the outcome-led text that already existed, and the list image rides
+   inside the same share where the platform takes files. Where native
+   share is missing, the text alone is copied (the automatic fallback).
+   The image on its own is only the quiet download under the share. */
+function listImageFile(who, items, done){
+  loadPhotosFor(items.slice(0, 5), function(photos){
+    var url = drawListCard(who, items, photos);
+    if (!url){ done(null); return; }
+    try {
+      var parts = url.split(","), mime = (parts[0].match(/:(.*?);/) || [])[1] || "image/png";
+      var bin = atob(parts[1] || ""), bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      var blob = new Blob([bytes], {type: mime});
+      var file = null;
+      try { file = new File([blob], "present-picker-list.png", {type: mime}); } catch (e) { file = null; }
+      done(file);
+    } catch (e) { done(null); }
+  });
+}
+function shareListGroup(who, items, statusEl){
+  var text = loopAShareText(who, items, sessionNameWho === who ? sessionName : "");
+  Analytics.track("list_shared", {item_count: items.length});
+  Analytics.track("share_text_copied", {});
+  fleetTrack("share_intent", {tool: "gift-picker", channel: navigator.share ? "native" : "clipboard"});
+  if (!navigator.share){
+    copyText(text, statusEl, "Copied. Paste it into the family chat.");
+    return;
+  }
+  if (statusEl) statusEl.textContent = "Making your share...";
+  listImageFile(who, items, function(file){
+    if (file) fleetTrack("artifact_created", {tool: "gift-picker", artifact: "group-image"});
+    function sharePlain(){
+      navigator.share({text: text}).then(function(){
+        if (statusEl) statusEl.textContent = "Opening share. Pick where to send it.";
+      }, function(){ /* user cancelled */ });
+    }
+    if (file && navigator.canShare){
+      var payload = {text: text, files: [file]};
+      var can = false;
+      try { can = navigator.canShare(payload); } catch (e) { can = false; }
+      if (can){
+        navigator.share(payload).then(function(){
+          if (statusEl) statusEl.textContent = "Opening share. Pick where to send it.";
+        }, function(err){
+          if (err && err.name === "AbortError") return;
+          sharePlain();
+        });
+        return;
+      }
+    }
+    sharePlain();
+  });
+}
 function saveListImage(who, items, statusEl){
   statusEl.textContent = "Making your image...";
   loadPhotosFor(items.slice(0, 5), function(photos){
@@ -2215,7 +2271,7 @@ function saveListImage(who, items, statusEl){
         w.document.write('<img src="' + url + '" style="width:100%">');
         statusEl.textContent = "Image opened in a new tab. Touch and hold it, then tap Save to Photos.";
       } else {
-        statusEl.textContent = "Your browser blocked the new tab. Allow pop-ups for this site, then tap Save image again.";
+        statusEl.textContent = "Your browser blocked the new tab. Allow pop-ups for this site, then tap Save list image again.";
       }
     } else {
       var a = document.createElement("a");

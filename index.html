@@ -598,7 +598,7 @@ window.FLEET_CFG = {
 
   <!-- ============ SCREEN 1: HOME ============ -->
   <section class="screen on" id="s-home">
-    <p class="giftmiss" id="gift-miss-note" role="status" hidden>That gift link didn&rsquo;t match a pick. No problem &mdash; here&rsquo;s the picker. Tell us who it&rsquo;s for below and you&rsquo;ll get five ideas.</p>
+    <p class="giftmiss" id="gift-miss-note" role="status" hidden>That gift link didn&rsquo;t match a pick. No problem, here&rsquo;s the picker. Tell us who it&rsquo;s for below and you&rsquo;ll get five ideas.</p>
     <div class="hero">
       <div class="herotext">
         <h1>Find a gift that fits them.</h1>
@@ -670,7 +670,7 @@ window.FLEET_CFG = {
       <p>First we rule out the wrong one. Then we pick from what is left.</p>
     </div>
 
-    <div class="calfeed" style="margin-top:12px"><a href="webcal://thepresentpicker.com/feeds/christmas-2026.ics" style="display:flex;align-items:center;min-height:48px;padding:10px 16px;border-radius:12px;background:#262019;color:#fff;font-weight:700;text-decoration:none">📅 Add to your calendar — Christmas Day, with reminders a week and a day before</a><p class="fine" style="margin-top:6px;color:#6f6350;font-size:13px">One tap subscribes you to the season feed: Christmas Day, Friday, December 25, 2026, lands in your own calendar and stays there, with nudges 7 days and 1 day before. Free, no signup. Google Calendar: Other calendars → From URL, then paste the link.</p></div>
+    <div class="calfeed" style="margin-top:12px"><a href="webcal://thepresentpicker.com/feeds/christmas-2026.ics" style="display:flex;align-items:center;min-height:48px;padding:10px 16px;border-radius:12px;background:#262019;color:#fff;font-weight:700;text-decoration:none">📅 Add to your calendar: Christmas Day, with reminders a week and a day before</a><p class="fine" style="margin-top:6px;color:#6f6350;font-size:13px">One tap subscribes you to the season feed: Christmas Day, Friday, December 25, 2026, lands in your own calendar and stays there, with nudges 7 days and 1 day before. Free, no signup. Google Calendar: Other calendars → From URL, then paste the link.</p></div>
 
     <div class="story" aria-labelledby="story-title">
       <p class="q-label">Why I built this</p>
@@ -680,7 +680,7 @@ window.FLEET_CFG = {
           <span>Each December, I listed Mom, Dad, my in-laws, and my wife, then sat stuck on what to give them.</span>
         </li>
         <li><b>The store did not help.</b>
-          <span>Store pages showed the same candles as last year, so I bought a gift card &mdash; the gift that says: &ldquo;I remembered the day. I just do not know you.&rdquo;</span>
+          <span>Store pages showed the same candles as last year, so I bought a gift card, the gift that says: &ldquo;I remembered the day. I just do not know you.&rdquo;</span>
         </li>
         <li><b>Start with the person.</b>
           <span>Five questions ask what they love and what I can spend, then pick from 255 ideas checked by hand. Each pick says why it fits them.</span>
@@ -691,7 +691,7 @@ window.FLEET_CFG = {
     <div class="story maker" aria-labelledby="maker-title">
       <p class="q-label">Who made this</p>
       <h2 id="maker-title">Made by a dad, on the side</h2>
-      <p>I&apos;m Billy, a dad in Redmond, Washington. I build these tools on the side, with AI &mdash; one idea, one website, no company behind it. The December list above is mine: the stuck names, the gift card, all of it.</p>
+      <p>I&apos;m Billy, a dad in Redmond, Washington. I build these tools on the side, with AI, one idea, one website, no company behind it. The December list above is mine: the stuck names, the gift card, all of it.</p>
     </div>
 
     <div class="qdoor" aria-labelledby="qdoor-title">
@@ -2072,7 +2072,7 @@ function renderPicks(){
        its own card, naming the missed answer(s). Full matches carry no
        label — their check tags already say everything fit. */
     var closeTag = (p.missed && p.missed.length)
-      ? '<p class="closematch">Close match \u2014 misses: ' + p.missed.map(function(m){ return escapeHTML(m); }).join(", ") + "</p>"
+      ? '<p class="closematch">Close match: misses: ' + p.missed.map(function(m){ return escapeHTML(m); }).join(", ") + "</p>"
       : "";
     card.innerHTML =
       (showPhoto ? '<img class="photo progressive" src="' + src + '" alt="' + escapeHTML(it.t) + '" loading="eager" decoding="async"' + (pickIdx === 0 ? ' fetchpriority="high"' : "") + '>' : "") +
@@ -2574,7 +2574,7 @@ updateCounts();
        target, never a hardcoded date. */
     if (nextEl) {
       var doby = new Date(now.getTime() + lastMs - 7 * 86400000);
-      nextEl.textContent = "Next do-by: pick your gifts by " + fmt(doby) + " — a week before Christmas — so there's time to buy.";
+      nextEl.textContent = "Next do-by: pick your gifts by " + fmt(doby) + ", a week before Christmas, so there's time to buy.";
     }
   }
   if (moreBtn && panel) {

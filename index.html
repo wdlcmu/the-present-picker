@@ -107,6 +107,13 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
   }
   .wrap{max-width:620px;margin:0 auto;padding:20px 18px 64px}
   .screen{display:none}
+  /* SPEC-PP-COLDQA-POSTSHIP-01 (Nov 9, 2026): bottom clearance so the last
+     text and controls on the swapped screens (results, shared gift) can
+     scroll fully clear of the Ask pill's resting box (54px tall + 16px
+     offset + margin). Recipient protection is scoped here to #s-gift via
+     the shared .screen rule plus the scroll-padding below. */
+  .screen{padding-bottom:96px}
+  html{scroll-padding-bottom:96px}
   .screen.on{display:block}
   h1{font-size:30px;line-height:1.2;margin:18px 0 8px;letter-spacing:-0.01em}
   h2{font-size:22px;margin:6px 0 10px}
@@ -871,7 +878,7 @@ window.FLEET_CFG = {
 
   <!-- ============ SCREEN 5: SHARED GIFT (deep link ?gift=<slug>) ============ -->
   <section class="screen" id="s-gift">
-    <p class="step-tag">A gift idea, shared with you</p>
+    <p class="step-tag">Shared with you</p>
     <h2>One gift idea</h2>
     <div id="gift-card"></div>
     <button class="cta" id="btn-gift-quiz">Pick a gift for someone</button>
@@ -3201,18 +3208,26 @@ updateCounts();
 
 </script>
 <script>
-/* SPEC-COLDQA-PP-05 (Nov 3, 2026): the guard's default hit test only watches
-   interactive elements, so the pill sat over static card text (proof titles,
-   pick-card Care-and-pairing lines). Pass the static text blocks the QA
-   flagged — card text on the proof rail and pick/gift cards, card-styled
-   blocks (how-steps items, FAQ details), and screen/section titles — as
-   extra targets: the pill now yields for that readable text exactly as it
-   already did for controls, using the guard's own resting-box + hysteresis
-   mechanics. Scope note: watching EVERY text block was tested and rejected
-   — at 390px the homepage is near-continuous text, so the pill then never
-   settles visible in 103 sampled positions and the Ask door effectively
-   disappears; the flagged card/title text is the defect that was filed. */
-try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel", targets: "h1, h2, h3, .card p, .card .why, .proof p, .how-steps li, .faq details, .skipnote p, .identity, .askline, .q-label, .sub, .story p, .hatch p, .tag, #picks-title, #picks-sub, #picks-note, .list-group h3, .list-item, .hatch pre, footer p" }); } catch (e) {}
+/* SPEC-COLDQA-PP-05 (Nov 3, 2026) passed the static text blocks the QA
+   flagged as extra guard targets, so the pill yielded for readable text
+   exactly as it did for controls.
+   SPEC-PP-COLDQA-POSTSHIP-01 (Nov 9, 2026) REVERSES that: the post-ship
+   cold-user QA measured the pill display:none at scroll 0/25/50/75% on
+   mobile — at 390px the watched text blocks are full-width and pass under
+   the pill's resting box at nearly every stop, so the yield never cleared
+   and the Ask door effectively disappeared on phones (results and
+   recipient screens had no Ask entry at all). The fleet standard is the
+   PMC Add.985 pattern the guard header cites: watch interactive elements,
+   not text. The guard's default selector (links, buttons, inputs,
+   summaries, tabbables) is therefore used with NO extra text targets:
+   the pill yields only when it would cover a real control, and its
+   rendered overlap vs buttons/links stays 0px. Readable-text protection
+   is kept where the Nov 9 QA flagged it most — the shared-gift recipient
+   screen — as layout clearance scoped to the swapped screens (.screen
+   padding-bottom + html scroll-padding-bottom, in the CSS above), so
+   recipient text scrolls fully clear of the resting box at rest instead
+   of hiding the pill for the whole page. */
+try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel" }); } catch (e) {}
 </script>
 <!-- ASK PANEL END -->
 </body>

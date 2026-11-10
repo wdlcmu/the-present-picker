@@ -2,29 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>
-/* FLEET-FT2-2026-11-08: first-touch capture at the door. The first page
-   this browser ever loads on this site stores its referrer, UTM tags and
-   landing address in localStorage (first write wins, never overwritten).
-   The PostHog first-touch writer reads this store, so a creator's
-   discovery channel survives the tool-page to homepage hop that used
-   to erase it (attribution trace, Nov 8, 2026, BP-5). The address is
-   cut to origin + path, /s/ and /g/ code segments are dropped, and no
-   query beyond utm_* and a whitelisted ?via= kind word is kept. */
-(function(){try{
-if(localStorage.getItem("fleet_ft2"))return;
-var q=new URLSearchParams(location.search);
-function utm(n){var v=q.get(n)||"";return v.slice(0,100);}
-var p=location.pathname||"/";
-if(/^\/(s|g)\/[^/]/.test(p))p=p.replace(/^\/(s|g)\/[^/]+.*$/,"/$1/");
-var via=q.get("via")||"";
-var ft={r:document.referrer||"",u:location.origin+p,
-via:["share","own","group"].indexOf(via)>=0?via:"",
-s:utm("utm_source"),m:utm("utm_medium"),c:utm("utm_campaign"),
-at:new Date().toISOString()};
-localStorage.setItem("fleet_ft2",JSON.stringify(ft));
-}catch(e){}})();
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gifts for a Coworker You Barely Know · The Present Picker</title>
 <meta name="description" content="What do you get a coworker you barely know? Safe, useful picks under $25 from 255 checked gift ideas: nothing personal, nothing romantic, nothing that needs their size.">
@@ -179,7 +156,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the ritual of a slow morning, not another gadget.</div>
       <div class="why"><b>Buying notes</b>Look for: a dripper that fits standard filters and drips slow and steady. Avoid: odd sizes that need special filters.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small gooseneck kettle. Add a starter pack of filters so the first cup needs no shopping trip.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Pour-over+coffee+dripper+with+paper+filters" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-instant-read-digital-meat-thermometer">
       <img class="photo" src="img/idea-instant-read-digital-meat-thermometer.jpg" alt="Instant-read digital meat thermometer" loading="lazy" onerror="this.style.display='none'">
@@ -188,7 +165,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the griller who insists they can tell by touch.</div>
       <div class="why"><b>Buying notes</b>Look for: a read in two to three seconds and a thin folding probe. Avoid: slow dial thermometers.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a grill tool set. Keep a spare battery in the drawer so it never dies mid-cook.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Instant-read+digital+meat+thermometer" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Instant-read+digital+meat+thermometer" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-rechargeable-headlamp">
       <img class="photo" src="img/idea-rechargeable-headlamp.jpg" alt="Rechargeable headlamp" loading="lazy" onerror="this.style.display='none'">
@@ -197,7 +174,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For early starts and late finishes.</div>
       <div class="why"><b>Buying notes</b>Look for: USB charging, a tilting head, and a red-light mode. Avoid: dim lamps under 200 lumens.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a short charging cable kept in the glove box. Charge it before you give it, so it works night one.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Rechargeable+headlamp" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Rechargeable+headlamp" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-merino-wool-hiking-socks-two-pairs">
       <img class="photo" src="img/idea-merino-wool-hiking-socks-two-pairs.jpg" alt="Merino wool hiking socks, two pairs" loading="lazy" onerror="this.style.display='none'">
@@ -206,7 +183,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>The boring gift they will thank you for in February.</div>
       <div class="why"><b>Buying notes</b>Look for: at least half merino wool, with cushion in the heel and toe. Avoid: cotton blends that blister.</div>
       <div class="why"><b>Care and pairing</b>Care: wash cold and lay flat to dry, and they will outlast cotton by years. Pairs with liner socks.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Merino+wool+hiking+socks%2C+two+pairs" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Merino+wool+hiking+socks%2C+two+pairs" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-trail-first-aid-kit">
       <img class="photo" src="img/idea-trail-first-aid-kit.jpg" alt="Trail first-aid kit" loading="lazy" onerror="this.style.display='none'">
@@ -215,7 +192,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Practical care for someone you worry about.</div>
       <div class="why"><b>Buying notes</b>Look for: bandages, blister care, tweezers, and tape in a dry case. Avoid: kits padded out with cotton balls.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a note of what is inside and when each item expires. Restock bandages after every trip.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Trail+first-aid+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Trail+first-aid+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-braided-fast-charging-cable-set-3-pack">
       <img class="photo" src="img/idea-braided-fast-charging-cable-set-3-pack.jpg" alt="Braided fast-charging cable set, 3 pack" loading="lazy" onerror="this.style.display='none'">
@@ -224,7 +201,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Fixes the most-borrowed item in the house.</div>
       <div class="why"><b>Buying notes</b>Look for: braided nylon, the right tips for their phone, mixed lengths. Avoid: cables that fray at the ends.</div>
       <div class="why"><b>Care and pairing</b>Pairs with small cable ties, one set for the car, one for the bag, one by the bed.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Braided+fast-charging+cable+set%2C+3+pack" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Braided+fast-charging+cable+set%2C+3+pack" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-phone-stand-with-charging-dock">
       <img class="photo" src="img/idea-phone-stand-with-charging-dock.jpg" alt="Phone stand with charging dock" loading="lazy" onerror="this.style.display='none'">
@@ -233,7 +210,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Tidies the nightstand and the desk in one move.</div>
       <div class="why"><b>Buying notes</b>Look for: an adjustable angle and a dock that fits their phone case. Avoid: fixed stands that sit bolt upright.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a short braided cable for the nightstand. Set it up by the bed, not the kitchen counter.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Phone+stand+with+charging+dock" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Phone+stand+with+charging+dock" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-clip-on-rechargeable-book-light">
       <img class="photo" src="img/idea-clip-on-rechargeable-book-light.jpg" alt="Clip-on rechargeable book light" loading="lazy" onerror="this.style.display='none'">
@@ -242,7 +219,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the reader who stays up too late.</div>
       <div class="why"><b>Buying notes</b>Look for: warm light with dim levels, a firm clip, USB charging. Avoid: harsh white light that glares.</div>
       <div class="why"><b>Care and pairing</b>Pairs with the novel on this list. Charge it first so it works the very first night.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Clip-on+rechargeable+book+light" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: Under $25. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Clip-on+rechargeable+book+light" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 
   <a class="cta" href="/">Find their gift</a>
@@ -455,211 +432,5 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
 })();
 </script>
 <!-- ASK PANEL END -->
-<script>window.FLEET_CFG={site:"presentpicker"};</script>
-<!-- Fleet analytics — shared instrumentation (Nov 1, 2026; taxonomy:
-     ~/workspace/chief-of-staff/fleet-instrumentation-taxonomy-2026-11-01.md).
-     PostHog project 624507. Anonymous metadata only: event names + enum
-     properties. Never sends typed text, names, emails, pairings, or
-     tokens. Session recording off, autocapture off.
-     Per site: set window.FLEET_CFG (site slug + hooks) in a small script
-     block BEFORE this block. Internal rule (fleet-wide): ?internal=1
-     once on a device sets a localStorage flag; every event from that
-     device carries internal:true; funnel queries filter it out. -->
-<script>
-(function(){
-  var CFG = window.FLEET_CFG || {};
-  var SITE = CFG.site || "unknown";
-  var KEY = "phc_t9dkHXAZR5VEjPFm3K5JDzGKFsNNxKcwSxxcEBEeLbS7";
-  var _int = null;
-  function isInternal(){
-    if (_int !== null) return _int;
-    var flag = false;
-    try {
-      var q = location.search || "";
-      if (/[?&]internal=1(?:&|$)/.test(q)) { try { localStorage.setItem("fleet_internal", "1"); } catch(e){} flag = true; }
-      else if (/[?&]internal=0(?:&|$)/.test(q)) { try { localStorage.removeItem("fleet_internal"); } catch(e){} }
-      else if (/[?&](probe|sim)=/.test(q)) { flag = true; }
-      else { try { flag = localStorage.getItem("fleet_internal") === "1"; } catch(e){} }
-    } catch(e2){}
-    _int = flag;
-    return flag;
-  }
-  var Q = [];
-  function track(name, props){
-    props = props || {};
-    props.site = SITE;
-    try { if (isInternal()) props.internal = true; } catch(e){}
-    try {
-      if (window.posthog && posthog.capture) posthog.capture(name, props);
-      else { Q.push([name, props]); if (Q.length > 100) Q.shift(); }
-    } catch(e){}
-  }
-  window.FA = { track: track };
-  /* FLEET-ATTRIB-2026-11-07: first-touch attribution (pattern: SPEC-SS-ATTRIB-01).
-     On first pageview, persist the door as PostHog person properties via
-     people.set_once (a later visit never overwrites): entry_referrer (bare
-     origin only), entry_referring_domain, entry_url (origin+path, no query,
-     no fragment, no tokens), entry_at, entry_app (app kind classified from
-     the user-agent string - in-app browsers name themselves there even when
-     they strip the referrer). No raw UA stored, no PII. */
-    function fleetFirstTouch(){
-    try {
-      if (!window.posthog || !posthog.people || !posthog.people.set_once) return;
-      var ft = null;
-      try { ft = JSON.parse(localStorage.getItem("fleet_ft2") || "null"); } catch (e) {}
-      var ref = (ft && typeof ft.r === "string") ? ft.r : (document.referrer || "");
-      var refOrigin = "", refDomain = "$direct";
-      if (ref) {
-        try {
-          var ru = new URL(ref);
-          if (ru.origin && ru.origin !== "null") { refOrigin = ru.origin + "/"; refDomain = ru.hostname || "$direct"; }
-        } catch (e) {}
-        if (!refOrigin) {
-          var m = /^[a-z][a-z0-9+.-]*:\/\/[^/?#]+/i.exec(ref);
-          if (m) { refOrigin = m[0] + "/"; refDomain = m[0].split("://")[1] || "$direct"; }
-        }
-      }
-      var entryUrl, entryAt;
-      if (ft && ft.u) {
-        entryUrl = ft.u + (ft.via ? "?via=" + ft.via : "");
-        entryAt = ft.at || new Date().toISOString();
-      } else {
-        var path = window.location.pathname || "/";
-        if (/^\/(s|g)\/[^/]/.test(path)) path = path.replace(/^\/(s|g)\/[^/]+.*$/, "/$1/");
-        var viaRaw = "";
-        try { viaRaw = new URLSearchParams(window.location.search).get("via") || ""; } catch (e) {}
-        var via = (viaRaw === "share" || viaRaw === "own" || viaRaw === "group") ? "?via=" + viaRaw : "";
-        entryUrl = window.location.origin + path + via;
-        entryAt = new Date().toISOString();
-      }
-      var ua = (navigator.userAgent || "").slice(0, 500);
-      var l = ua.toLowerCase();
-      var app = "other";
-      if (l.indexOf("kakaotalk") !== -1) app = "kakaotalk";
-      else if (l.indexOf("whatsapp") !== -1) app = "whatsapp";
-      else if (l.indexOf("instagram") !== -1) app = "instagram";
-      else if (l.indexOf("telegram") !== -1) app = "telegram";
-      else if (l.indexOf("teams") !== -1) app = "teams";
-      else if (l.indexOf("fban") !== -1 || l.indexOf("fbav") !== -1 || l.indexOf("fb_iab") !== -1 || l.indexOf("facebook") !== -1) app = "facebook";
-      else if (l.indexOf("mozilla/") !== -1) app = "browser";
-      var props = {
-        entry_referrer: refOrigin,
-        entry_referring_domain: refDomain,
-        entry_url: entryUrl,
-        entry_at: entryAt,
-        entry_app: app
-      };
-      if (ft && ft.s) props.entry_utm_source = ft.s;
-      if (ft && ft.m) props.entry_utm_medium = ft.m;
-      if (ft && ft.c) props.entry_utm_campaign = ft.c;
-      posthog.people.set_once(props);
-    } catch (e) {}
-  }
-
-  var s = document.createElement("script");
-  s.async = true;
-  s.src = "https://us.i.posthog.com/static/array.js";
-  s.onload = function(){
-    try {
-      if (window.posthog && posthog.init) {
-        posthog.init(KEY, {api_host: "https://us.i.posthog.com", autocapture: false, capture_pageview: true, disable_session_recording: true, persistence: "localStorage"});
-        try { posthog.register({site: SITE, internal: isInternal()}); } catch(e){}
-        try { if (isInternal() && posthog.people && posthog.people.set) posthog.people.set({fleet_internal: true}); } catch(e){}
-        try { fleetFirstTouch(); } catch(e){}
-        while (Q.length) { var e0 = Q.shift(); try { posthog.capture(e0[0], e0[1]); } catch(e){} }
-      }
-    } catch(e){}
-  };
-  document.head.appendChild(s);
-
-  function onReady(fn){ if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn); else fn(); }
-  function vis(el){
-    if (!el) return false;
-    var cs = getComputedStyle(el);
-    if (cs.display === "none" || cs.visibility === "hidden") return false;
-    return !!(el.offsetWidth || el.offsetHeight || (el.getClientRects && el.getClientRects().length));
-  }
-  function txt(el){ return ((el && el.textContent) || "").replace(/\s+/g, " ").trim(); }
-
-  onReady(function(){
-    try {
-      var started = {};
-      (CFG.starts || []).forEach(function(st){
-        Array.prototype.forEach.call(document.querySelectorAll(st.sel), function(el){
-          el.addEventListener(st.on || "click", function(){
-            var k = st.surface || "tool";
-            if (started[k]) return;
-            started[k] = true;
-            track("tool_start", {surface: k});
-          });
-        });
-      });
-      (CFG.completes || []).forEach(function(cp){
-        var done = false;
-        function check(){
-          if (done) return;
-          var el = document.querySelector(cp.sel);
-          if (el && vis(el) && txt(el).length >= (cp.minText || 1)) {
-            done = true;
-            track("tool_complete", {surface: cp.surface || "tool"});
-          }
-        }
-        /* Observe the body and re-resolve the selector on every batch:
-           some tools replace the result node instead of filling it. */
-        new MutationObserver(check).observe(document.body, {childList: true, subtree: true, characterData: true, attributes: true});
-        check();
-      });
-      if (CFG.ask) {
-        var A = CFG.ask;
-        var lastText = "", completed = false;
-        var go = A.goSel ? document.querySelector(A.goSel) : null;
-        if (go) go.addEventListener("click", function(){
-          track("ask_asked", {surface: "ask"});
-          lastText = "";   // a new submission: the observer must classify the coming rendering even if its text matches the previous turn's
-        });
-        var ans = A.answerSel ? document.querySelector(A.answerSel) : null;
-        if (ans) {
-          var checkA = function(){
-            var el = document.querySelector(A.answerSel);
-            if (!el) return;
-            var t = txt(el);
-            if (!t || t === lastText) return;
-            lastText = t;
-            var fb = null;
-            (A.fallbacks || []).some(function(f){ if (f.re.test(t)) { fb = f; return true; } return false; });
-            if (fb) { track("ask_fallback", {surface: "ask", missing: fb.missing}); return; }
-            var props = {surface: "ask"};
-            (A.kinds || []).some(function(k){ if (k.re.test(t)) { props.outcome = k.outcome; return true; } return false; });
-            if (!props.outcome && A.defaultOutcome) props.outcome = A.defaultOutcome;
-            track("ask_answered", props);
-            if (A.completeOnAnswer && !completed) { completed = true; track("tool_complete", {surface: "ask"}); }
-          };
-          new MutationObserver(checkA).observe(document.body, {childList: true, subtree: true, characterData: true});
-        }
-      }
-      (CFG.specials || []).forEach(function(sp){
-        try {
-          if (sp.on === "click") {
-            Array.prototype.forEach.call(document.querySelectorAll(sp.sel), function(el){
-              el.addEventListener("click", function(){ track(sp.name, sp.props || {}); });
-            });
-          } else if (sp.on === "appear") {
-            var fired = false;
-            var chk = function(){
-              if (fired) return;
-              var el = document.querySelector(sp.sel);
-              if (el && vis(el) && txt(el).length) { fired = true; track(sp.name, sp.props || {}); }
-            };
-            new MutationObserver(chk).observe(document.body, {childList: true, subtree: true, characterData: true, attributes: true});
-            chk();
-          } else if (sp.on === "loadmatch") {
-            if (sp.re.test(location.href)) track(sp.name, sp.props || {});
-          }
-        } catch(e){}
-      });
-    } catch(e){}
-  });
-})();
-</script>
 </body>
 </html>

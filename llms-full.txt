@@ -2,7 +2,7 @@
 
 > Complete text of the gift bank behind thepresentpicker.com: 255 gift ideas, each checked by a person.
 > No brands, no stores, no exact prices, only budget bands. The picker on the homepage and the
-> Present Picker MCP tools draw on this same bank. Generated 2026-10-27 from the bank source.
+> Present Picker MCP tools draw on this same bank. Generated 2026-11-09 from the bank source and the live page set.
 
 ## For AI assistants: callable tools (MCP)
 
@@ -21,294 +21,377 @@
 ## Question pages
 
 Pages that each answer one gift question in full, on the page, with the picker's real top picks for that ask. Same bank, same rules: budget is a hard filter, no brands. Most picks carry a plain price-check link to a shopping search; the site earns nothing from it.
+- Ask the picker in plain words: https://thepresentpicker.com/ask
+
+### Gift Ideas Worth Giving (https://thepresentpicker.com/)
+
+Pick the person. Five picks from 255 real, checked, no-brand gift ideas, each matched to what they are into and your budget.
+
+### Ask in your own words (https://thepresentpicker.com/ask)
+
+Say who the gift is for, what they like, and what you can spend. Five picks from 255 checked gift ideas. Free, no ads, no accounts.
+
+### Gifts for Dad (https://thepresentpicker.com/gifts-for-dad)
+
+Gift ideas for Dad, grouped by budget. Pick a useful idea he will actually use.
+
+### Gifts for Mom (https://thepresentpicker.com/gifts-for-mom)
+
+Gift ideas for Mom, grouped by budget. Warm, useful picks she will actually enjoy.
+
+### Gifts for Your Partner (https://thepresentpicker.com/gifts-for-partner)
+
+Gift ideas for your partner, grouped by budget. Personal picks, not generic filler.
+
+### Gifts for Grandparents (https://thepresentpicker.com/gifts-for-grandparent)
+
+Gift ideas for grandparents, grouped by budget. Useful, warm picks with no fuss.
+
+### Gifts for Friends (https://thepresentpicker.com/gifts-for-friend)
+
+Gift ideas for friends, grouped by budget. Fun, personal picks that do not feel last minute.
+
+### Gifts for Kids (https://thepresentpicker.com/gifts-for-kids)
+
+Gift ideas for kids, grouped by budget. Things to build, make, and play with.
+
+### Gifts Under $25 (https://thepresentpicker.com/gifts-under-25)
+
+Gift ideas that cost under $25. Small, useful picks for every person on your list.
+
+### Gifts $25 to $50 (https://thepresentpicker.com/gifts-25-to-50)
+
+Gift ideas that cost $25 to $50. Useful, lasting picks for every person on your list.
+
+### Gifts Between $50 and $100: A Chef's Knife, a Parks Pass and a Weighted Blanket (https://thepresentpicker.com/gifts-50-to-100)
+
+Gifts between $50 and $100 that earn their price: an 8-inch chef's knife, a national parks pass, a 15 lb weighted blanket, a bird feeder with a camera.
+
+### Gifts Over $100 (https://thepresentpicker.com/gifts-over-100)
+
+Gift ideas that cost over $100. Big, lasting picks for every person on your list.
+
+### Christmas Gifts (https://thepresentpicker.com/christmas-gifts)
+
+Christmas gift ideas grouped by budget. Warm, useful picks for every person on your list.
+
+### Birthday Gifts (https://thepresentpicker.com/birthday-gifts)
+
+Birthday gift ideas grouped by budget. Fun, warm picks that mark the day without a big spend.
 
 ### Gifts for Grandma Who Has Everything (https://thepresentpicker.com/gift-for-grandma-who-has-everything)
 
-She says she has everything. She is almost right.
-When someone has everything, the gift has to earn its place. The picks below get used up, get used every day, or hold the family close. Nothing here gathers dust on a shelf.
-The book everyone will be discussing in January.
-Ask printed on the page: These are the picker's real top picks for this ask: a grandparent, sentimental, any budget, from 255 checked ideas.
-Picks on the page (8, in page order): Under $25: The year's most talked-about hardcover novel; Soy candle trio, seasonal scents; Heirloom seed collection. $25 to $50: Handmade ceramic mugs, set of two; Custom star-map print of a meaningful date. $50 to $100: Weighted blanket, 15 lb; Chunky knit throw blanket. $100+: Digital photo frame with wifi.
+What can I get my grandma who has everything? Real top picks from 255 checked gift ideas: gifts that get used up, get used daily, or hold the family close.
 
-Common questions:
-Q: What can I get my grandma who has everything?
-A: Give her something that does not add clutter: a gift that gets used up, an upgrade to something she uses daily, or a keepsake that holds the family. The photo frame the family can update and the star-map print both work because they carry people she loves, not more stuff.
-Q: What if my grandma says she wants nothing?
-A: Believe the feeling, not the words. She means no clutter and no fuss. A small, warm gift still lands: the candle trio, a good novel, or seeds for spring all say you thought of her without filling a shelf.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+### Gifts for Dad Who Wants Nothing (https://thepresentpicker.com/gifts-for-dad-who-wants-nothing)
+
+What do you buy a dad who says he wants nothing? A better version of something he already uses every day. Real top picks from 255 checked gift ideas.
+
+### White Elephant Gifts That Are Actually Good (https://thepresentpicker.com/white-elephant-gifts)
+
+White elephant gifts that are actually good: funny in the moment, useful after it. Real top picks from 255 checked gift ideas, in the usual party budgets.
+
+### Gifts for Mom Who Has Everything (https://thepresentpicker.com/gifts-for-mom-who-has-everything)
+
+What can I get my mom who has everything? Real top picks from 255 checked gift ideas: warm, useful gifts that earn their place.
+
+### Gifts for a Coworker You Barely Know (https://thepresentpicker.com/gifts-for-a-coworker-you-barely-know)
+
+What do you get a coworker you barely know? Safe, useful picks under $25 from 255 checked gift ideas: nothing personal, nothing romantic, nothing that needs their size.
+
+### Stocking Stuffers Under $25 (https://thepresentpicker.com/stocking-stuffers-under-25)
+
+Stocking stuffers under $25 that are actually good: small, fun, and worth keeping after Christmas morning. Real top picks from 255 checked gift ideas, for grown-ups and for kids.
+
+### Gifts for People Who Are Hard to Buy For (https://thepresentpicker.com/gifts-for-people-who-are-hard-to-buy-for)
+
+What do you buy the person who is hard to buy for? It depends which kind of hard. Real top picks from 255 checked gift ideas for four hard cases: far away, just moved, wants nothing, has everything.
+
+### Gifts for Grandma Under $25 (https://thepresentpicker.com/gifts-for-grandma-under-25)
+
+Gifts for grandma under $25 that do not feel cheap: warm picks that carry the family, and useful picks she will reach for daily. Real top picks from 255 checked gift ideas.
+
+### Gifts for Kids Under $25 (https://thepresentpicker.com/gifts-for-kids-under-25)
+
+Gifts for kids under $25 that feel big to a kid: art, books, dough, science, and outdoor kits that get used the same day. Real top picks from 255 checked gift ideas.
+
+### Gifts for Kids $50 to $100 (https://thepresentpicker.com/gifts-for-kids-50-to-100)
+
+Gifts for kids from $50 to $100: the one bigger gift, picked right. A camera, a microscope, a stunt car, an easel, each matched to a kid who loves fun. Real top picks from 255 checked gift ideas.
+
+### Tech Gifts for Mom (https://thepresentpicker.com/tech-gifts-for-mom)
+
+Tech gifts for mom that help and never nag: fast cords, a photo frame the family fills, wifi that reaches the back room. Every pick a top tech pick for a mom, at the top score. From 255 checked gift ideas.
+
+### Gifts for Kids Over $100 (https://thepresentpicker.com/gifts-for-kids-over-100)
+
+Gifts for kids over $100: the big gift, picked right. A balance bike, a telescope, a play kitchen, a tablet with controls, each matched to a kid who loves fun. Real top picks from 255 checked gift ideas.
+
+### Gifts for Teachers (https://thepresentpicker.com/gifts-for-teachers)
+
+Gifts for teachers that get used: a book light, good coffee, a reading stand, and a quiet evening after the last bell. Real picks from 255 checked gift ideas.
+
+### Christmas Gifts for Teens (https://thepresentpicker.com/christmas-gifts-for-teens)
+
+Christmas gifts for teens that land: a speaker for their room, a game the whole table plays, a star map of the night they were born. Real picks from 255 checked gift ideas.
+
+### Gifts for Neighbors (https://thepresentpicker.com/gifts-for-neighbors)
+
+Gifts for neighbors that say thanks without a big spend: a candle trio, seeds for spring, a spoon pair with a recipe card to fill in. Real picks from 255 checked gift ideas.
 
 ### Christmas Gifts for Dad (https://thepresentpicker.com/christmas-gifts-for-dad)
 
-For a dad who grills, start here. An instant-read thermometer reads in two seconds. It costs under $25. He uses it Christmas week.
-Ask printed on the page: These are the picker's real dad picks, from 255 checked ideas.
+Christmas gifts for dad from the real bank: a thermometer that reads in two seconds, a cast iron skillet, and a chef's knife. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Instant-read digital meat thermometer; Pour-over coffee dripper with paper filters. $25 to $50: Cast iron skillet, 10 inch, pre-seasoned; Heavy wooden cutting board with juice groove. $50 to $100: Chef's knife, 8 inch.
 
 ### Christmas Gifts Under $25 (https://thepresentpicker.com/christmas-gifts-under-25)
 
-Start with the soy candle trio. Three small jars smell like December. It costs under $25. It suits almost any person.
-Ask printed on the page: These are real under-$25 bank picks, from 255 checked ideas.
+Christmas gifts under $25 from the real bank: a soy candle trio, good coffee, hot sauce, and a headlamp. Real picks, no brands, all under $25.
 Picks on the page (5, in page order): Under $25: Soy candle trio, seasonal scents; Pour-over coffee dripper with paper filters; Small-batch hot sauce trio; Single-origin coffee beans, one bag; Rechargeable headlamp.
 
 ### Christmas Gifts for Mom (https://thepresentpicker.com/christmas-gifts-for-mom)
 
-Start with the soy candle trio. Three small jars smell like December. It costs under $25. She lights one that night.
-Ask printed on the page: These are the picker's real mom picks, from 255 checked ideas.
+Christmas gifts for mom from the real bank: a soy candle trio, handmade ceramic mugs, and a weighted blanket. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Soy candle trio, seasonal scents; Pour-over coffee dripper with paper filters. $25 to $50: Handmade ceramic mugs, set of two; Cast iron skillet, 10 inch, pre-seasoned. $50 to $100: Weighted blanket, 15 lb.
 
 ### Christmas Gifts Under $50 (https://thepresentpicker.com/christmas-gifts-under-50)
 
-Start with the cast iron skillet. It costs $25 to $50. It cooks on Christmas Day itself. It still cooks ten years later.
-Ask printed on the page: These are real bank picks under $50, from 255 checked ideas.
-Picks on the page (5, in page order): Under $25: Soy candle trio, seasonal scents; Single-origin coffee beans, one bag. $25 to $50: Cast iron skillet, 10 inch, pre-seasoned; Handmade ceramic mugs, set of two; Olive oil and aged balsamic gift set.
+Christmas gifts under $50 from the real bank: a cast iron skillet, handmade ceramic mugs, good coffee, and candles. Real picks, no brands.
+Picks on the page (2, in page order): Under $25: Soy candle trio, seasonal scents; Single-origin coffee beans, one bag.
 
 ### Christmas Gifts for Kids (https://thepresentpicker.com/christmas-gifts-for-kids)
 
-Start with the art and craft kit. It costs under $25. A kid opens it Christmas morning. They paint something that same hour.
-Ask printed on the page: These are the picker's real kids picks, from 255 checked ideas.
+Christmas gifts for kids from the real bank: an art and craft kit, three picture books, building blocks, and a kids microscope. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Art and craft kit; Three picture books. $25 to $50: 100-piece building block set; Cooperative board game. $50 to $100: Kids' microscope.
 
 ### Christmas Gifts Under $100 (https://thepresentpicker.com/christmas-gifts-under-100)
 
-Start with the weighted blanket. It costs $50 to $100. It feels like a warm hug. They use it every cold night.
-Ask printed on the page: These are real bank picks under $100, from 255 checked ideas.
-Picks on the page (5, in page order): Under $25: Soy candle trio, seasonal scents; Single-origin coffee beans, one bag. $25 to $50: Cast iron skillet, 10 inch, pre-seasoned; Handmade ceramic mugs, set of two. $50 to $100: Weighted blanket, 15 lb.
+Christmas gifts under $100 from the real bank: a weighted blanket, a cast iron skillet, handmade ceramic mugs, and candles. Real picks, no brands.
+Picks on the page (4, in page order): Under $25: Soy candle trio, seasonal scents; Single-origin coffee beans, one bag. $25 to $50: Cast iron skillet, 10 inch, pre-seasoned; Handmade ceramic mugs, set of two.
 
 ### Christmas Gifts for Husband (https://thepresentpicker.com/christmas-gifts-for-husband)
 
-Start with the quality multi-tool. It costs $25 to $50. He opens it Christmas morning. It fixes the loose hinge that day.
-Ask printed on the page: These are the picker's real partner picks, from 255 checked ideas.
+Christmas gifts for a husband from the real bank: a quality multi-tool, a chef's knife, hot sauce, and a speaker. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Small-batch hot sauce trio; Instant-read digital meat thermometer. $25 to $50: Quality multi-tool; Compact Bluetooth speaker. $50 to $100: Chef's knife, 8 inch.
 
 ### Christmas Gifts for Wife (https://thepresentpicker.com/christmas-gifts-for-wife)
 
-Start with the chunky knit throw blanket. It costs $50 to $100. She wraps up that first cold night. It stays on the couch all winter.
-Ask printed on the page: These are the picker's real partner picks, from 255 checked ideas.
+Christmas gifts for a wife from the real bank: a chunky knit throw blanket, candles, ceramic mugs, and a diffuser. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Soy candle trio, seasonal scents; Reading journal. $25 to $50: Handmade ceramic mugs, set of two; Essential-oil diffuser. $50 to $100: Chunky knit throw blanket.
 
 ### Christmas Gifts for Boyfriend (https://thepresentpicker.com/christmas-gifts-for-boyfriend)
 
-Start with the annual pass to the national parks. It costs $50 to $100. He opens it Christmas morning. You hike the first trail that week.
-Ask printed on the page: These are the picker's real partner picks, from 255 checked ideas.
+Christmas gifts for a boyfriend from the real bank: a national parks pass, wireless earbuds, a hammock, and a love-notes jar. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: "Reasons I love you" jar; Braided fast-charging cable set, 3 pack. $25 to $50: Wireless earbuds; Portable camping hammock. $50 to $100: Annual pass to the national parks.
 
 ### Christmas Gifts for Girlfriend (https://thepresentpicker.com/christmas-gifts-for-girlfriend)
 
-Start with the printed photo book of the year. It costs $50 to $100. She opens it Christmas morning. Your year sits bound on her shelf.
-Ask printed on the page: These are the picker's real partner picks, from 255 checked ideas.
+Christmas gifts for a girlfriend from the real bank: a printed photo book, a star-map print, a vinyl record, and a letter kit. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Handwritten letter kit; Pressed-flower bookmark. $25 to $50: Custom star-map print of a meaningful date; Vinyl record of an album they love. $50 to $100: Printed photo book of the year.
 
 ### Christmas Gifts for Grandma (https://thepresentpicker.com/christmas-gifts-for-grandma)
 
-Start with the smart bird feeder with camera. It costs $50 to $100. She opens it Christmas morning. A bird lands that week. Its photo lands on her phone.
-Ask printed on the page: These are the picker's real grandparent picks, from 255 checked ideas.
+Christmas gifts for a grandma from the real bank: a smart bird feeder, a family tree print, a photo calendar, and a story journal. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Grandparent story journal with prompts; Heirloom seed collection. $25 to $50: Personalized family tree print; Custom photo calendar. $50 to $100: Smart bird feeder with camera.
 
 ### Christmas Gifts for Grandpa (https://thepresentpicker.com/christmas-gifts-for-grandpa)
 
-Start with the Bluetooth tracker, 4 pack. It costs $50 to $100. He opens it Christmas morning. His keys never hide again.
-Ask printed on the page: These are the picker's real grandparent picks, from 255 checked ideas.
+Christmas gifts for a grandpa from the real bank: a tracker pack, a big-dial radio, walking poles, warm socks, and card decks. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Premium playing cards, two decks; Merino wool hiking socks, two pairs. $25 to $50: Tabletop radio with large dials; Folding walking poles, pair. $50 to $100: Bluetooth tracker, 4 pack.
 
 ### Christmas Gifts for Friends (https://thepresentpicker.com/christmas-gifts-for-friends)
 
-Start with the museum or garden membership. It costs $50 to $100. They open it Christmas morning. You both go free all year.
-Ask printed on the page: These are the picker's real friend picks, from 255 checked ideas.
+Christmas gifts for friends from the real bank: a museum membership for two, an escape room pass, a party game, and a memory jar. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Memory jar kit with blank cards; The year's most talked-about hardcover novel. $25 to $50: Group party game; Escape room pass for two. $50 to $100: Museum or garden membership.
 
 ### Christmas Gifts for Coworkers (https://thepresentpicker.com/christmas-gifts-for-coworkers)
 
-Start with the wooden desk organizer with a phone slot. It costs $50 to $100. They open it Christmas morning. Their desk stays clear all year.
-Ask printed on the page: These are the picker's real coworker picks, from 255 checked ideas.
+Christmas gifts for coworkers from the real bank: a desk organizer, a warm desk lamp, a leak-proof mug, notebooks, and a small plant. Real picks, no brands.
 Picks on the page (5, in page order): Under $25: Small succulent in a matte ceramic pot; Lay-flat pocket notebooks, pair. $25 to $50: Insulated travel mug with a leak-proof lid; Desk lamp with warm adjustable light. $50 to $100: Wooden desk organizer with a phone slot.
 
-### Gifts for Dad Who Wants Nothing (https://thepresentpicker.com/gifts-for-dad-who-wants-nothing)
+### Christmas Gifts for Partner (https://thepresentpicker.com/christmas-gifts-for-partner)
 
-He says nothing. He means: nothing useless.
-The trick with a dad who wants nothing is a better version of something he already uses every day. A heavier board. A faster thermometer. A knife that stays sharp. He will not ask for any of it, and he will use it the same week.
-Slow weekend coffee with no machine on the counter.
-Ask printed on the page: These are the picker's real top picks for this ask: a dad, practical, any budget, from 255 checked ideas.
-Picks on the page (8, in page order): Under $25: Pour-over coffee dripper with paper filters; Instant-read digital meat thermometer. $25 to $50: Cast iron skillet, 10 inch, pre-seasoned; Heavy wooden cutting board with juice groove; Olive oil and aged balsamic gift set; Handmade ceramic mugs, set of two; Insulated steel water bottle, 32 oz. $50 to $100: Chef's knife, 8 inch.
+Christmas gifts for a partner from the real bank: a cooking class for two, a reasons jar, a photo calendar, a weighted blanket, and concert tickets.
+Picks on the page (5, in page order): $100+: Cooking class for two; Two concert tickets. Under $25: "Reasons I love you" jar. $25 to $50: Custom photo calendar. $50 to $100: Weighted blanket, 15 lb.
 
-Common questions:
-Q: What do you buy a dad who says he wants nothing?
-A: A better version of something he already uses every day. He will not ask for it, and he will use it the same week. The cast iron skillet and the instant-read thermometer are the two safest bets on this page.
-Q: How much should I spend on a dad who wants nothing?
-A: Less than you think. Most of these picks sit between $25 and $50. With this dad, quality beats size: one tool he will use for years beats a big box he has to store.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+### Cozy Gifts (https://thepresentpicker.com/cozy-gifts)
 
-### Gifts for Mom Who Has Everything (https://thepresentpicker.com/gifts-for-mom-who-has-everything)
+Cozy gifts from the real bank: a weighted blanket, a candle trio, memory-foam slippers, an oil diffuser, and a heated throw blanket.
+Picks on the page (5, in page order): $50 to $100: Weighted blanket, 15 lb. Under $25: Soy candle trio, seasonal scents. $25 to $50: Memory-foam slippers; Essential-oil diffuser. $100+: Heated throw blanket.
 
-She has everything. She does not have these yet.
-For the mom who has everything, skip more stuff. The picks below get used up, get used daily, or carry the family in them. Each one earns its place in her house.
-The book everyone will be discussing in January.
-Ask printed on the page: These are the picker's real top picks for this ask: a mom, sentimental, any budget, from 255 checked ideas.
-Picks on the page (8, in page order): Under $25: The year's most talked-about hardcover novel; Reading journal; Soy candle trio, seasonal scents. $25 to $50: Handmade ceramic mugs, set of two; Framed literary art print. $50 to $100: Weighted blanket, 15 lb; Chunky knit throw blanket. $100+: Digital photo frame with wifi.
+### Experience Gifts (https://thepresentpicker.com/experience-gifts)
 
-Common questions:
-Q: What can I get my mom who has everything?
-A: The same rule as grandma: used up, used daily, or full of family. An experience together, a keepsake with a real date on it, or a small luxury she would never buy herself all beat one more object for the shelf.
-Q: Are experience gifts better for someone who has everything?
-A: Often, yes. A shared plan gives her a date to look forward to, not a thing to store. If you pick an experience from this page, put the date on the calendar before you wrap the card.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+Experience gifts from the real bank: a national parks pass, a cooking class for two, a paddleboard lesson, a street food walk, and a pasta kit.
+Picks on the page (5, in page order): $50 to $100: Annual pass to the national parks; Guided paddleboard lesson for two. $100+: Cooking class for two. $25 to $50: Street food tasting walk for two; Fresh pasta-making kit.
 
-### White Elephant Gifts That Are Actually Good (https://thepresentpicker.com/white-elephant-gifts)
+### Fun Gifts (https://thepresentpicker.com/fun-gifts)
 
-Funny is easy. Funny and worth stealing is the game.
-A good white elephant gift gets fought over. A bad one gets re-gifted to the same party next year. Every pick below stays useful after the laugh fades.
-Three bottles with the heat levels labeled and tasting notes on the box.
-Ask printed on the page: These are the picker's real top picks for these asks: a friend, fun, under $25, then $25 to $50, from 255 checked ideas.
-Picks on the page (13, in page order): Under $25: most parties: Small-batch hot sauce trio; Instant-read digital meat thermometer; Weighted jump rope; Harmonica with beginner songbook; Premium playing cards, two decks; Star wheel and night sky pocket guide; Youth orchestra concert ticket; Kalimba thumb piano with song cards. $25 to $50: big-splash parties: Fresh pasta-making kit; Portable camping hammock; Compact Bluetooth speaker; Cooperative board game; Group party game.
+Fun gifts from the real bank: an art jigsaw puzzle, a scratch-off world map, a smart bird feeder, a camera drone, and an acoustic guitar.
+Picks on the page (5, in page order): Under $25: 1000-piece art jigsaw puzzle. $25 to $50: Scratch-off world map. $50 to $100: Smart bird feeder with camera; Beginner acoustic guitar with lesson book. $100+: Beginner camera drone.
 
-Common questions:
-Q: What makes a white elephant gift actually good?
-A: Two things: it makes the room laugh, and the winner is glad to keep it. Aim for funny plus useful. Pure gag gifts die by January; the hot sauce trio and the harmonica get used all year.
-Q: How much do people spend on white elephant gifts?
-A: Most parties set the limit at $20 or $25. Some go to $50 for a big-splash round. Every pick on this page sits inside one of those two bands.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+### Gifts for Book Lovers (https://thepresentpicker.com/gifts-for-book-lovers)
 
-### Gifts for a Coworker You Barely Know (https://thepresentpicker.com/gifts-for-a-coworker-you-barely-know)
+Gifts for book lovers from the real bank: a pressed-flower bookmark, a reading journal, a classic story collection, a reading stand, and an e-reader.
+Picks on the page (5, in page order): Under $25: Pressed-flower bookmark; Reading journal. $25 to $50: Classic short story collection, hardcover; Adjustable wooden reading stand with page holders. $100+: E-reader.
 
-Safe beats clever when you just met them.
-The barely-know-them coworker is a narrow target: kind, useful, and not one bit personal. Every pick below stays under $25, works for almost anyone, and asks nothing about their size, their taste, or their life outside work.
-Slow weekend coffee with no machine on the counter.
-Ask printed on the page: These are the picker's real top picks for this ask: a coworker, practical, under $25, from 255 checked ideas. One honest note: the 255 checked ideas hold no coworker-only ideas yet, so these come from the picker's all-purpose pool, the same pool the quiz draws on for a coworker.
-Picks on the page (8, in page order): Under $25: Pour-over coffee dripper with paper filters; Instant-read digital meat thermometer; Rechargeable headlamp; Merino wool hiking socks, two pairs; Trail first-aid kit; Braided fast-charging cable set, 3 pack; Phone stand with charging dock; Clip-on rechargeable book light.
+### Gifts for Cooks (https://thepresentpicker.com/gifts-for-cooks)
 
-Common questions:
-Q: What do you get a coworker you barely know?
-A: Something useful that is not personal: a better cable, a book light, a coffee upgrade. It should work even if you know nothing about them but their job. Every pick on this page passes that test and stays under $25.
-Q: What should you not give a coworker you barely know?
-A: Anything romantic, scented, sized, or jokey about them. Skip gifts that comment on their habits, too. If it could be read as a message, it is the wrong gift.
-Q: How much should you spend on a coworker gift?
-A: Under $25 is the safe office band. It reads as generous without asking anyone to match you back. All eight picks on this page sit inside it.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+Gifts for cooks from the real bank: a safe mandoline slicer, a cast iron skillet, a heavy cutting board, a chef's knife, and a spice subscription. Real picks.
+Picks on the page (5, in page order): Under $25: Japanese mandoline slicer with a safety guard. $25 to $50: Cast iron skillet, 10 inch, pre-seasoned; Heavy wooden cutting board with juice groove. $50 to $100: Three-month spice subscription; Chef's knife, 8 inch.
 
-### Stocking Stuffers Under $25 (https://thepresentpicker.com/stocking-stuffers-under-25)
+### Gifts for Coworkers (https://thepresentpicker.com/gifts-for-coworkers)
 
-Small is the whole point. Good is the hard part.
-A stocking stuffer has one job: a real smile in a small package. Every pick below is under $25 and small enough for a stocking. Grown-ups first, then kids.
-Three bottles with the heat levels labeled and tasting notes on the box.
-Ask printed on the page: These are the picker's real top picks for these asks: a friend, fun, under $25, then a kid, fun, under $25, from 255 checked ideas.
-Picks on the page (16, in page order): For grown-ups: Small-batch hot sauce trio; Instant-read digital meat thermometer; Weighted jump rope; Harmonica with beginner songbook; Premium playing cards, two decks; Star wheel and night sky pocket guide; Youth orchestra concert ticket; Kalimba thumb piano with song cards. For kids: Art and craft kit; Three picture books; Washable marker and coloring book set; Modeling dough 10-pack; No-cook snack making kit for kids; Pocket science kit with magnifier and bug viewer; Nature scavenger hunt kit for kids; Animal movement card deck for kids.
+Gifts for coworkers from the real bank: a desk lamp, a travel mug, an olive oil set, a desk organizer, and a coffee subscription.
+Picks on the page (5, in page order): $25 to $50: Desk lamp with warm adjustable light; Insulated travel mug with a leak-proof lid; Olive oil and aged balsamic gift set. $50 to $100: Wooden desk organizer with a phone slot; Three-month coffee subscription.
 
-Common questions:
-Q: What makes a good stocking stuffer?
-A: Small, a little surprising, and still useful after the morning ends. The harmonica and the kalimba both fit a stocking and teach a first song the same day. Plain filler candy is gone by lunch and forgotten by New Year.
-Q: How much should a stocking stuffer cost?
-A: Under $25 covers nearly every good one, and most picks here sit well under it. A stocking is five or six small joys, not one big gift cut down to size.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+### Gifts for Coworkers Under $25 (https://thepresentpicker.com/gifts-for-coworkers-under-25)
 
-### Gifts for People Who Are Hard to Buy For (https://thepresentpicker.com/gifts-for-people-who-are-hard-to-buy-for)
+Gifts for coworkers under $25 from the real bank: a small succulent, pocket notebooks, a charging cable set, a hot sauce trio, and a herb window box. Real picks.
+Picks on the page (5, in page order): Under $25: Small succulent in a matte ceramic pot; Lay-flat pocket notebooks, pair; Braided fast-charging cable set, 3 pack; Small-batch hot sauce trio; Window box herb garden kit.
 
-Hard is not one problem. It is four.
-Nobody is hard to buy for in general. They are hard in a specific way: they live far away, they just moved, they want nothing, or they have everything. Find their kind below. Each set is the picker's real top picks for that ask.
-Distance rules out heavy, fragile, and someday. Send the family instead. The photo frame in this set fills up with new pictures from everyone she loves, all year, from wherever they live.
-Ask printed on the page: Every set below prints its own ask, from 255 checked ideas.
-Picks on the page (16, in page order): A grandma who lives far away: Handmade ceramic mugs, set of two; Digital photo frame with wifi; The year's most talked-about hardcover novel; Weighted blanket, 15 lb. Someone who just moved: Pour-over coffee dripper with paper filters; Cast iron skillet, 10 inch, pre-seasoned; Instant-read digital meat thermometer; Olive oil and aged balsamic gift set. A dad who says he wants nothing: Pour-over coffee dripper with paper filters; Cast iron skillet, 10 inch, pre-seasoned; Heavy wooden cutting board with juice groove; Instant-read digital meat thermometer. A mom who has everything: Handmade ceramic mugs, set of two; Digital photo frame with wifi; The year's most talked-about hardcover novel; Reading journal.
+### Gifts for Dad Under $25 (https://thepresentpicker.com/gifts-for-dad-under-25)
 
-Common questions:
-Q: What do you buy someone who is hard to buy for?
-A: First name the kind of hard. Far away calls for light and personal. Just moved calls for useful. Wants nothing calls for a better version of a daily tool. Has everything calls for used up, used daily, or full of family. Each set on this page answers one kind.
-Q: Are gift cards okay for someone hard to buy for?
-A: As a last resort, yes, but a card says you gave up. One specific idea from their set above, even a small one, lands warmer. If you do give a card, pair it with one small real thing.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+Gifts for dad under $25 from the real bank: a fast meat thermometer, a headlamp, wool hiking socks, playing cards, and a star guide. Real picks, no brands.
+Picks on the page (5, in page order): Under $25: Instant-read digital meat thermometer; Rechargeable headlamp; Merino wool hiking socks, two pairs; Premium playing cards, two decks; Star wheel and night sky pocket guide.
 
-### Gifts for Grandma Under $25 (https://thepresentpicker.com/gifts-for-grandma-under-25)
+### Gifts for Fitness Lovers (https://thepresentpicker.com/gifts-for-fitness-lovers)
 
-Small budget. No small feeling.
-Under $25 is plenty for a grandma, because the gifts that land with her were never the expensive ones. They are the ones that carry the family, or the ones she reaches for every day. Both kinds are here, each set the picker's real top picks for its ask.
-These carry people, not price tags. The story journal in this set fills with her own words and comes back to the family as a keepsake.
-Ask printed on the page: Every set below prints its own ask, from 255 checked ideas. Spending more on the same grandma? Her other page is Gifts for Grandma Who Has Everything, linked at the bottom.
-Picks on the page (16, in page order): Warm and personal: The year's most talked-about hardcover novel; Soy candle trio, seasonal scents; Heirloom seed collection; Handwritten letter kit; Grandparent story journal with prompts; Memory jar kit with blank cards; Handwritten family recipe book; Engraved wooden spoon pair with a blank recipe card. Useful every day: Pour-over coffee dripper with paper filters; Instant-read digital meat thermometer; Merino wool hiking socks, two pairs; Trail first-aid kit; Phone stand with charging dock; Clip-on rechargeable book light; Waterproof shower speaker with big buttons; Travel organizer with big zipper pulls.
+Gifts for fitness lovers from the real bank: a resistance band set, a foam roller, a yoga mat, a gym duffel, and a weighted jump rope.
+Picks on the page (5, in page order): $25 to $50: Resistance band set, 5 levels; High-density foam roller; Thick non-slip yoga mat. $50 to $100: Gym duffel with shoe compartment. Under $25: Weighted jump rope.
 
-Common questions:
-Q: What do you get a grandma for under $25?
-A: One of two kinds. Warm: the story journal, the family recipe book, the letter kit, things that carry the family in them. Useful: the book light, the shower speaker, the travel organizer, things she reaches for daily. Both sets on this page stay under $25.
-Q: Is $25 enough for a good grandma gift?
-A: Yes. At this budget, thought does the work that money does not. A pressed-flower bookmark picked for her garden beats a generic gift set twice its price. Every pick here was checked to feel given, not cheap.
-Q: What if my grandma says she does not want anything?
-A: Believe the spirit, not the letter. She means no clutter. Pick something that gets used up, like the candle trio or the seed collection, or something that holds the family, like the memory jar. Her has-everything page, linked above, goes deeper on this.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+### Gifts for Gamers (https://thepresentpicker.com/gifts-for-gamers)
 
-### Gifts for Kids Under $25 (https://thepresentpicker.com/gifts-for-kids-under-25)
+Gifts for gamers from the real bank: a cooperative board game, a party game, a strategy card game, a game night case, and a poker set.
+Picks on the page (5, in page order): $25 to $50: Cooperative board game; Group party game; Two player strategy card game. $50 to $100: Deluxe game night case with dominoes and cards. $100+: Premium poker set in aluminum case.
 
-Every pick under $25. Every pick fun.
-A kid does not grade a gift by its price tag. They grade it by how fast it gets used. Every pick on this page costs under $25, and every one can be opened and played with the same day it lands.
-Paints, brushes, canvases, and washable everything.
-Ask printed on the page: These are the picker's real top picks for this ask: a kid, fun, under $25, from 255 checked ideas.
-Picks on the page (8, in page order): Under $25: Art and craft kit; Three picture books; Washable marker and coloring book set; Modeling dough 10-pack; No-cook snack making kit for kids; Pocket science kit with magnifier and bug viewer; Nature scavenger hunt kit for kids; Animal movement card deck for kids.
+### Gifts for Gardeners (https://thepresentpicker.com/gifts-for-gardeners)
 
-Common questions:
-Q: What is a good gift for a kid under $25?
-A: Something they can start the same day: an art kit, a set of picture books, a science kit with pieces to hold. Every pick on this page can be opened and used at once, with no extra parts and no shopping trip first.
-Q: Are gifts under $25 good enough for Christmas?
-A: For a kid, yes. What lands is the doing, not the price: dough to squish, a hunt to run, a kit to open. A small gift that fits what they love beats a big gift that misses it.
-Q: What if I do not know what the kid is into?
-A: Start with the art kit or the picture books. Both fit almost every kid. Or take the five question quiz on the home page: tell it what they are into, and it narrows the same 255 ideas to five picks for them.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+Gifts for gardeners from the real bank: an heirloom seed collection, a steel hand-tool set, leather gloves with a kneeling pad, a garden journal, and a bird feeder camera.
+Picks on the page (5, in page order): Under $25: Heirloom seed collection. $25 to $50: Stainless hand-tool set; Leather gloves and kneeling pad. $50 to $100: Personalized gardening journal; Smart bird feeder with camera.
 
-### Gifts for Kids $50 to $100 (https://thepresentpicker.com/gifts-for-kids-50-to-100)
+### Gifts for Kids $25 to $50 (https://thepresentpicker.com/gifts-for-kids-25-to-50)
 
-One bigger gift, picked right.
-This is the band for the one bigger gift: the camera, the microscope, the stunt car. Every pick here sits between $50 and $100, and every one is built to be used for months, not minutes.
-Drop-proof, with games built in.
-Ask printed on the page: These are the picker's real top picks for this ask: a kid, fun, $50 to $100, from 255 checked ideas.
-Picks on the page (8, in page order): $50 to $100: Durable kids' digital camera; Remote-control stunt car; Kids' microscope; Big creator building set, 500+ pieces; Large art easel with supplies; Kids' cooking class, parent and child; Rocks and minerals collection kit; Kids camping adventure kit.
+Gifts for kids from $25 to $50: the middle band, picked right. A board game, building blocks, a science kit, a speaker, each matched to a kid who loves fun. Real top picks from 255 checked gift ideas.
 
-Common questions:
-Q: What is a good $50 to $100 gift for a kid?
-A: A tool for something they already love: a camera for the kid who takes pictures, a microscope for the kid who collects bugs, an easel for the kid who draws every day. Match the habit and the gift earns its price.
-Q: Is one big gift better than a few small ones?
-A: It depends on the kid. A kid with a strong hobby uses one right tool all year. A kid who loves new things may like a few small picks more. The under $25 page, linked above, holds the small set.
-Q: How do I know it will not sit in a closet?
-A: Match the habit, not the holiday. Every pick on this page says who it fits in its notes. Read the why line on each card: if it sounds like your kid, it will get used.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+### Gifts for Mom Under $25 (https://thepresentpicker.com/gifts-for-mom-under-25)
 
-### Tech Gifts for Mom (https://thepresentpicker.com/tech-gifts-for-mom)
+Gifts for mom under $25 from the real bank: scented candles, a clip-on book light, a packable sun hat, pour-over coffee, and a family recipe book. Real picks.
+Picks on the page (5, in page order): Under $25: Clip-on rechargeable book light; Soy candle trio, seasonal scents; Packable sun hat with chin strap; Pour-over coffee dripper with paper filters; Handwritten family recipe book.
 
-Tech that helps. None that nags.
-Good tech for a mom does one job well and then gets out of the way: cords that charge fast, wifi that reaches the back room, a frame the family fills with photos. Every pick here matched tech at the top score, and each one is practical first.
-Long, short, and car length. They stop stealing yours.
-Ask printed on the page: These are the picker's real top picks for this ask: a mom, into tech, practical, any budget, from 255 checked ideas.
-Picks on the page (8, in page order): Under $25: Braided fast-charging cable set, 3 pack; Phone stand with charging dock; Universal travel adapter. $25 to $50: Smart plug pair with simple timers. $50 to $100: Mesh wifi booster for dead rooms. $100+: E-reader; Noise-canceling headphones; Digital photo frame with wifi.
+### Gifts for Music Lovers (https://thepresentpicker.com/gifts-for-music-lovers)
 
-Common questions:
-Q: What tech gift do you get a mom who is not into gadgets?
-A: Pick the one that fixes a daily annoyance: the cable set for the drawer of dead cords, the wifi booster for the room that drops calls, the photo frame the family updates for her. Useful beats clever at every budget.
-Q: What is the best tech gift for a mom under $25?
-A: The fast charging cable set, the phone stand with a charging dock, or the travel adapter. All three sit under $25 on this page, and all three get used the week they arrive.
-Q: Will she need help setting it up?
-A: Most picks here work out of the box. The wifi booster and the smart plugs may want ten minutes of setup. Offer that ten minutes with the gift, and it reads as care, not homework.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+Gifts for music lovers from the real bank: a vinyl record, a Bluetooth speaker, wireless earbuds, a harmonica, and two concert tickets.
+Picks on the page (5, in page order): $25 to $50: Vinyl record of an album they love; Compact Bluetooth speaker; Wireless earbuds. Under $25: Harmonica with beginner songbook. $100+: Two concert tickets.
 
-### Gifts for Kids Over $100 (https://thepresentpicker.com/gifts-for-kids-over-100)
+### Gifts for Outdoorsy People (https://thepresentpicker.com/gifts-for-outdoorsy-people)
 
-The big gift. The one they remember.
-This is the splurge band: the bike, the telescope, the play kitchen. Every pick here costs over $100, and every one earns it by being used for months or years, not minutes.
-No pedals, just scooting. They learn balance first.
-Ask printed on the page: These are the picker's real top picks for this ask: a kid, fun, over $100, from 255 checked ideas.
-Picks on the page (8, in page order): Over $100: Balance bike; Beginner kids' telescope; Wooden play kitchen; Kids' tablet with parental controls; Wooden play food and market stall set; Boxed illustrated encyclopedia set for kids; Reading nook tent with cushion set; Real wood percussion set for kids.
+Gifts for outdoorsy people from the real bank: a rechargeable headlamp, a camping hammock, a multi-tool, a camp blanket, and binoculars.
+Picks on the page (5, in page order): Under $25: Rechargeable headlamp. $25 to $50: Portable camping hammock; Quality multi-tool. $50 to $100: Packable camp blanket. $100+: Binoculars for birding.
 
-Common questions:
-Q: What is a good gift for a kid over $100?
-A: A big gift that fits the stage they are in right now: a balance bike for the kid learning to ride, a telescope for the kid who looks up, a play kitchen for the kid who helps with dinner. At this price, the match matters more than the size.
-Q: Is it worth spending over $100 on a kid gift?
-A: Only when the gift will be used for months or years, not days. Every pick on this page is built to last past the holiday: solid wood, sturdy frames, and sets that grow with the kid. If the use would be short, the $50 to $100 page, linked above, is the safer spend.
-Q: How do I know they will not outgrow it fast?
-A: Look for the grow-with-them signs in the buying notes on each card: an adjustable seat, room to add pieces, a set that starts simple and gets harder. Those are the gifts that stay in use longest.
-Q: Do you link to stores or sell these gifts?
-A: Every idea is a type, not a brand. Most picks carry a price-check link that opens a shopping search for the pick's name. The site sells nothing and earns nothing from the link, so it has exactly one job: good ideas.
+### Gifts for Science Lovers (https://thepresentpicker.com/gifts-for-science-lovers)
+
+Gifts for science lovers from the real bank: a museum membership, a star wheel guide, a home weather station, a stargazing kit, and a planetarium night.
+Picks on the page (5, in page order): $50 to $100: Museum or garden membership; Planetarium star party night for two. Under $25: Star wheel and night sky pocket guide. $25 to $50: Home weather station with rain gauge; Beginner stargazing kit with red flashlight.
+
+### Gifts for Tech Lovers (https://thepresentpicker.com/gifts-for-tech-lovers)
+
+Gifts for tech lovers from the real bank: a Bluetooth tracker pack, a cable set, a wifi booster, noise-canceling headphones, and a photo frame.
+Picks on the page (5, in page order): $50 to $100: Bluetooth tracker, 4 pack; Mesh wifi booster for dead rooms. Under $25: Braided fast-charging cable set, 3 pack. $100+: Noise-canceling headphones; Digital photo frame with wifi.
+
+### Gifts for Travelers (https://thepresentpicker.com/gifts-for-travelers)
+
+Gifts for travelers from the real bank: a travel pillow, packing cubes, a travel adapter, a leather passport holder, and a premium carry-on suitcase.
+Picks on the page (5, in page order): $25 to $50: Memory-foam travel pillow; Packing cube set, 6 piece; Leather passport holder. Under $25: Universal travel adapter. $100+: Premium carry on suitcase with garment section.
+
+### Last-Minute Christmas Gifts (https://thepresentpicker.com/last-minute-christmas-gifts)
+
+Last-minute Christmas gifts from the real bank: a walking tour pass, movie night for two, an escape room pass, a museum membership, and concert tickets.
+Picks on the page (5, in page order): Under $25: Local walking tour pass for two. $25 to $50: Movie night for two; Escape room pass for two. $50 to $100: Museum or garden membership. $100+: Two concert tickets.
+
+### Practical Gifts (https://thepresentpicker.com/practical-gifts)
+
+Practical gifts from the real bank: packing cubes, a windproof umbrella, pocket notebooks, a self-watering planter, and a commuter backpack.
+Picks on the page (5, in page order): $25 to $50: Packing cube set, 6 piece; Windproof travel umbrella; Self-watering indoor planter. Under $25: Lay-flat pocket notebooks, pair. $100+: Premium commuter backpack with a padded laptop sleeve.
+
+### Sentimental Gifts (https://thepresentpicker.com/sentimental-gifts)
+
+Sentimental gifts from the real bank: a custom star-map print, a photo book of the year, a reasons jar, a story journal, and a keepsake box.
+Picks on the page (5, in page order): $25 to $50: Custom star-map print of a meaningful date; Engraved wooden keepsake box. $50 to $100: Printed photo book of the year. Under $25: "Reasons I love you" jar; Grandparent story journal with prompts.
+
+### Stocking Stuffers for Kids (https://thepresentpicker.com/stocking-stuffers-for-kids)
+
+Stocking stuffers for kids from the real bank: a harmonica, picture books, a pocket microscope, an art kit, and animal movement cards. All under $25.
+Picks on the page (5, in page order): Under $25: Pocket microscope with prepared slide set; Harmonica with beginner songbook; Three picture books; Art and craft kit; Animal movement card deck for kids.
+
+### Christmas Gifts Over $100 (https://thepresentpicker.com/christmas-gifts-over-100)
+
+Christmas gifts over $100 from the real bank: an e-reader, a stand mixer, noise-canceling headphones, and a photo frame. Real picks, no brands.
+Picks on the page (6, in page order): $100+: E-reader; Stand mixer; Noise-canceling headphones; Digital photo frame with wifi; Smart indoor garden with grow lights; Two premium seats at a sports game.
+
+### Gifts for Grandma (https://thepresentpicker.com/gifts-for-grandma)
+
+Gifts for grandma from the real bank: a story journal, a family tree print, a photo calendar, and a bird feeder camera. Real picks, no brands.
+Picks on the page (2, in page order): Under $25: Grandparent story journal with prompts; Heirloom seed collection.
+
+### Gifts for Grandpa (https://thepresentpicker.com/gifts-for-grandpa)
+
+Gifts for grandpa from the real bank: a tabletop radio, premium playing cards, walking poles, and a tracker pack. Real picks, no brands.
+Picks on the page (3, in page order): Under $25: Premium playing cards, two decks; Merino wool hiking socks, two pairs. $100+: Tabletop radio with large dials $25 to under $50 Morning news and old songs, found in seconds without a screen. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Folding walking poles, pair $25 to under $50 Long walks feel safer when balance help travels along. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Bluetooth tracker, 4 pack $50 to under $100 For the person always patting their pockets. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Binoculars for birding.
+
+### Gifts for Teens (https://thepresentpicker.com/gifts-for-teens)
+
+Gifts for teens from the real bank: a Bluetooth speaker, a pocket microscope, a star map, and a crystal kit. Real picks, no brands.
+Picks on the page (2, in page order): Under $25: Kalimba thumb piano with song cards; Pocket microscope with prepared slide set.
+
+### Gifts Under $50 (https://thepresentpicker.com/gifts-under-50)
+
+Gifts under $50 from the real bank: a cast iron skillet, handmade ceramic mugs, soy candles, and good coffee. Real picks, no brands.
+Picks on the page (3, in page order): Under $25: Soy candle trio, seasonal scents; Single-origin coffee beans, one bag; Premium playing cards, two decks.
+
+### Hanukkah Gifts (https://thepresentpicker.com/hanukkah-gifts)
+
+Hanukkah gifts from the real bank: a soy candle trio, olive oil and balsamic, ceramic mugs, and a family board game. Real picks, no brands.
+Picks on the page (3, in page order): Under $25: Soy candle trio, seasonal scents; Single-origin coffee beans, one bag; Small-batch hot sauce trio.
+
+### Stocking Stuffers for Teens (https://thepresentpicker.com/stocking-stuffers-for-teens)
+
+Stocking stuffers for teens from the real bank: a kalimba, a harmonica, a pocket science kit, and an art kit. All under $25. Real picks, no brands.
+Picks on the page (5, in page order): Under $25: Kalimba thumb piano with song cards; Harmonica with beginner songbook; Pocket science kit with magnifier and bug viewer; Art and craft kit; Youth orchestra concert ticket.
+
+### Gifts for Boyfriend (https://thepresentpicker.com/gifts-for-boyfriend)
+
+Gifts for a boyfriend from the real bank: a love-notes jar, wireless earbuds, a camping hammock, and an escape room for two. Real picks, no brands.
+Picks on the page (2, in page order): Under $25: "Reasons I love you" jar; Braided fast-charging cable set, 3 pack.
+
+### Gifts for Dad Under $50 (https://thepresentpicker.com/gifts-for-dad-under-50)
+
+Gifts for dad under $50 from the real bank: a hot sauce trio, a meat thermometer, premium cards, and a multi-tool. Real picks, no brands.
+Picks on the page (4, in page order): Under $25: Small-batch hot sauce trio; Instant-read digital meat thermometer; Premium playing cards, two decks; Merino wool hiking socks, two pairs.
+
+### Gifts for Girlfriend (https://thepresentpicker.com/gifts-for-girlfriend)
+
+Gifts for a girlfriend from the real bank: a letter kit, a star-map print, a vinyl record, and a candle trio. Real picks, no brands.
+Picks on the page (3, in page order): Under $25: Handwritten letter kit; Pressed-flower bookmark; Custom star-map print of a meaningful date $25 to under $50 For the milestone you both remember. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Vinyl record of an album they love $25 to under $50 For the listener, not the streamer. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Soy candle trio, seasonal scents.
+
+### Gifts for Husband (https://thepresentpicker.com/gifts-for-husband)
+
+Gifts for a husband from the real bank: a hot sauce trio, a meat thermometer, a multi-tool, and a Bluetooth speaker. Real picks, no brands.
+Picks on the page (3, in page order): Under $25: Small-batch hot sauce trio; Instant-read digital meat thermometer; Quality multi-tool $25 to under $50 For the fixer. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Compact Bluetooth speaker $25 to under $50 For music in the kitchen, the garage, or near the shower. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Merino wool hiking socks, two pairs.
+
+### Gifts for Kids Under $50 (https://thepresentpicker.com/gifts-for-kids-under-50)
+
+Gifts for kids under $50 from the real bank: an art kit, a pocket microscope, a crystal kit, and a storybook starring the child. Real picks, no brands.
+Picks on the page (3, in page order): Under $25: Art and craft kit; Pocket microscope with prepared slide set; Crystal growing kit $25 to under $50 Waiting a week makes the reveal feel huge. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Personalized storybook starring the child $25 to under $50 Seeing their own name lead every page makes reading feel personal. See store prices for this pick Shopping search for the pick's name. Store prices vary. We earn nothing from the link. Kids' headphones with a volume limit.
+
+### Gifts for Mom Under $50 (https://thepresentpicker.com/gifts-for-mom-under-50)
+
+Gifts for mom under $50 from the real bank: a candle trio, a photo calendar, ceramic mugs, and good olive oil. Real picks, no brands.
+Picks on the page (2, in page order): Under $25: Soy candle trio, seasonal scents; The year's most talked-about hardcover novel.
+
+### Gifts for Wife (https://thepresentpicker.com/gifts-for-wife)
+
+Gifts for a wife from the real bank: a candle trio, a reading journal, ceramic mugs, and a diffuser. Real picks, no brands.
+Picks on the page (2, in page order): Under $25: Soy candle trio, seasonal scents; Reading journal.
 
 ## Cooking
 

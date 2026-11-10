@@ -2,29 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<script>
-/* FLEET-FT2-2026-11-08: first-touch capture at the door. The first page
-   this browser ever loads on this site stores its referrer, UTM tags and
-   landing address in localStorage (first write wins, never overwritten).
-   The PostHog first-touch writer reads this store, so a creator's
-   discovery channel survives the tool-page to homepage hop that used
-   to erase it (attribution trace, Nov 8, 2026, BP-5). The address is
-   cut to origin + path, /s/ and /g/ code segments are dropped, and no
-   query beyond utm_* and a whitelisted ?via= kind word is kept. */
-(function(){try{
-if(localStorage.getItem("fleet_ft2"))return;
-var q=new URLSearchParams(location.search);
-function utm(n){var v=q.get(n)||"";return v.slice(0,100);}
-var p=location.pathname||"/";
-if(/^\/(s|g)\/[^/]/.test(p))p=p.replace(/^\/(s|g)\/[^/]+.*$/,"/$1/");
-var via=q.get("via")||"";
-var ft={r:document.referrer||"",u:location.origin+p,
-via:["share","own","group"].indexOf(via)>=0?via:"",
-s:utm("utm_source"),m:utm("utm_medium"),c:utm("utm_campaign"),
-at:new Date().toISOString()};
-localStorage.setItem("fleet_ft2",JSON.stringify(ft));
-}catch(e){}})();
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gifts Between $50 and $100: A Chef's Knife, a Parks Pass and a Weighted Blanket · The Present Picker</title>
 <meta name="description" content="Gifts between $50 and $100 that earn their price: an 8-inch chef's knife, a national parks pass, a 15 lb weighted blanket, a bird feeder with a camera.">
@@ -207,7 +184,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>It keeps giving long after Christmas morning.</div>
       <div class="why"><b>Buying notes</b>Look for: small fresh batches, recipe cards, and an easy way to skip a month. Avoid: big tins that go stale.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small set of empty jars and labels, so each blend has a home when it lands.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Three-month+spice+subscription" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Three-month+spice+subscription" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-chefs-knife-8-inch">
       <img class="photo" src="img/idea-chefs-knife-8-inch.jpg" alt="Chef's knife, 8 inch" loading="lazy" onerror="this.style.display='none'">
@@ -216,7 +193,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>The single most-used tool in their kitchen.</div>
       <div class="why"><b>Buying notes</b>Look for: full tang, balanced weight, and a blade that takes a fine edge. Avoid: serrated or coated blades.</div>
       <div class="why"><b>Care and pairing</b>Care: hand wash, dry at once, never the dishwasher. Pairs with a honing steel and a magnetic wall strip.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Chef%27s+knife%2C+8+inch" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Chef%27s+knife%2C+8+inch" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-large-print-classic-cookbook-with-stand">
       <img class="photo" src="img/idea-large-print-classic-cookbook-with-stand.jpg" alt="Large print classic cookbook with stand" loading="lazy" onerror="this.style.display='none'">
@@ -225,7 +202,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Favorite dishes come back without squinting at faded cards.</div>
       <div class="why"><b>Buying notes</b>Look for: large clear type, pages that wipe clean, and a stand with a steady lip. Avoid: glossy pages that glare under kitchen lights.</div>
       <div class="why"><b>Care and pairing</b>Mark one beloved recipe with a ribbon before you wrap it. Pairs with reading glasses kept on the same shelf.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Large+print+classic+cookbook+with+stand" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Large+print+classic+cookbook+with+stand" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
         <div class="card" id="pick-hand-thrown-stoneware-serving-bowl-large">
       <img class="photo" src="img/idea-hand-thrown-stoneware-serving-bowl-large.jpg" alt="Hand-thrown stoneware serving bowl, large" loading="lazy" onerror="this.style.display='none'">
@@ -234,7 +211,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Heavy clay served weekly gathers meals into something worth passing on.</div>
       <div class="why"><b>Buying notes</b>Look for: a wide, stable base and a glaze free of cracks. Avoid: bowls too heavy to lift when full.</div>
       <div class="why"><b>Care and pairing</b>Serve its first meal at a family dinner. Pairs with a linen cloth under it.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Hand-thrown+stoneware+serving+bowl%2C+large" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Hand-thrown+stoneware+serving+bowl%2C+large" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-three-month-coffee-subscription">
       <img class="photo" src="img/idea-three-month-coffee-subscription.jpg" alt="Three-month coffee subscription" loading="lazy" onerror="this.style.display='none'">
@@ -243,7 +220,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>The gift repeats in January and February, long after the party snacks are gone.</div>
       <div class="why"><b>Buying notes</b>Look for: roast dates on every bag and an easy way to pause a month. Avoid: subscriptions that lock the grind choice with no way to change it.</div>
       <div class="why"><b>Care and pairing</b>Set the first delivery for their first week back at work. Whole bean keeps longest; grind only what the week needs.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Three-month+coffee+subscription" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Three-month+coffee+subscription" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-enameled-cast-iron-dutch-oven-4-quart">
       <img class="photo" src="img/idea-enameled-cast-iron-dutch-oven-4-quart.jpg" alt="Enameled cast iron Dutch oven, 4 quart" loading="lazy" onerror="this.style.display='none'">
@@ -252,7 +229,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>One heavy pot quietly retires three flimsy ones they keep meaning to replace.</div>
       <div class="why"><b>Buying notes</b>Look for: an even enamel coat with no chips at the rim and a lid that seals with a wobble-free fit. Avoid: thin stamped pots wearing an enamel look.</div>
       <div class="why"><b>Care and pairing</b>First bake: a no-knead loaf, which seasons nothing and proves everything. Wooden or silicone tools only, to keep the enamel unmarked.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Enameled+cast+iron+Dutch+oven%2C+4+quart" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Enameled+cast+iron+Dutch+oven%2C+4+quart" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Outdoors</h2>
     <div class="card" id="pick-packable-camp-blanket">
@@ -262,7 +239,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For sidelines, campsites, and stargazing.</div>
       <div class="why"><b>Buying notes</b>Look for: synthetic fill that packs small and a shell that sheds dew. Avoid: bulky cotton throws.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a stuff sack for the car trunk. Shake it out and air it after muddy trips.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Packable+camp+blanket" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Packable+camp+blanket" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-annual-pass-to-the-national-parks">
       <img class="photo" src="img/idea-annual-pass-to-the-national-parks.jpg" alt="Annual pass to the national parks" loading="lazy" onerror="this.style.display='none'">
@@ -271,7 +248,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Built for the one always suggesting the next hike.</div>
       <div class="why"><b>Buying notes</b>Look for: a pass good for a full year at the parks they visit. Avoid: single-park passes if they roam.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a paper road atlas of the parks. The pass covers the car, so every trip seats the whole crew.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Annual+pass+to+the+national+parks" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Annual+pass+to+the+national+parks" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
         <div class="card" id="pick-engraved-brass-compass-with-a-short-line-inside-the-lid">
       <img class="photo" src="img/idea-engraved-brass-compass-with-a-short-line-inside-the-lid.jpg" alt="Engraved brass compass with a short line inside the lid" loading="lazy" onerror="this.style.display='none'">
@@ -280,7 +257,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Directions matter less than the sentence he finds every time the lid lifts.</div>
       <div class="why"><b>Buying notes</b>Look for: a needle that settles fast, a lid that hinges smooth, and lettering cut, not printed. Avoid: feather light compasses that feel like toys.</div>
       <div class="why"><b>Care and pairing</b>Keep the inside line under eight words. Pairs with a hand drawn map of a walk you take together.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Engraved+brass+compass+with+a+short+line+inside+the+lid" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Engraved+brass+compass+with+a+short+line+inside+the+lid" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Tech</h2>
     <div class="card" id="pick-bluetooth-tracker-4-pack">
@@ -290,7 +267,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the person always patting their pockets.</div>
       <div class="why"><b>Buying notes</b>Look for: a loud ring, a replaceable battery, and support for their phone. Avoid: trackers locked to the other phone system.</div>
       <div class="why"><b>Care and pairing</b>Pairs with key rings for two of them. Set one up on their keys before you wrap the rest.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Bluetooth+tracker%2C+4+pack" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Bluetooth+tracker%2C+4+pack" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-mesh-wifi-booster-for-dead-rooms">
       <img class="photo" src="img/idea-mesh-wifi-booster-for-dead-rooms.jpg" alt="Mesh wifi booster for dead rooms" loading="lazy" onerror="this.style.display='none'">
@@ -299,7 +276,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Video calls stop freezing in the room where she works.</div>
       <div class="why"><b>Buying notes</b>Look for: setup in plain steps, a signal light you can read, and support for many devices. Avoid: boosters that cut the speed in half.</div>
       <div class="why"><b>Care and pairing</b>Place it halfway to the weak room, not inside it. Pairs with a note of the network name in big letters.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Mesh+wifi+booster+for+dead+rooms" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Mesh+wifi+booster+for+dead+rooms" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
         <div class="card" id="pick-instant-print-camera-with-a-starter-film-pack">
       <img class="photo" src="img/idea-instant-print-camera-with-a-starter-film-pack.jpg" alt="Instant print camera with a starter film pack" loading="lazy" onerror="this.style.display='none'">
@@ -308,7 +285,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>A photo you can pin up beats a hundred sitting in a phone.</div>
       <div class="why"><b>Buying notes</b>Look for: a selfie mirror by the lens and film that is easy to find locally. Avoid: models whose film costs more than a dollar a shot.</div>
       <div class="why"><b>Care and pairing</b>The starter pack goes fast at the first party; add one spare pack. Shade fresh prints from sunlight for the first minute.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Instant+print+camera+with+a+starter+film+pack" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Instant+print+camera+with+a+starter+film+pack" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-retro-handheld-game-console-with-built-in-classics">
       <img class="photo" src="img/idea-retro-handheld-game-console-with-built-in-classics.jpg" alt="Retro handheld game console with built-in classics" loading="lazy" onerror="this.style.display='none'">
@@ -317,7 +294,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>It starts a tournament in the back seat before anyone asks for the wifi password.</div>
       <div class="why"><b>Buying notes</b>Look for: a bright screen, a battery that lasts a long road trip, and a game list with the real classics. Avoid: consoles whose hundreds of games are the same ten clones.</div>
       <div class="why"><b>Care and pairing</b>Charge it before you wrap it and save a high score under their name. A small hard case keeps it alive in a backpack.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Retro+handheld+game+console+with+built-in+classics" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Retro+handheld+game+console+with+built-in+classics" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-action-camera-with-a-waterproof-case">
       <img class="photo" src="img/idea-action-camera-with-a-waterproof-case.jpg" alt="Action camera with a waterproof case" loading="lazy" onerror="this.style.display='none'">
@@ -326,7 +303,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>The wipeout reel is the video they will show everyone at dinner.</div>
       <div class="why"><b>Buying notes</b>Look for: waterproof without a separate housing, image stabilization, and mounts in the box. Avoid: no-name cameras whose companion apps vanish from the store.</div>
       <div class="why"><b>Care and pairing</b>Pair it with a small float grip so a dropped camera bobs back up. Charge it before the first ride.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Action+camera+with+a+waterproof+case" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Action+camera+with+a+waterproof+case" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Fitness</h2>
     <div class="card" id="pick-gym-duffel-with-shoe-compartment">
@@ -336,7 +313,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Makes the early workout slightly less annoying.</div>
       <div class="why"><b>Buying notes</b>Look for: a separate vented shoe pocket and a shoulder strap. Avoid: one big pocket where shoes meet clothes.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small laundry pouch for worn clothes. Air it out open after gym days.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Gym+duffel+with+shoe+compartment" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Gym+duffel+with+shoe+compartment" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-balance-and-mobility-kit-with-bands">
       <img class="photo" src="img/idea-balance-and-mobility-kit-with-bands.jpg" alt="Balance and mobility kit with bands" loading="lazy" onerror="this.style.display='none'">
@@ -345,7 +322,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Steadier steps come from ten quiet minutes most mornings.</div>
       <div class="why"><b>Buying notes</b>Look for: a board with a gentle rock, bands in soft levels, and moves shown in big pictures. Avoid: kits built for athletes and heavy weights.</div>
       <div class="why"><b>Care and pairing</b>Start beside a counter for balance support. Pairs with the morning news as the daily session timer.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Balance+and+mobility+kit+with+bands" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Balance+and+mobility+kit+with+bands" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <h2>Cozy home</h2>
     <div class="card" id="pick-weighted-blanket-15-lb">
@@ -355,7 +332,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the restless sleeper you love.</div>
       <div class="why"><b>Buying notes</b>Look for: about a tenth of their body weight, fill spread in small squares. Avoid: blankets where the fill pools in one corner.</div>
       <div class="why"><b>Care and pairing</b>Care: use a washable cover so the blanket itself rarely needs washing. Pairs with light cotton sheets.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Weighted+blanket%2C+15+lb" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-chunky-knit-throw-blanket">
       <img class="photo" src="img/idea-chunky-knit-throw-blanket.jpg" alt="Chunky knit throw blanket" loading="lazy" onerror="this.style.display='none'">
@@ -364,7 +341,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For movie nights and sick days.</div>
       <div class="why"><b>Buying notes</b>Look for: a tight chunky knit, at least 50 inches wide. Avoid: loose knits that snag and stretch out.</div>
       <div class="why"><b>Care and pairing</b>Care: wash gentle and dry flat so the knit keeps its shape. Pairs with the couch and a long film.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Chunky+knit+throw+blanket" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Chunky+knit+throw+blanket" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-heated-foot-warmer-with-auto-shutoff">
       <img class="photo" src="img/idea-heated-foot-warmer-with-auto-shutoff.jpg" alt="Heated foot warmer with auto shutoff" loading="lazy" onerror="this.style.display='none'">
@@ -373,7 +350,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Cold feet ruin focus; this ends the sock layering contest.</div>
       <div class="why"><b>Buying notes</b>Look for: a washable cover, heat that shuts off on a timer, and room for two feet. Avoid: warmers that heat only in one hot spot.</div>
       <div class="why"><b>Care and pairing</b>Care: unplug it before the cover goes in the wash. Pairs with the desk chair where they sit longest.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Heated+foot+warmer+with+auto+shutoff" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Heated+foot+warmer+with+auto+shutoff" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <h2>Music</h2>
     <div class="card" id="pick-beginner-acoustic-guitar-with-lesson-book">
@@ -383,7 +360,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Strumming along to old favorites beats another streamed playlist.</div>
       <div class="why"><b>Buying notes</b>Look for: low string height that spares the fingers and a solid top. Avoid: guitars that arrive with no tuner or case.</div>
       <div class="why"><b>Care and pairing</b>Tune it and learn one chord yourself first. Pairs with a pick tucked under the strings as a starter.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Beginner+acoustic+guitar+with+lesson+book" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Beginner+acoustic+guitar+with+lesson+book" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <h2>Games</h2>
     <div class="card" id="pick-deluxe-game-night-case-with-dominoes-and-cards">
@@ -393,7 +370,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Everything for game night finally lives in a single box.</div>
       <div class="why"><b>Buying notes</b>Look for: tiles with clear dots, decks that shuffle smooth, and a case that latches shut. Avoid: sets with cardboard tiles that bend.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a score pad stored inside the lid. The quickest game gets taught first, every time.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Deluxe+game+night+case+with+dominoes+and+cards" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Deluxe+game+night+case+with+dominoes+and+cards" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
         <div class="card" id="pick-strategy-board-game-for-two-to-four-players">
       <img class="photo" src="img/idea-strategy-board-game-for-two-to-four-players.jpg" alt="Strategy board game for two to four players" loading="lazy" onerror="this.style.display='none'">
@@ -402,7 +379,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>It gives the whole team a standing lunch match to argue about kindly.</div>
       <div class="why"><b>Buying notes</b>Look for: a first game that teaches itself in fifteen minutes and a board that survives weekly play. Avoid: games needing five or more players to work at all.</div>
       <div class="why"><b>Care and pairing</b>Learn the rules once before the first lunch so teaching takes five minutes. Whoever loses game one picks the next date.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Strategy+board+game+for+two+to+four+players" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Strategy+board+game+for+two+to+four+players" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Gardening</h2>
     <div class="card" id="pick-smart-bird-feeder-with-camera">
@@ -412,7 +389,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the watcher of the backyard.</div>
       <div class="why"><b>Buying notes</b>Look for: clear photos, solar charging, and easy refills. Avoid: flimsy plastic that cracks in winter.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a first bag of seed. Mount it where the wifi is strong and squirrels are not.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Smart+bird+feeder+with+camera" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Smart+bird+feeder+with+camera" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-self-watering-raised-herb-garden">
       <img class="photo" src="img/idea-self-watering-raised-herb-garden.jpg" alt="Self watering raised herb garden" loading="lazy" onerror="this.style.display='none'">
@@ -421,7 +398,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Herbs thrive through busy weeks and short trips away.</div>
       <div class="why"><b>Buying notes</b>Look for: a tank you can see the level of and legs that stay steady on a patio. Avoid: planters that need daily topping up.</div>
       <div class="why"><b>Care and pairing</b>Fill the tank together at planting and mark the level. Pairs with basil and parsley started the same day.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Self+watering+raised+herb+garden" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Self+watering+raised+herb+garden" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <h2>Experience</h2>
     <div class="card" id="pick-museum-or-garden-membership">
@@ -431,7 +408,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the learner who already has everything.</div>
       <div class="why"><b>Buying notes</b>Look for: a year for two adults at a place they will visit often. Avoid: places an hour from home.</div>
       <div class="why"><b>Care and pairing</b>Pairs with one visit planned in the first month, or the card sleeps in a drawer. Guest passes make it social.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Museum+or+garden+membership" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Museum+or+garden+membership" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
         <div class="card" id="pick-jazz-brunch-for-two-with-a-live-set">
       <img class="photo" src="img/idea-jazz-brunch-for-two-with-a-live-set.jpg" alt="Jazz brunch for two with a live set" loading="lazy" onerror="this.style.display='none'">
@@ -440,7 +417,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Sunday plans feel special when horns play while pancakes land.</div>
       <div class="why"><b>Buying notes</b>Look for: a reserved table, the band playing the full seating, and a menu beyond eggs. Avoid: venues where the music is just a speaker.</div>
       <div class="why"><b>Care and pairing</b>Book the earlier seating for the best light and seats. Pairs with a walk afterward, no rush home.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Jazz+brunch+for+two+with+a+live+set" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Jazz+brunch+for+two+with+a+live+set" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-guided-paddleboard-lesson-for-two">
       <img class="photo" src="img/idea-guided-paddleboard-lesson-for-two.jpg" alt="Guided paddleboard lesson for two" loading="lazy" onerror="this.style.display='none'">
@@ -449,7 +426,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Balance clicks faster with coaching, and falling in becomes the joke.</div>
       <div class="why"><b>Buying notes</b>Look for: small groups, life vests in their sizes, and a sheltered bay for lesson one. Avoid: rentals with no lesson for first timers.</div>
       <div class="why"><b>Care and pairing</b>Pick a still morning before wind picks up. Pairs with dry clothes waiting in the car.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Guided+paddleboard+lesson+for+two" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Guided+paddleboard+lesson+for+two" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Sentimental</h2>
     <div class="card" id="pick-printed-photo-book-of-the-year">
@@ -459,7 +436,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>The gift that makes Mom cry in a good way.</div>
       <div class="why"><b>Buying notes</b>Look for: lay-flat pages and your best photos, in order. Avoid: thin pages that curl.</div>
       <div class="why"><b>Care and pairing</b>Pairs with captions written by hand after it arrives. Leave the last page blank for next year.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Printed+photo+book+of+the+year" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Printed+photo+book+of+the+year" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-custom-portrait-painted-from-a-family-photo">
       <img class="photo" src="img/idea-custom-portrait-painted-from-a-family-photo.jpg" alt="Custom portrait painted from a family photo" loading="lazy" onerror="this.style.display='none'">
@@ -468,7 +445,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>One ordinary photo becomes an heirloom.</div>
       <div class="why"><b>Buying notes</b>Look for: a hand-painted canvas from your photo, with a proof first. Avoid: printed posters sold as paintings.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a frame and a wall hook rated for it. Pick a photo where everyone is mid-laugh.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Custom+portrait+painted+from+a+family+photo" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Custom+portrait+painted+from+a+family+photo" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
         <div class="card" id="pick-large-framed-custom-star-map-print">
       <img class="photo" src="img/idea-large-framed-custom-star-map-print.jpg" alt="Large framed custom star-map print" loading="lazy" onerror="this.style.display='none'">
@@ -477,7 +454,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>The night it happened, on the wall where you both see it daily.</div>
       <div class="why"><b>Buying notes</b>Look for: the sky from the real date and place, a solid wood frame, and glass that does not glare. Avoid: stock skies that match no real night.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a card naming the date in your own words. Double-check the date and place before you order the print.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Large+framed+custom+star-map+print" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Large+framed+custom+star-map+print" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-monogrammed-leather-travel-wallet">
       <img class="photo" src="img/idea-monogrammed-leather-travel-wallet.jpg" alt="Monogrammed leather travel wallet" loading="lazy" onerror="this.style.display='none'">
@@ -486,7 +463,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Initials pressed in leather greet every border crossing with a small claim of home.</div>
       <div class="why"><b>Buying notes</b>Look for: full grain leather, initials stamped deep, and room for a passport plus four cards. Avoid: bonded leather that peels at the corners.</div>
       <div class="why"><b>Care and pairing</b>Check the initials order twice at checkout. Slip a boarding pass sized note inside before wrapping.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Monogrammed+leather+travel+wallet" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Monogrammed+leather+travel+wallet" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>For kids</h2>
     <div class="card" id="pick-durable-kids-digital-camera">
@@ -496,7 +473,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the kid always grabbing your phone.</div>
       <div class="why"><b>Buying notes</b>Look for: a drop-proof case and a real shutter button. Avoid: cameras that are really a game console.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a memory card and a wrist strap. Print two of their photos and frame them fast.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Durable+kids%27+digital+camera" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Durable+kids%27+digital+camera" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-remote-control-stunt-car">
       <img class="photo" src="img/idea-remote-control-stunt-car.jpg" alt="Remote-control stunt car" loading="lazy" onerror="this.style.display='none'">
@@ -505,7 +482,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the driver in training.</div>
       <div class="why"><b>Buying notes</b>Look for: a tough shell and a spare battery in the box. Avoid: cars that break on the first crash.</div>
       <div class="why"><b>Care and pairing</b>Pairs with rechargeable batteries and a charger, so the fun never waits on a store run.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Remote-control+stunt+car" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Remote-control+stunt+car" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-kids-microscope">
       <img class="photo" src="img/idea-kids-microscope.jpg" alt="Kids' microscope" loading="lazy" onerror="this.style.display='none'">
@@ -514,7 +491,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the kid who examines everything.</div>
       <div class="why"><b>Buying notes</b>Look for: real glass lenses and prepared slides included. Avoid: plastic lenses with blurry views.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a set of blank slides and one leaf from the yard. Keep a list of finds in a notebook.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+microscope" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+microscope" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-big-creator-building-set-500-pieces">
       <img class="photo" src="img/idea-big-creator-building-set-500-pieces.jpg" alt="Big creator building set, 500+ pieces" loading="lazy" onerror="this.style.display='none'">
@@ -523,7 +500,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For long rainy afternoons.</div>
       <div class="why"><b>Buying notes</b>Look for: 500 or more pieces and more than one build. Avoid: sets that only build one thing.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a sorting tray and one baseplate. Fits the bricks they already have.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Big+creator+building+set%2C+500%2B+pieces" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Big+creator+building+set%2C+500%2B+pieces" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-large-art-easel-with-supplies">
       <img class="photo" src="img/idea-large-art-easel-with-supplies.jpg" alt="Large art easel with supplies" loading="lazy" onerror="this.style.display='none'">
@@ -532,7 +509,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the artist with big plans.</div>
       <div class="why"><b>Buying notes</b>Look for: two sides, a paper roll, and storage for paints. Avoid: wobbly legs that fold mid-painting.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a drop cloth under it. Refill paper rolls are the birthday gift that always lands.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Large+art+easel+with+supplies" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Large+art+easel+with+supplies" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-kids-cooking-class-parent-and-child">
       <img class="photo" src="img/idea-kids-cooking-class-parent-and-child.jpg" alt="Kids' cooking class, parent and child" loading="lazy" onerror="this.style.display='none'">
@@ -541,7 +518,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Confidence grows fastest beside a patient teacher.</div>
       <div class="why"><b>Buying notes</b>Look for: a hands-on class for kids with a grown-up, meal included. Avoid: classes where kids only watch.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small apron in their size. Book a dish they already love to eat.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+cooking+class%2C+parent+and+child" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids%27+cooking+class%2C+parent+and+child" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-rocks-and-minerals-collection-kit">
       <img class="photo" src="img/idea-rocks-and-minerals-collection-kit.jpg" alt="Rocks and minerals collection kit" loading="lazy" onerror="this.style.display='none'">
@@ -550,7 +527,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>A collection that starts on one shelf.</div>
       <div class="why"><b>Buying notes</b>Look for: named real stones, a sturdy box, and a guide with photos. Avoid: dyed gravel sold as gems.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a small shelf box with dividers, so the collection looks like a museum from day one.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Rocks+and+minerals+collection+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Rocks+and+minerals+collection+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-kids-camping-adventure-kit">
       <img class="photo" src="img/idea-kids-camping-adventure-kit.jpg" alt="Kids camping adventure kit" loading="lazy" onerror="this.style.display='none'">
@@ -559,7 +536,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Backyard nights feel like real expeditions with gear of their own.</div>
       <div class="why"><b>Buying notes</b>Look for: a pack that fits a child, tools with smooth edges, and a light with a timer. Avoid: kits built around fragile plastic toys.</div>
       <div class="why"><b>Care and pairing</b>Hide a small note in the pack for the first camp night. Practice the compass in the yard first.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+camping+adventure+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+camping+adventure+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-illustrated-chapter-book-box-set">
       <img class="photo" src="img/idea-illustrated-chapter-book-box-set.jpg" alt="Illustrated chapter book box set" loading="lazy" onerror="this.style.display='none'">
@@ -568,7 +545,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>A whole shelf of stories pulls a new reader through winter.</div>
       <div class="why"><b>Buying notes</b>Look for: short chapters, art on most pages, and books that stand alone. Avoid: book four of a series sold as a starter.</div>
       <div class="why"><b>Care and pairing</b>Read chapter one aloud together, then let them race you to the end of book one.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Illustrated+chapter+book+box+set" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Illustrated+chapter+book+box+set" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-height-adjustable-hoop-and-ball-set">
       <img class="photo" src="img/idea-height-adjustable-hoop-and-ball-set.jpg" alt="Height-adjustable hoop and ball set" loading="lazy" onerror="this.style.display='none'">
@@ -577,7 +554,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Daily shooting practice turns restless energy into real skill.</div>
       <div class="why"><b>Buying notes</b>Look for: a weighted base, a rim that flexes, and height marks that lock. Avoid: hoops that tip in light wind.</div>
       <div class="why"><b>Care and pairing</b>Set it low for the first week so early wins come fast. Pairs with a second ball for games with friends.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Height-adjustable+hoop+and+ball+set" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Height-adjustable+hoop+and+ball+set" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-plush-reading-pillow-with-side-pockets">
       <img class="photo" src="img/idea-plush-reading-pillow-with-side-pockets.jpg" alt="Plush reading pillow with side pockets" loading="lazy" onerror="this.style.display='none'">
@@ -586,7 +563,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>A comfy corner makes quiet time feel like a treat, not a chore.</div>
       <div class="why"><b>Buying notes</b>Look for: firm fill that holds its shape, a washable cover, and a carry handle. Avoid: pillows that go flat in a month.</div>
       <div class="why"><b>Care and pairing</b>Put it in their favorite reading spot before the big reveal. Pairs with a small reading light.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Plush+reading+pillow+with+side+pockets" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Plush+reading+pillow+with+side+pockets" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-kids-keyboard-with-light-up-keys">
       <img class="photo" src="img/idea-kids-keyboard-with-light-up-keys.jpg" alt="Kids keyboard with light-up keys" loading="lazy" onerror="this.style.display='none'">
@@ -595,7 +572,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Following the lights gets small fingers playing real tunes fast.</div>
       <div class="why"><b>Buying notes</b>Look for: keys sized for small hands, volume limits, and a stand for sheet music. Avoid: keyboards with only toy sound effects.</div>
       <div class="why"><b>Care and pairing</b>Learn one short song yourself first so you can teach the opening notes.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+keyboard+with+light-up+keys" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+keyboard+with+light-up+keys" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-kids-garden-grow-station">
       <img class="photo" src="img/idea-kids-garden-grow-station.jpg" alt="Kids garden grow station" loading="lazy" onerror="this.style.display='none'">
@@ -604,7 +581,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Watching sprouts push up teaches patience in the best way.</div>
       <div class="why"><b>Buying notes</b>Look for: tools sized for kids, seeds that sprout in two weeks, and a planter with drainage. Avoid: kits with only one slow crop.</div>
       <div class="why"><b>Care and pairing</b>Plant the fastest seeds on day one so green shows before interest fades.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+garden+grow+station" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+garden+grow+station" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-kids-ride-on-carry-on-suitcase">
       <img class="photo" src="img/idea-kids-ride-on-carry-on-suitcase.jpg" alt="Kids ride-on carry-on suitcase" loading="lazy" onerror="this.style.display='none'">
@@ -613,7 +590,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Long walks to the gate turn into the part they brag about.</div>
       <div class="why"><b>Buying notes</b>Look for: a case that holds their clothes plus toys, wheels that roll straight, and a strap for pulling. Avoid: cases too heavy when empty.</div>
       <div class="why"><b>Care and pairing</b>Pack one change of clothes and one surprise activity inside for the first trip.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+ride-on+carry-on+suitcase" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+ride-on+carry-on+suitcase" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 
   <a class="cta" href="/">Find their gift</a>
@@ -627,7 +604,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Dinner tastes prouder when small hands tossed the crust themselves.</div>
       <div class="why"><b>Buying notes</b>Look for: a real oven with close supervision, aprons in kid sizes, and a pie to take home. Avoid: classes where kids only watch a demo.</div>
       <div class="why"><b>Care and pairing</b>Book a hungry time slot, not right after lunch. Photograph the menu card they design for their pie.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+pizza+making+workshop%2C+parent+and+child" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Kids+pizza+making+workshop%2C+parent+and+child" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-waterproof-rain-set-for-kids-boots-and-umbrella">
       <img class="photo" src="img/idea-waterproof-rain-set-for-kids-boots-and-umbrella.jpg" alt="Waterproof rain set for kids, boots and umbrella" loading="lazy" onerror="this.style.display='none'">
@@ -636,7 +613,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Puddles stop being a problem when boots actually keep feet dry.</div>
       <div class="why"><b>Buying notes</b>Look for: deep tread, pull on handles, and an umbrella that opens with one button. Avoid: smooth soles that slip on wet leaves.</div>
       <div class="why"><b>Care and pairing</b>Check shoe size the week you buy. Pairs with thick socks for cold rain.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Waterproof+rain+set+for+kids%2C+boots+and+umbrella" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Waterproof+rain+set+for+kids%2C+boots+and+umbrella" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-wooden-growth-chart-with-a-handprint-kit">
       <img class="photo" src="img/idea-wooden-growth-chart-with-a-handprint-kit.jpg" alt="Wooden growth chart with a handprint kit" loading="lazy" onerror="this.style.display='none'">
@@ -645,7 +622,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Pencil marks climbing a board quietly chart a childhood at home.</div>
       <div class="why"><b>Buying notes</b>Look for: clear marks up to six feet and washable handprint paint. Avoid: charts that must hang at one exact height to read true.</div>
       <div class="why"><b>Care and pairing</b>Add the first mark on a birthday, not a random day. Pairs with a fine marker that will not fade.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Wooden+growth+chart+with+a+handprint+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Wooden+growth+chart+with+a+handprint+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-recordable-storybook-a-grandparent-can-read-aloud">
       <img class="photo" src="img/idea-recordable-storybook-a-grandparent-can-read-aloud.jpg" alt="Recordable storybook a grandparent can read aloud" loading="lazy" onerror="this.style.display='none'">
@@ -654,7 +631,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>A familiar voice reading bedtime words bridges any distance between visits.</div>
       <div class="why"><b>Buying notes</b>Look for: at least ten minutes of recording and a lock so pages are not erased. Avoid: books that need an app to play back.</div>
       <div class="why"><b>Care and pairing</b>Have the reader sign the last page in pen. Pairs with a bedtime phone call on the first night.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Recordable+storybook+a+grandparent+can+read+aloud" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Recordable+storybook+a+grandparent+can+read+aloud" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Books</h2>
     <div class="card" id="pick-facsimile-first-edition-of-a-classic-novel">
@@ -664,7 +641,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Holding the version first readers held changes a familiar story.</div>
       <div class="why"><b>Buying notes</b>Look for: a sturdy binding, the original cover art, and a note on the source edition. Avoid: cheap scans with blurry pages.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a bookmark tucked at chapter one. Write the gift date inside the back cover.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Facsimile+first+edition+of+a+classic+novel" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Facsimile+first+edition+of+a+classic+novel" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-guided-bookshop-crawl-and-reading-night-for-two">
       <img class="photo" src="img/idea-guided-bookshop-crawl-and-reading-night-for-two.jpg" alt="Guided bookshop crawl and reading night for two" loading="lazy" onerror="this.style.display='none'">
@@ -673,7 +650,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Browsing with a guide surfaces stories neither would find alone.</div>
       <div class="why"><b>Buying notes</b>Look for: a small group, stops at three or more shops, and credit toward one book each. Avoid: tours that rush every stop.</div>
       <div class="why"><b>Care and pairing</b>Book a weekend slot and keep the evening free after. Pairs with a tote for whatever they haul home.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Guided+bookshop+crawl+and+reading+night+for+two" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Guided+bookshop+crawl+and+reading+night+for+two" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
         <div class="card" id="pick-personalized-gardening-journal">
       <img class="photo" src="img/idea-personalized-gardening-journal.jpg" alt="Personalized gardening journal" loading="lazy" onerror="this.style.display='none'">
@@ -682,7 +659,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>For the gardener who reads her own garden back each spring.</div>
       <div class="why"><b>Buying notes</b>Look for: her name printed on the cover, dated pages, and room for sketches. Avoid: journals with only blank pages and no planting calendar.</div>
       <div class="why"><b>Care and pairing</b>Pairs with a pencil that lives in the spine loop. Write the first entry yourself: one plant she is proud of.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Personalized+gardening+journal" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Personalized+gardening+journal" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Practical picks</h2>
     <div class="card" id="pick-wooden-desk-organizer-with-a-phone-slot">
@@ -692,7 +669,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>A clear desk at five o'clock makes leaving on time feel finished.</div>
       <div class="why"><b>Buying notes</b>Look for: solid wood with felt pads and slots wide enough for a cased phone. Avoid: thin trays that slide every time a drawer shuts.</div>
       <div class="why"><b>Care and pairing</b>Set it up once with only the daily tools inside; the rest goes in a drawer. A cleared corner photographs well for the card.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Wooden+desk+organizer+with+a+phone+slot" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Wooden+desk+organizer+with+a+phone+slot" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Science</h2>
     <div class="card" id="pick-planetarium-star-party-night-for-two">
@@ -702,7 +679,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Guides point out worlds that backyard squinting never reveals clearly.</div>
       <div class="why"><b>Buying notes</b>Look for: a live presenter, telescope time included, and a rain plan with a new date. Avoid: recorded shows with no outdoor session.</div>
       <div class="why"><b>Care and pairing</b>Check the moon phase and pick a dark week. Pairs with hot drinks in a flask for the lawn part.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Planetarium+star+party+night+for+two" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Planetarium+star+party+night+for+two" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-junior-chemistry-lab-set-with-beakers-and-balance">
       <img class="photo" src="img/idea-junior-chemistry-lab-set-with-beakers-and-balance.jpg" alt="Junior chemistry lab set with beakers and balance" loading="lazy" onerror="this.style.display='none'">
@@ -711,7 +688,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Real tools make a young chemist feel trusted with real work.</div>
       <div class="why"><b>Buying notes</b>Look for: shatterproof beakers with clear marks, a balance that tips true, and cards that explain each result. Avoid: sets padded with cardboard props.</div>
       <div class="why"><b>Care and pairing</b>Set one shelf as the lab corner. A notebook beside it turns each mix into a record.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Junior+chemistry+lab+set+with+beakers+and+balance" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Junior+chemistry+lab+set+with+beakers+and+balance" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-metal-detector-for-kids">
       <img class="photo" src="img/idea-metal-detector-for-kids.jpg" alt="Metal detector for kids" loading="lazy" onerror="this.style.display='none'">
@@ -720,7 +697,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Every beep promises treasure, even when the prize turns out to be a bottle cap.</div>
       <div class="why"><b>Buying notes</b>Look for: a shaft that shortens for small arms, a weight under two pounds, and a tone that changes with depth. Avoid: adult detectors a child cannot swing for long.</div>
       <div class="why"><b>Care and pairing</b>Seed the first hunt with a few coins. A pouch for finds and a digging rule for home only keep it fair.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Metal+detector+for+kids" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Metal+detector+for+kids" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
     <div class="card" id="pick-build-your-own-mechanical-clock-kit">
       <img class="photo" src="img/idea-build-your-own-mechanical-clock-kit.jpg" alt="Build-your-own mechanical clock kit" loading="lazy" onerror="this.style.display='none'">
@@ -729,7 +706,7 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
       <div class="why"><b>Why this fits</b>Finishing it teaches more mechanics than a term of diagrams.</div>
       <div class="why"><b>Buying notes</b>Look for: wooden gears cut cleanly enough to mesh without force and a weight or spring drive. Avoid: kits that need glue at every joint to hold.</div>
       <div class="why"><b>Care and pairing</b>Build it on a tray so small gears stay found. An hour a weekend is the right pace; rushing the escapement is where kits fail.</div>
-          <p class="buypath"><a href="https://www.bing.com/shop?q=Build-your-own+mechanical+clock+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Our guide band: $50 to $100. Store prices vary. We earn nothing from the link.</span></p>
+          <p class="buypath"><a href="https://www.bing.com/shop?q=Build-your-own+mechanical+clock+kit" target="_blank" rel="noopener">See store prices for this pick</a><span class="buy-band">Shopping search for the pick’s name. Store prices vary. We earn nothing from the link.</span></p>
     </div>
 <h2>Common questions</h2>
       <details>
@@ -930,211 +907,5 @@ localStorage.setItem("fleet_ft2",JSON.stringify(ft));
 })();
 </script>
 <!-- ASK PANEL END -->
-<script>window.FLEET_CFG={site:"presentpicker"};</script>
-<!-- Fleet analytics — shared instrumentation (Nov 1, 2026; taxonomy:
-     ~/workspace/chief-of-staff/fleet-instrumentation-taxonomy-2026-11-01.md).
-     PostHog project 624507. Anonymous metadata only: event names + enum
-     properties. Never sends typed text, names, emails, pairings, or
-     tokens. Session recording off, autocapture off.
-     Per site: set window.FLEET_CFG (site slug + hooks) in a small script
-     block BEFORE this block. Internal rule (fleet-wide): ?internal=1
-     once on a device sets a localStorage flag; every event from that
-     device carries internal:true; funnel queries filter it out. -->
-<script>
-(function(){
-  var CFG = window.FLEET_CFG || {};
-  var SITE = CFG.site || "unknown";
-  var KEY = "phc_t9dkHXAZR5VEjPFm3K5JDzGKFsNNxKcwSxxcEBEeLbS7";
-  var _int = null;
-  function isInternal(){
-    if (_int !== null) return _int;
-    var flag = false;
-    try {
-      var q = location.search || "";
-      if (/[?&]internal=1(?:&|$)/.test(q)) { try { localStorage.setItem("fleet_internal", "1"); } catch(e){} flag = true; }
-      else if (/[?&]internal=0(?:&|$)/.test(q)) { try { localStorage.removeItem("fleet_internal"); } catch(e){} }
-      else if (/[?&](probe|sim)=/.test(q)) { flag = true; }
-      else { try { flag = localStorage.getItem("fleet_internal") === "1"; } catch(e){} }
-    } catch(e2){}
-    _int = flag;
-    return flag;
-  }
-  var Q = [];
-  function track(name, props){
-    props = props || {};
-    props.site = SITE;
-    try { if (isInternal()) props.internal = true; } catch(e){}
-    try {
-      if (window.posthog && posthog.capture) posthog.capture(name, props);
-      else { Q.push([name, props]); if (Q.length > 100) Q.shift(); }
-    } catch(e){}
-  }
-  window.FA = { track: track };
-  /* FLEET-ATTRIB-2026-11-07: first-touch attribution (pattern: SPEC-SS-ATTRIB-01).
-     On first pageview, persist the door as PostHog person properties via
-     people.set_once (a later visit never overwrites): entry_referrer (bare
-     origin only), entry_referring_domain, entry_url (origin+path, no query,
-     no fragment, no tokens), entry_at, entry_app (app kind classified from
-     the user-agent string - in-app browsers name themselves there even when
-     they strip the referrer). No raw UA stored, no PII. */
-    function fleetFirstTouch(){
-    try {
-      if (!window.posthog || !posthog.people || !posthog.people.set_once) return;
-      var ft = null;
-      try { ft = JSON.parse(localStorage.getItem("fleet_ft2") || "null"); } catch (e) {}
-      var ref = (ft && typeof ft.r === "string") ? ft.r : (document.referrer || "");
-      var refOrigin = "", refDomain = "$direct";
-      if (ref) {
-        try {
-          var ru = new URL(ref);
-          if (ru.origin && ru.origin !== "null") { refOrigin = ru.origin + "/"; refDomain = ru.hostname || "$direct"; }
-        } catch (e) {}
-        if (!refOrigin) {
-          var m = /^[a-z][a-z0-9+.-]*:\/\/[^/?#]+/i.exec(ref);
-          if (m) { refOrigin = m[0] + "/"; refDomain = m[0].split("://")[1] || "$direct"; }
-        }
-      }
-      var entryUrl, entryAt;
-      if (ft && ft.u) {
-        entryUrl = ft.u + (ft.via ? "?via=" + ft.via : "");
-        entryAt = ft.at || new Date().toISOString();
-      } else {
-        var path = window.location.pathname || "/";
-        if (/^\/(s|g)\/[^/]/.test(path)) path = path.replace(/^\/(s|g)\/[^/]+.*$/, "/$1/");
-        var viaRaw = "";
-        try { viaRaw = new URLSearchParams(window.location.search).get("via") || ""; } catch (e) {}
-        var via = (viaRaw === "share" || viaRaw === "own" || viaRaw === "group") ? "?via=" + viaRaw : "";
-        entryUrl = window.location.origin + path + via;
-        entryAt = new Date().toISOString();
-      }
-      var ua = (navigator.userAgent || "").slice(0, 500);
-      var l = ua.toLowerCase();
-      var app = "other";
-      if (l.indexOf("kakaotalk") !== -1) app = "kakaotalk";
-      else if (l.indexOf("whatsapp") !== -1) app = "whatsapp";
-      else if (l.indexOf("instagram") !== -1) app = "instagram";
-      else if (l.indexOf("telegram") !== -1) app = "telegram";
-      else if (l.indexOf("teams") !== -1) app = "teams";
-      else if (l.indexOf("fban") !== -1 || l.indexOf("fbav") !== -1 || l.indexOf("fb_iab") !== -1 || l.indexOf("facebook") !== -1) app = "facebook";
-      else if (l.indexOf("mozilla/") !== -1) app = "browser";
-      var props = {
-        entry_referrer: refOrigin,
-        entry_referring_domain: refDomain,
-        entry_url: entryUrl,
-        entry_at: entryAt,
-        entry_app: app
-      };
-      if (ft && ft.s) props.entry_utm_source = ft.s;
-      if (ft && ft.m) props.entry_utm_medium = ft.m;
-      if (ft && ft.c) props.entry_utm_campaign = ft.c;
-      posthog.people.set_once(props);
-    } catch (e) {}
-  }
-
-  var s = document.createElement("script");
-  s.async = true;
-  s.src = "https://us.i.posthog.com/static/array.js";
-  s.onload = function(){
-    try {
-      if (window.posthog && posthog.init) {
-        posthog.init(KEY, {api_host: "https://us.i.posthog.com", autocapture: false, capture_pageview: true, disable_session_recording: true, persistence: "localStorage"});
-        try { posthog.register({site: SITE, internal: isInternal()}); } catch(e){}
-        try { if (isInternal() && posthog.people && posthog.people.set) posthog.people.set({fleet_internal: true}); } catch(e){}
-        try { fleetFirstTouch(); } catch(e){}
-        while (Q.length) { var e0 = Q.shift(); try { posthog.capture(e0[0], e0[1]); } catch(e){} }
-      }
-    } catch(e){}
-  };
-  document.head.appendChild(s);
-
-  function onReady(fn){ if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn); else fn(); }
-  function vis(el){
-    if (!el) return false;
-    var cs = getComputedStyle(el);
-    if (cs.display === "none" || cs.visibility === "hidden") return false;
-    return !!(el.offsetWidth || el.offsetHeight || (el.getClientRects && el.getClientRects().length));
-  }
-  function txt(el){ return ((el && el.textContent) || "").replace(/\s+/g, " ").trim(); }
-
-  onReady(function(){
-    try {
-      var started = {};
-      (CFG.starts || []).forEach(function(st){
-        Array.prototype.forEach.call(document.querySelectorAll(st.sel), function(el){
-          el.addEventListener(st.on || "click", function(){
-            var k = st.surface || "tool";
-            if (started[k]) return;
-            started[k] = true;
-            track("tool_start", {surface: k});
-          });
-        });
-      });
-      (CFG.completes || []).forEach(function(cp){
-        var done = false;
-        function check(){
-          if (done) return;
-          var el = document.querySelector(cp.sel);
-          if (el && vis(el) && txt(el).length >= (cp.minText || 1)) {
-            done = true;
-            track("tool_complete", {surface: cp.surface || "tool"});
-          }
-        }
-        /* Observe the body and re-resolve the selector on every batch:
-           some tools replace the result node instead of filling it. */
-        new MutationObserver(check).observe(document.body, {childList: true, subtree: true, characterData: true, attributes: true});
-        check();
-      });
-      if (CFG.ask) {
-        var A = CFG.ask;
-        var lastText = "", completed = false;
-        var go = A.goSel ? document.querySelector(A.goSel) : null;
-        if (go) go.addEventListener("click", function(){
-          track("ask_asked", {surface: "ask"});
-          lastText = "";   // a new submission: the observer must classify the coming rendering even if its text matches the previous turn's
-        });
-        var ans = A.answerSel ? document.querySelector(A.answerSel) : null;
-        if (ans) {
-          var checkA = function(){
-            var el = document.querySelector(A.answerSel);
-            if (!el) return;
-            var t = txt(el);
-            if (!t || t === lastText) return;
-            lastText = t;
-            var fb = null;
-            (A.fallbacks || []).some(function(f){ if (f.re.test(t)) { fb = f; return true; } return false; });
-            if (fb) { track("ask_fallback", {surface: "ask", missing: fb.missing}); return; }
-            var props = {surface: "ask"};
-            (A.kinds || []).some(function(k){ if (k.re.test(t)) { props.outcome = k.outcome; return true; } return false; });
-            if (!props.outcome && A.defaultOutcome) props.outcome = A.defaultOutcome;
-            track("ask_answered", props);
-            if (A.completeOnAnswer && !completed) { completed = true; track("tool_complete", {surface: "ask"}); }
-          };
-          new MutationObserver(checkA).observe(document.body, {childList: true, subtree: true, characterData: true});
-        }
-      }
-      (CFG.specials || []).forEach(function(sp){
-        try {
-          if (sp.on === "click") {
-            Array.prototype.forEach.call(document.querySelectorAll(sp.sel), function(el){
-              el.addEventListener("click", function(){ track(sp.name, sp.props || {}); });
-            });
-          } else if (sp.on === "appear") {
-            var fired = false;
-            var chk = function(){
-              if (fired) return;
-              var el = document.querySelector(sp.sel);
-              if (el && vis(el) && txt(el).length) { fired = true; track(sp.name, sp.props || {}); }
-            };
-            new MutationObserver(chk).observe(document.body, {childList: true, subtree: true, characterData: true, attributes: true});
-            chk();
-          } else if (sp.on === "loadmatch") {
-            if (sp.re.test(location.href)) track(sp.name, sp.props || {});
-          }
-        } catch(e){}
-      });
-    } catch(e){}
-  });
-})();
-</script>
 </body>
 </html>

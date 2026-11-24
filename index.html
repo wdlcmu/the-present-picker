@@ -792,6 +792,8 @@ window.FLEET_CFG = {
       Browse by occasion: <a href="/christmas-gifts">Christmas Gifts</a> · <a href="/birthday-gifts">Birthday Gifts</a> · <a href="/hanukkah-gifts">Hanukkah Gifts</a> · <a href="/christmas-gifts-over-100">Christmas Gifts Over $100</a> · <a href="/stocking-stuffers-for-teens">Stocking Stuffers for Teens</a>
     <br>
       More: <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/mcp">For AI assistants</a>
+    <br>
+      More family tools: <a href="https://thawday.com">ThawDay, the turkey timeline</a> &middot; <a href="https://keeponeresolution.com">Keep One Resolution</a> &middot; <a href="https://dadiosity.com" style="display:inline-flex;align-items:center;min-height:44px">Dadiosity, one lesson a day for dads</a>
     </footer>
   </section>
 
@@ -2646,8 +2648,7 @@ updateCounts();
 .askp-btn:active{transform:translateY(1px)}
 .askp-panel{position:fixed;right:16px;bottom:76px;z-index:9991;width:min(380px,calc(100vw - 32px));max-height:min(75vh,640px);display:flex;flex-direction:column;background:var(--card,#fffdf8);color:var(--ink,#2b2419);border:2px solid var(--line,#e2d6bd);border-radius:16px;box-shadow:0 12px 40px rgba(43,36,25,.30);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.5;transition:opacity .18s ease,transform .18s ease}
 .askp-panel[hidden]{display:none}
-.askp-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:2px solid var(--line,#e2d6bd)}
-.askp-head b{font-size:17px}
+.askp-head{display:flex;justify-content:flex-end;align-items:center;padding:12px 16px;border-bottom:2px solid var(--line,#e2d6bd)}
 .askp-close{min-width:44px;min-height:44px;font:inherit;font-size:20px;line-height:1;color:var(--ink,#2b2419);background:transparent;border:2px solid var(--line,#e2d6bd);border-radius:10px;cursor:pointer}
 .askp-body{overflow-y:auto;padding:12px 16px}
 .askp-fine{color:var(--muted,#6f6350);font-size:13px;margin:0 0 10px}
@@ -2664,7 +2665,7 @@ updateCounts();
 .askp-card p{margin:0 0 6px;font-size:15px}
 .askp-buy{display:inline-flex;align-items:center;min-height:48px;padding:10px 18px;border:2px solid var(--gold,#8f5f06);border-radius:999px;text-decoration:none;font-size:15px;font-weight:700;color:var(--gold,#8f5f06)}
 .fyg-pill{transition:transform .25s ease,opacity .25s ease}
-.fyg-pill.fyg-yield{opacity:.18;pointer-events:none}/* SPEC-SS-PILLCOVER-01 fleet sweep (Nov 18, 2026): full-hide yield — a ghost pill still prints its text over the text beneath it. */.fyg-pill.fyg-hide{opacity:0!important;pointer-events:none!important}
+.fyg-pill.fyg-yield{opacity:.18;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.fyg-pill{transition:none}}
 .askp-photo{display:block;width:calc(100% + 28px);max-width:none;height:160px;object-fit:cover;margin:-14px -14px 12px;border-radius:12px 12px 0 0;background:var(--gold-soft,#f3e8cf)}
 .askp-why{border-left:4px solid var(--gold,#8f5f06);padding:8px 12px;margin:10px 0;background:var(--gold-soft,#f3e8cf);border-radius:0 8px 8px 0;font-size:15px}
@@ -2688,9 +2689,9 @@ updateCounts();
 </style>
 <button class="askp-btn" id="askp-open" type="button" aria-haspopup="dialog" aria-expanded="false">Ask in your own words</button>
 <div class="askp-panel" id="askp-panel" role="dialog" aria-label="Ask in your own words" hidden>
-  <div class="askp-head"><b>Ask in your own words</b><button class="askp-close" id="askp-close" type="button" aria-label="Close">&times;</button></div>
+  <div class="askp-head"><button class="askp-close" id="askp-close" type="button" aria-label="Close">&times;</button></div>
   <div class="askp-body">
-    <p class="askp-fine">This is an AI helper. It picks only from the same checked ideas. Your words are read by an AI helper to answer. Nothing you type is saved.</p>
+    <p class="askp-fine">This is an AI helper. It picks only from the same checked ideas. Nothing you type is saved.</p>
     <img class="askp-photo" src="img/gift-gardening.jpg" alt="Hands gardening, the kind of gift this page finds" width="800" height="800" loading="lazy">
     <div class="askp-msgs" id="askp-greeting"><div class="askp-ai">Hi. Tell me who the gift is for, what they like, and what you can spend. I will pick from the checked ideas.</div></div>
     <p class="askp-heardlabel" style="font-size:15px;font-weight:700;margin:2px 0 6px">Or tap an example:</p>
@@ -3206,7 +3207,7 @@ updateCounts();
    padding-bottom + html scroll-padding-bottom, in the CSS above), so
    recipient text scrolls fully clear of the resting box at rest instead
    of hiding the pill for the whole page. */
-try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel", className: "fyg-hide", targets: "h1, h2, h3, p, li" }); } catch (e) {}
+try { if (window.FleetYieldGuard) FleetYieldGuard.init({ pill: "#askp-open", panel: "#askp-panel" }); } catch (e) {}
 </script>
 <!-- ASK PANEL END -->
 </body>

@@ -334,6 +334,12 @@ a.chip{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-
   .hero-start{display:block;width:100%;max-width:420px;margin:14px auto 0}
   .hero-q{font-size:20px;font-weight:800;margin:0 0 10px}
   .hero-chips{justify-content:center}
+  /* SPEC-PP-OCC-01 (Nov 27, 2026): occasion tiles are the hero start */
+  .occ-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .occ-tile{font:inherit;font-size:19px;font-weight:800;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:14px;min-height:76px;padding:16px 10px;cursor:pointer}
+  .occ-tile:hover,.occ-tile:focus-visible{border-color:var(--gold)}
+  .occ-tile:active{transform:scale(.98)}
+  .occ-tag{display:inline-block;font-size:13px;font-weight:800;color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:5px 12px;margin:0 0 8px}
   .hero-proof{color:var(--muted);font-size:13px;margin:10px 0 0}
   .hero .askline{margin:10px 0 0}
   .hero .cdx{margin:14px 0 0}
@@ -609,18 +615,14 @@ window.FLEET_CFG = {
     <div class="hero">
       <div class="herotext">
         <h1>Find a gift that fits them.</h1>
-        <p class="hero-sub">A free gift finder. Tell us who it is for, and we pick five gifts that fit.</p>
+        <p class="hero-sub">A free gift finder. Pick the occasion, tell us who it is for, and we pick five gifts that fit.</p>
         <div class="hero-start" id="hero-start">
-          <p class="hero-q" id="hero-q">Who is it for?</p>
-          <div class="chips hero-chips" id="hero-who" role="group" aria-label="Who is it for? Tap one to start.">
-            <button class="chip" data-k="mom" aria-pressed="false">Mom</button>
-            <button class="chip" data-k="dad" aria-pressed="false">Dad</button>
-            <button class="chip" data-k="partner" aria-pressed="false">Partner</button>
-            <button class="chip" data-k="grandparent" aria-pressed="false">Grandparent</button>
-            <button class="chip" data-k="friend" aria-pressed="false">Friend</button>
-            <button class="chip" data-k="coworker" aria-pressed="false">Coworker</button>
-            <button class="chip" data-k="kid" aria-pressed="false">Kid</button>
-            <button class="chip" data-k="other" aria-pressed="false">Other</button>
+          <p class="hero-q" id="hero-q">What&rsquo;s the occasion?</p>
+          <div class="occ-tiles" id="hero-occ" role="group" aria-label="What's the occasion? Tap one to start.">
+            <button class="occ-tile" data-k="christmas">Christmas</button>
+            <button class="occ-tile" data-k="birthday">Birthday</button>
+            <button class="occ-tile" data-k="thankyou">Thank-you</button>
+            <button class="occ-tile" data-k="justbecause">Just because</button>
           </div>
         </div>
         <p class="hero-proof">3 answers needed &middot; 2 more only if you want &middot; free</p>
@@ -801,6 +803,7 @@ window.FLEET_CFG = {
   <section class="screen" id="s-quiz">
     <div class="dots" id="q-dots" aria-hidden="true"></div>
     <p class="step-tag" id="q-step"></p>
+    <p class="occ-tag" id="q-occ" hidden></p>
     <h2 id="q-title">Who is it for?</h2>
     <p class="sub" id="q-sub"></p>
     <div class="chips" id="q-chips"></div>
@@ -1240,6 +1243,21 @@ var STYLES = [
   {k:"sentimental", label:"Sentimental"},
   {k:"experience", label:"Experience"}
 ];
+/* SPEC-PP-OCC-01 (Nov 27, 2026): the hero occasion tiles. The occasion is
+   context the shopper gives at the start, carried through the quiz and
+   shown back on the picks screen, like the optional name. It is NOT a
+   ranking input: picks are still chosen by who + interests + budget
+   alone, and no copy anywhere claims otherwise. */
+var OCCASIONS = [
+  {k:"christmas", label:"Christmas", tag:"For Christmas"},
+  {k:"birthday", label:"Birthday", tag:"For a birthday"},
+  {k:"thankyou", label:"Thank-you", tag:"A thank-you gift"},
+  {k:"justbecause", label:"Just because", tag:"Just because"}
+];
+function occTag(k){
+  for (var i = 0; i < OCCASIONS.length; i++) if (OCCASIONS[i].k === k) return OCCASIONS[i].tag;
+  return "";
+}
 function labelOf(list, k){
   for (var i = 0; i < list.length; i++) if (list[i].k === k) return list[i].label;
   return k;
@@ -1547,7 +1565,7 @@ function loopBShareText(who, idea, name){
 }
 
 /* ================= Quiz ================= */
-var quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+var quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null, occasion: null};
 /* Oct 25 cold QA, finding F8: the interests step's "Not sure" chip.
    True only when the shopper picked it; it satisfies the step with
    interests = [] (the engine scores those paths on style alone, and
@@ -1568,7 +1586,11 @@ function cleanName(){
    interests (step 2). The optional name step sits after the three required
    answers, just before the optional style step — required stays 3
    (who, interests, budget), optional stays 2 (name, style), so the hero
-   line "3 answers needed · 2 more only if you want" stays true. */
+   line "3 answers needed · 2 more only if you want" stays true.
+   AMENDED Nov 27, 2026 (SPEC-PP-OCC-01): the hero start is now the four
+   occasion tiles. A tile tap lands on who (step 1) with the occasion
+   carried as context, so the step order and the required/optional counts
+   below are unchanged, and the hero line stays true. */
 var STEPS = [
   {key: "who", title: "Who is it for?", sub: "Pick one person.", required: true},
   {key: "interests", title: "What are they into?", sub: "Pick at least one. Not sure? Tap Not sure.", required: true, multi: true},
@@ -1608,6 +1630,9 @@ function renderQuiz(){
   else if (st.key === "budget") box.innerHTML = chipHTML(BUDGETS, quiz.budget, false);
   else box.innerHTML = chipHTML(STYLES, quiz.style, false);
   $("q-hint").textContent = "";
+  var occEl = $("q-occ");
+  if (quiz.occasion){ occEl.textContent = occTag(quiz.occasion); occEl.hidden = false; }
+  else { occEl.textContent = ""; occEl.hidden = true; }
   $("q-back").style.visibility = quiz.step === 0 ? "hidden" : "visible";
   $("q-next").textContent = st.key === "name"
     ? (cleanName() ? "Continue" : "Skip")
@@ -1990,6 +2015,7 @@ function renderPicks(){
   var whoLabel = labelOf(RECIPIENTS, quiz.who);
   $("picks-title").textContent = "Five picks for " + (cleanName() || whoLabel);
   var subParts = [labelOf(BUDGETS, quiz.budget)];
+  if (quiz.occasion) subParts.unshift(labelOf(OCCASIONS, quiz.occasion));
   var intLabels = quiz.interests.map(function(k){ return labelOf(INTERESTS, k); }).join(", ");
   if (intLabels) subParts.push(intLabels);
   else if (interestNotSure) subParts.push("Not sure");
@@ -2327,15 +2353,18 @@ function aiPromptText(){
 }
 
 /* ================= Wiring ================= */
-/* SPEC-PP-QFIRST-01: the hero IS the start. Tapping a who chip starts the
-   quiz with who pre-answered and lands on interests (STEPS index 1). */
-Array.prototype.forEach.call(document.querySelectorAll("#hero-who .chip"), function(el){
+/* SPEC-PP-OCC-01 (Nov 27, 2026): the hero IS the start. Tapping an
+   occasion tile starts the quiz at who (STEPS index 0) with the occasion
+   carried as context. (Replaces the SPEC-PP-QFIRST-01 who-chip start;
+   the question-first shape is unchanged, the first question is now the
+   occasion.) */
+Array.prototype.forEach.call(document.querySelectorAll("#hero-occ .occ-tile"), function(el){
   el.onclick = function(){
-    quiz = {step: 1, name: "", who: el.getAttribute("data-k"), interests: [], budget: null, style: null};
+    quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null, occasion: el.getAttribute("data-k")};
     interestNotSure = false;
     renderQuiz();
     show("s-quiz");
-    Analytics.track("quiz_started", {entry: "hero-who"});
+    Analytics.track("quiz_started", {entry: "hero-occasion", occasion: quiz.occasion});
     ppToolStart("home");
   };
 });
@@ -2343,7 +2372,7 @@ $("brand-home").onclick = function(e){ e.preventDefault(); show("s-home"); };
 $("top-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-list").onclick = function(){ renderList(); show("s-list"); };
 $("btn-again").onclick = function(){
-  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null, occasion: null};
   interestNotSure = false;
   $("ai-desc").value = "";
   $("ai-out").hidden = true;
@@ -2357,7 +2386,7 @@ $("btn-change").onclick = function(){
   show("s-quiz");
 };
 $("btn-keep").onclick = function(){
-  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null, occasion: null};
   interestNotSure = false;
   renderQuiz();
   show("s-quiz");
@@ -2426,7 +2455,7 @@ function openGiftIdea(it){
   Analytics.track("gift_link_opened", {idea_id: it.id});
 }
 $("btn-gift-quiz").onclick = function(){
-  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null};
+  quiz = {step: 0, name: "", who: null, interests: [], budget: null, style: null, occasion: null};
   interestNotSure = false;
   renderQuiz();
   show("s-quiz");
